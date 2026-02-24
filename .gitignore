@@ -33,6 +33,10 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Google OAuth secrets — never commit
+client_secret*.json
+*service_account*.json
+
 # vercel
 .vercel
 
