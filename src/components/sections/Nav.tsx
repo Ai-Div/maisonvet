@@ -83,9 +83,27 @@ export default async function Nav() {
                     <a
                       href="/dashboard"
                       role="menuitem"
-                      className="block px-4 py-2.5 text-xs tracking-wider uppercase text-cream/70 hover:text-gold hover:bg-white/5 transition-colors"
+                      className="block px-4 py-2 text-xs tracking-wider uppercase text-cream/70 hover:text-gold hover:bg-white/5 transition-colors"
                     >
                       Dashboard
+                    </a>
+                  </li>
+                  <li role="none">
+                    <a
+                      href="/properties"
+                      role="menuitem"
+                      className="block px-4 py-2 text-xs tracking-wider uppercase text-cream/70 hover:text-gold hover:bg-white/5 transition-colors"
+                    >
+                      Properties
+                    </a>
+                  </li>
+                  <li role="none">
+                    <a
+                      href="/perris"
+                      role="menuitem"
+                      className="block px-4 py-2 text-xs tracking-wider uppercase text-cream/70 hover:text-gold hover:bg-white/5 transition-colors"
+                    >
+                      Perris Analysis
                     </a>
                   </li>
                   <li role="none" className="border-t border-white/5">
@@ -153,6 +171,18 @@ export default async function Nav() {
                     className="block text-xs tracking-[0.2em] uppercase text-gold"
                   >
                     Dashboard
+                  </a>
+                  <a
+                    href="/properties"
+                    className="block text-xs tracking-[0.2em] uppercase text-cream/70 hover:text-gold"
+                  >
+                    Properties
+                  </a>
+                  <a
+                    href="/perris"
+                    className="block text-xs tracking-[0.2em] uppercase text-cream/70 hover:text-gold"
+                  >
+                    Perris Analysis
                   </a>
                   <form
                     action={async () => {

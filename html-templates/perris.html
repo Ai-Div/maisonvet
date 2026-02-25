@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>21815 Herbert St — Property Decision Analysis</title>
+  <meta name="description" content="Decision analysis for 21815 Herbert St, Perris, CA 92570. Owned property evaluation: sell, horse boarding, long-term rental, short-term rental, ADU, or solar lease. Covers water rights (EMWD/SGMA) and solar irradiance data." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; font-size: 16px; }
+    .serif { font-family: Georgia, Cambria, 'Times New Roman', serif; }
+    html { scroll-behavior: smooth; }
+    .map-frame { width: 100%; height: 360px; border: 0; display: block; }
+    @media (max-width: 768px) { .map-frame { height: 240px; } }
+  </style>
+</head>
+<body class="bg-white text-stone-900 antialiased">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-b border-stone-200">
+    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+      <a href="/" class="serif text-lg font-normal tracking-wide text-stone-900 hover:text-stone-600 transition-colors">Maison Vet</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 transition-colors">Overview</a>
+        <a href="/properties/" class="text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 transition-colors">Properties</a>
+        <a href="/perris/" class="text-xs font-semibold tracking-widest uppercase text-stone-900 border-b-2 border-stone-900 pb-0.5">Perris</a>
+      </div>
+      <button id="nav-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Open menu" aria-expanded="false">
+        <span class="block w-6 h-0.5 bg-stone-900"></span>
+        <span class="block w-6 h-0.5 bg-stone-900"></span>
+        <span class="block w-6 h-0.5 bg-stone-900"></span>
+      </button>
+    </div>
+    <div id="nav-drawer" class="md:hidden hidden border-t border-stone-200 bg-white">
+      <div class="px-6 py-2 flex flex-col">
+        <a href="/" class="mobile-nav-link py-3.5 border-b border-stone-100 text-xs font-semibold tracking-widest uppercase text-stone-700">Overview</a>
+        <a href="/properties/" class="mobile-nav-link py-3.5 border-b border-stone-100 text-xs font-semibold tracking-widest uppercase text-stone-700">Properties</a>
+        <a href="/perris/" class="mobile-nav-link py-3.5 text-xs font-semibold tracking-widest uppercase text-stone-900">Perris</a>
+      </div>
+    </div>
+  </nav>
+  <script>
+    (function() {
+      var t = document.getElementById('nav-toggle'), d = document.getElementById('nav-drawer');
+      t.addEventListener('click', function() { var o = !d.classList.contains('hidden'); d.classList.toggle('hidden', o); t.setAttribute('aria-expanded', String(!o)); });
+      document.querySelectorAll('.mobile-nav-link').forEach(function(l) { l.addEventListener('click', function() { d.classList.add('hidden'); t.setAttribute('aria-expanded','false'); }); });
+    })();
+  </script>
+
+  <!-- HEADER -->
+  <section class="pt-36 pb-20 px-6 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Owned Property — Decision Analysis</p>
+      <h1 class="serif text-5xl md:text-6xl font-normal text-stone-900 leading-tight mb-4">21815 Herbert Street</h1>
+      <p class="text-2xl text-stone-600 font-normal mb-6">Perris, CA 92570</p>
+      <p class="text-lg text-stone-700 max-w-2xl leading-relaxed mb-6">
+        This property is currently occupied by Emily and her mother. They are open to continuing to use it for income or selling it. This page lays out the full picture — what it's worth, what it could earn, the risks, and a final recommendation.
+      </p>
+      <div class="flex flex-wrap gap-4 text-sm text-stone-600">
+        <span class="border border-stone-200 px-3 py-1.5 font-medium">APN: 345-180-003</span>
+        <span class="border border-stone-200 px-3 py-1.5 font-medium">Riverside County</span>
+        <span class="border border-stone-200 px-3 py-1.5 font-medium">Analysis: Feb 24, 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP + PROPERTY FACTS -->
+  <section class="py-20 px-6 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-8">Property Overview</p>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <div class="border border-stone-200 overflow-hidden mb-6">
+            <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=21815+Herbert+St,+Perris,+CA+92570&z=15&t=k&output=embed"
+              title="Aerial view of 21815 Herbert St, Perris, CA"></iframe>
+          </div>
+          <a href="https://www.redfin.com/CA/Perris/21815-Herbert-St-92570/home/5309961" target="_blank" rel="noopener" class="text-sm font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 transition-colors border-b border-stone-300">View on Redfin</a>
+        </div>
+        <div class="space-y-1">
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Property Facts</p>
+          <div class="divide-y divide-stone-100">
+            <div class="flex justify-between py-3"><span class="text-stone-600">APN</span><span class="font-medium">345-180-003</span></div>
+            <div class="flex justify-between py-3"><span class="text-stone-600">County</span><span class="font-medium">Riverside County</span></div>
+            <div class="flex justify-between py-3"><span class="text-stone-600">Structure</span><span class="font-medium">3 bed / 2.5 bath / 2,045 sq ft</span></div>
+            <div class="flex justify-between py-3"><span class="text-stone-600">Year Built</span><span class="font-medium">1991</span></div>
+            <div class="flex justify-between py-3"><span class="text-stone-600">Lot Size</span><span class="font-medium">4.88 acres</span></div>
+            <div class="flex justify-between py-3"><span class="text-stone-600">Neighborhood</span><span class="font-medium">Meadowbrook</span></div>
+            <div class="flex justify-between py-3"><span class="text-stone-600">Assessed Value (2025)</span><span class="font-medium">$203,698</span></div>
+            <div class="flex justify-between py-3"><span class="text-stone-600">Annual Property Tax</span><span class="font-medium">$2,289 (Prop 13 protected)</span></div>
+            <div class="flex justify-between py-3"><span class="text-stone-600">Estimated Market Value</span><span class="font-medium">$611,000 – $625,000</span></div>
+            <div class="flex justify-between py-3"><span class="text-stone-600">Fire Risk</span><span class="font-medium text-red-700">Extreme — 53% wildfire risk / 30 yrs</span></div>
+            <div class="flex justify-between py-3"><span class="text-stone-600">Flood Risk</span><span class="font-medium text-green-700">Minimal</span></div>
+            <div class="flex justify-between py-3"><span class="text-stone-600">Solar Exposure</span><span class="font-medium text-amber-700">Above US average — 5.5+ kWh/m²/day</span></div>
+            <div class="flex justify-between py-3"><span class="text-stone-600">Water Source</span><span class="font-medium">EMWD municipal (West San Jacinto Basin)</span></div>
+            <div class="flex justify-between py-3"><span class="text-stone-600">Water Rights Status</span><span class="font-medium text-amber-700">Not adjudicated — SGMA managed</span></div>
+            <div class="flex justify-between py-3"><span class="text-stone-600">Current Occupants</span><span class="font-medium">Emily + her mother</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKET CONTEXT -->
+  <section class="py-20 px-6 bg-stone-50 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-8">Market Context — 92570 (Jan 2026)</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+        <div class="bg-white border border-stone-200 p-8">
+          <p class="text-3xl font-semibold text-stone-900">$622,500</p>
+          <p class="text-sm text-stone-600 mt-2">Median sale price Jan 2026</p>
+        </div>
+        <div class="bg-white border border-stone-200 p-8">
+          <p class="text-3xl font-semibold text-stone-900">+9.3%</p>
+          <p class="text-sm text-stone-600 mt-2">Year-over-year appreciation</p>
+        </div>
+        <div class="bg-white border border-stone-200 p-8">
+          <p class="text-3xl font-semibold text-stone-900">62 days</p>
+          <p class="text-sm text-stone-600 mt-2">Avg. days on market</p>
+        </div>
+        <div class="bg-white border border-stone-200 p-8">
+          <p class="text-3xl font-semibold text-stone-900">100.5%</p>
+          <p class="text-sm text-stone-600 mt-2">Sale-to-list ratio</p>
+        </div>
+      </div>
+      <div class="bg-white border border-stone-200 p-8 max-w-3xl">
+        <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Key Comparable — Just Sold</p>
+        <p class="text-base text-stone-700 leading-relaxed">
+          <strong>22721 Lopez Rd, Perris, CA 92570</strong> — sold Feb 23, 2026 (two days ago) for <strong>$790,000</strong>. Listed at $699,999 — sold 12.9% over list. Nearly 5 acres, 3 bed / 1 bath / 1,499 sq ft, built 1950. Fully configured as a horse boarding operation: 25 stalls, 6 corrals, covered stables. The equestrian buildout drove the premium. Herbert St has a newer, larger, and better-finished residence on a nearly identical lot — without the horse infrastructure. With equestrian improvements, Herbert St could realistically target $750K–$800K.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WATER RIGHTS + SOLAR -->
+  <section class="py-20 px-6 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16">
+
+        <!-- WATER RIGHTS -->
+        <div>
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Water Rights</p>
+          <h2 class="serif text-3xl font-normal text-stone-900 mb-5">Municipal, not adjudicated</h2>
+          <p class="text-base text-stone-700 leading-relaxed mb-6">
+            This property is served by <strong>Eastern Municipal Water District (EMWD)</strong>, Riverside County's largest water, wastewater, and recycled water provider. Water is delivered via a municipal connection — meaning no private well rights and no senior groundwater position.
+          </p>
+          <p class="text-base text-stone-700 leading-relaxed mb-6">
+            The underlying groundwater basin — the <strong>West San Jacinto Groundwater Basin</strong> — is not adjudicated. It is managed by EMWD as Groundwater Sustainability Agency (GSA) under California's Sustainable Groundwater Management Act (SGMA), with a Groundwater Sustainability Plan approved in 2023 and required to reach sustainability by 2042. Pumping is permitted within SGMA limits, but there are no quantified senior rights as there would be in a fully adjudicated basin.
+          </p>
+          <div class="border-l-4 border-amber-400 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-amber-700 mb-3">What This Means Practically</p>
+            <ul class="space-y-2 text-sm text-stone-700">
+              <li class="flex gap-3"><span class="text-stone-400 flex-shrink-0">—</span>No drought-proof senior rights — SGMA can restrict basin pumping if overdraft is detected</li>
+              <li class="flex gap-3"><span class="text-stone-400 flex-shrink-0">—</span>Municipal EMWD connection is reliable for residential use; rates are subject to change</li>
+              <li class="flex gap-3"><span class="text-stone-400 flex-shrink-0">—</span>A private well can be installed, but output is governed by SGMA extraction limits</li>
+              <li class="flex gap-3"><span class="text-stone-400 flex-shrink-0">—</span>This limits agricultural-scale irrigation — not a suitable base for a water-intensive crop farm</li>
+              <li class="flex gap-3"><span class="text-stone-400 flex-shrink-0">—</span>Horse boarding uses modest water; adequate under EMWD service</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SOLAR RESOURCE -->
+        <div>
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Solar Resource</p>
+          <h2 class="serif text-3xl font-normal text-stone-900 mb-5">One of the best solar sites in the US</h2>
+          <p class="text-base text-stone-700 leading-relaxed mb-6">
+            Perris sits in the Inland Empire, one of the highest-irradiance zones in the country. Riverside County averages <strong>5.48–6.27 kWh/m²/day</strong> of solar radiation — about 25% above the US national average of 4.5 kWh/m²/day and in the same tier as the Mojave Desert. Redfin's listing confirms "above US average" solar exposure for this parcel specifically.
+          </p>
+          <div class="grid grid-cols-3 gap-4 mb-6">
+            <div class="bg-stone-50 border border-stone-200 p-4 text-center">
+              <p class="text-xl font-semibold text-stone-900">6.27</p>
+              <p class="text-xs text-stone-600 mt-1">kWh/m²/day peak</p>
+            </div>
+            <div class="bg-stone-50 border border-stone-200 p-4 text-center">
+              <p class="text-xl font-semibold text-stone-900">286</p>
+              <p class="text-xs text-stone-600 mt-1">Sunny days/year</p>
+            </div>
+            <div class="bg-stone-50 border border-stone-200 p-4 text-center">
+              <p class="text-xl font-semibold text-stone-900">+25%</p>
+              <p class="text-xs text-stone-600 mt-1">Above US average</p>
+            </div>
+          </div>
+          <p class="text-base text-stone-700 leading-relaxed">
+            The sun is the clearest asset this property has beyond the land itself. How well that translates into income depends heavily on the path chosen — see Option F below for the full solar analysis.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OPTIONS -->
+  <section class="py-20 px-6 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Options</p>
+      <p class="text-base text-stone-600 mb-10 max-w-2xl">Six paths. Each is evaluated on financial return, disruption to Emily and her mother, timeline, and risk. They are not mutually exclusive — some can sequence into others.</p>
+
+      <div class="flex flex-col gap-10">
+
+        <!-- OPTION 1: SELL -->
+        <div class="border border-stone-200">
+          <div class="flex flex-wrap items-start justify-between gap-4 p-8 border-b border-stone-100 bg-stone-50">
+            <div>
+              <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-1">Option A</p>
+              <h2 class="serif text-2xl font-normal text-stone-900">Sell the property</h2>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-semibold text-stone-900">$615K – $650K</p>
+              <p class="text-sm text-stone-500">Estimated net proceeds</p>
+            </div>
+          </div>
+          <div class="p-8 grid md:grid-cols-2 gap-10">
+            <div>
+              <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">How it works</p>
+              <p class="text-base text-stone-700 leading-relaxed">List the property at ~$649,000, targeting the acreage premium. The market is hot — 9.3% appreciation YoY, 62-day average days on market, and the Lopez Rd comparable closed at 12.9% over list two days ago. Emily and her mother vacate within 30-60 days. Sale closes in 60-90 days from listing. After closing costs (~$42-44K at 6.5%), net proceeds land in the $605-610K range, possibly higher if the property attracts multiple offers.</p>
+            </div>
+            <div>
+              <div class="mb-8">
+                <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Pros</p>
+                <ul class="space-y-3 text-base text-stone-700">
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Largest single payout — $600K+ after costs</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Market is currently very competitive — good timing</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Eliminates ongoing fire risk and insurance exposure</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Low assessed value means the property has been a very efficient hold — Prop 13 taxes were $2,289/yr on $600K+ asset</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Proceeds can fund Emily and her mother's next housing situation outright</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Cons</p>
+                <ul class="space-y-3 text-base text-stone-700">
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Emily and her mother must relocate — disruption is significant</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Capital gains tax due on sale proceeds above cost basis — consult a CPA before listing</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>If market continues to appreciate, selling now forgoes future gain</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Emily's housing needs to be solved simultaneously</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="px-8 pb-6">
+            <span class="inline-block px-4 py-2 bg-stone-100 text-stone-700 border border-stone-300 text-xs font-semibold tracking-widest uppercase">Disruption: High — Emily must vacate</span>
+          </div>
+        </div>
+
+        <!-- OPTION 2: HORSE BOARDING -->
+        <div class="border border-stone-200">
+          <div class="flex flex-wrap items-start justify-between gap-4 p-8 border-b border-stone-100 bg-stone-50">
+            <div>
+              <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-1">Option B</p>
+              <h2 class="serif text-2xl font-normal text-stone-900">Horse boarding operation</h2>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-semibold text-stone-900">$2,400 – $5,000 / mo</p>
+              <p class="text-sm text-stone-500">Gross monthly income potential</p>
+            </div>
+          </div>
+          <div class="p-8 grid md:grid-cols-2 gap-10">
+            <div>
+              <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">How it works</p>
+              <p class="text-base text-stone-700 leading-relaxed">
+                The Meadowbrook area of Perris is horse country — it's one of the main reasons properties here command acreage premiums. 4.88 acres can comfortably support 6-10 horses with basic infrastructure. Invest $30,000–$60,000 in fencing, stall construction, and a wash rack. Emily and her mother operate the boarding facility from the main house. Charge $400–$600 per horse per month for full-board services (feed, water, turnout). At 6 horses: $2,400–$3,600/month. The Lopez Rd comparable — fully built out with 25 stalls — just sold for $790K. Even a modest boarding operation increases the property's eventual sale value to $700K+.
+              </p>
+            </div>
+            <div>
+              <div class="mb-8">
+                <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Pros</p>
+                <ul class="space-y-3 text-base text-stone-700">
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Emily and her mother stay — no relocation needed</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Generates $2,400–$5,000/month gross with modest infrastructure investment</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Horse boarding is high demand in Meadowbrook — there is an established market</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Equestrian improvements add $75K–$175K to eventual sale price (Lopez Rd: $790K vs. $699K list)</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Riverside County rural residential zoning supports horse keeping</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Agricultural use may qualify for ag property tax treatment</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Cons</p>
+                <ul class="space-y-3 text-base text-stone-700">
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Requires upfront capital: $30K–$60K minimum for stalls, fencing, water infrastructure</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Emily and her mother must be willing to manage horses daily — this is real labor</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Liability exposure — horse injuries require insurance and proper lease agreements</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Requires a business license and proper boarding contracts</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="px-8 pb-6">
+            <span class="inline-block px-4 py-2 bg-stone-100 text-stone-700 border border-stone-300 text-xs font-semibold tracking-widest uppercase">Disruption: Low — Emily stays and runs the operation</span>
+          </div>
+        </div>
+
+        <!-- OPTION 3: LONG-TERM RENTAL -->
+        <div class="border border-stone-200">
+          <div class="flex flex-wrap items-start justify-between gap-4 p-8 border-b border-stone-100 bg-stone-50">
+            <div>
+              <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-1">Option C</p>
+              <h2 class="serif text-2xl font-normal text-stone-900">Long-term rental</h2>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-semibold text-stone-900">$2,800 – $3,200 / mo</p>
+              <p class="text-sm text-stone-500">Estimated monthly rent</p>
+            </div>
+          </div>
+          <div class="p-8 grid md:grid-cols-2 gap-10">
+            <div>
+              <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">How it works</p>
+              <p class="text-base text-stone-700 leading-relaxed">
+                Emily and her mother vacate. Property is listed for rent at $2,900–$3,200/month. The 4.88 acres is a significant draw for renters looking for space, horse property, or a rural lifestyle in Riverside County. Average 3BR Perris rentals are $2,284 (ForRent.com) but that's suburban — comparable acreage properties with space and privacy push $3,000+. After property tax ($191/mo), insurance (est. $200–$350/month given fire risk), and maintenance reserve ($200/month), net monthly income lands around $2,150–$2,600/month or $26K–$31K per year.
+              </p>
+            </div>
+            <div>
+              <div class="mb-8">
+                <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Pros</p>
+                <ul class="space-y-3 text-base text-stone-700">
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Passive income — no active management if a property manager is hired</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Property appreciates while generating income</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>~$26–31K/year net — modest but consistent</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Can sell later when market is even higher</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Cons</p>
+                <ul class="space-y-3 text-base text-stone-700">
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Emily and her mother must vacate — they need alternative housing</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Fire insurance in Riverside County is increasingly difficult and expensive — premium on a 4.88-acre rural property could be $3,000–$6,000/year, squeezing net income significantly</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Tenant risk: acreage properties can suffer significant damage from negligent tenants</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Net yield of ~4–5% is mediocre relative to the $600K asset value</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>California tenant protections make eviction difficult and slow</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="px-8 pb-6">
+            <span class="inline-block px-4 py-2 bg-stone-100 text-stone-700 border border-stone-300 text-xs font-semibold tracking-widest uppercase">Disruption: High — Emily must vacate</span>
+          </div>
+        </div>
+
+        <!-- OPTION 4: SHORT-TERM RENTAL -->
+        <div class="border border-stone-200">
+          <div class="flex flex-wrap items-start justify-between gap-4 p-8 border-b border-stone-100 bg-stone-50">
+            <div>
+              <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-1">Option D</p>
+              <h2 class="serif text-2xl font-normal text-stone-900">Short-term / vacation rental</h2>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-semibold text-stone-900">$4,500 – $7,500 / mo</p>
+              <p class="text-sm text-stone-500">Gross potential at 65% occupancy</p>
+            </div>
+          </div>
+          <div class="p-8 grid md:grid-cols-2 gap-10">
+            <div>
+              <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">How it works</p>
+              <p class="text-base text-stone-700 leading-relaxed">
+                Perris is 25 minutes from Temecula wine country, adjacent to Lake Perris State Recreation Area, and near Diamond Valley Lake. March Air Reserve Base generates consistent demand from visiting families and contractors. A 3-bed rural property on 4.88 acres, marketed as a "farm stay" or "ranch retreat," commands $150–$250/night on Airbnb or VRBO. At 65% occupancy that's $3,000–$4,875/month revenue. If combined with the horse boarding concept — guests staying and interacting with horses — average nightly rates jump to $200–$300+ with differentiated appeal. Emily and her mother would need to vacate OR they manage it on-site (the latter is how most successful farm-stay operations work).
+              </p>
+            </div>
+            <div>
+              <div class="mb-8">
+                <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Pros</p>
+                <ul class="space-y-3 text-base text-stone-700">
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Highest gross income potential of all rental options</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Proximity to Temecula, Lake Perris, and March ARB = year-round demand drivers</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Farm stay niche is growing nationally — 4.88 acres supports meaningful differentiation</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>If Emily manages on-site, she stays in her home and earns income</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Cons</p>
+                <ul class="space-y-3 text-base text-stone-700">
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Riverside County STR regulations: verify permit requirements before proceeding — unincorporated Riverside County has an STR ordinance with licensing requirements</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Requires active management — not passive income</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Requires property to be staged, photographed, and maintained to hospitality standard</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Income is variable — seasonality, platform changes, and reviews all affect results</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Higher wear-and-tear than long-term rental</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="px-8 pb-6">
+            <span class="inline-block px-4 py-2 bg-stone-100 text-stone-700 border border-stone-300 text-xs font-semibold tracking-widest uppercase">Disruption: Medium — Emily can manage on-site or vacate</span>
+          </div>
+        </div>
+
+        <!-- OPTION 5: ADU + EMILY STAYS -->
+        <div class="border border-stone-200">
+          <div class="flex flex-wrap items-start justify-between gap-4 p-8 border-b border-stone-100 bg-stone-100">
+            <div>
+              <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-1">Option E</p>
+              <h2 class="serif text-2xl font-normal text-stone-900">Add a rental unit (ADU) — Emily stays</h2>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-semibold text-stone-900">$1,800 – $2,200 / mo</p>
+              <p class="text-sm text-stone-500">ADU rental income added</p>
+            </div>
+          </div>
+          <div class="p-8 grid md:grid-cols-2 gap-10">
+            <div>
+              <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">How it works</p>
+              <p class="text-base text-stone-700 leading-relaxed">
+                California ADU law allows construction of a detached accessory dwelling unit on this lot. 4.88 acres has ample room for a 1,000–1,200 sq ft ADU set away from the main house. Cost to build: $200,000–$300,000 at current Riverside County construction rates. Rental income: $1,800–$2,200/month. Emily and her mother keep the main house. The new unit generates ongoing income. ADUs also add to eventual sale value — a permitted ADU in a rural market typically adds 1.2–1.5x its construction cost to the sale price.
+              </p>
+            </div>
+            <div>
+              <div class="mb-8">
+                <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Pros</p>
+                <ul class="space-y-3 text-base text-stone-700">
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Emily and her mother stay — no relocation needed</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Adds $240,000–$330,000 in rental value over 10–15 years</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Increases eventual sale price</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>4.88 acres provides full privacy separation between units</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Cons</p>
+                <ul class="space-y-3 text-base text-stone-700">
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>High upfront cost: $200K–$300K to construct</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Payback period: 8–14 years at $1,800–$2,200/month — too long if sale is planned within 5 years</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Construction in Riverside County requires septic capacity review, permits, and inspections</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Adds a tenant relationship and all associated management overhead</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="px-8 pb-6">
+            <span class="inline-block px-4 py-2 bg-stone-100 text-stone-700 border border-stone-300 text-xs font-semibold tracking-widest uppercase">Disruption: None — Emily stays throughout</span>
+          </div>
+        </div>
+
+        <!-- OPTION 6: SOLAR -->
+        <div class="border border-stone-200">
+          <div class="flex flex-wrap items-start justify-between gap-4 p-8 border-b border-stone-100 bg-stone-50">
+            <div>
+              <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-1">Option F</p>
+              <h2 class="serif text-2xl font-normal text-stone-900">Ground-mount solar — land lease or owner-operated</h2>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-semibold text-stone-900">$4,400 – $8,000 / yr</p>
+              <p class="text-sm text-stone-500">Passive land lease income (3.5 usable acres)</p>
+            </div>
+          </div>
+          <div class="p-8 grid md:grid-cols-2 gap-10">
+            <div>
+              <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">How it works</p>
+              <p class="text-base text-stone-700 leading-relaxed mb-5">
+                Perris receives <strong>5.5–6.3 kWh/m²/day</strong> of solar irradiance — among the highest in the US. The property has roughly 3.5–4 usable acres after the house footprint. Two paths exist:
+              </p>
+              <p class="text-sm font-semibold text-stone-800 mb-2">Path 1 — Land lease to a developer</p>
+              <p class="text-base text-stone-700 leading-relaxed mb-5">
+                A solar developer installs and operates a ground-mount array on the available acreage. The landowner receives an annual lease payment with no upfront cost. California solar land lease rates range from $450–$2,500/acre/year depending on proximity to three-phase power lines and substation capacity. For ~3.5 acres in Riverside County: estimate $1,200–$2,300/acre/year = <strong>$4,400–$8,000/year passive income</strong> on a 25-year lease with 2% annual escalation. Emily and her mother can stay. The challenge: most utility-scale developers want 10+ acres. Smaller community solar and distributed generation developers work at the 3–5 acre scale, but require a nearby interconnection point (three-phase power line must be within ~500 feet).
+              </p>
+              <p class="text-sm font-semibold text-stone-800 mb-2">Path 2 — Owner-installed system</p>
+              <p class="text-base text-stone-700 leading-relaxed">
+                Install a 75–150kW ground-mount array and use it to offset electricity bills for an on-site business. Paired with horse boarding or Airbnb operations, solar eliminates the electricity cost almost entirely. Under California's NEM 3.0 (April 2023), export credits dropped ~75% vs. NEM 2.0 — solar-only systems without battery storage now have a ~9-year payback. The better play is sizing the system to match consumption rather than to maximize grid exports.
+              </p>
+            </div>
+            <div>
+              <div class="mb-8">
+                <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Pros</p>
+                <ul class="space-y-3 text-base text-stone-700">
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Perris is in one of the top solar irradiance zones in the US — the resource is exceptional</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Land lease is fully passive — no labor, no management, Emily can stay</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>25-year lease with 2% annual escalation creates long-term compounding income</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Developer bears all installation, maintenance, and insurance costs</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Owner-installed solar (paired with horse boarding) eliminates operating electricity cost entirely</li>
+                  <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Stacks with other options — solar lease + horse boarding can run simultaneously</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Cons</p>
+                <ul class="space-y-3 text-base text-stone-700">
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>4.88 acres is below the threshold most utility-scale developers target (10+ acres preferred) — smaller developers are possible but fewer options</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Interconnection is the critical gate: must be within ~500 ft of a three-phase SCE power line for a developer to be interested — verify before pursuing</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Solar lease encumbers the land for 25 years — limits ability to sell to a buyer who wants clean title</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>NEM 3.0 eliminated attractive grid export economics — owner-installed solar only pencils out when paired with meaningful on-site consumption</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Riverside County zoning permit required for commercial-scale ground mount — conditional use permit process</li>
+                  <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Solar lease income ($4,400–$8,000/year) is modest compared to selling or horse boarding</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="px-8 pb-6">
+            <span class="inline-block px-4 py-2 bg-stone-100 text-stone-700 border border-stone-300 text-xs font-semibold tracking-widest uppercase">Disruption: None — Emily stays; stacks with other uses</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RISK SECTION -->
+  <section class="py-20 px-6 bg-stone-50 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-8">Risk Factors — Know These Before Deciding</p>
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <div class="bg-white border border-red-200 p-8">
+          <p class="text-sm font-semibold tracking-widest uppercase text-red-700 mb-3">Fire Risk — Extreme</p>
+          <p class="text-base text-stone-700 leading-relaxed">First Street Foundation rates this property at a 53% chance of being affected by wildfire in the next 30 years. This is not a minor consideration. California's homeowners insurance market is deteriorating rapidly — State Farm, Allstate, and Farmers have all restricted or exited new policy issuance in high-fire-risk areas. The FAIR Plan (California's insurer of last resort) is expensive and limited. A property with "Extreme" fire risk will face increasing insurance costs and eventual difficulty securing coverage entirely. This suppresses long-term value and poses real risk to the asset. Selling in the current hot market, before insurance availability further constrains buyer pools, is a legitimate strategy.</p>
+        </div>
+
+        <div class="bg-white border border-amber-200 p-8">
+          <p class="text-sm font-semibold tracking-widest uppercase text-amber-700 mb-3">Capital Gains Tax</p>
+          <p class="text-base text-stone-700 leading-relaxed">The property is assessed at $203,698 under Prop 13 — meaning it has likely been held for decades with very low tax. If the original purchase price was substantially below $600K, a sale will trigger capital gains tax on the difference. If Emily or the listed owner has lived in the property as a primary residence for 2 of the last 5 years, they may qualify for the Section 121 exclusion ($250K single / $500K married). A CPA must be consulted before listing. The specific cost basis and ownership structure determine the actual tax liability.</p>
+        </div>
+
+        <div class="bg-white border border-stone-200 p-8">
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Short-Term Rental Compliance</p>
+          <p class="text-base text-stone-700 leading-relaxed">Unincorporated Riverside County has an STR ordinance (Ordinance No. 927 as amended) requiring a Short-Term Rental Operating License and Transient Occupancy Tax registration. Operating without a permit can result in fines and forced closure. If Option D is pursued, obtain the permit before listing on any platform. Herbert St in Meadowbrook appears to be in unincorporated Riverside County, not within the City of Perris — confirm jurisdiction before applying.</p>
+        </div>
+
+        <div class="bg-white border border-amber-200 p-8">
+          <p class="text-sm font-semibold tracking-widest uppercase text-amber-700 mb-3">Water Rights — No Senior Position</p>
+          <p class="text-base text-stone-700 leading-relaxed mb-4">This property has no adjudicated water rights. It is on municipal EMWD service within the unadjudicated West San Jacinto Groundwater Basin, now governed by SGMA. EMWD's Groundwater Sustainability Plan was approved in 2023 with a 2042 sustainability deadline. Any private well installed on the property would be subject to SGMA extraction limits. This matters for agricultural use: water-intensive crops are not viable here without significant EMWD supply costs. Horse boarding is water-modest and remains viable. There is no risk to basic residential use.</p>
+          <p class="text-sm font-semibold tracking-widest uppercase text-amber-700 mb-3">Solar — Interconnection Is the Gate</p>
+          <p class="text-base text-stone-700 leading-relaxed">The solar resource is exceptional, but the economics of a developer land lease hinge entirely on whether a three-phase SCE power line is within ~500 feet of the usable acreage. If the nearest interconnection point is further than that, the cost of line extension will eliminate developer interest. Before pursuing Option F, request a solar site feasibility assessment — US Light Energy, Nexamp, and Cypress Creek Renewables all operate in Riverside County at sub-10-acre scales. The assessment is typically free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL RECOMMENDATION -->
+  <section class="py-20 px-6 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-8">Recommendation</p>
+
+      <div class="border-l-4 border-stone-900 pl-8 mb-12">
+        <h2 class="serif text-3xl font-normal text-stone-900 mb-4">Sell — list within 12 months, price at $649,000 targeting $700K+</h2>
+        <p class="text-lg text-stone-700 leading-relaxed max-w-3xl">
+          This is the financially optimal decision, and the window is now. The 92570 market is up 9.3% year-over-year, selling at full list price in 62 days, with a very recent comparable (Lopez Rd, nearly identical lot) closing at $790K with equestrian improvements. The Herbert St property is well-positioned to sell in the $650K–$700K range as-is. With minimal equestrian infrastructure added ($30K–$50K in fencing and basic stalls), the property could target $750K+ and attract the same buyer pool that just paid $790K two blocks away.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 mb-10">
+        <div>
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Why sell now, not later</p>
+          <ul class="space-y-3 text-base text-stone-700">
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">1.</span>Fire risk is the primary long-term threat to value. The insurance market in California is in crisis. Extreme fire risk properties will become harder to insure over the next 3–5 years, which directly suppresses buyer pools and financing availability. Selling before that constraint tightens further is smart risk management.</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">2.</span>The market is competitive right now. Homes in 92570 are closing at or above list. Hot homes go pending in 17 days. This is the environment to be a seller in.</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">3.</span>The Lopez Rd comparable sold $90K over list at $790K for a property with worse structure (1950 vs. 1991, 1,499 sq ft vs. 2,045 sq ft). Herbert St is the better house on an equivalent lot. There is a clear path to $700K+ if marketed correctly.</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">4.</span>The rental options generate $26–31K/year net — a 4–5% yield on a $620K asset. That is not a compelling return when you can liquidate at full value today and redeploy capital more efficiently.</li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">If Emily and her mother want to stay</p>
+          <p class="text-base text-stone-700 leading-relaxed mb-4">If relocation is not an option, the best income path is <strong>horse boarding (Option B)</strong>, optionally stacked with a <strong>solar land lease (Option F)</strong> on unused acreage — these two run simultaneously without conflict. Here is why:</p>
+          <ul class="space-y-3 text-base text-stone-700">
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>No relocation required — they live and operate from the property</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Meadowbrook is an active equestrian community — demand exists</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Horse boarding: $2,400–$5,000/month gross. Solar lease on unused acreage: $4,400–$8,000/year passive. Combined gross: up to $68K+/year with no one required to leave</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Equestrian improvements add $75K–$175K to eventual sale price — the Lopez Rd comparable proves this</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Options B, F, and A are sequential — operate boarding for 2–3 years, then sell the improved property for $750K+</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- DECISION MATRIX -->
+      <div>
+        <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Summary Comparison</p>
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[640px] text-sm border-collapse">
+            <thead>
+              <tr class="bg-stone-100">
+                <th class="text-left p-3 border border-stone-200 font-semibold">Option</th>
+                <th class="text-left p-3 border border-stone-200 font-semibold">Gross Income / Value</th>
+                <th class="text-left p-3 border border-stone-200 font-semibold">Timeline</th>
+                <th class="text-left p-3 border border-stone-200 font-semibold">Emily Stays?</th>
+                <th class="text-left p-3 border border-stone-200 font-semibold">Upfront Cost</th>
+                <th class="text-left p-3 border border-stone-200 font-semibold">Risk Level</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-100">
+              <tr class="bg-stone-900 text-white">
+                <td class="p-3 border border-stone-700 font-medium">A — Sell</td>
+                <td class="p-3 border border-stone-700">$615K – $700K+ net</td>
+                <td class="p-3 border border-stone-700">60–90 days</td>
+                <td class="p-3 border border-stone-700">No</td>
+                <td class="p-3 border border-stone-700">None</td>
+                <td class="p-3 border border-stone-700">Low (market risk only)</td>
+              </tr>
+              <tr>
+                <td class="p-3 border border-stone-200 font-medium">B — Horse Boarding</td>
+                <td class="p-3 border border-stone-200">$2,400–$5,000/mo gross</td>
+                <td class="p-3 border border-stone-200">3–6 mo to set up</td>
+                <td class="p-3 border border-stone-200">Yes</td>
+                <td class="p-3 border border-stone-200">$30K–$60K</td>
+                <td class="p-3 border border-stone-200">Medium (operations, liability)</td>
+              </tr>
+              <tr class="bg-stone-50">
+                <td class="p-3 border border-stone-200 font-medium">C — Long-term Rental</td>
+                <td class="p-3 border border-stone-200">$2,800–$3,200/mo gross</td>
+                <td class="p-3 border border-stone-200">30–60 days</td>
+                <td class="p-3 border border-stone-200">No</td>
+                <td class="p-3 border border-stone-200">None</td>
+                <td class="p-3 border border-stone-200">Medium (tenant + insurance)</td>
+              </tr>
+              <tr>
+                <td class="p-3 border border-stone-200 font-medium">D — Short-term Rental</td>
+                <td class="p-3 border border-stone-200">$4,500–$7,500/mo gross</td>
+                <td class="p-3 border border-stone-200">1–3 months</td>
+                <td class="p-3 border border-stone-200">Optional</td>
+                <td class="p-3 border border-stone-200">$5K–$20K (furnish)</td>
+                <td class="p-3 border border-stone-200">Medium–High (regulatory)</td>
+              </tr>
+              <tr class="bg-stone-50">
+                <td class="p-3 border border-stone-200 font-medium">E — ADU</td>
+                <td class="p-3 border border-stone-200">$1,800–$2,200/mo added</td>
+                <td class="p-3 border border-stone-200">12–18 months</td>
+                <td class="p-3 border border-stone-200">Yes</td>
+                <td class="p-3 border border-stone-200">$200K–$300K</td>
+                <td class="p-3 border border-stone-200">Low (long payback)</td>
+              </tr>
+              <tr>
+                <td class="p-3 border border-stone-200 font-medium">F — Solar Lease</td>
+                <td class="p-3 border border-stone-200">$4,400–$8,000/yr passive</td>
+                <td class="p-3 border border-stone-200">6–18 months (developer process)</td>
+                <td class="p-3 border border-stone-200">Yes</td>
+                <td class="p-3 border border-stone-200">None (developer pays)</td>
+                <td class="p-3 border border-stone-200">Low-Med (25-yr encumbrance)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT STEPS -->
+  <section class="py-20 px-6 bg-stone-50 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-8">Next Steps</p>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div>
+          <p class="text-base font-semibold text-stone-900 mb-3">If selling:</p>
+          <ol class="space-y-3 text-base text-stone-700">
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">1.</span>Consult a CPA to determine capital gains exposure and Section 121 eligibility before listing</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">2.</span>Contact a Riverside County real estate agent familiar with horse properties in Meadowbrook — they will know the right buyer pool</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">3.</span>Determine Emily's timeline and housing plan — she needs 30–60 days of lead time</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">4.</span>Consider a pre-listing inspection to identify deferred maintenance that would affect offer strength</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">5.</span>Price at $649,000 — within range to attract multiple offers; if equestrian improvements are added first, price at $699,000–$729,000</li>
+          </ol>
+        </div>
+        <div>
+          <p class="text-base font-semibold text-stone-900 mb-3">If pursuing horse boarding first:</p>
+          <ol class="space-y-3 text-base text-stone-700">
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">1.</span>Verify APN zoning with Riverside County Planning — confirm rural residential and horse-keeping allowance</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">2.</span>Get 3 quotes for fencing, stall construction, and a water trough line extension</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">3.</span>Draft a boarding contract template — use an equine attorney</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">4.</span>Get horse liability insurance (farm and ranch policy) — budget $1,500–$2,500/year</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">5.</span>Set a 24-month review point — if occupancy is strong, continue; if not, sell then</li>
+          </ol>
+        </div>
+        <div>
+          <p class="text-base font-semibold text-stone-900 mb-3">If pursuing solar (Option F):</p>
+          <ol class="space-y-3 text-base text-stone-700">
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">1.</span>Request a free solar site feasibility assessment from US Light Energy, Nexamp, or Cypress Creek Renewables — all operate in Riverside County at sub-10-acre scale</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">2.</span>Confirm whether a three-phase SCE power line is within ~500 feet of the usable acreage — this is the single most important qualifying factor for developer interest</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">3.</span>Verify zoning with Riverside County Planning — confirm whether a conditional use permit is required for commercial ground-mount solar on this parcel</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">4.</span>If a developer offer is received, compare the $/acre/year rate against the $1,200–$2,300 benchmark for high-irradiance Riverside County parcels</li>
+            <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">5.</span>Have a real estate attorney review any lease agreement before signing — 25-year land encumbrances require careful exit clause and encumbrance language</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-stone-200 px-6 py-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4">
+        <span class="serif text-stone-700 text-base">Maison Vet</span>
+        <span class="text-sm text-stone-600">Analysis prepared Feb 24, 2026 — verify all financial and legal data before making any decisions</span>
+      </div>
+      <p class="text-xs text-stone-500 max-w-3xl">This analysis is based on publicly available data from Redfin, Zillow, Estately, RentCafe, and Riverside County records. Market values are estimates only. Tax treatment, zoning, STR permit requirements, and insurance availability must be independently verified with qualified professionals. This is not legal, financial, or real estate advice.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

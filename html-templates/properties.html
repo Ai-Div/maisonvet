@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Properties — Active Property Search</title>
+  <meta name="description" content="Active property search for the Maison Vet compound. Updated weekly." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; font-size: 16px; }
+    .serif { font-family: Georgia, Cambria, 'Times New Roman', serif; }
+    html { scroll-behavior: smooth; }
+    .map-frame { width: 100%; height: 340px; border: 0; display: block; }
+    @media (max-width: 768px) {
+      .map-frame { height: 240px; }
+    }
+  </style>
+</head>
+<body class="bg-white text-stone-900 antialiased">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-b border-stone-200">
+    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+      <a href="/" class="serif text-lg font-normal tracking-wide text-stone-900 hover:text-stone-600 transition-colors">Maison Vet</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 transition-colors">Overview</a>
+        <a href="/properties/" class="text-xs font-semibold tracking-widest uppercase text-stone-900 border-b-2 border-stone-900 pb-0.5">Properties</a>
+        <a href="/perris/" class="text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 transition-colors">Perris</a>
+      </div>
+      <button id="nav-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Open menu" aria-expanded="false">
+        <span class="block w-6 h-0.5 bg-stone-900"></span>
+        <span class="block w-6 h-0.5 bg-stone-900"></span>
+        <span class="block w-6 h-0.5 bg-stone-900"></span>
+      </button>
+    </div>
+    <div id="nav-drawer" class="md:hidden hidden border-t border-stone-200 bg-white">
+      <div class="px-6 py-2 flex flex-col">
+        <a href="/" class="mobile-nav-link py-3.5 border-b border-stone-100 text-xs font-semibold tracking-widest uppercase text-stone-700">Overview</a>
+        <a href="/properties/" class="mobile-nav-link py-3.5 border-b border-stone-100 text-xs font-semibold tracking-widest uppercase text-stone-900">Properties</a>
+        <a href="/perris/" class="mobile-nav-link py-3.5 text-xs font-semibold tracking-widest uppercase text-stone-700">Perris</a>
+      </div>
+    </div>
+  </nav>
+  <script>
+    (function() {
+      var t = document.getElementById('nav-toggle'), d = document.getElementById('nav-drawer');
+      t.addEventListener('click', function() { var o = !d.classList.contains('hidden'); d.classList.toggle('hidden', o); t.setAttribute('aria-expanded', String(!o)); });
+      document.querySelectorAll('.mobile-nav-link').forEach(function(l) { l.addEventListener('click', function() { d.classList.add('hidden'); t.setAttribute('aria-expanded','false'); }); });
+    })();
+  </script>
+
+  <!-- HEADER -->
+  <section class="pt-36 pb-20 px-6 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Active Site Search</p>
+      <h1 class="serif text-5xl md:text-6xl font-normal text-stone-900 leading-tight mb-6">Property Candidates</h1>
+      <p class="text-lg text-stone-700 max-w-2xl leading-relaxed mb-8">
+        Properties are screened against the full criteria: 10+ acres, Ag-zoned, adjudicated well water, two egress routes, outside major fire perimeters, and within 45 minutes of the Fallbrook corridor. Sorted by asking price, lowest to highest.
+      </p>
+      <div class="flex flex-wrap gap-3 text-sm text-stone-600">
+        <span class="border border-stone-200 px-4 py-2 font-medium">Last updated: Feb 24, 2026</span>
+        <span class="border border-stone-200 px-4 py-2 font-medium">Updated every Saturday</span>
+        <span class="border border-stone-200 px-4 py-2 font-medium">Target zone: 92061, 92082, 92028, 92003, 92026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRITERIA LEGEND -->
+  <section class="py-12 px-6 bg-stone-50 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Screening Criteria</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5 text-sm text-stone-700">
+        <div class="flex items-start gap-2"><span class="font-bold text-stone-900">+</span>10+ acres, Ag-zoned</div>
+        <div class="flex items-start gap-2"><span class="font-bold text-stone-900">+</span>Adjudicated water rights</div>
+        <div class="flex items-start gap-2"><span class="font-bold text-stone-900">+</span>Two egress routes</div>
+        <div class="flex items-start gap-2"><span class="font-bold text-stone-900">+</span>Outside prior fire perimeters</div>
+        <div class="flex items-start gap-2"><span class="font-bold text-stone-900">+</span>CUP feasibility (vet clinic)</div>
+        <div class="flex items-start gap-2"><span class="font-bold text-stone-900">+</span>Cal Fire station 15 min</div>
+        <div class="flex items-start gap-2"><span class="font-bold text-stone-900">+</span>Natural beauty / views</div>
+        <div class="flex items-start gap-2"><span class="font-bold text-stone-900">+</span>45 min to Fallbrook corridor</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPERTIES -->
+  <section class="py-20 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col gap-24">
+
+      <!-- PROPERTY 1: 49 Maridge Rd — $195,000 -->
+      <div id="property-maridge">
+        <div class="flex flex-wrap items-start justify-between gap-6 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
+            <h2 class="serif text-3xl md:text-4xl font-normal text-stone-900">49 Maridge Road</h2>
+            <p class="text-lg text-stone-600 mt-1">49 Maridge Rd, Valley Center, CA 92082</p>
+          </div>
+          <div class="text-right">
+            <p class="serif text-3xl font-normal text-stone-900">$195,000</p>
+            <p class="text-sm text-stone-600 mt-1">20.54 acres — $9,495 / acre</p>
+            <span class="inline-block mt-2 px-4 py-1.5 bg-stone-100 text-stone-700 border border-stone-300 text-xs font-semibold tracking-widest uppercase">Verify Before Pursuing</span>
+          </div>
+        </div>
+
+        <div class="border border-stone-200 overflow-hidden mb-10">
+          <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=49+Maridge+Rd,+Valley+Center,+CA+92082&z=14&t=k&output=embed"
+            title="Aerial view of 49 Maridge Rd, Valley Center, CA"></iframe>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Property Overview</p>
+            <p class="text-base text-stone-700 leading-relaxed">
+              20.54-acre parcel in Valley Center with an established grove, listed by Rawson and Associates. At $195,000 for 20 acres, the price is unusually low for the area — approximately $9,500 per acre versus a typical range of $30,000–$80,000 per acre for similarly sized agricultural parcels. The price anomaly demands investigation before proceeding. Potential explanations: raw land with access or water issues, probate sale, or environmental restrictions.
+            </p>
+          </div>
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Key Details</p>
+            <div class="space-y-3 text-base text-stone-700">
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Acreage</span><span class="font-medium">20.54 acres</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Asking Price</span><span class="font-medium">$195,000</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Price per Acre</span><span class="font-medium">~$9,495</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Zip Code</span><span class="font-medium">92082 (Valley Center)</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Listing Broker</span><span class="font-medium">Rawson and Associates</span></div>
+              <div class="flex justify-between"><span>Land Use</span><span class="font-medium">Established grove</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div class="border-l-4 border-stone-800 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Benefits</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>20.54 acres clears the 10-acre minimum</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Established grove implies active Ag use — supports zoning position</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Valley Center location — equestrian community, target market proximity</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Extremely low price — if issues are manageable, this represents unusual value</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Less capital tied up in land than comparable larger parcels</li>
+            </ul>
+          </div>
+          <div class="border-l-4 border-stone-300 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Concerns</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Price is 70–80% below comparable parcels — the reason must be identified before showing interest</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>No water information in listing — well existence and rights completely unknown</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Maridge Rd is a rural road — egress route confirmation essential</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>May have easements, deed restrictions, or environmental overlays explaining price</li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="https://www.zillow.com/homedetails/49-Maridge-Rd-Valley-Center-CA-92082/443883168_zpid/" target="_blank" rel="noopener" class="inline-block text-sm font-semibold tracking-widest uppercase text-stone-700 border border-stone-300 px-6 py-3.5 hover:bg-stone-100 hover:border-stone-400 transition-colors">View Full Listing</a>
+      </div>
+
+      <hr class="border-stone-100" />
+
+      <!-- PROPERTY 2: 40 Oak Glen Rd — $375,000 -->
+      <div id="property-oak-glen">
+        <div class="flex flex-wrap items-start justify-between gap-6 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-1">Valley Center, CA 92082</p>
+            <h2 class="serif text-3xl md:text-4xl font-normal text-stone-900">40 Oak Glen Road</h2>
+            <p class="text-lg text-stone-600 mt-1">40 Oak Glen Rd, Valley Center, CA 92082</p>
+          </div>
+          <div class="text-right">
+            <p class="serif text-3xl font-normal text-stone-900">$375,000</p>
+            <p class="text-sm text-stone-600 mt-1">40.83 acres — $9,183 / acre</p>
+            <span class="inline-block mt-2 px-4 py-1.5 bg-stone-900 text-white text-xs font-semibold tracking-widest uppercase">Best Value — Investigate Immediately</span>
+          </div>
+        </div>
+
+        <div class="border border-stone-200 overflow-hidden mb-10">
+          <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=40+Oak+Glen+Rd,+Valley+Center,+CA+92082&z=14&t=k&output=embed"
+            title="Aerial view of 40 Oak Glen Rd, Valley Center, CA"></iframe>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Property Overview</p>
+            <p class="text-base text-stone-700 leading-relaxed">
+              40.83 acres in Valley Center listed at $375,000 — approximately $9,183 per acre. This is the most compelling value-per-acre of any property in this search by a significant margin. The comparable land in Valley Center trades at $20,000–$60,000 per acre, making this listing either an exceptional opportunity or a candidate with a significant undisclosed issue. Requires immediate, direct investigation. No listing description is available through online sources — this parcel may be an off-market or minimally listed opportunity. Contact the listing broker before any other action on this list.
+            </p>
+          </div>
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Key Details</p>
+            <div class="space-y-2 text-base text-stone-700">
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Acreage</span><span class="font-medium">40.83 acres</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Asking Price</span><span class="font-medium">$375,000</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Price per Acre</span><span class="font-medium">~$9,183 (anomalously low)</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Zip Code</span><span class="font-medium">92082 (Valley Center)</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Water</span><span class="font-medium">Unknown — verify immediately</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Zoning</span><span class="font-medium">Unknown — verify</span></div>
+              <div class="flex justify-between"><span>Status</span><span class="font-medium">Active listing</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div class="border-l-4 border-stone-800 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Why This Matters</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>40.83 acres is the largest lot in this price range by a wide margin — more room than any other sub-$600K candidate</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>$9,183/acre vs. $19,000–$43,000/acre for comparable Valley Center land — 50–75% below market if no fatal flaw exists</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Valley Center is our primary target community — equestrian, agricultural, established market</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>40 acres provides ample room for clinic, housing, solar, agriculture, and equestrian infrastructure simultaneously</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>If a manageable issue explains the price, this is the strongest deal in the entire search</li>
+            </ul>
+          </div>
+          <div class="border-l-4 border-stone-300 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">What to Verify First</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Water: well status, adjudicated rights, Valley Center MWD access — the single most critical question</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Zoning: Agricultural/Rural Residential needed — confirm no non-conforming designation</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Access: road access and egress route count — low price may indicate poor ingress</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Liens, easements, deed restrictions, or environmental overlays that would restrict development</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Cal Fire FHSZ designation — Valley Center (92082) is historically Very High to Extreme</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Reason for price: probate, distress sale, survey dispute, or structural encumbrance?</li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="https://www.zillow.com/homes/for_sale/Valley-Center-CA_rb/?sort=price_asc&price=0-500000" target="_blank" rel="noopener" class="inline-block text-sm font-semibold tracking-widest uppercase text-stone-700 border border-stone-300 px-6 py-3.5 hover:bg-stone-100 hover:border-stone-400 transition-colors">Search Zillow — Valley Center</a>
+      </div>
+
+      <hr class="border-stone-100" />
+
+      <!-- PROPERTY 3: Pauma Heights Rd Lot 9 — $379,000 -->
+      <div id="property-pauma-heights">
+        <div class="flex flex-wrap items-start justify-between gap-6 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
+            <h2 class="serif text-3xl md:text-4xl font-normal text-stone-900">Pauma Heights Road — Lot 9</h2>
+            <p class="text-lg text-stone-600 mt-1">0 Pauma Heights Rd Lot 9, Valley Center, CA 92082</p>
+          </div>
+          <div class="text-right">
+            <p class="serif text-3xl font-normal text-stone-900">$379,000</p>
+            <p class="text-sm text-stone-600 mt-1">19.63 acres — $19,309 / acre</p>
+            <span class="inline-block mt-2 px-4 py-1.5 bg-stone-900 text-white text-xs font-semibold tracking-widest uppercase">Investigate</span>
+          </div>
+        </div>
+
+        <div class="border border-stone-200 overflow-hidden mb-10">
+          <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=Pauma+Heights+Rd,+Valley+Center,+CA+92082&z=14&t=k&output=embed"
+            title="Aerial view of Pauma Heights Rd, Valley Center, CA"></iframe>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Property Overview</p>
+            <p class="text-base text-stone-700 leading-relaxed">
+              Nearly 20-acre fully irrigated avocado grove tucked into the hills of Valley Center. The listing notes actual usable area exceeds 20 acres despite the assessor record showing 19.63. A 2-inch water meter is already in place, power is at the street, and a basic internal road system exists. No CC&Rs and no HOA. Owner has had building and design concepts drawn up. A candidate for the Crop Swap program, which may offer up to $22,500 per acre for transitioning avocado to grape production. 51 days on market.
+            </p>
+          </div>
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Key Details</p>
+            <div class="space-y-3 text-base text-stone-700">
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Acreage</span><span class="font-medium">19.63 acres (20+ usable)</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Asking Price</span><span class="font-medium">$379,000</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Price per Acre</span><span class="font-medium">~$19,309</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Zip Code</span><span class="font-medium">92082 (Valley Center)</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Listing Broker</span><span class="font-medium">Coldwell Banker West</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Days on Market</span><span class="font-medium">51</span></div>
+              <div class="flex justify-between"><span>Land Use</span><span class="font-medium">Irrigated avocado grove</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div class="border-l-4 border-stone-800 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Benefits</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Fully irrigated — 2" water meter already installed and active</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>No CC&Rs, no HOA — full flexibility for clinic, housing, solar buildout</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Internal road system already in place</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Building concepts already drawn — head start on planning</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Crop Swap program eligibility could offset land cost significantly</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Active ag use strengthens CUP application</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Views of surrounding hillsides noted</li>
+            </ul>
+          </div>
+          <div class="border-l-4 border-stone-300 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Concerns</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Water meter confirms supply, but adjudicated rights must be verified via CalWATRS</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Pauma Heights Rd — egress route count needs satellite review</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Cal Fire FHSZ classification for this specific parcel not confirmed</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>CUP for vet clinic not confirmed — pre-app conference with SD County required</li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="https://www.zillow.com/homedetails/0-Pauma-Heights-Rd-LOT-9-Valley-Center-CA-92082/2081163381_zpid/" target="_blank" rel="noopener" class="inline-block text-sm font-semibold tracking-widest uppercase text-stone-700 border border-stone-300 px-6 py-3.5 hover:bg-stone-100 hover:border-stone-400 transition-colors">View Full Listing</a>
+      </div>
+
+      <hr class="border-stone-100" />
+
+      <!-- PROPERTY 3: 14097 Pauma Vista Dr — $395,000 -->
+      <div id="property-pauma-vista">
+        <div class="flex flex-wrap items-start justify-between gap-6 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
+            <h2 class="serif text-3xl md:text-4xl font-normal text-stone-900">14097 Pauma Vista Drive</h2>
+            <p class="text-lg text-stone-600 mt-1">14097 Pauma Vista Dr, Valley Center, CA 92082</p>
+          </div>
+          <div class="text-right">
+            <p class="serif text-3xl font-normal text-stone-900">$395,000</p>
+            <p class="text-sm text-stone-600 mt-1">10.48 acres — $37,691 / acre</p>
+            <span class="inline-block mt-2 px-4 py-1.5 bg-stone-100 text-stone-700 border border-stone-300 text-xs font-semibold tracking-widest uppercase">Verify Before Pursuing</span>
+          </div>
+        </div>
+
+        <div class="border border-stone-200 overflow-hidden mb-10">
+          <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=14097+Pauma+Vista+Dr,+Valley+Center,+CA+92082&z=14&t=k&output=embed"
+            title="Aerial view of 14097 Pauma Vista Dr, Valley Center, CA"></iframe>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Property Overview</p>
+            <p class="text-base text-stone-700 leading-relaxed">
+              10.48 acres of agricultural land in Valley Center with 400+ mature avocado trees and an active irrigation water meter. Septic already approved by San Diego County; house plans reportedly included at no cost. Listed at $395,000 with a recent $15,000 price cut. However, the listing has been on market for 293 days and has several red flags: the address listed in the MLS is incorrect (listing agent corrects it in the notes), and there is an open code violation on the property (a truck container the seller has agreed to remove before close of escrow). Rural and agricultural zoning confirmed.
+            </p>
+          </div>
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Key Details</p>
+            <div class="space-y-3 text-base text-stone-700">
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Acreage</span><span class="font-medium">10.48 acres</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Asking Price</span><span class="font-medium">$395,000</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Price per Acre</span><span class="font-medium">~$37,691</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Zip Code</span><span class="font-medium">92082 (Valley Center)</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Listing Broker</span><span class="font-medium">Elevate Real Estate Agency</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Days on Market</span><span class="font-medium">293</span></div>
+              <div class="flex justify-between"><span>Land Use</span><span class="font-medium">Avocado grove (400+ trees)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div class="border-l-4 border-stone-800 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Benefits</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Active irrigation water meter — water supply is confirmed</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Septic already county-approved — material savings in pre-development</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Rural/agricultural zoning confirmed</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>293 days on market + code violation = negotiation leverage</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Seller reportedly willing to carry a second loan</li>
+            </ul>
+          </div>
+          <div class="border-l-4 border-stone-300 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Concerns</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Open code violation on file with SD County — verify it is cleared before close</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>293 days on market with incorrect MLS address — signals sloppy listing or a hidden issue</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>10.48 acres is the lower bound — clinic, housing, solar, and ag all competing for space</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Water meter supply is confirmed; adjudicated water rights still need CalWATRS check</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Egress routes not confirmed</li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="https://www.zillow.com/homedetails/14097-Pauma-Valley-Pauma-Valley-Valley-Center-CA-92082/450871348_zpid/" target="_blank" rel="noopener" class="inline-block text-sm font-semibold tracking-widest uppercase text-stone-700 border border-stone-300 px-6 py-3.5 hover:bg-stone-100 hover:border-stone-400 transition-colors">View Full Listing</a>
+      </div>
+
+      <hr class="border-stone-100" />
+
+      <!-- PROPERTY 4: 18868 Paradise Mountain Rd — $437,000 -->
+      <div id="property-paradise-mountain">
+        <div class="flex flex-wrap items-start justify-between gap-6 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
+            <h2 class="serif text-3xl md:text-4xl font-normal text-stone-900">18868 Paradise Mountain Road</h2>
+            <p class="text-lg text-stone-600 mt-1">18868 Paradise Mountain Rd, Valley Center, CA 92082</p>
+          </div>
+          <div class="text-right">
+            <p class="serif text-3xl font-normal text-stone-900">$437,000</p>
+            <p class="text-sm text-stone-600 mt-1">10.09 acres — $43,310 / acre</p>
+            <span class="inline-block mt-2 px-4 py-1.5 bg-stone-900 text-white text-xs font-semibold tracking-widest uppercase">Investigate</span>
+          </div>
+        </div>
+
+        <div class="border border-stone-200 overflow-hidden mb-10">
+          <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=18868+Paradise+Mountain+Rd,+Valley+Center,+CA+92082&z=14&t=k&output=embed"
+            title="Aerial view of 18868 Paradise Mountain Rd, Valley Center, CA"></iframe>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Property Overview</p>
+            <p class="text-base text-stone-700 leading-relaxed">
+              10+ acres along Paradise Mountain Road in Valley Center with an unusually strong infrastructure package for this price. A private water well and installed water meter are already in place, along with an on-site SDGE electric transformer. A nearby fire hydrant and prior septic approval are documented. The upper portion features a spacious graded pad oriented for a build site. The lower portion has a fenced pasture with seasonal creek access — suitable for horses or livestock. 165 days on market; $10,000 price cut in January.
+            </p>
+          </div>
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Key Details</p>
+            <div class="space-y-3 text-base text-stone-700">
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Acreage</span><span class="font-medium">10.09 acres</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Asking Price</span><span class="font-medium">$437,000</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Price per Acre</span><span class="font-medium">~$43,310</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Zip Code</span><span class="font-medium">92082 (Valley Center)</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Listing Broker</span><span class="font-medium">Cabrillo Team Realty</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Days on Market</span><span class="font-medium">165</span></div>
+              <div class="flex justify-between"><span>Infrastructure</span><span class="font-medium">Well, meter, transformer, hydrant, septic approval</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div class="border-l-4 border-stone-800 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Benefits</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Private well + installed water meter — strongest water infrastructure of any candidate in this price range</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>SDGE transformer on site — electricity ready without line extension costs</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Fire hydrant nearby — meaningful for CUP application and insurance</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Prior septic approval — county has already vetted the site</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Graded build pad already established — reduces site prep cost</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Fenced pasture suitable for large animals — directly relevant to vet use case</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>165 days on market — room to negotiate</li>
+            </ul>
+          </div>
+          <div class="border-l-4 border-stone-300 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Concerns</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>10.09 acres is the minimum — very tight once clinic, housing, solar, and ag are all planned</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>"Unimproved land" designation — confirm zoning classification and CUP feasibility for medical use</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Well yield and water rights adjudication status need verification</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Paradise Mountain Rd — egress route count needs satellite review</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Cal Fire FHSZ status for this parcel not confirmed</li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="https://www.zillow.com/homedetails/18868-Paradise-Mountain-Rd-Valley-Center-CA-92082/241603706_zpid/" target="_blank" rel="noopener" class="inline-block text-sm font-semibold tracking-widest uppercase text-stone-700 border border-stone-300 px-6 py-3.5 hover:bg-stone-100 hover:border-stone-400 transition-colors">View Full Listing</a>
+      </div>
+
+      <hr class="border-stone-100" />
+
+      <!-- PROPERTY 5: 12121 Mira Grande Ln — $575,000 -->
+      <div id="property-mira-grande">
+        <div class="flex flex-wrap items-start justify-between gap-6 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
+            <h2 class="serif text-3xl md:text-4xl font-normal text-stone-900">12121 Mira Grande Lane</h2>
+            <p class="text-lg text-stone-600 mt-1">12121 Mira Grande Ln, Valley Center, CA 92082</p>
+          </div>
+          <div class="text-right">
+            <p class="serif text-3xl font-normal text-stone-900">$575,000</p>
+            <p class="text-sm text-stone-600 mt-1">26.89 acres (5 parcels) — $21,384 / acre</p>
+            <span class="inline-block mt-2 px-4 py-1.5 bg-stone-900 text-white text-xs font-semibold tracking-widest uppercase">Strong Candidate</span>
+          </div>
+        </div>
+
+        <div class="border border-stone-200 overflow-hidden mb-10">
+          <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=12121+Mira+Grande+Ln,+Valley+Center,+CA+92082&z=14&t=k&output=embed"
+            title="Aerial view of 12121 Mira Grande Ln, Valley Center, CA"></iframe>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Property Overview</p>
+            <p class="text-base text-stone-700 leading-relaxed">
+              26+ acres in west Valley Center comprised of 5 separate legal parcels, offering significant structural flexibility. The property includes a 2-inch water meter, a water well, overhead electrical service, and a seasonal stream. Topography is varied — gentle slopes, natural clearings, and several elevated hilltop and ridgeline sites suitable for custom builds. Natural rock outcroppings and native vegetation throughout. Located approximately 15 minutes to I-15. 110 days on market. Ideal for multi-structure layout: clinic, housing, agricultural use all accommodated simultaneously.
+            </p>
+          </div>
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Key Details</p>
+            <div class="space-y-3 text-base text-stone-700">
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Acreage</span><span class="font-medium">26.89 acres (5 legal parcels)</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Asking Price</span><span class="font-medium">$575,000</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Price per Acre</span><span class="font-medium">~$21,384</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Zip Code</span><span class="font-medium">92082 (Valley Center)</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Listing Broker</span><span class="font-medium">Cabrillo Team Realty</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Days on Market</span><span class="font-medium">110</span></div>
+              <div class="flex justify-between"><span>Infrastructure</span><span class="font-medium">2" water meter, well, overhead electrical, seasonal stream</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div class="border-l-4 border-stone-800 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Benefits</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>5 separate legal parcels — allows phased development or independent financing</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Both a 2" water meter and a water well — redundant water supply</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Overhead electrical already on site</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>26.89 acres — room for clinic, housing, agriculture, solar, and buffer zone</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Multiple elevated build sites — views are a marketing asset for the clinic</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>West Valley Center — 15 min to I-15, accessible without being suburban</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>$21K/acre is strong value for this size and infrastructure level</li>
+            </ul>
+          </div>
+          <div class="border-l-4 border-stone-300 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Concerns</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>5 separate parcels may complicate financing — lenders may require parcel consolidation</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Well yield not specified — verify output volume against clinic demand</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Varied topography with slopes — grading costs and fire behavior on slopes need assessment</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Water rights adjudication status needs CalWATRS confirmation</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Cal Fire FHSZ designation for this parcel not confirmed</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>CUP for vet clinic not confirmed — pre-app conference with SD County required</li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="https://www.zillow.com/homedetails/12121-Mira-Grande-Ln-Valley-Center-CA-92082/439455041_zpid/" target="_blank" rel="noopener" class="inline-block text-sm font-semibold tracking-widest uppercase text-stone-700 border border-stone-300 px-6 py-3.5 hover:bg-stone-100 hover:border-stone-400 transition-colors">View Full Listing</a>
+      </div>
+
+      <hr class="border-stone-100" />
+
+      <!-- Birdsong Ranch — $1,500,000 -->
+      <div id="property-birdsong">
+        <div class="flex flex-wrap items-start justify-between gap-6 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-1">Escondido / Bonsall Area, CA 92026</p>
+            <h2 class="serif text-3xl md:text-4xl font-normal text-stone-900">Birdsong Ranch</h2>
+            <p class="text-lg text-stone-600 mt-1">9153 W Lilac Rd, Escondido, CA 92026</p>
+          </div>
+          <div class="text-right">
+            <p class="serif text-3xl font-normal text-stone-900">$1,500,000</p>
+            <p class="text-sm text-stone-600 mt-1">54.3 acres — $27,624 / acre</p>
+            <span class="inline-block mt-2 px-4 py-1.5 bg-stone-900 text-white text-xs font-semibold tracking-widest uppercase">Strong Candidate</span>
+          </div>
+        </div>
+
+        <div class="border border-stone-200 overflow-hidden mb-10">
+          <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=9153+W+Lilac+Rd,+Escondido,+CA+92026&z=14&t=k&output=embed"
+            title="Aerial view of Birdsong Ranch, 9153 W Lilac Rd, Escondido"></iframe>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Property Overview</p>
+            <p class="text-base text-stone-700 leading-relaxed">
+              Birdsong Ranch is 54.3 acres of gently contoured agricultural land in the Bonsall/Lilac area, technically addressed in Escondido but located in the rural hills between Bonsall, Rainbow, and Valley Center. The property features 2,200 organic Eureka lemon trees and three functional on-site wells — the strongest confirmed water infrastructure of any candidate in this search. 173 days on market. Described by the listing as suitable for horse ranches, farms, vineyards, estate homes, and wholesale nurseries. First Street rates fire risk at Severe (23% wildfire probability in 30 years) — meaningfully lower than the Extreme rating on most Valley Center parcels.
+            </p>
+          </div>
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Key Details</p>
+            <div class="space-y-2 text-base text-stone-700">
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Acreage</span><span class="font-medium">54.3 acres</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Asking Price</span><span class="font-medium">$1,500,000</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Price per Acre</span><span class="font-medium">~$27,624</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Zip Code</span><span class="font-medium">92026 (Bonsall/Lilac area)</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>MLS</span><span class="font-medium">NDP2508644 (CRMLS)</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Days on Market</span><span class="font-medium">173</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Water</span><span class="font-medium text-green-700">3 functional on-site wells</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Agriculture</span><span class="font-medium">2,200 organic Eureka lemon trees</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Fire Risk</span><span class="font-medium text-amber-700">Severe — 23% / 30 yrs (lower than most)</span></div>
+              <div class="flex justify-between"><span>Solar</span><span class="font-medium">Above US average — 9.1 hrs/day (June)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div class="border-l-4 border-stone-800 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Benefits</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Three functional on-site wells — the only property in this search with fully redundant, confirmed water supply</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Organic lemon grove with 2,200 trees — immediate agricultural income; supports CUP application</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>54.3 acres — ample space for full compound: clinic, housing, agriculture, solar, equestrian infrastructure</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Fire risk rated Severe (23%) vs. Extreme (53%) on most Valley Center parcels — materially better insurance position</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Gentle contour — better for building and construction than sloped hillside parcels</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Listing explicitly notes horse ranch use case — likely has or supports equestrian infrastructure</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>173 days on market — significant negotiation leverage; real price below $1.5M is likely</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Within Tim's custom search zone — verified in the target catchment area</li>
+            </ul>
+          </div>
+          <div class="border-l-4 border-stone-300 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Concerns</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Well adjudication status needs CalWATRS verification — wells confirmed functional, rights need confirmation</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Bonsall area had significant fire activity in 2017 (Lilac Fire burned through this corridor) — verify this specific parcel's history</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Slightly south of the core Pauma Valley/Valley Center target area — confirm drive time to equestrian clientele</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>CUP for vet clinic not confirmed — pre-application conference with San Diego County required</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Egress route count not confirmed — W Lilac Rd access; satellite review needed for secondary route</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Lemon grove requires ongoing water and maintenance costs — factor into operating budget</li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="https://www.redfin.com/CA/Escondido/9153-W-Lilac-Rd-92026/home/177283727" target="_blank" rel="noopener" class="inline-block text-sm font-semibold tracking-widest uppercase text-stone-700 border border-stone-300 px-6 py-3.5 hover:bg-stone-100 hover:border-stone-400 transition-colors">View Full Listing on Redfin</a>
+      </div>
+
+      <hr class="border-stone-100" />
+
+      <!-- PROPERTY 6: Rancho Cerca Del Cielo — $2,299,000 -->
+      <div id="property-rancho">
+        <div class="flex flex-wrap items-start justify-between gap-6 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-1">Pauma Valley, CA 92061</p>
+            <h2 class="serif text-3xl md:text-4xl font-normal text-stone-900">Rancho Cerca Del Cielo</h2>
+            <p class="text-lg text-stone-600 mt-1">15063 Adams Drive, Pauma Valley, CA 92061</p>
+          </div>
+          <div class="text-right">
+            <p class="serif text-3xl font-normal text-stone-900">$2,299,000</p>
+            <p class="text-sm text-stone-600 mt-1">44 acres — $52,250 / acre</p>
+            <span class="inline-block mt-2 px-4 py-1.5 bg-stone-900 text-white text-xs font-semibold tracking-widest uppercase">Investigate</span>
+          </div>
+        </div>
+
+        <div class="border border-stone-200 overflow-hidden mb-10">
+          <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=15063+Adams+Drive,+Pauma+Valley,+CA+92061&z=14&t=k&output=embed"
+            title="Aerial view of 15063 Adams Drive, Pauma Valley, CA"></iframe>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Property Overview</p>
+            <p class="text-base text-stone-700 leading-relaxed">
+              44-acre agricultural property in Pauma Valley at the foot of the Palomar Mountain Range. Described as a working farm with lush greenery, beautiful landscapes, and a sense of rural privacy. Listed since early 2025. Located on Adams Drive, a known agricultural corridor in the valley with established farming operations nearby.
+            </p>
+          </div>
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Key Details</p>
+            <div class="space-y-3 text-base text-stone-700">
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Acreage</span><span class="font-medium">44 acres</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Asking Price</span><span class="font-medium">$2,299,000</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Price per Acre</span><span class="font-medium">~$52,250</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Zip Code</span><span class="font-medium">92061 (Pauma Valley)</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Listing Broker</span><span class="font-medium">Red Hawk Realty</span></div>
+              <div class="flex justify-between"><span>Days on Market</span><span class="font-medium">300+</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div class="border-l-4 border-stone-800 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Benefits</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>44 acres — ample room for all use cases</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Pauma Valley is in the San Luis Rey adjudicated watershed — water rights research warranted</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Active agricultural use — supports Ag zoning and CUP application</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Palomar Mountain Range backdrop — strong natural beauty</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>300+ days on market = negotiation leverage</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>~45 minutes to Fallbrook corridor via Highway 76</li>
+            </ul>
+          </div>
+          <div class="border-l-4 border-stone-300 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Concerns</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Pauma Valley sits near the 2003 Cedar Fire burn perimeter — verify specific parcel history</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Water rights not confirmed in listing — CalWATRS check required before offer</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Egress routes unknown — Adams Drive may be a single corridor; satellite review needed</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>CUP feasibility not confirmed — pre-app conference with SD County needed</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Price has not moved in 300+ days — either overpriced or a hidden issue</li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="https://www.landandfarm.com/property/rancho-cerca-del-cielo-32306682/" target="_blank" rel="noopener" class="inline-block text-sm font-semibold tracking-widest uppercase text-stone-700 border border-stone-300 px-6 py-3.5 hover:bg-stone-100 hover:border-stone-400 transition-colors">View Full Listing</a>
+      </div>
+
+      <hr class="border-stone-100" />
+
+      <!-- PROPERTY 7: Double Canyon Road — Price on Request -->
+      <div id="property-double-canyon">
+        <div class="flex flex-wrap items-start justify-between gap-6 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
+            <h2 class="serif text-3xl md:text-4xl font-normal text-stone-900">Double Canyon Road</h2>
+            <p class="text-lg text-stone-600 mt-1">Double Canyon Rd, Valley Center, CA 92082</p>
+          </div>
+          <div class="text-right">
+            <p class="serif text-3xl font-normal text-stone-900">Price on Request</p>
+            <p class="text-sm text-stone-600 mt-1">44.51 acres — 50 years single ownership</p>
+            <span class="inline-block mt-2 px-4 py-1.5 bg-stone-900 text-white text-xs font-semibold tracking-widest uppercase">Strong Candidate</span>
+          </div>
+        </div>
+
+        <div class="border border-stone-200 overflow-hidden mb-10">
+          <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=Double+Canyon+Rd,+Valley+Center,+CA+92082&z=14&t=k&output=embed"
+            title="Aerial view of Double Canyon Road, Valley Center, CA"></iframe>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Property Overview</p>
+            <p class="text-base text-stone-700 leading-relaxed">
+              44.51-acre well-established avocado grove in Valley Center, under single ownership for nearly 50 years. The sloped landscape and elevated homesite offer a strong visual entry experience. Long ownership history typically indicates good maintenance of agricultural infrastructure, water systems, and land health. Couser Canyon area of Valley Center is known for equestrian estates and active farming.
+            </p>
+          </div>
+          <div>
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-5">Key Details</p>
+            <div class="space-y-3 text-base text-stone-700">
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Acreage</span><span class="font-medium">44.51 acres</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Asking Price</span><span class="font-medium">Contact broker</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Zip Code</span><span class="font-medium">92082 (Valley Center)</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Land Use</span><span class="font-medium">Avocado grove (Ag)</span></div>
+              <div class="flex justify-between border-b border-stone-100 pb-2"><span>Ownership History</span><span class="font-medium">~50 years, single owner</span></div>
+              <div class="flex justify-between"><span>Listing Platform</span><span class="font-medium">LoopNet / Land.com</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-10">
+          <div class="border-l-4 border-stone-800 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Benefits</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Valley Center is in Couser Canyon sub-watershed — adjudicated water likely; verify with CalWATRS</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>50 years of agricultural operation strongly suggests a functioning well and water rights</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>44+ acres — ample space for clinic, housing, solar, and agriculture simultaneously</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Elevated homesite = views, natural beauty, reduced flood risk</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Valley Center equestrian community — primary target market is literally next door</li>
+              <li class="flex gap-3"><span class="font-bold text-stone-900 flex-shrink-0">+</span>Active avocado grove = immediate agricultural income; CUP application strengthened</li>
+            </ul>
+          </div>
+          <div class="border-l-4 border-stone-300 pl-6">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Concerns</p>
+            <ul class="space-y-3 text-base text-stone-700">
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Sloped terrain is a fire risk concern — fire travels uphill; slope orientation must be verified</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Price not disclosed — may be aggressively priced given grove maturity and location</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Valley Center (92082) has Very High Cal Fire FHSZ designation — standard mitigation required</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>Double Canyon Rd access must be verified — single-road canyon ingress is a disqualifier</li>
+              <li class="flex gap-3"><span class="font-medium text-stone-500 flex-shrink-0">—</span>CUP for vet clinic not confirmed — pre-app conference required</li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="https://www.loopnet.com/Listing/Double-Canyon-Rd-Valley-Center-CA/31183789/" target="_blank" rel="noopener" class="inline-block text-sm font-semibold tracking-widest uppercase text-stone-700 border border-stone-300 px-6 py-3.5 hover:bg-stone-100 hover:border-stone-400 transition-colors">View Full Listing</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER NOTE -->
+  <section class="py-16 px-6 bg-stone-50 border-t border-stone-200">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">Search Notes</p>
+      <p class="text-base text-stone-700 leading-relaxed max-w-3xl">
+        This page is updated every Saturday morning. All listings are screened against the project criteria before being posted. Minimum acreage expanded from 15 to 10 acres on Feb 24, 2026. Properties are sorted by asking price, lowest to highest. Water rights, fire history, and zoning feasibility require direct verification with San Diego County and a licensed real estate attorney before any offer is made. Prices and availability are current as of the date shown above.
+      </p>
+    </div>
+  </section>
+
+  <footer class="border-t border-stone-200 px-6 py-8">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
+      <span class="serif text-stone-700 text-base">Maison Vet</span>
+      <span class="text-sm text-stone-600">North San Diego County — maisonvet.com</span>
+    </div>
+  </footer>
+
+</body>
+</html>

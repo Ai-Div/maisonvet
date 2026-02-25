@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maison Vet Clinic</title>
+  <meta name="description" content="A vertically integrated veterinary clinic and compound in North San Diego County. Energy independence, senior water rights, and destination-tier medicine." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .serif { font-family: Georgia, Cambria, 'Times New Roman', serif; }
+    html { scroll-behavior: smooth; }
+    /* Base mobile font sizing — minimum 16px for all readable text */
+    body { font-size: 16px; }
+    @media (max-width: 768px) {
+      .mobile-base { font-size: 1rem !important; line-height: 1.75 !important; }
+      .mobile-label { font-size: 0.8125rem !important; }
+    }
+  </style>
+</head>
+<body class="bg-white text-stone-900 antialiased">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-b border-stone-200">
+    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+      <span class="serif text-lg font-normal tracking-wide text-stone-900">Maison Vet</span>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#opportunity" class="text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 transition-colors">Opportunity</a>
+        <a href="#pillars" class="text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 transition-colors">The Compound</a>
+        <a href="#capital" class="text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 transition-colors">Capital</a>
+        <a href="#location" class="text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 transition-colors">Location</a>
+        <a href="#financials" class="text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 transition-colors">Financials</a>
+        <a href="/properties/" class="text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 transition-colors">Properties</a>
+        <a href="/perris/" class="text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 transition-colors">Perris</a>
+        <a href="#contact" class="text-xs font-semibold tracking-widest uppercase text-white bg-stone-900 px-4 py-2 hover:bg-stone-700 transition-colors">Contact</a>
+      </div>
+
+      <!-- Mobile burger -->
+      <button id="nav-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Open menu" aria-expanded="false">
+        <span class="burger-line block w-6 h-0.5 bg-stone-900 transition-all duration-200"></span>
+        <span class="burger-line block w-6 h-0.5 bg-stone-900 transition-all duration-200"></span>
+        <span class="burger-line block w-6 h-0.5 bg-stone-900 transition-all duration-200"></span>
+      </button>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div id="nav-drawer" class="md:hidden hidden border-t border-stone-200 bg-white">
+      <div class="px-6 py-4 flex flex-col gap-0">
+        <a href="#opportunity" class="mobile-nav-link py-3.5 border-b border-stone-100 text-xs font-semibold tracking-widest uppercase text-stone-700">Opportunity</a>
+        <a href="#pillars" class="mobile-nav-link py-3.5 border-b border-stone-100 text-xs font-semibold tracking-widest uppercase text-stone-700">The Compound</a>
+        <a href="#capital" class="mobile-nav-link py-3.5 border-b border-stone-100 text-xs font-semibold tracking-widest uppercase text-stone-700">Capital</a>
+        <a href="#location" class="mobile-nav-link py-3.5 border-b border-stone-100 text-xs font-semibold tracking-widest uppercase text-stone-700">Location</a>
+        <a href="#financials" class="mobile-nav-link py-3.5 border-b border-stone-100 text-xs font-semibold tracking-widest uppercase text-stone-700">Financials</a>
+        <a href="/properties/" class="mobile-nav-link py-3.5 border-b border-stone-100 text-xs font-semibold tracking-widest uppercase text-stone-700">Properties</a>
+        <a href="/perris/" class="mobile-nav-link py-3.5 border-b border-stone-100 text-xs font-semibold tracking-widest uppercase text-stone-700">Perris</a>
+        <a href="#contact" class="mobile-nav-link py-3.5 text-xs font-semibold tracking-widest uppercase text-stone-900">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('nav-toggle');
+      var drawer = document.getElementById('nav-drawer');
+      var links = document.querySelectorAll('.mobile-nav-link');
+      function close() {
+        drawer.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+      toggle.addEventListener('click', function() {
+        var open = !drawer.classList.contains('hidden');
+        if (open) { close(); } else {
+          drawer.classList.remove('hidden');
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+      });
+      links.forEach(function(l) { l.addEventListener('click', close); });
+    })();
+  </script>
+
+  <!-- HERO -->
+  <section class="pt-36 pb-28 px-6">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-6">Maison Vet Clinic</p>
+      <h1 class="serif text-5xl md:text-8xl font-normal leading-none text-stone-900 mb-8">
+        Medicine, Land,<br/>Water &amp; Power.
+      </h1>
+      <p class="text-xl md:text-2xl text-stone-700 font-light max-w-xl leading-relaxed mb-10">
+        A vertically integrated veterinary clinic and compound — built on land we own, powered by energy we generate, and watered by rights that cannot be taken away.
+      </p>
+      <div class="flex items-center gap-6 text-sm font-semibold tracking-widest uppercase text-stone-600">
+        <span>Medicine</span>
+        <span class="w-8 h-px bg-stone-300"></span>
+        <span>Land</span>
+        <span class="w-8 h-px bg-stone-300"></span>
+        <span>Water</span>
+        <span class="w-8 h-px bg-stone-300"></span>
+        <span>Power</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="border-y border-stone-200 bg-stone-50 py-12 px-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div>
+        <p class="serif text-4xl md:text-5xl font-normal text-stone-900 mb-2">15–22</p>
+        <p class="text-sm font-semibold tracking-widest uppercase text-stone-600">Acres, Ag-Zoned</p>
+      </div>
+      <div>
+        <p class="serif text-4xl md:text-5xl font-normal text-stone-900 mb-2">75kW / 300kWh</p>
+        <p class="text-sm font-semibold tracking-widest uppercase text-stone-600">DC Solar + Na-Ion Storage</p>
+      </div>
+      <div>
+        <p class="serif text-4xl md:text-5xl font-normal text-stone-900 mb-2">50+ GPM</p>
+        <p class="text-sm font-semibold tracking-widest uppercase text-stone-600">Adjudicated Well</p>
+      </div>
+      <div>
+        <p class="serif text-4xl md:text-5xl font-normal text-stone-900 mb-2">$0</p>
+        <p class="text-sm font-semibold tracking-widest uppercase text-stone-600">Utility Bills by Year 2</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPPORTUNITY -->
+  <section id="opportunity" class="py-28 px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-start">
+      <div>
+        <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">The Opportunity</p>
+        <h2 class="serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-8">
+          A market with no modern option.
+        </h2>
+        <p class="text-lg text-stone-700 leading-relaxed mb-6">
+          North San Diego County — Pauma Valley, Valley Center, Fallbrook — is home to one of California's largest concentrations of equestrian estates, avocado farms, and high-net-worth rural households. The nearest advanced veterinary diagnostics are 45 minutes away.
+        </p>
+        <p class="text-lg text-stone-700 leading-relaxed mb-6">
+          No CT. No MRI. No after-hours emergency. No destination clinic. The new Fallbrook Costco and Whole Foods corridor signals the gravity shift — high-income households are moving in. Their animals need care that does not exist yet.
+        </p>
+        <p class="text-lg text-stone-700 leading-relaxed">
+          This is not a standard vet clinic startup. It is a compound — owned land, sovereign energy, senior water rights — with a high-margin medical anchor. The moat is the infrastructure, not just the medicine.
+        </p>
+      </div>
+      <div class="flex flex-col gap-10 pt-2">
+        <div class="border-l-2 border-stone-300 pl-6">
+          <p class="serif text-4xl font-normal text-stone-900 mb-2">0</p>
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-3">Advanced Diagnostic Vets Within 20 Miles</p>
+          <p class="text-base text-stone-700 leading-relaxed">Nearest CT/MRI-capable vet facility is 45+ minutes from the target area. First mover wins this market permanently.</p>
+        </div>
+        <div class="border-l-2 border-stone-300 pl-6">
+          <p class="serif text-4xl font-normal text-stone-900 mb-2">40%+</p>
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-3">Overhead Reduction vs. Industry Average</p>
+          <p class="text-base text-stone-700 leading-relaxed">AI workflows replace the junior receptionist and admin tier. Target: 1.2 support staff per DVM vs. the industry average of 2.5.</p>
+        </div>
+        <div class="border-l-2 border-stone-300 pl-6">
+          <p class="serif text-4xl font-normal text-stone-900 mb-2">100%</p>
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-3">Section 179 on Modular Construction</p>
+          <p class="text-base text-stone-700 leading-relaxed">Medical-grade modular structures qualify for full bonus depreciation. Significant tax alpha in year one of operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE PILLARS -->
+  <section id="pillars" class="py-28 px-6 bg-stone-50">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">Core Infrastructure</p>
+      <h2 class="serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-4 max-w-2xl">
+        Three owned assets underpin the entire operation.
+      </h2>
+      <p class="text-lg text-stone-700 max-w-xl leading-relaxed mb-16">Most businesses rent their land, buy power from the grid, and draw water from municipal sources. We own all three inputs.</p>
+
+      <div class="grid md:grid-cols-3 gap-px bg-stone-200">
+
+        <div class="bg-white p-10">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-2">Pillar One</p>
+          <h3 class="serif text-2xl font-normal text-stone-900 mb-4">Energy Independence</h3>
+          <p class="text-base text-stone-700 leading-relaxed mb-6">
+            A 75kW DC bifacial solar array paired with 300kWh Sodium-Ion battery storage. No utility bills. No grid fragility. When wildfire events knock out regional power, the compound stays fully operational — a critical advantage for a medical facility.
+          </p>
+          <ul class="text-sm text-stone-600 space-y-2">
+            <li class="flex gap-3"><span class="text-stone-400 select-none" aria-hidden="true">—</span>75kW DC ground-mount, bifacial solar</li>
+            <li class="flex gap-3"><span class="text-stone-400 select-none" aria-hidden="true">—</span>Sodium-Ion battery storage</li>
+            <li class="flex gap-3"><span class="text-stone-400 select-none" aria-hidden="true">—</span>VPP dispatch: $15–22K/year peak arbitrage</li>
+            <li class="flex gap-3"><span class="text-stone-400 select-none" aria-hidden="true">—</span>C-PACE financed (non-recourse)</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-10">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-2">Pillar Two</p>
+          <h3 class="serif text-2xl font-normal text-stone-900 mb-4">Water Rights</h3>
+          <p class="text-base text-stone-700 leading-relaxed mb-6">
+            Senior rights in an adjudicated basin. Legally quantified, first-priority, drought-protected. A 50+ GPM well that also serves as a fire suppression asset — a meaningful consideration for both insurers and lenders in a SoCal fire environment.
+          </p>
+          <ul class="text-sm text-stone-600 space-y-2">
+            <li class="flex gap-3"><span class="text-stone-400 select-none" aria-hidden="true">—</span>Adjudicated San Luis Rey watershed</li>
+            <li class="flex gap-3"><span class="text-stone-400 select-none" aria-hidden="true">—</span>Senior rights — first priority, drought-proof</li>
+            <li class="flex gap-3"><span class="text-stone-400 select-none" aria-hidden="true">—</span>50+ GPM verified by drawdown test</li>
+            <li class="flex gap-3"><span class="text-stone-400 select-none" aria-hidden="true">—</span>On-site storage for fire suppression</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-10">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-2">Pillar Three</p>
+          <h3 class="serif text-2xl font-normal text-stone-900 mb-4">Veterinary Clinic</h3>
+          <p class="text-base text-stone-700 leading-relaxed mb-6">
+            A 3,500–4,000 sq ft medical-grade modular clinic. CT and MRI capability that does not exist within 20 miles. Senior RVTs. AI-assisted triage and documentation. Designed for the equestrian and high-net-worth community of North San Diego County.
+          </p>
+          <ul class="text-sm text-stone-600 space-y-2">
+            <li class="flex gap-3"><span class="text-stone-400 select-none" aria-hidden="true">—</span>CT + MRI — first in the valley</li>
+            <li class="flex gap-3"><span class="text-stone-400 select-none" aria-hidden="true">—</span>Senior RVTs at +20% market rate</li>
+            <li class="flex gap-3"><span class="text-stone-400 select-none" aria-hidden="true">—</span>AI triage + voice-to-chart</li>
+            <li class="flex gap-3"><span class="text-stone-400 select-none" aria-hidden="true">—</span>Wellness plan subscription model</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE'RE BUILDING -->
+  <section class="py-28 px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">The Compound</p>
+      <h2 class="serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-16 max-w-xl">
+        15–22 acres.<br/>A complete operating system.
+      </h2>
+      <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+
+        <div class="border-t-2 border-stone-200 pt-8">
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-2">Medical Clinic</p>
+          <h3 class="serif text-2xl font-normal text-stone-900 mb-3">3,500–4,000 sq ft</h3>
+          <p class="text-base text-stone-700 leading-relaxed">Medical-grade modular construction. Multiple exam rooms, surgery suite, imaging bay (CT/MRI-ready), pharmacy, recovery ward. Class A fire rating. Qualifies for 100% Section 179 bonus depreciation in year one.</p>
+        </div>
+
+        <div class="border-t-2 border-stone-200 pt-8">
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-2">Energy Infrastructure</p>
+          <h3 class="serif text-2xl font-normal text-stone-900 mb-3">75kW DC Solar + 300kWh Na-Ion Storage</h3>
+          <p class="text-base text-stone-700 leading-relaxed">Right-sized for the compound footprint. 75kW DC qualifies as "Small Commercial" — simplified permitting, no Rule 21 utility-scale studies. Annual production ~135,000 kWh vs. ~95,000 kWh consumed, leaving 40,000 kWh surplus for VPP peak dispatch. The 4:1 battery-to-solar ratio is the key: the 300kWh tank fills during off-peak and sells back during SDG&E's 4–9 PM peak window. Gross project cost $412,500 — 30% ITC ($123,750) = $288,750 net. Financed 100% via C-PACE, non-recourse, property-assessed.</p>
+        </div>
+
+        <div class="border-t-2 border-stone-200 pt-8">
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-2">Staff Housing</p>
+          <h3 class="serif text-2xl font-normal text-stone-900 mb-3">Residence + Vet Cottage</h3>
+          <p class="text-base text-stone-700 leading-relaxed">Primary residence and on-site Vet Cottage for a senior RVT or resident DVM. On-site housing is a business expense for on-call medical personnel — and enables 24/7 emergency care capability that competitors cannot match.</p>
+        </div>
+
+        <div class="border-t-2 border-stone-200 pt-8">
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-2">Agricultural Operations</p>
+          <h3 class="serif text-2xl font-normal text-stone-900 mb-3">Food Forest + Aquaculture</h3>
+          <p class="text-base text-stone-700 leading-relaxed">Working agriculture using adjudicated well water. Generates ag income for favorable tax treatment of land. Supports the Ag-zoned classification and strengthens the Conditional Use Permit application for the medical use.</p>
+        </div>
+
+        <div class="border-t-2 border-stone-200 pt-8">
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-2">AI Clinical Systems</p>
+          <h3 class="serif text-2xl font-normal text-stone-900 mb-3">Agentic Workflows</h3>
+          <p class="text-base text-stone-700 leading-relaxed">AI triage, voice-to-chart documentation, automated inventory, and appointment management replace the junior admin tier. Target staffing ratio: 1.2 support staff per DVM versus the industry average of 2.5.</p>
+        </div>
+
+        <div class="border-t-2 border-stone-200 pt-8">
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-2">Connectivity</p>
+          <h3 class="serif text-2xl font-normal text-stone-900 mb-3">Starlink 4.0 + Edge Compute</h3>
+          <p class="text-base text-stone-700 leading-relaxed">Starlink 4.0 primary with local fiber backhaul. On-premise edge compute for low-latency AI clinical workflows. Fully operational during grid outages — the solar and battery system keeps everything running when the surrounding area cannot.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPITAL -->
+  <section id="capital" class="py-28 px-6 bg-stone-50">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">Capital Architecture</p>
+      <h2 class="serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-4 max-w-2xl">
+        Multi-tranche. Each piece optimized independently.
+      </h2>
+      <p class="text-lg text-stone-700 max-w-xl leading-relaxed mb-16">The structure allows each major asset class to use its ideal financing vehicle. Senior ag lending, SBA 504, C-PACE, and equipment financing run in parallel — not in competition.</p>
+
+      <div class="bg-white border border-stone-200 overflow-hidden mb-10">
+        <div class="hidden md:grid grid-cols-4 text-xs font-semibold tracking-widest uppercase text-stone-600 border-b border-stone-200 px-6 py-4 bg-stone-100">
+          <span>Component</span>
+          <span>Vehicle</span>
+          <span>Range</span>
+          <span>Key Advantage</span>
+        </div>
+        <div class="divide-y divide-stone-100">
+          <div class="grid md:grid-cols-4 gap-2 md:gap-0 px-6 py-5 hover:bg-stone-50 transition-colors">
+            <span class="text-base text-stone-900 font-semibold md:font-normal">Land Acquisition</span>
+            <span class="text-base text-stone-700">Ag Commercial Loan</span>
+            <span class="text-base text-stone-700">$1M – $3M</span>
+            <span class="text-sm text-stone-600 leading-relaxed">Ag lenders understand rural land value; strong collateral basis</span>
+          </div>
+          <div class="grid md:grid-cols-4 gap-2 md:gap-0 px-6 py-5 hover:bg-stone-50 transition-colors">
+            <span class="text-base text-stone-900 font-semibold md:font-normal">Modular Clinic</span>
+            <span class="text-base text-stone-700">SBA 504 via CDC</span>
+            <span class="text-base text-stone-700">Up to $5.5M</span>
+            <span class="text-sm text-stone-600 leading-relaxed">20-year fixed rate; Rural Initiative pilot available</span>
+          </div>
+          <div class="grid md:grid-cols-4 gap-2 md:gap-0 px-6 py-5 hover:bg-stone-50 transition-colors">
+            <span class="text-base text-stone-900 font-semibold md:font-normal">Solar + Battery</span>
+            <span class="text-base text-stone-700">C-PACE</span>
+            <span class="text-base text-stone-700">$412,500 gross / $288,750 net ITC</span>
+            <span class="text-sm text-stone-600 leading-relaxed">Non-recourse; 100% financed; property-assessed; $60K/yr net benefit</span>
+          </div>
+          <div class="grid md:grid-cols-4 gap-2 md:gap-0 px-6 py-5 hover:bg-stone-50 transition-colors">
+            <span class="text-base text-stone-900 font-semibold md:font-normal">CT / MRI Equipment</span>
+            <span class="text-base text-stone-700">Equipment Lease</span>
+            <span class="text-base text-stone-700">$500K – $2M</span>
+            <span class="text-sm text-stone-600 leading-relaxed">Off-balance-sheet; or 100% bonus depreciation if purchased</span>
+          </div>
+          <div class="grid md:grid-cols-4 gap-2 md:gap-0 px-6 py-5 hover:bg-stone-50 transition-colors">
+            <span class="text-base text-stone-900 font-semibold md:font-normal">Working Capital</span>
+            <span class="text-base text-stone-700">USDA B&amp;I / SBA 7(a)</span>
+            <span class="text-base text-stone-700">$250K – $1M</span>
+            <span class="text-sm text-stone-600 leading-relaxed">Rural business guarantee; lower rate; longer term</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-px bg-stone-200">
+        <div class="bg-white px-8 py-8">
+          <p class="serif text-4xl font-normal text-stone-900 mb-2">$5M – $15M</p>
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600">Total Structured Facility</p>
+        </div>
+        <div class="bg-white px-8 py-8">
+          <p class="serif text-4xl font-normal text-stone-900 mb-2">100%</p>
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600">Section 179 on Modular Build</p>
+        </div>
+        <div class="bg-white px-8 py-8">
+          <p class="serif text-4xl font-normal text-stone-900 mb-2">~25 mo</p>
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600">Projected Break-Even Post-Launch</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location" class="py-28 px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">Location Strategy</p>
+      <h2 class="serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-4 max-w-2xl">
+        Natural beauty. Fire risk acknowledged. Engineered around.
+      </h2>
+      <p class="text-lg text-stone-700 max-w-xl leading-relaxed mb-16">Pauma Valley and Valley Center offer everything this project demands — land scale, water infrastructure, natural landscape, and the client base. SoCal fire risk is real. It is not being ignored.</p>
+
+      <div class="grid md:grid-cols-2 gap-16 mb-12">
+        <div>
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-6">Site Requirements</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-4 text-base text-stone-700"><span class="text-stone-500 mt-0.5 font-semibold select-none" aria-hidden="true">+</span>15–22 acres, Ag-zoned (SD County A70/A72)</li>
+            <li class="flex items-start gap-4 text-base text-stone-700"><span class="text-stone-500 mt-0.5 font-semibold select-none" aria-hidden="true">+</span>Adjudicated water basin — CalWATRS senior rights verified</li>
+            <li class="flex items-start gap-4 text-base text-stone-700"><span class="text-stone-500 mt-0.5 font-semibold select-none" aria-hidden="true">+</span>Well production at or above 50 GPM via 4-hour drawdown test</li>
+            <li class="flex items-start gap-4 text-base text-stone-700"><span class="text-stone-500 mt-0.5 font-semibold select-none" aria-hidden="true">+</span>CUP feasibility pre-confirmed with SD County Planning</li>
+            <li class="flex items-start gap-4 text-base text-stone-700"><span class="text-stone-500 mt-0.5 font-semibold select-none" aria-hidden="true">+</span>Two independent egress routes off the property</li>
+            <li class="flex items-start gap-4 text-base text-stone-700"><span class="text-stone-500 mt-0.5 font-semibold select-none" aria-hidden="true">+</span>Outside perimeters of the 2003, 2007, and 2018 regional fires</li>
+            <li class="flex items-start gap-4 text-base text-stone-700"><span class="text-stone-500 mt-0.5 font-semibold select-none" aria-hidden="true">+</span>Cal Fire station within 15 minutes</li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-6">What We Are Looking For</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-4 text-base text-stone-700"><span class="text-stone-500 mt-0.5 font-semibold select-none" aria-hidden="true">+</span>Natural beauty — ridgeline, valley, or avocado grove setting</li>
+            <li class="flex items-start gap-4 text-base text-stone-700"><span class="text-stone-500 mt-0.5 font-semibold select-none" aria-hidden="true">+</span>Within 45 minutes of the Fallbrook corridor</li>
+            <li class="flex items-start gap-4 text-base text-stone-700"><span class="text-stone-500 mt-0.5 font-semibold select-none" aria-hidden="true">+</span>No advanced-diagnostic vet clinic within 15 miles</li>
+            <li class="flex items-start gap-4 text-base text-stone-700"><span class="text-stone-500 mt-0.5 font-semibold select-none" aria-hidden="true">+</span>Equestrian-friendly access — wide road, trailer clearance</li>
+            <li class="flex items-start gap-4 text-base text-stone-700"><span class="text-stone-500 mt-0.5 font-semibold select-none" aria-hidden="true">+</span>Existing structures preferred (reduces CUP complexity)</li>
+            <li class="flex items-start gap-4 text-base text-stone-700"><span class="text-stone-500 mt-0.5 font-semibold select-none" aria-hidden="true">+</span>Starlink line-of-sight clearance or fiber available</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-l-4 border-stone-800 bg-stone-100 p-8">
+        <p class="text-sm font-semibold tracking-widest uppercase text-stone-700 mb-3">Fire Risk — Real. Engineered Around.</p>
+        <p class="text-base text-stone-800 leading-relaxed mb-5">Both target zip codes (92061, 92082) carry Cal Fire's Very High to Extreme FHSZ designation. This is a known variable — not a disqualifier — addressed structurally at every layer of the project.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-sm px-3 py-1.5 border border-stone-400 text-stone-800 bg-white font-medium">100 ft+ Defensible Space</span>
+          <span class="text-sm px-3 py-1.5 border border-stone-400 text-stone-800 bg-white font-medium">Class A Modular Construction</span>
+          <span class="text-sm px-3 py-1.5 border border-stone-400 text-stone-800 bg-white font-medium">On-site Water for Suppression</span>
+          <span class="text-sm px-3 py-1.5 border border-stone-400 text-stone-800 bg-white font-medium">Solar Off-Grid During Outages</span>
+          <span class="text-sm px-3 py-1.5 border border-stone-400 text-stone-800 bg-white font-medium">Two Egress Routes Required</span>
+          <span class="text-sm px-3 py-1.5 border border-stone-400 text-stone-800 bg-white font-medium">FAIR Plan + Surplus Lines Insurance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="py-28 px-6 bg-stone-50">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">Execution Plan</p>
+      <h2 class="serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-16 max-w-xl">
+        24 months.<br/>Four phases. No shortcuts.
+      </h2>
+      <div class="grid md:grid-cols-4 gap-px bg-stone-200">
+
+        <div class="bg-stone-900 p-8">
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-300 mb-2">Now — Month 6</p>
+          <h3 class="serif text-2xl font-normal text-white mb-1">Capital and Land</h3>
+          <p class="text-sm text-stone-400 font-medium mb-6">Current phase</p>
+          <ul class="text-base text-stone-300 space-y-3">
+            <li class="flex gap-3"><span class="text-stone-600 select-none" aria-hidden="true">—</span>Capital facility structured</li>
+            <li class="flex gap-3"><span class="text-stone-600 select-none" aria-hidden="true">—</span>Land under contract</li>
+            <li class="flex gap-3"><span class="text-stone-600 select-none" aria-hidden="true">—</span>Water rights verified</li>
+            <li class="flex gap-3"><span class="text-stone-600 select-none" aria-hidden="true">—</span>CUP pre-application filed</li>
+            <li class="flex gap-3"><span class="text-stone-600 select-none" aria-hidden="true">—</span>Legal entities formed</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-8">
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-2">Months 7–18</p>
+          <h3 class="serif text-2xl font-normal text-stone-900 mb-1">Infrastructure</h3>
+          <p class="text-sm text-stone-500 font-medium mb-6">Phase Two</p>
+          <ul class="text-base text-stone-700 space-y-3">
+            <li class="flex gap-3"><span class="text-stone-300 select-none" aria-hidden="true">—</span>Solar microgrid installed</li>
+            <li class="flex gap-3"><span class="text-stone-300 select-none" aria-hidden="true">—</span>Modular clinic erected</li>
+            <li class="flex gap-3"><span class="text-stone-300 select-none" aria-hidden="true">—</span>Residence and Vet Cottage complete</li>
+            <li class="flex gap-3"><span class="text-stone-300 select-none" aria-hidden="true">—</span>Edge compute and Starlink live</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-8">
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-2">Months 19–21</p>
+          <h3 class="serif text-2xl font-normal text-stone-900 mb-1">Systems and Staff</h3>
+          <p class="text-sm text-stone-500 font-medium mb-6">Phase Three</p>
+          <ul class="text-base text-stone-700 space-y-3">
+            <li class="flex gap-3"><span class="text-stone-300 select-none" aria-hidden="true">—</span>AI workflows deployed</li>
+            <li class="flex gap-3"><span class="text-stone-300 select-none" aria-hidden="true">—</span>Senior RVTs hired</li>
+            <li class="flex gap-3"><span class="text-stone-300 select-none" aria-hidden="true">—</span>Agriculture operations started</li>
+            <li class="flex gap-3"><span class="text-stone-300 select-none" aria-hidden="true">—</span>Soft beta open</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-8">
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-2">Months 22–24</p>
+          <h3 class="serif text-2xl font-normal text-stone-900 mb-1">Launch</h3>
+          <p class="text-sm text-stone-500 font-medium mb-6">Phase Four</p>
+          <ul class="text-base text-stone-700 space-y-3">
+            <li class="flex gap-3"><span class="text-stone-300 select-none" aria-hidden="true">—</span>Grand opening</li>
+            <li class="flex gap-3"><span class="text-stone-300 select-none" aria-hidden="true">—</span>CT and MRI live</li>
+            <li class="flex gap-3"><span class="text-stone-300 select-none" aria-hidden="true">—</span>Equestrian outreach</li>
+            <li class="flex gap-3"><span class="text-stone-300 select-none" aria-hidden="true">—</span>Wellness plans launched</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="py-28 px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">The Team</p>
+      <h2 class="serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-16 max-w-xl">
+        Three operators.<br/>Medicine, execution, and architecture.
+      </h2>
+      <div class="grid md:grid-cols-3 gap-px bg-stone-200">
+        <div class="bg-white p-10">
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">Veterinary Medicine</p>
+          <h3 class="serif text-3xl font-normal text-stone-900 mb-4">Emily Gray, DVM</h3>
+          <p class="text-base text-stone-700 leading-relaxed mb-4">Licensed Doctor of Veterinary Medicine with a career built entirely around horses before and through veterinary school. Prior to her DVM, Emily worked under <strong>Tatum Rice</strong> at <strong>T/K Cutting Horses</strong> in Weatherford, Texas — the cutting horse capital of the world, and one of the most decorated NCHA operations in the sport (Open World Champion, Open Riders Hall of Fame, nearly $3M in career earnings). She also spent time as part of the horse care team at <strong>Disneyland, Anaheim</strong> — a role demanding clinical precision, multi-discipline animal handling, and zero margin for error.</p>
+          <p class="text-base text-stone-700 leading-relaxed">This background is the reason Maison Vet has a built-in reputation before it opens. Emily's network spans elite performance horse owners, trainers, and the broader equestrian community of Southern California. She oversees all clinical planning, regulatory licensing, medical equipment specification, and staffing protocols.</p>
+        </div>
+        <div class="bg-white p-10">
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">Operations</p>
+          <h3 class="serif text-3xl font-normal text-stone-900 mb-4">Rachael Gray</h3>
+          <p class="text-base text-stone-700 leading-relaxed">Operations Manager with a background in running multi-location, high-end service businesses — including Laicale Salon in SoHo, NYC, one of the most recognized names in the industry. Brings the systems thinking, client experience standards, and operational discipline required to run a premium destination clinic at scale.</p>
+        </div>
+        <div class="bg-white p-10">
+          <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">Infrastructure and Capital</p>
+          <h3 class="serif text-3xl font-normal text-stone-900 mb-4">Tim Hobert</h3>
+          <p class="text-base text-stone-700 leading-relaxed">Owner of div.digital, an AI consulting and technology firm serving enterprise clients across Orange County and San Diego. Economics background. Leads capital structure, digital systems architecture, and AI workflow implementation for the compound. Currently deploying agentic AI systems in production across multiple industries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <!-- FINANCIAL PROJECTIONS -->
+  <section id="financials" class="py-28 px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">Financial Model</p>
+      <h2 class="serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-4 max-w-2xl">
+        Financial Projections
+      </h2>
+      <p class="text-lg text-stone-700 max-w-xl leading-relaxed mb-16">Built from current market data. Conservative in year one, realistic from year two onward. Verified assumptions listed below each table.</p>
+
+      <!-- USE OF FUNDS -->
+      <div class="mb-20">
+        <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-6">Use of Funds — Total Capital Required</p>
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[640px] border-collapse text-base">
+            <thead>
+              <tr class="bg-stone-900 text-left">
+                <th class="px-5 py-3 text-xs font-semibold tracking-widest uppercase text-stone-300">Item</th>
+                <th class="px-5 py-3 text-xs font-semibold tracking-widest uppercase text-stone-300">Amount</th>
+                <th class="px-5 py-3 text-xs font-semibold tracking-widest uppercase text-stone-300">Source</th>
+                <th class="px-5 py-3 text-xs font-semibold tracking-widest uppercase text-stone-300">Rate / Term</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-100">
+              <tr class="hover:bg-stone-50"><td class="px-5 py-4 text-stone-800 font-medium">Land Acquisition (15–22 ac)</td><td class="px-5 py-4 text-stone-700">$2,000,000</td><td class="px-5 py-4 text-stone-700">Ag Commercial Loan</td><td class="px-5 py-4 text-stone-600">7.0% / 20 yr</td></tr>
+              <tr class="hover:bg-stone-50"><td class="px-5 py-4 text-stone-800 font-medium">Modular Clinic (3,500 sq ft)</td><td class="px-5 py-4 text-stone-700">$1,750,000</td><td class="px-5 py-4 text-stone-700">SBA 504</td><td class="px-5 py-4 text-stone-600">5.8% / 20 yr (fixed)</td></tr>
+              <tr class="hover:bg-stone-50"><td class="px-5 py-4 text-stone-800 font-medium">Staff Housing (2 units, modular)</td><td class="px-5 py-4 text-stone-700">$400,000</td><td class="px-5 py-4 text-stone-700">SBA 504 (combined)</td><td class="px-5 py-4 text-stone-600">5.8% / 20 yr (fixed)</td></tr>
+              <tr class="hover:bg-stone-50"><td class="px-5 py-4 text-stone-800 font-medium">Solar + Battery (75kW / 300kWh)</td><td class="px-5 py-4 text-stone-700">$412,500 gross</td><td class="px-5 py-4 text-stone-700">C-PACE (post-ITC: $288,750)</td><td class="px-5 py-4 text-stone-600">7.5% / 20 yr</td></tr>
+              <tr class="hover:bg-stone-50"><td class="px-5 py-4 text-stone-800 font-medium">CT Scanner (16-slice, new)</td><td class="px-5 py-4 text-stone-700">$210,000</td><td class="px-5 py-4 text-stone-700">Equipment Lease</td><td class="px-5 py-4 text-stone-600">7.0% / 5 yr</td></tr>
+              <tr class="hover:bg-stone-50"><td class="px-5 py-4 text-stone-800 font-medium">General Medical Equipment</td><td class="px-5 py-4 text-stone-700">$140,000</td><td class="px-5 py-4 text-stone-700">Equipment Lease</td><td class="px-5 py-4 text-stone-600">7.0% / 5 yr</td></tr>
+              <tr class="hover:bg-stone-50"><td class="px-5 py-4 text-stone-800 font-medium">Site Prep, CUP, Permitting</td><td class="px-5 py-4 text-stone-700">$150,000</td><td class="px-5 py-4 text-stone-700">Working Capital</td><td class="px-5 py-4 text-stone-600">6.0% / 10 yr</td></tr>
+              <tr class="hover:bg-stone-50"><td class="px-5 py-4 text-stone-800 font-medium">Operating Reserve</td><td class="px-5 py-4 text-stone-700">$300,000</td><td class="px-5 py-4 text-stone-700">USDA B&amp;I / Cash</td><td class="px-5 py-4 text-stone-600">6.0% / 10 yr</td></tr>
+              <tr class="bg-stone-100"><td class="px-5 py-4 text-stone-900 font-semibold">Total Project</td><td class="px-5 py-4 text-stone-900 font-semibold">$5,362,500</td><td class="px-5 py-4 text-stone-600 text-sm" colspan="2">100% debt-financed across five vehicles. No equity dilution required at project inception.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-stone-500 mt-3">MRI added in Year 3 via equipment lease ($250K). Not included in initial capital stack.</p>
+      </div>
+
+      <!-- ENERGY ECONOMICS -->
+      <div class="mb-20">
+        <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-6">Solar and Battery System</p>
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+          <div class="bg-stone-50 p-8">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">Capital Expenditure</p>
+            <div class="space-y-3 text-base">
+              <div class="flex justify-between border-b border-stone-200 pb-2 text-stone-700"><span>Solar Array (75kW DC, bifacial)</span><span class="font-medium">$172,500</span></div>
+              <div class="flex justify-between border-b border-stone-200 pb-2 text-stone-700"><span>Na-Ion Storage (300kWh)</span><span class="font-medium">$165,000</span></div>
+              <div class="flex justify-between border-b border-stone-200 pb-2 text-stone-700"><span>Microgrid / Inverter Set</span><span class="font-medium">$45,000</span></div>
+              <div class="flex justify-between border-b border-stone-200 pb-2 text-stone-700"><span>Soft Costs / Permitting</span><span class="font-medium">$30,000</span></div>
+              <div class="flex justify-between border-b border-stone-200 pb-2 text-stone-700 font-medium"><span>Gross Project Cost</span><span>$412,500</span></div>
+              <div class="flex justify-between border-b border-stone-200 pb-2 text-stone-700"><span>30% Federal ITC</span><span class="font-medium">($123,750)</span></div>
+              <div class="flex justify-between text-stone-900 font-semibold"><span>Net Cost (C-PACE financed)</span><span>$288,750</span></div>
+            </div>
+          </div>
+          <div class="bg-stone-50 p-8">
+            <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">Annual Economics</p>
+            <div class="space-y-3 text-base">
+              <div class="flex justify-between border-b border-stone-200 pb-2 text-stone-700"><span>Annual Production</span><span class="font-medium">135,000 kWh</span></div>
+              <div class="flex justify-between border-b border-stone-200 pb-2 text-stone-700"><span>Annual Consumption</span><span class="font-medium">95,000 kWh</span></div>
+              <div class="flex justify-between border-b border-stone-200 pb-2 text-stone-700"><span>Net Surplus (VPP dispatch)</span><span class="font-medium">40,000 kWh</span></div>
+              <div class="flex justify-between border-b border-stone-200 pb-2 text-stone-700"><span>Bill Savings (avoided cost)</span><span class="font-medium">$42,750 / yr</span></div>
+              <div class="flex justify-between border-b border-stone-200 pb-2 text-stone-700"><span>VPP Peak Arbitrage</span><span class="font-medium">$15,000–$22,000 / yr</span></div>
+              <div class="flex justify-between border-b border-stone-200 pb-2 text-stone-700 font-medium"><span>Gross Annual Benefit</span><span>~$60,000 / yr</span></div>
+              <div class="flex justify-between border-b border-stone-200 pb-2 text-stone-700"><span>C-PACE Payment (20 yr @ 7.5%)</span><span class="font-medium">($40,200) / yr</span></div>
+              <div class="flex justify-between text-stone-900 font-semibold"><span>Annual Net Profit</span><span>~$20,000 / yr</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[560px] border-collapse text-base">
+            <thead>
+              <tr class="bg-stone-100 text-left">
+                <th class="px-5 py-3 text-xs font-semibold tracking-widest uppercase text-stone-600">Metric</th>
+                <th class="px-5 py-3 text-xs font-semibold tracking-widest uppercase text-stone-600">250kW (Overkill)</th>
+                <th class="px-5 py-3 text-xs font-semibold tracking-widest uppercase text-stone-600 bg-stone-900 text-stone-300">75kW Selected</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-100">
+              <tr><td class="px-5 py-3 text-stone-700">Upfront Cost</td><td class="px-5 py-3 text-stone-600">$975,000</td><td class="px-5 py-3 text-stone-900 font-medium bg-stone-50">$412,500</td></tr>
+              <tr><td class="px-5 py-3 text-stone-700">Complexity</td><td class="px-5 py-3 text-stone-600">Utility-grade (Rule 21)</td><td class="px-5 py-3 text-stone-900 font-medium bg-stone-50">Small Commercial (Fast Track)</td></tr>
+              <tr><td class="px-5 py-3 text-stone-700">Land Required</td><td class="px-5 py-3 text-stone-600">~1 acre</td><td class="px-5 py-3 text-stone-900 font-medium bg-stone-50">4,500–5,000 sq ft</td></tr>
+              <tr><td class="px-5 py-3 text-stone-700">Annual Net Profit</td><td class="px-5 py-3 text-stone-600">~$21,000</td><td class="px-5 py-3 text-stone-900 font-medium bg-stone-50">~$20,000</td></tr>
+              <tr><td class="px-5 py-3 text-stone-700">ROI Efficiency</td><td class="px-5 py-3 text-stone-600">Lower (diminishing returns)</td><td class="px-5 py-3 text-stone-900 font-medium bg-stone-50">Maximum</td></tr>
+              <tr><td class="px-5 py-3 text-stone-700">Grid Resilience</td><td class="px-5 py-3 text-stone-600">3+ days</td><td class="px-5 py-3 text-stone-900 font-medium bg-stone-50">3+ days (same battery)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-stone-500 mt-3">At 75kW, the system stays under the "Small Generator" threshold, avoiding expensive SDG&E transformer upgrades required on 250kW+ systems. Same resilience outcome at 58% of the capital cost.</p>
+      </div>
+
+      <!-- P&L PROJECTION -->
+      <div class="mb-20">
+        <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-2">Profit and Loss Projection — Years 1–10</p>
+        <p class="text-base text-stone-600 mb-6 max-w-2xl">Year 1 is a ramp year (clinic opens month 22 of project). Negative net income in Year 1 is expected and offset by ~$2M in Section 179 accelerated depreciation (significant tax benefit). All figures in USD thousands.</p>
+        <div class="overflow-x-auto -mx-6 px-6">
+          <table class="w-full min-w-[900px] border-collapse text-sm">
+            <thead>
+              <tr class="bg-stone-900 text-left">
+                <th class="px-4 py-3 text-xs font-semibold tracking-widest uppercase text-stone-300 sticky left-0 bg-stone-900 min-w-[160px]">USD Thousands</th>
+                <th class="px-4 py-3 text-xs font-semibold tracking-widest uppercase text-stone-400">Yr 1</th>
+                <th class="px-4 py-3 text-xs font-semibold tracking-widest uppercase text-stone-400">Yr 2</th>
+                <th class="px-4 py-3 text-xs font-semibold tracking-widest uppercase text-stone-400">Yr 3</th>
+                <th class="px-4 py-3 text-xs font-semibold tracking-widest uppercase text-stone-400">Yr 4</th>
+                <th class="px-4 py-3 text-xs font-semibold tracking-widest uppercase text-stone-400">Yr 5</th>
+                <th class="px-4 py-3 text-xs font-semibold tracking-widest uppercase text-stone-400">Yr 6</th>
+                <th class="px-4 py-3 text-xs font-semibold tracking-widest uppercase text-stone-400">Yr 7</th>
+                <th class="px-4 py-3 text-xs font-semibold tracking-widest uppercase text-stone-400">Yr 8</th>
+                <th class="px-4 py-3 text-xs font-semibold tracking-widest uppercase text-stone-400">Yr 9</th>
+                <th class="px-4 py-3 text-xs font-semibold tracking-widest uppercase text-stone-400">Yr 10</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-stone-100 bg-stone-50">
+                <td class="px-4 py-3 text-stone-700 font-semibold sticky left-0 bg-stone-50">Clinical Revenue</td>
+                <td class="px-4 py-3 text-stone-700">$666</td><td class="px-4 py-3 text-stone-700">$1,386</td><td class="px-4 py-3 text-stone-700">$2,070</td><td class="px-4 py-3 text-stone-700">$2,499</td><td class="px-4 py-3 text-stone-700">$2,808</td><td class="px-4 py-3 text-stone-700">$3,033</td><td class="px-4 py-3 text-stone-700">$3,276</td><td class="px-4 py-3 text-stone-700">$3,538</td><td class="px-4 py-3 text-stone-700">$3,821</td><td class="px-4 py-3 text-stone-700">$4,127</td>
+              </tr>
+              <tr class="border-b border-stone-100">
+                <td class="px-4 py-3 text-stone-600 sticky left-0 bg-white">Wellness Subscriptions</td>
+                <td class="px-4 py-3 text-stone-600">$18</td><td class="px-4 py-3 text-stone-600">$90</td><td class="px-4 py-3 text-stone-600">$198</td><td class="px-4 py-3 text-stone-600">$297</td><td class="px-4 py-3 text-stone-600">$432</td><td class="px-4 py-3 text-stone-600">$540</td><td class="px-4 py-3 text-stone-600">$648</td><td class="px-4 py-3 text-stone-600">$756</td><td class="px-4 py-3 text-stone-600">$864</td><td class="px-4 py-3 text-stone-600">$972</td>
+              </tr>
+              <tr class="border-b border-stone-100">
+                <td class="px-4 py-3 text-stone-600 sticky left-0 bg-white">CT / Imaging Revenue</td>
+                <td class="px-4 py-3 text-stone-600">—</td><td class="px-4 py-3 text-stone-600">—</td><td class="px-4 py-3 text-stone-600">$150</td><td class="px-4 py-3 text-stone-600">$221</td><td class="px-4 py-3 text-stone-600">$297</td><td class="px-4 py-3 text-stone-600">$356</td><td class="px-4 py-3 text-stone-600">$428</td><td class="px-4 py-3 text-stone-600">$513</td><td class="px-4 py-3 text-stone-600">$616</td><td class="px-4 py-3 text-stone-600">$739</td>
+              </tr>
+              <tr class="border-b border-stone-100">
+                <td class="px-4 py-3 text-stone-600 sticky left-0 bg-white">Energy (savings + VPP)</td>
+                <td class="px-4 py-3 text-stone-600">$60</td><td class="px-4 py-3 text-stone-600">$62</td><td class="px-4 py-3 text-stone-600">$62</td><td class="px-4 py-3 text-stone-600">$64</td><td class="px-4 py-3 text-stone-600">$65</td><td class="px-4 py-3 text-stone-600">$67</td><td class="px-4 py-3 text-stone-600">$67</td><td class="px-4 py-3 text-stone-600">$68</td><td class="px-4 py-3 text-stone-600">$69</td><td class="px-4 py-3 text-stone-600">$70</td>
+              </tr>
+              <tr class="border-b-2 border-stone-300 bg-stone-50">
+                <td class="px-4 py-3 text-stone-900 font-semibold sticky left-0 bg-stone-50">Total Revenue</td>
+                <td class="px-4 py-3 font-semibold text-stone-900">$744</td><td class="px-4 py-3 font-semibold text-stone-900">$1,538</td><td class="px-4 py-3 font-semibold text-stone-900">$2,480</td><td class="px-4 py-3 font-semibold text-stone-900">$3,081</td><td class="px-4 py-3 font-semibold text-stone-900">$3,602</td><td class="px-4 py-3 font-semibold text-stone-900">$3,996</td><td class="px-4 py-3 font-semibold text-stone-900">$4,419</td><td class="px-4 py-3 font-semibold text-stone-900">$4,875</td><td class="px-4 py-3 font-semibold text-stone-900">$5,370</td><td class="px-4 py-3 font-semibold text-stone-900">$5,908</td>
+              </tr>
+              <tr class="border-b border-stone-100">
+                <td class="px-4 py-3 text-stone-600 sticky left-0 bg-white">Medical Supplies (22% rev)</td>
+                <td class="px-4 py-3 text-stone-600">($147)</td><td class="px-4 py-3 text-stone-600">($305)</td><td class="px-4 py-3 text-stone-600">($456)</td><td class="px-4 py-3 text-stone-600">($551)</td><td class="px-4 py-3 text-stone-600">($618)</td><td class="px-4 py-3 text-stone-600">($668)</td><td class="px-4 py-3 text-stone-600">($738)</td><td class="px-4 py-3 text-stone-600">($815)</td><td class="px-4 py-3 text-stone-600">($899)</td><td class="px-4 py-3 text-stone-600">($990)</td>
+              </tr>
+              <tr class="border-b border-stone-100">
+                <td class="px-4 py-3 text-stone-600 sticky left-0 bg-white">Personnel</td>
+                <td class="px-4 py-3 text-stone-600">($380)</td><td class="px-4 py-3 text-stone-600">($430)</td><td class="px-4 py-3 text-stone-600">($520)</td><td class="px-4 py-3 text-stone-600">($600)</td><td class="px-4 py-3 text-stone-600">($700)</td><td class="px-4 py-3 text-stone-600">($784)</td><td class="px-4 py-3 text-stone-600">($878)</td><td class="px-4 py-3 text-stone-600">($983)</td><td class="px-4 py-3 text-stone-600">($1,101)</td><td class="px-4 py-3 text-stone-600">($1,233)</td>
+              </tr>
+              <tr class="border-b border-stone-100">
+                <td class="px-4 py-3 text-stone-600 sticky left-0 bg-white">Insurance + Other OPEX</td>
+                <td class="px-4 py-3 text-stone-600">($140)</td><td class="px-4 py-3 text-stone-600">($130)</td><td class="px-4 py-3 text-stone-600">($130)</td><td class="px-4 py-3 text-stone-600">($135)</td><td class="px-4 py-3 text-stone-600">($145)</td><td class="px-4 py-3 text-stone-600">($150)</td><td class="px-4 py-3 text-stone-600">($155)</td><td class="px-4 py-3 text-stone-600">($160)</td><td class="px-4 py-3 text-stone-600">($165)</td><td class="px-4 py-3 text-stone-600">($170)</td>
+              </tr>
+              <tr class="border-b-2 border-stone-300 bg-stone-50">
+                <td class="px-4 py-3 text-stone-900 font-semibold sticky left-0 bg-stone-50">EBITDA</td>
+                <td class="px-4 py-3 font-semibold text-stone-900">$77</td><td class="px-4 py-3 font-semibold text-stone-900">$673</td><td class="px-4 py-3 font-semibold text-stone-900">$1,374</td><td class="px-4 py-3 font-semibold text-stone-900">$1,795</td><td class="px-4 py-3 font-semibold text-stone-900">$2,139</td><td class="px-4 py-3 font-semibold text-stone-900">$2,394</td><td class="px-4 py-3 font-semibold text-stone-900">$2,648</td><td class="px-4 py-3 font-semibold text-stone-900">$2,917</td><td class="px-4 py-3 font-semibold text-stone-900">$3,205</td><td class="px-4 py-3 font-semibold text-stone-900">$3,515</td>
+              </tr>
+              <tr class="border-b border-stone-100">
+                <td class="px-4 py-3 text-stone-600 sticky left-0 bg-white">Total Debt Service</td>
+                <td class="px-4 py-3 text-stone-600">($534)</td><td class="px-4 py-3 text-stone-600">($534)</td><td class="px-4 py-3 text-stone-600">($534)</td><td class="px-4 py-3 text-stone-600">($534)</td><td class="px-4 py-3 text-stone-600">($534)</td><td class="px-4 py-3 text-stone-600">($451)</td><td class="px-4 py-3 text-stone-600">($451)</td><td class="px-4 py-3 text-stone-600">($451)</td><td class="px-4 py-3 text-stone-600">($451)</td><td class="px-4 py-3 text-stone-600">($360)</td>
+              </tr>
+              <tr class="border-b-2 border-stone-900">
+                <td class="px-4 py-3 text-stone-900 font-bold sticky left-0 bg-white">Net Income (pre-tax)</td>
+                <td class="px-4 py-3 font-bold text-red-700">($457)</td>
+                <td class="px-4 py-3 font-bold text-stone-900">$139</td>
+                <td class="px-4 py-3 font-bold text-stone-900">$840</td>
+                <td class="px-4 py-3 font-bold text-stone-900">$1,261</td>
+                <td class="px-4 py-3 font-bold text-stone-900">$1,605</td>
+                <td class="px-4 py-3 font-bold text-stone-900">$1,943</td>
+                <td class="px-4 py-3 font-bold text-stone-900">$2,197</td>
+                <td class="px-4 py-3 font-bold text-stone-900">$2,466</td>
+                <td class="px-4 py-3 font-bold text-stone-900">$2,754</td>
+                <td class="px-4 py-3 font-bold text-stone-900">$3,155</td>
+              </tr>
+              <tr class="bg-stone-900">
+                <td class="px-4 py-3 text-stone-300 font-semibold text-sm sticky left-0 bg-stone-900">EBITDA Margin</td>
+                <td class="px-4 py-3 text-stone-400 text-sm">10%</td><td class="px-4 py-3 text-stone-300 text-sm">44%</td><td class="px-4 py-3 text-stone-300 text-sm">55%</td><td class="px-4 py-3 text-stone-300 text-sm">58%</td><td class="px-4 py-3 text-stone-300 text-sm">59%</td><td class="px-4 py-3 text-stone-300 text-sm">60%</td><td class="px-4 py-3 text-stone-300 text-sm">60%</td><td class="px-4 py-3 text-stone-300 text-sm">60%</td><td class="px-4 py-3 text-stone-300 text-sm">60%</td><td class="px-4 py-3 text-stone-300 text-sm">60%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mt-4 grid md:grid-cols-3 gap-4 text-sm text-stone-600">
+          <p><span class="font-semibold text-stone-800">Revenue assumptions:</span> Year 1 — 300 visits/mo at $185 avg. Year 5 — 900 visits/mo at $260 avg. Wellness plans grow from 25 to 1,100 patients. CT imaging added Year 3 at $500/scan.</p>
+          <p><span class="font-semibold text-stone-800">Personnel:</span> Year 1 — 1 DVM ($180K), 2 RVTs ($65K each), 1 admin ($50K). Grows with visit volume. AI workflows keep support staff ratio at 1.2 per DVM vs. industry 2.5.</p>
+          <p><span class="font-semibold text-stone-800">Debt service drop:</span> Equipment lease ends Year 5 ($83K/yr freed). USDA B&amp;I ends Year 10 ($40K/yr freed). Year 1 net loss offset by ~$2M Section 179 depreciation tax shield.</p>
+        </div>
+      </div>
+
+      <!-- EQUITY STRUCTURE -->
+      <div class="mb-20">
+        <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-6">Equity Structure</p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full min-w-[560px] border-collapse text-base">
+            <thead>
+              <tr class="bg-stone-100 text-left">
+                <th class="px-5 py-3 text-xs font-semibold tracking-widest uppercase text-stone-600">Entity</th>
+                <th class="px-5 py-3 text-xs font-semibold tracking-widest uppercase text-stone-600">Purpose</th>
+                <th class="px-5 py-3 text-xs font-semibold tracking-widest uppercase text-stone-600">Emily Gray</th>
+                <th class="px-5 py-3 text-xs font-semibold tracking-widest uppercase text-stone-600">Tim Hobert</th>
+                <th class="px-5 py-3 text-xs font-semibold tracking-widest uppercase text-stone-600">Rachael Gray</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-100">
+              <tr class="hover:bg-stone-50">
+                <td class="px-5 py-4 text-stone-800 font-medium">Maison Vet, PC</td>
+                <td class="px-5 py-4 text-stone-700">Veterinary practice license and operations</td>
+                <td class="px-5 py-4 text-stone-900 font-semibold">100%</td>
+                <td class="px-5 py-4 text-stone-500">—</td>
+                <td class="px-5 py-4 text-stone-500">—</td>
+              </tr>
+              <tr class="hover:bg-stone-50">
+                <td class="px-5 py-4 text-stone-800 font-medium">Land Holding LLC</td>
+                <td class="px-5 py-4 text-stone-700">Owns property; charges rent to PC</td>
+                <td class="px-5 py-4 text-stone-700">30%</td>
+                <td class="px-5 py-4 text-stone-700">50%</td>
+                <td class="px-5 py-4 text-stone-700">20%</td>
+              </tr>
+              <tr class="hover:bg-stone-50">
+                <td class="px-5 py-4 text-stone-800 font-medium">Management LLC</td>
+                <td class="px-5 py-4 text-stone-700">AI systems, ops, infrastructure; charges mgmt fee to PC</td>
+                <td class="px-5 py-4 text-stone-700">35%</td>
+                <td class="px-5 py-4 text-stone-700">45%</td>
+                <td class="px-5 py-4 text-stone-700">20%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-stone-600 max-w-2xl">California law requires a veterinary Professional Corporation to be owned exclusively by licensed DVMs. The dual-entity structure (PC + affiliated LLCs) is the standard mechanism for non-licensed partners to participate in economics via management fees and land lease income. Equity percentages are proposed and subject to negotiation and legal review.</p>
+      </div>
+
+      <!-- BALANCE SHEET -->
+      <div>
+        <p class="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-6">Simplified Balance Sheet — Year 1 vs. Year 5</p>
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[560px] border-collapse text-base">
+            <thead>
+              <tr class="bg-stone-100 text-left">
+                <th class="px-5 py-3 text-xs font-semibold tracking-widest uppercase text-stone-600">Item</th>
+                <th class="px-5 py-3 text-xs font-semibold tracking-widest uppercase text-stone-600">Year 1</th>
+                <th class="px-5 py-3 text-xs font-semibold tracking-widest uppercase text-stone-600">Year 5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-stone-50"><td class="px-5 py-3 text-stone-700 font-semibold" colspan="3">Assets</td></tr>
+              <tr class="border-b border-stone-100 hover:bg-stone-50"><td class="px-5 py-3 text-stone-700 pl-8">Land (at cost)</td><td class="px-5 py-3 text-stone-700">$2,000,000</td><td class="px-5 py-3 text-stone-700">$2,400,000</td></tr>
+              <tr class="border-b border-stone-100 hover:bg-stone-50"><td class="px-5 py-3 text-stone-700 pl-8">Buildings (net of depreciation)</td><td class="px-5 py-3 text-stone-700">$175,000</td><td class="px-5 py-3 text-stone-700">$1,540,000</td></tr>
+              <tr class="border-b border-stone-100 hover:bg-stone-50"><td class="px-5 py-3 text-stone-700 pl-8">Equipment (net)</td><td class="px-5 py-3 text-stone-700">$245,000</td><td class="px-5 py-3 text-stone-700">$420,000</td></tr>
+              <tr class="border-b border-stone-100 hover:bg-stone-50"><td class="px-5 py-3 text-stone-700 pl-8">Solar System (net)</td><td class="px-5 py-3 text-stone-700">$350,000</td><td class="px-5 py-3 text-stone-700">$290,000</td></tr>
+              <tr class="border-b border-stone-100 hover:bg-stone-50"><td class="px-5 py-3 text-stone-700 pl-8">Cash and Receivables</td><td class="px-5 py-3 text-stone-700">$175,000</td><td class="px-5 py-3 text-stone-700">$1,800,000</td></tr>
+              <tr class="border-b-2 border-stone-300 bg-stone-50"><td class="px-5 py-3 text-stone-900 font-semibold pl-8">Total Assets</td><td class="px-5 py-3 text-stone-900 font-semibold">$2,945,000</td><td class="px-5 py-3 text-stone-900 font-semibold">$6,450,000</td></tr>
+              <tr class="bg-stone-50 mt-4"><td class="px-5 py-3 text-stone-700 font-semibold" colspan="3">Liabilities</td></tr>
+              <tr class="border-b border-stone-100 hover:bg-stone-50"><td class="px-5 py-3 text-stone-700 pl-8">Land Loan</td><td class="px-5 py-3 text-stone-700">$1,872,000</td><td class="px-5 py-3 text-stone-700">$1,580,000</td></tr>
+              <tr class="border-b border-stone-100 hover:bg-stone-50"><td class="px-5 py-3 text-stone-700 pl-8">SBA 504</td><td class="px-5 py-3 text-stone-700">$2,055,000</td><td class="px-5 py-3 text-stone-700">$1,740,000</td></tr>
+              <tr class="border-b border-stone-100 hover:bg-stone-50"><td class="px-5 py-3 text-stone-700 pl-8">C-PACE</td><td class="px-5 py-3 text-stone-700">$398,000</td><td class="px-5 py-3 text-stone-700">$320,000</td></tr>
+              <tr class="border-b border-stone-100 hover:bg-stone-50"><td class="px-5 py-3 text-stone-700 pl-8">Equipment Leases</td><td class="px-5 py-3 text-stone-700">$299,000</td><td class="px-5 py-3 text-stone-700">$0</td></tr>
+              <tr class="border-b border-stone-100 hover:bg-stone-50"><td class="px-5 py-3 text-stone-700 pl-8">USDA B&amp;I / Working Capital</td><td class="px-5 py-3 text-stone-700">$271,000</td><td class="px-5 py-3 text-stone-700">$170,000</td></tr>
+              <tr class="border-b-2 border-stone-300 bg-stone-50"><td class="px-5 py-3 text-stone-900 font-semibold pl-8">Total Liabilities</td><td class="px-5 py-3 text-stone-900 font-semibold">$4,895,000</td><td class="px-5 py-3 text-stone-900 font-semibold">$3,810,000</td></tr>
+              <tr class="bg-stone-900"><td class="px-5 py-4 text-white font-bold">Net Equity</td><td class="px-5 py-4 text-red-400 font-bold">($1,950,000)</td><td class="px-5 py-4 text-white font-bold">$2,640,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-stone-600 mt-3 max-w-2xl">Year 1 negative equity is a paper result of Section 179 accelerated depreciation on modular buildings and equipment — not a cash loss. By Year 5, equity turns strongly positive as the clinic generates $1.6M+ in annual net income and debt principal is reduced. Land appreciates at a conservative 3% per year.</p>
+        <p class="text-xs text-stone-400 mt-4 max-w-2xl">Verification Status: Financial projections are illustrative estimates based on published veterinary industry benchmarks (AVMA 2025, dvm360), current SBA/lender rates (Feb 2026), and disclosed solar economics. All figures should be reviewed with a licensed CPA and financial advisor before use in a funding application.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="py-28 px-6 bg-stone-900">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-sm font-semibold tracking-widest uppercase text-stone-400 mb-6">Contact</p>
+      <h2 class="serif text-5xl md:text-6xl font-normal text-white leading-tight mb-6">
+        Interested in this project?
+      </h2>
+      <p class="text-xl text-stone-300 font-light max-w-md mx-auto mb-10 leading-relaxed">
+        We are structuring the capital facility now. Conversations with lenders, partners, and the equestrian community are welcome.
+      </p>
+      <a href="mailto:hello@maisonvet.com"
+         class="inline-block bg-white text-stone-900 px-10 py-4 text-sm font-semibold tracking-widest uppercase hover:bg-stone-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-stone-900">
+        hello@maisonvet.com
+      </a>
+    </div>
+  </section>
+
+  <footer class="border-t border-stone-200 px-6 py-8">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
+      <span class="serif text-stone-700 text-base">Maison Vet</span>
+      <span class="text-sm text-stone-600">North San Diego County — maisonvet.com</span>
+    </div>
+  </footer>
+
+</body>
+</html>

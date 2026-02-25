@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source "../../html-templates";
 
 @theme inline {
   --color-green-deep: #0e1e14;
