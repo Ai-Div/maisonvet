@@ -23,16 +23,16 @@ export default function Team() {
       data-agent-purpose="leadership-team"
       itemScope
       itemType="https://schema.org/Organization"
-      className="bg-stone-50 py-20 md:py-24 px-6"
+      className="bg-stone-50 py-16 md:py-20 px-6"
       aria-labelledby="team-heading"
     >
       <div className="max-w-6xl mx-auto">
-        <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">
+        <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
           The Team
         </p>
         <h2
           id="team-heading"
-          className="font-serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-16 max-w-xl"
+          className="text-2xl md:text-4xl text-stone-900 mb-12 max-w-xl"
         >
           Three operators.
           <br />
@@ -45,15 +45,15 @@ export default function Team() {
               itemScope
               itemType="https://schema.org/Person"
               data-agent-purpose="team-member"
-              className="bg-white p-10"
+              className="bg-white p-8"
             >
-              <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">
+              <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
                 {t.role}
               </p>
-              <h3 itemProp="name" className="font-serif text-3xl font-normal text-stone-900 mb-4">
+              <h3 itemProp="name" className="text-xl font-bold text-stone-900 mb-4">
                 {t.name}
               </h3>
-              <p itemProp="description" className="text-base text-stone-700 leading-relaxed">
+              <p itemProp="description" className="text-stone-700">
                 {t.bio}
               </p>
             </article>

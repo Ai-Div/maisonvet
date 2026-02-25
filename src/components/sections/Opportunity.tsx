@@ -24,33 +24,33 @@ export default function Opportunity() {
       itemType="https://schema.org/Article"
       data-agent-purpose="market-opportunity"
       data-agent-topic="market-opportunity"
-      className="py-20 md:py-24 px-6 bg-white"
+      className="py-16 md:py-20 px-6 bg-white"
       aria-labelledby="opportunity-heading"
     >
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-start">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
         <div data-agent-focus="read-this">
-          <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">
+          <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
             The Opportunity
           </p>
           <h2
             id="opportunity-heading"
             itemProp="headline"
-            className="font-serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-8"
+            className="text-2xl md:text-4xl text-stone-900 mb-6"
           >
             A market with no modern option.
           </h2>
-          <p itemProp="description" className="text-lg text-stone-700 leading-relaxed mb-6">
+          <p itemProp="description" className="text-stone-700 mb-6">
             North San Diego County — Pauma Valley, Valley Center, Fallbrook — is home to one of
             California&apos;s largest concentrations of equestrian estates, avocado farms, and
             high-net-worth rural households. The nearest advanced veterinary diagnostics are 45
             minutes away.
           </p>
-          <p itemProp="description" className="text-lg text-stone-700 leading-relaxed mb-6">
+          <p itemProp="description" className="text-stone-700 mb-6">
             No CT. No MRI. No after-hours emergency. No destination clinic. The new Fallbrook
             Costco and Whole Foods corridor signals the gravity shift — high-income households are
             moving in. Their animals need care that does not exist yet.
           </p>
-          <p itemProp="description" className="text-lg text-stone-700 leading-relaxed">
+          <p itemProp="description" className="text-stone-700">
             This is not a standard vet clinic startup. It is a compound — owned land, sovereign
             energy, senior water rights — with a high-margin medical anchor. The moat is the
             infrastructure, not just the medicine.
@@ -64,13 +64,13 @@ export default function Opportunity() {
               itemScope
               itemType="https://schema.org/QuantitativeValue"
             >
-              <p className="font-serif text-4xl font-normal text-stone-900 mb-2" itemProp="value">
+              <p className="text-3xl font-bold text-stone-900 mb-2" itemProp="value">
                 {s.value}
               </p>
-              <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-3" itemProp="name">
+              <p className="text-sm font-bold text-stone-600 mb-3 uppercase" itemProp="name">
                 {s.title}
               </p>
-              <p className="text-base text-stone-700 leading-relaxed">{s.desc}</p>
+              <p className="text-stone-700">{s.desc}</p>
             </div>
           ))}
         </div>

@@ -37,25 +37,25 @@ export default function Finance() {
       id="capital"
       data-agent-purpose="capital-architecture"
       data-agent-topic="financing-structure"
-      className="py-20 md:py-24 px-6 bg-stone-50"
+      className="py-16 md:py-20 px-6 bg-stone-50"
       aria-labelledby="capital-heading"
     >
       <div className="max-w-6xl mx-auto">
-        <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">
+        <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
           Capital Architecture
         </p>
         <h2
           id="capital-heading"
-          className="font-serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-4 max-w-2xl"
+          className="text-2xl md:text-4xl text-stone-900 mb-4 max-w-2xl"
         >
           Multi-tranche. Each piece optimized independently.
         </h2>
-        <p className="text-lg text-stone-700 max-w-xl leading-relaxed mb-16">
+        <p className="text-stone-700 max-w-xl mb-12">
           The structure allows each major asset class to use its ideal financing vehicle. Senior ag
           lending, SBA 504, C-PACE, and equipment financing run in parallel — not in competition.
         </p>
         <div className="bg-white border border-stone-200 overflow-hidden mb-10">
-          <div className="hidden md:grid grid-cols-4 text-xs font-semibold tracking-widest uppercase text-stone-600 border-b border-stone-200 px-6 py-4 bg-stone-100">
+          <div className="hidden md:grid grid-cols-4 text-xs font-bold text-stone-600 border-b border-stone-200 px-6 py-4 bg-stone-100 uppercase">
             <span>Component</span>
             <span>Vehicle</span>
             <span>Range</span>
@@ -76,21 +76,21 @@ export default function Finance() {
           </div>
         </div>
         <div className="grid grid-cols-3 gap-px bg-stone-200">
-          <div className="bg-white px-8 py-8">
-            <p className="font-serif text-4xl font-normal text-stone-900 mb-2">$5M – $15M</p>
-            <p className="text-sm font-semibold tracking-widest uppercase text-stone-600">
+          <div className="bg-white px-6 py-6">
+            <p className="text-3xl font-bold text-stone-900 mb-2">$5M – $15M</p>
+            <p className="text-sm font-bold text-stone-600 uppercase">
               Total Structured Facility
             </p>
           </div>
-          <div className="bg-white px-8 py-8">
-            <p className="font-serif text-4xl font-normal text-stone-900 mb-2">100%</p>
-            <p className="text-sm font-semibold tracking-widest uppercase text-stone-600">
+          <div className="bg-white px-6 py-6">
+            <p className="text-3xl font-bold text-stone-900 mb-2">100%</p>
+            <p className="text-sm font-bold text-stone-600 uppercase">
               Section 179 on Modular Build
             </p>
           </div>
-          <div className="bg-white px-8 py-8">
-            <p className="font-serif text-4xl font-normal text-stone-900 mb-2">~25 mo</p>
-            <p className="text-sm font-semibold tracking-widest uppercase text-stone-600">
+          <div className="bg-white px-6 py-6">
+            <p className="text-3xl font-bold text-stone-900 mb-2">~25 mo</p>
+            <p className="text-sm font-bold text-stone-600 uppercase">
               Projected Break-Even Post-Launch
             </p>
           </div>

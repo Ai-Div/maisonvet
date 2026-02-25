@@ -41,21 +41,21 @@ export default function Pillars() {
       data-agent-purpose="infrastructure-overview"
       itemScope
       itemType="https://schema.org/ItemList"
-      className="py-20 md:py-24 px-6 bg-stone-50"
+      className="py-16 md:py-20 px-6 bg-stone-50"
       aria-labelledby="pillars-heading"
     >
       <div className="max-w-6xl mx-auto">
-        <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">
+        <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
           Core Infrastructure
         </p>
         <h2
           id="pillars-heading"
           itemProp="name"
-          className="font-serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-4 max-w-2xl"
+          className="text-2xl md:text-4xl text-stone-900 mb-4 max-w-2xl"
         >
           Three owned assets underpin the entire operation.
         </h2>
-        <p className="text-lg text-stone-700 max-w-xl leading-relaxed mb-16">
+        <p className="text-stone-700 max-w-xl mb-12">
           Most businesses rent their land, buy power from the grid, and draw water from municipal
           sources. We own all three inputs.
         </p>
@@ -67,15 +67,15 @@ export default function Pillars() {
               itemType="https://schema.org/Service"
               data-agent-topic="infrastructure-pillar"
               itemProp="itemListElement"
-              className="bg-white p-10"
+              className="bg-white p-8"
             >
-              <p className="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-2">
+              <p className="text-xs font-bold text-stone-600 mb-2 uppercase">
                 {p.label}
               </p>
-              <h3 itemProp="name" className="font-serif text-2xl font-normal text-stone-900 mb-4">
+              <h3 itemProp="name" className="text-xl font-bold text-stone-900 mb-4">
                 {p.title}
               </h3>
-              <p itemProp="description" className="text-base text-stone-700 leading-relaxed mb-6">
+              <p itemProp="description" className="text-stone-700 mb-6">
                 {p.body}
               </p>
               <ul className="text-sm text-stone-600 space-y-2">

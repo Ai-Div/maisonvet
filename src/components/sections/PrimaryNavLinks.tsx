@@ -35,7 +35,7 @@ export default function PrimaryNavLinks() {
             <a
               href={l.href}
               itemProp="url"
-              className={`text-xs font-semibold tracking-widest uppercase transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-stone-900 rounded-sm pb-0.5 border-b-2 ${
+              className={`text-xs font-bold uppercase transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-stone-900 rounded-sm pb-0.5 border-b-2 ${
                 isActive
                   ? "text-stone-900 border-stone-900"
                   : "text-stone-600 hover:text-stone-900 border-transparent"

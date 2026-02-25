@@ -38,23 +38,23 @@ export default function Compound() {
       data-agent-purpose="compound-specifications"
       itemScope
       itemType="https://schema.org/RealEstateListing"
-      className="py-20 md:py-24 px-6 bg-white"
+      className="py-16 md:py-20 px-6 bg-white"
       aria-labelledby="compound-heading"
     >
       <div className="max-w-6xl mx-auto">
-        <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">
+        <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
           The Compound
         </p>
         <h2
           id="compound-heading"
           itemProp="name"
-          className="font-serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-16 max-w-xl"
+          className="text-2xl md:text-4xl text-stone-900 mb-12 max-w-xl"
         >
           15–22 acres.
           <br />
           A complete operating system.
         </h2>
-        <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
           {items.map((item, i) => (
             <article
               key={i}
@@ -63,13 +63,13 @@ export default function Compound() {
               itemType="https://schema.org/Service"
               className="border-t-2 border-stone-200 pt-8"
             >
-              <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-2">
+              <p className="text-sm font-bold text-stone-600 mb-2 uppercase">
                 {item.label}
               </p>
-              <h3 itemProp="name" className="font-serif text-2xl font-normal text-stone-900 mb-3">
+              <h3 itemProp="name" className="text-xl font-bold text-stone-900 mb-3">
                 {item.title}
               </h3>
-              <p itemProp="description" className="text-base text-stone-700 leading-relaxed">
+              <p itemProp="description" className="text-stone-700">
                 {item.desc}
               </p>
             </article>

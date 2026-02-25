@@ -59,20 +59,20 @@ export default function Timeline() {
       id="timeline"
       data-agent-purpose="execution-roadmap"
       data-agent-topic="project-phases"
-      className="bg-white py-20 md:py-24 px-6"
+      className="bg-white py-16 md:py-20 px-6"
       aria-labelledby="timeline-heading"
     >
-      <div className="mx-auto max-w-7xl">
-        <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">
+      <div className="mx-auto max-w-6xl">
+        <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
           Roadmap
         </p>
         <h2
           id="timeline-heading"
-          className="font-serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-4"
+          className="text-2xl md:text-4xl text-stone-900 mb-4"
         >
           Execution Plan
         </h2>
-        <p className="text-lg text-stone-700 mb-16">24 months. Four phases.</p>
+        <p className="text-stone-700 mb-12">24 months. Four phases.</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {phases.map((p, i) => (
             <article
@@ -85,7 +85,7 @@ export default function Timeline() {
               }`}
             >
               <p
-                className={`text-xs tracking-wider uppercase ${
+                className={`text-xs uppercase ${
                   p.active ? "text-stone-300" : "text-stone-600"
                 }`}
               >
@@ -93,7 +93,7 @@ export default function Timeline() {
               </p>
               <h3
                 id={"phase-" + i + "-title"}
-                className={`font-serif text-xl mt-1 mb-1 ${
+                className={`text-lg font-bold mt-1 mb-1 ${
                   p.active ? "text-white" : "text-stone-900"
                 }`}
               >
@@ -108,7 +108,7 @@ export default function Timeline() {
                 {p.items.map((item, j) => (
                   <li
                     key={j}
-                    className={`text-xs leading-relaxed ${
+                    className={`text-xs ${
                       p.active ? "text-stone-300" : "text-stone-600"
                     }`}
                   >

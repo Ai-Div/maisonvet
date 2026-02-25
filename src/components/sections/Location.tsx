@@ -32,27 +32,27 @@ export default function Location() {
       id="location"
       data-agent-purpose="location-strategy"
       data-agent-topic="site-selection"
-      className="py-20 md:py-24 px-6 bg-white"
+      className="py-16 md:py-20 px-6 bg-white"
       aria-labelledby="location-heading"
     >
       <div className="max-w-6xl mx-auto">
-        <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">
+        <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
           Location Strategy
         </p>
         <h2
           id="location-heading"
-          className="font-serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-4 max-w-2xl"
+          className="text-2xl md:text-4xl text-stone-900 mb-4 max-w-2xl"
         >
           Natural beauty. Fire risk acknowledged. Engineered around.
         </h2>
-        <p className="text-lg text-stone-700 max-w-xl leading-relaxed mb-16">
+        <p className="text-stone-700 max-w-xl mb-12">
           Pauma Valley and Valley Center offer everything this project demands — land scale, water
           infrastructure, natural landscape, and the client base. SoCal fire risk is real. It is
           not being ignored.
         </p>
-        <div className="grid md:grid-cols-2 gap-16 mb-12">
+        <div className="grid md:grid-cols-2 gap-12 mb-10">
           <div>
-            <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-6">
+            <p className="text-sm font-bold text-stone-600 mb-6 uppercase">
               Site Requirements
             </p>
             <ul className="space-y-4">
@@ -67,7 +67,7 @@ export default function Location() {
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-6">
+            <p className="text-sm font-bold text-stone-600 mb-6 uppercase">
               What We Are Looking For
             </p>
             <ul className="space-y-4">
@@ -85,15 +85,15 @@ export default function Location() {
         <aside
           aria-labelledby="fire-risk-heading"
           data-agent-topic="risk-mitigation"
-          className="border-l-4 border-stone-800 bg-stone-100 p-8"
+          className="border-l-4 border-stone-800 bg-stone-100 p-6"
         >
           <p
             id="fire-risk-heading"
-            className="text-sm font-semibold tracking-widest uppercase text-stone-700 mb-3"
+            className="text-sm font-bold text-stone-700 mb-3 uppercase"
           >
             Fire Risk — Real. Engineered Around.
           </p>
-          <p className="text-base text-stone-800 leading-relaxed mb-5">
+          <p className="text-stone-800 mb-5">
             Both target zip codes (92061, 92082) carry Cal Fire&apos;s Very High to Extreme FHSZ
             designation. This is a known variable — not a disqualifier — addressed structurally at
             every layer of the project.

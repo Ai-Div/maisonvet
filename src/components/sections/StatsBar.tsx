@@ -8,7 +8,7 @@ const stats = [
 export default function StatsBar() {
   return (
     <section
-      className="border-y border-stone-200 bg-stone-50 py-12 px-6"
+      className="border-y border-stone-200 bg-stone-50 py-16 px-6"
       data-agent-purpose="key-metrics"
       itemScope
       itemType="https://schema.org/ItemList"
@@ -17,10 +17,10 @@ export default function StatsBar() {
       <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((s, i) => (
           <div key={i} itemProp="itemListElement" itemScope itemType="https://schema.org/QuantitativeValue">
-            <p className="font-serif text-4xl md:text-5xl font-normal text-stone-900 mb-2" itemProp="value">
+            <p className="text-3xl md:text-4xl font-bold text-stone-900 mb-2" itemProp="value">
               {s.value}
             </p>
-            <p className="text-sm font-semibold tracking-widest uppercase text-stone-600" itemProp="name">
+            <p className="text-sm font-bold text-stone-600 uppercase" itemProp="name">
               {s.label}
             </p>
           </div>

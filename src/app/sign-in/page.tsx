@@ -27,13 +27,13 @@ export default async function SignInPage({
       id="primary-content"
       role="main"
       tabIndex={-1}
-      className="outline-none min-h-screen bg-stone-100 flex items-center justify-center px-6 py-12"
+      className="outline-none min-h-screen bg-stone-100 flex items-center justify-center px-6 py-16"
       itemScope
       itemType="https://schema.org/WebPage"
       data-agent-purpose="authentication-gate"
     >
       <article
-        className="w-full max-w-md bg-white border border-stone-200 rounded-2xl p-10 md:p-12 text-center shadow-lg shadow-stone-200/50"
+        className="w-full max-w-md bg-white border border-stone-200 rounded-xl p-8 md:p-10 text-center shadow-md"
         data-agent-purpose="sign-in-form"
         itemScope
         itemType="https://schema.org/LoginAction"
@@ -42,12 +42,12 @@ export default async function SignInPage({
           href="/"
           rel="home"
           aria-label="Return to Maison Vet homepage"
-          className="inline-block font-serif text-3xl md:text-4xl text-stone-900 tracking-wide mb-8 hover:text-stone-700 transition-colors focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 rounded-sm"
+          className="inline-block text-2xl md:text-3xl font-bold text-stone-900 mb-6 hover:text-stone-700 transition-colors focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 rounded-sm"
         >
           Maison Vet
         </a>
 
-        <h1 className="font-serif text-2xl text-stone-900 mb-2">Team Access</h1>
+        <h1 className="text-xl font-bold text-stone-900 mb-2">Team Access</h1>
         <p className="text-stone-600 mb-8 max-w-sm mx-auto">
           Sign in with your Google account to continue.
         </p>
@@ -87,7 +87,7 @@ export default async function SignInPage({
         >
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-white border border-stone-300 text-stone-800 text-sm font-semibold rounded-xl hover:bg-stone-50 hover:border-stone-400 focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 transition-colors"
+            className="w-full flex items-center justify-center gap-3 px-6 py-3 bg-white border border-stone-300 text-stone-800 text-sm font-bold rounded-lg hover:bg-stone-50 hover:border-stone-400 focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 transition-colors"
             aria-label="Sign in with Google"
           >
             <svg

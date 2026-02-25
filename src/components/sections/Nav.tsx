@@ -23,12 +23,12 @@ export default async function Nav() {
       data-agent-purpose="site-branding-and-navigation"
       className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200"
     >
-      <div className="mx-auto max-w-[1100px] px-6 flex items-center justify-between h-16">
+      <div className="mx-auto max-w-6xl px-6 flex items-center justify-between h-16">
         <a
           href="/"
           rel="home"
           aria-label="Maison Vet — Return to homepage"
-          className="font-serif text-xl font-normal tracking-wide text-stone-900"
+          className="text-lg font-bold text-stone-900"
           itemProp="url"
         >
           <span itemProp="name">Maison Vet</span>
@@ -47,7 +47,7 @@ export default async function Nav() {
           {user ? (
             <details className="relative" data-agent-purpose="user-menu">
               <summary
-                className="list-none cursor-pointer flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-stone-900 rounded-sm px-1 transition-colors select-none"
+                className="list-none cursor-pointer flex items-center gap-2 text-xs font-bold uppercase text-stone-600 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-stone-900 rounded-sm px-1 transition-colors select-none"
                 aria-label={`User menu for ${firstName}`}
                 aria-haspopup="menu"
               >
@@ -74,7 +74,7 @@ export default async function Nav() {
                     <a
                       href="/dashboard"
                       role="menuitem"
-                      className="block px-4 py-2 text-xs font-semibold tracking-wider uppercase text-stone-700 hover:text-stone-900 hover:bg-stone-50 transition-colors"
+                      className="block px-4 py-2 text-xs font-bold uppercase text-stone-700 hover:text-stone-900 hover:bg-stone-50 transition-colors"
                     >
                       Dashboard
                     </a>
@@ -83,7 +83,7 @@ export default async function Nav() {
                     <a
                       href="/properties"
                       role="menuitem"
-                      className="block px-4 py-2 text-xs font-semibold tracking-wider uppercase text-stone-700 hover:text-stone-900 hover:bg-stone-50 transition-colors"
+                      className="block px-4 py-2 text-xs font-bold uppercase text-stone-700 hover:text-stone-900 hover:bg-stone-50 transition-colors"
                     >
                       Properties
                     </a>
@@ -92,7 +92,7 @@ export default async function Nav() {
                     <a
                       href="/perris"
                       role="menuitem"
-                      className="block px-4 py-2 text-xs font-semibold tracking-wider uppercase text-stone-700 hover:text-stone-900 hover:bg-stone-50 transition-colors"
+                      className="block px-4 py-2 text-xs font-bold uppercase text-stone-700 hover:text-stone-900 hover:bg-stone-50 transition-colors"
                     >
                       Perris Analysis
                     </a>
@@ -107,7 +107,7 @@ export default async function Nav() {
                       <button
                         type="submit"
                         role="menuitem"
-                        className="w-full text-left px-4 py-2.5 text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-stone-900 hover:bg-stone-50 focus-visible:ring-2 focus-visible:ring-stone-900 transition-colors"
+                        className="w-full text-left px-4 py-2.5 text-xs font-bold uppercase text-stone-500 hover:text-stone-900 hover:bg-stone-50 focus-visible:ring-2 focus-visible:ring-stone-900 transition-colors"
                         data-agent-action="sign-out"
                       >
                         Sign out
@@ -120,7 +120,7 @@ export default async function Nav() {
           ) : (
             <a
               href="/sign-in"
-              className="text-xs font-semibold tracking-widest uppercase text-white bg-stone-900 px-4 py-2 hover:bg-stone-700 focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 transition-colors rounded-sm"
+              className="text-xs font-bold uppercase text-white bg-stone-900 px-4 py-2 hover:bg-stone-700 focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 transition-colors rounded-sm"
               data-agent-action="initiate-sign-in"
             >
               Sign In
@@ -146,7 +146,7 @@ export default async function Nav() {
           </summary>
           <nav
             aria-label="Mobile Navigation"
-            className="absolute top-16 left-0 right-0 bg-white border-t border-stone-200 px-6 py-6 shadow-xl"
+            className="absolute top-16 left-0 right-0 bg-white border-t border-stone-200 px-6 py-5 shadow-xl"
           >
             <ul className="space-y-0">
               {primaryLinks.map((l) => (
@@ -171,13 +171,13 @@ export default async function Nav() {
                   </a>
                   <a
                     href="/properties"
-                    className="block text-xs font-semibold tracking-widest uppercase text-stone-700 hover:text-stone-900"
+                    className="block text-xs font-bold uppercase text-stone-700 hover:text-stone-900"
                   >
                     Properties
                   </a>
                   <a
                     href="/perris"
-                    className="block text-xs font-semibold tracking-widest uppercase text-stone-700 hover:text-stone-900"
+                    className="block text-xs font-bold uppercase text-stone-700 hover:text-stone-900"
                   >
                     Perris Analysis
                   </a>
@@ -189,7 +189,7 @@ export default async function Nav() {
                   >
                     <button
                       type="submit"
-                      className="text-xs font-semibold tracking-widest uppercase text-stone-500 hover:text-stone-900 transition-colors"
+                      className="text-xs font-bold uppercase text-stone-500 hover:text-stone-900 transition-colors"
                     >
                       Sign out
                     </button>
