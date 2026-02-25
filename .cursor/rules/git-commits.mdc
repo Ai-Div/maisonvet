@@ -1,0 +1,16 @@
+---
+description: Do not add Co-authored-by lines to commit messages.
+globs:
+alwaysApply: true
+---
+
+# Git commits
+
+When committing changes in this project:
+
+**Do not add Co-authored-by or Co-Authored-By lines to commit messages.** Examples of what must not appear:
+
+- `Co-authored-by: Cursor <cursoragent@cursor.com>`
+- `Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>`
+
+Use only the commit message itself (summary and optional body).
