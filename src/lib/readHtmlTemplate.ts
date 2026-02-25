@@ -9,7 +9,7 @@ export interface HtmlParts {
 
 export function readHtmlTemplate(filename: string): HtmlParts {
   // In Next.js App Router, process.cwd() is the project root
-  const filePath = path.join(process.cwd(), "html-templates", filename);
+  const filePath = path.join(process.cwd(), "templates", "html-templates", filename);
   
   if (!fs.existsSync(filePath)) {
     throw new Error(`Template file not found: ${filePath}`);

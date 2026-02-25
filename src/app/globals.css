@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@source "../../html-templates";
+@source "../../templates/html-templates";
 
 @theme inline {
   --font-serif: var(--font-cormorant), Georgia, serif;

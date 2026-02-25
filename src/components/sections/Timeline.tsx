@@ -59,10 +59,10 @@ export default function Timeline() {
       id="timeline"
       data-agent-purpose="execution-roadmap"
       data-agent-topic="project-phases"
-      className="bg-white py-16 md:py-20 px-6"
+      className="bg-white py-24 sm:py-32"
       aria-labelledby="timeline-heading"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
           Roadmap
         </p>

@@ -5,42 +5,46 @@ export default function Hero() {
       itemType="https://schema.org/WebPageElement"
       data-agent-purpose="hero-brand-statement"
       data-agent-topic="value-proposition"
-      className="relative pt-24 md:pt-32 pb-16 md:pb-20 px-6 bg-white"
+      aria-labelledby="hero-heading"
+      className="relative bg-white"
     >
-      <div className="max-w-4xl mx-auto">
-        <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
-          Maison Vet Clinic
-        </p>
-        <h1
-          itemProp="name"
-          className="text-4xl md:text-6xl text-stone-900 mb-6"
-        >
-          Medicine, Land,
-          <br />
-          Water &amp; Power.
-        </h1>
-        <p
-          itemProp="description"
-          className="text-lg md:text-xl text-stone-700 max-w-xl mb-8"
-        >
-          A vertically integrated veterinary clinic and compound — built on land we
-          own, powered by energy we generate, and watered by rights that cannot be
-          taken away.
-        </p>
-        <div className="flex items-center gap-6 text-sm font-bold text-stone-600 uppercase">
-          <span>Medicine</span>
-          <span className="w-8 h-px bg-stone-300" aria-hidden="true" />
-          <span>Land</span>
-          <span className="w-8 h-px bg-stone-300" aria-hidden="true" />
-          <span>Water</span>
-          <span className="w-8 h-px bg-stone-300" aria-hidden="true" />
-          <span>Power</span>
+      <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:max-w-4xl">
+          <p className="text-sm font-bold text-stone-600 uppercase mb-4">
+            Maison Vet Clinic
+          </p>
+          <h1
+            id="hero-heading"
+            itemProp="name"
+            className="text-4xl font-bold tracking-tight text-stone-900 sm:text-6xl"
+          >
+            Medicine, Land,
+            <br />
+            Water &amp; Power.
+          </h1>
+          <p
+            itemProp="description"
+            className="mt-6 text-lg text-stone-700 max-w-xl"
+          >
+            A vertically integrated veterinary clinic and compound — built on land we
+            own, powered by energy we generate, and watered by rights that cannot be
+            taken away.
+          </p>
+          <div className="mt-10 flex items-center gap-6 text-sm font-bold text-stone-600 uppercase">
+            <span>Medicine</span>
+            <span className="w-8 h-px bg-stone-300" aria-hidden="true" />
+            <span>Land</span>
+            <span className="w-8 h-px bg-stone-300" aria-hidden="true" />
+            <span>Water</span>
+            <span className="w-8 h-px bg-stone-300" aria-hidden="true" />
+            <span>Power</span>
+          </div>
         </div>
       </div>
       <a
         href="#opportunity"
         aria-label="Scroll to opportunity section"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-[bounce-slow_2s_ease-in-out_infinite] text-stone-400 hover:text-stone-600 focus-visible:ring-2 focus-visible:ring-stone-900 rounded-sm"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-stone-400 hover:text-stone-600 focus-visible:ring-2 focus-visible:ring-stone-900 rounded-sm animate-[bounce-slow_2s_ease-in-out_infinite]"
       >
         <svg
           className="w-6 h-6"

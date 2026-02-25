@@ -23,10 +23,10 @@ export default function Team() {
       data-agent-purpose="leadership-team"
       itemScope
       itemType="https://schema.org/Organization"
-      className="bg-stone-50 py-16 md:py-20 px-6"
+      className="bg-stone-50 py-24 sm:py-32"
       aria-labelledby="team-heading"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
           The Team
         </p>

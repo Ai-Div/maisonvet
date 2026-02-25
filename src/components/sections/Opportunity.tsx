@@ -24,10 +24,11 @@ export default function Opportunity() {
       itemType="https://schema.org/Article"
       data-agent-purpose="market-opportunity"
       data-agent-topic="market-opportunity"
-      className="py-16 md:py-20 px-6 bg-white"
       aria-labelledby="opportunity-heading"
+      className="bg-white py-24 sm:py-32"
     >
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
         <div data-agent-focus="read-this">
           <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
             The Opportunity
@@ -73,6 +74,7 @@ export default function Opportunity() {
               <p className="text-stone-700">{s.desc}</p>
             </div>
           ))}
+        </div>
         </div>
       </div>
     </section>

@@ -41,10 +41,10 @@ export default function Pillars() {
       data-agent-purpose="infrastructure-overview"
       itemScope
       itemType="https://schema.org/ItemList"
-      className="py-16 md:py-20 px-6 bg-stone-50"
+      className="bg-stone-50 py-24 sm:py-32"
       aria-labelledby="pillars-heading"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
           Core Infrastructure
         </p>

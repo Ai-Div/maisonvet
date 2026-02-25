@@ -8,23 +8,34 @@ const stats = [
 export default function StatsBar() {
   return (
     <section
-      className="border-y border-stone-200 bg-stone-50 py-16 px-6"
+      className="bg-white py-16 md:py-20 px-6"
       data-agent-purpose="key-metrics"
       itemScope
       itemType="https://schema.org/ItemList"
-      aria-label="Key project metrics"
+      aria-labelledby="stats-heading"
     >
-      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-        {stats.map((s, i) => (
-          <div key={i} itemProp="itemListElement" itemScope itemType="https://schema.org/QuantitativeValue">
-            <p className="text-3xl md:text-4xl font-bold text-stone-900 mb-2" itemProp="value">
-              {s.value}
-            </p>
-            <p className="text-sm font-bold text-stone-600 uppercase" itemProp="name">
-              {s.label}
-            </p>
-          </div>
-        ))}
+      <div className="mx-auto max-w-6xl">
+        <h2 id="stats-heading" className="sr-only">
+          Key project metrics
+        </h2>
+        <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-stone-200 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((s, i) => (
+            <div
+              key={i}
+              className="flex flex-col bg-stone-50 p-6 text-center"
+              itemProp="itemListElement"
+              itemScope
+              itemType="https://schema.org/QuantitativeValue"
+            >
+              <dt className="text-sm font-bold text-stone-600 uppercase" itemProp="name">
+                {s.label}
+              </dt>
+              <dd className="order-first mt-2 text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl" itemProp="value">
+                {s.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

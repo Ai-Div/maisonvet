@@ -8,7 +8,7 @@ export interface HtmlParts {
 }
 
 export function readHtmlTemplate(filename: string): HtmlParts {
-  const filePath = path.join(process.cwd(), "html-templates", filename);
+  const filePath = path.join(process.cwd(), "templates", "html-templates", filename);
   const raw = fs.readFileSync(filePath, "utf-8");
 
   // Extract title
