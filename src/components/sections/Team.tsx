@@ -14,6 +14,7 @@ const team = [
 export default function Team() {
   return (
     <section
+      id="team"
       data-agent-purpose="leadership-team"
       itemScope
       itemType="https://schema.org/Organization"

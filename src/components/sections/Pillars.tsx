@@ -25,6 +25,7 @@ const pillars = [
 export default function Pillars() {
   return (
     <section
+      id="infrastructure"
       data-agent-purpose="infrastructure-overview"
       itemScope
       itemType="https://schema.org/ItemList"

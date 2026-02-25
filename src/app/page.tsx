@@ -1,4 +1,5 @@
 import Nav from "@/components/sections/Nav";
+import SectionNav from "@/components/sections/SectionNav";
 import Hero from "@/components/sections/Hero";
 import Opportunity from "@/components/sections/Opportunity";
 import Pillars from "@/components/sections/Pillars";
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <>
       <Nav />
+      <SectionNav />
       <main
         id="primary-content"
         tabIndex={-1}

@@ -56,6 +56,7 @@ const phases = [
 export default function Timeline() {
   return (
     <section
+      id="timeline"
       data-agent-purpose="execution-roadmap"
       data-agent-topic="project-phases"
       className="bg-white py-24 px-6"
