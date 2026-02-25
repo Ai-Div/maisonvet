@@ -5,20 +5,24 @@ export default function Footer() {
       itemScope
       itemType="https://schema.org/WPFooter"
       data-agent-purpose="site-metadata-and-legal"
-      className="bg-[#080f0a] py-8 px-6 text-center"
+      className="border-t border-stone-200 bg-white px-6 py-10 md:py-12"
     >
-      <address className="not-italic">
-        <small className="text-xs text-cream/30">
-          © 2026 Maison Vet &nbsp;|&nbsp;{" "}
-          <a
-            href="mailto:tim@div.digital"
-            itemProp="email"
-            className="hover:text-gold transition-colors"
-          >
-            tim@div.digital
-          </a>
-        </small>
-      </address>
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <a
+          href="/"
+          className="font-serif text-stone-700 text-base hover:text-stone-900 transition-colors"
+          itemProp="url"
+        >
+          <span itemProp="name">Maison Vet</span>
+        </a>
+        <span className="text-sm text-stone-600">North San Diego County</span>
+        <a
+          href="mailto:hello@maisonvet.com"
+          className="text-sm text-stone-600 hover:text-stone-900 transition-colors"
+        >
+          hello@maisonvet.com
+        </a>
+      </div>
     </footer>
   );
 }

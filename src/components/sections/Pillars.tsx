@@ -1,42 +1,65 @@
 const pillars = [
   {
-    icon: "⚡",
     label: "Pillar One",
     title: "Energy Independence",
-    body: "A 250kW bifacial solar microgrid paired with Sodium-Ion battery storage delivers full energy autonomy. Virtual Power Plant enrollment with SDG&E transforms excess generation into revenue. C-PACE financing means zero upfront capital and non-recourse, property-assessed repayment.",
-    specs: ["250kW bifacial solar array", "Sodium-Ion battery storage", "VPP enrollment — SDG&E", "C-PACE financing — non-recourse"],
+    body: "A 75kW DC bifacial solar array paired with 300kWh Sodium-Ion battery storage. No utility bills. No grid fragility. When wildfire events knock out regional power, the compound stays fully operational — a critical advantage for a medical facility.",
+    specs: [
+      "75kW DC ground-mount, bifacial solar",
+      "Sodium-Ion battery storage",
+      "VPP dispatch: $15–22K/year peak arbitrage",
+      "C-PACE financed (non-recourse)",
+    ],
   },
   {
-    icon: "💧",
     label: "Pillar Two",
-    title: "Water Sovereignty",
-    body: "Adjudicated well rights from the San Luis Rey basin provide senior-priority access to a proven aquifer. On-site storage tanks serve dual duty — daily operations and fire suppression — eliminating municipal dependency entirely.",
-    specs: ["Adjudicated basin — San Luis Rey", "Senior rights — first priority", "50+ GPM — 4-hour drawdown tested", "On-site tanks — fire suppression rated"],
+    title: "Water Rights",
+    body: "Senior rights in an adjudicated basin. Legally quantified, first-priority, drought-protected. A 50+ GPM well that also serves as a fire suppression asset — a meaningful consideration for both insurers and lenders in a SoCal fire environment.",
+    specs: [
+      "Adjudicated San Luis Rey watershed",
+      "Senior rights — first priority, drought-proof",
+      "50+ GPM verified by drawdown test",
+      "On-site storage for fire suppression",
+    ],
   },
   {
-    icon: "🩺",
     label: "Pillar Three",
-    title: "Destination Medicine",
-    body: "CT and MRI capability unmatched within 20 miles. Senior RVTs compensated 20% above market to ensure retention. AI-powered triage and voice-to-chart documentation reduce overhead. Wellness subscription plans ($35–$85/mo) create predictable recurring revenue.",
-    specs: ["CT + MRI — unmatched in radius", "Senior RVTs — +20% compensation", "AI triage — voice-to-chart", "Wellness plans — $35–$85/mo"],
+    title: "Veterinary Clinic",
+    body: "A 3,500–4,000 sq ft medical-grade modular clinic. CT and MRI capability that does not exist within 20 miles. Senior RVTs. AI-assisted triage and documentation. Designed for the equestrian and high-net-worth community of North San Diego County.",
+    specs: [
+      "CT + MRI — first in the valley",
+      "Senior RVTs at +20% market rate",
+      "AI triage + voice-to-chart",
+      "Wellness plan subscription model",
+    ],
   },
 ];
 
 export default function Pillars() {
   return (
     <section
-      id="infrastructure"
+      id="pillars"
       data-agent-purpose="infrastructure-overview"
       itemScope
       itemType="https://schema.org/ItemList"
-      className="bg-green-deep py-24 px-6"
+      className="py-20 md:py-24 px-6 bg-stone-50"
+      aria-labelledby="pillars-heading"
     >
-      <div className="mx-auto max-w-7xl">
-        <p className="text-xs tracking-[0.2em] uppercase text-gold mb-3 text-center">Infrastructure</p>
-        <h2 itemProp="name" className="font-serif text-4xl sm:text-5xl font-light text-cream text-center mb-16">
-          The Three Pillars
+      <div className="max-w-6xl mx-auto">
+        <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">
+          Core Infrastructure
+        </p>
+        <h2
+          id="pillars-heading"
+          itemProp="name"
+          className="font-serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-4 max-w-2xl"
+        >
+          Three owned assets underpin the entire operation.
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <p className="text-lg text-stone-700 max-w-xl leading-relaxed mb-16">
+          Most businesses rent their land, buy power from the grid, and draw water from municipal
+          sources. We own all three inputs.
+        </p>
+        <div className="grid md:grid-cols-3 gap-px bg-stone-200">
           {pillars.map((p, i) => (
             <article
               key={i}
@@ -44,16 +67,23 @@ export default function Pillars() {
               itemType="https://schema.org/Service"
               data-agent-topic="infrastructure-pillar"
               itemProp="itemListElement"
-              className="bg-green-mid/50 border border-white/5 rounded-2xl p-8 hover:border-gold/30 transition-colors duration-300"
+              className="bg-white p-10"
             >
-              <span className="text-4xl" aria-hidden="true">{p.icon}</span>
-              <p className="text-xs tracking-[0.2em] uppercase text-gold/70 mt-4">{p.label}</p>
-              <h3 itemProp="name" className="font-serif text-2xl text-cream mt-2 mb-4">{p.title}</h3>
-              <p itemProp="description" className="text-sm text-cream/60 leading-relaxed mb-6">{p.body}</p>
-              <ul className="space-y-2">
+              <p className="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-2">
+                {p.label}
+              </p>
+              <h3 itemProp="name" className="font-serif text-2xl font-normal text-stone-900 mb-4">
+                {p.title}
+              </h3>
+              <p itemProp="description" className="text-base text-stone-700 leading-relaxed mb-6">
+                {p.body}
+              </p>
+              <ul className="text-sm text-stone-600 space-y-2">
                 {p.specs.map((s, j) => (
-                  <li key={j} className="text-xs text-cream/40 flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-gold/50" />
+                  <li key={j} className="flex gap-3">
+                    <span className="text-stone-400 select-none" aria-hidden="true">
+                      —
+                    </span>
                     {s}
                   </li>
                 ))}

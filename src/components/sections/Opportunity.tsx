@@ -1,23 +1,18 @@
 const stats = [
   {
-    value: "$0",
-    title: "Advanced Diagnostic Facilities Within 20 Miles",
-    desc: "No CT or MRI-capable vet clinic exists within a 20-mile radius of the target area. Nearest option: Murrieta or Escondido (45+ min).",
+    value: "0",
+    title: "Advanced Diagnostic Vets Within 20 Miles",
+    desc: "Nearest CT/MRI-capable vet facility is 45+ minutes from the target area. First mover wins this market permanently.",
   },
   {
     value: "40%+",
-    title: "Projected Overhead Reduction vs. Industry Average",
-    desc: "Agentic AI workflows replace the junior receptionist/admin tier. Target: 1.2 support staff per DVM vs. the industry average of ~2.5.",
-  },
-  {
-    value: "$0",
-    title: "Projected Utility Bills by Year 2",
-    desc: "250kW solar microgrid + adjudicated well water + Sodium-Ion battery storage targets full resource independence — and VPP energy revenue.",
+    title: "Overhead Reduction vs. Industry Average",
+    desc: "AI workflows replace the junior receptionist and admin tier. Target: 1.2 support staff per DVM vs. the industry average of 2.5.",
   },
   {
     value: "100%",
-    title: "Section 179 / Bonus Depreciation on Modular Build",
-    desc: "Medical-grade modular construction qualifies for accelerated depreciation — significant tax alpha in Year 1.",
+    title: "Section 179 on Modular Construction",
+    desc: "Medical-grade modular structures qualify for full bonus depreciation. Significant tax alpha in year one of operations.",
   },
 ];
 
@@ -27,36 +22,58 @@ export default function Opportunity() {
       id="opportunity"
       itemScope
       itemType="https://schema.org/Article"
+      data-agent-purpose="market-opportunity"
       data-agent-topic="market-opportunity"
-      className="bg-white py-24 px-6"
+      className="py-20 md:py-24 px-6 bg-white"
+      aria-labelledby="opportunity-heading"
     >
-      <div className="mx-auto max-w-7xl grid lg:grid-cols-2 gap-16">
-        <article data-agent-focus="read-this">
-          <p className="text-xs tracking-[0.2em] uppercase text-gold mb-3">The Opportunity</p>
-          <h2 itemProp="headline" className="font-serif text-4xl sm:text-5xl font-light text-green-deep mb-8">
-            A Gap in the Market
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-start">
+        <div data-agent-focus="read-this">
+          <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">
+            The Opportunity
+          </p>
+          <h2
+            id="opportunity-heading"
+            itemProp="headline"
+            className="font-serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-8"
+          >
+            A market with no modern option.
           </h2>
-          <p itemProp="description" className="text-gray-600 leading-relaxed mb-4">
-            North San Diego County — from Fallbrook to Valley Center to Bonsall — is one of the
-            highest-density equine and large-animal corridors in Southern California. Yet the area
-            lacks a single advanced veterinary diagnostic facility. Pet owners drive 45+ minutes for
-            a CT scan. Equine clients trailer animals across county lines for MRI.
+          <p itemProp="description" className="text-lg text-stone-700 leading-relaxed mb-6">
+            North San Diego County — Pauma Valley, Valley Center, Fallbrook — is home to one of
+            California&apos;s largest concentrations of equestrian estates, avocado farms, and
+            high-net-worth rural households. The nearest advanced veterinary diagnostics are 45
+            minutes away.
           </p>
-          <p itemProp="description" className="text-gray-600 leading-relaxed">
-            Maison Vet is designed to fill that void — not as a conventional clinic, but as a
-            self-sustaining medical compound engineered for operational independence, tax efficiency,
-            and long-term defensibility.
+          <p itemProp="description" className="text-lg text-stone-700 leading-relaxed mb-6">
+            No CT. No MRI. No after-hours emergency. No destination clinic. The new Fallbrook
+            Costco and Whole Foods corridor signals the gravity shift — high-income households are
+            moving in. Their animals need care that does not exist yet.
           </p>
-        </article>
-        <dl className="space-y-8" data-agent-purpose="key-metrics">
+          <p itemProp="description" className="text-lg text-stone-700 leading-relaxed">
+            This is not a standard vet clinic startup. It is a compound — owned land, sovereign
+            energy, senior water rights — with a high-margin medical anchor. The moat is the
+            infrastructure, not just the medicine.
+          </p>
+        </div>
+        <div className="flex flex-col gap-10 pt-2" data-agent-purpose="key-metrics">
           {stats.map((s, i) => (
-            <div key={i} className="border-l-2 border-gold pl-6" itemScope itemType="https://schema.org/QuantitativeValue">
-              <dt className="font-serif text-3xl text-green-deep font-semibold" itemProp="value">{s.value}</dt>
-              <dd className="text-sm font-medium text-green-mid mt-1">{s.title}</dd>
-              <dd className="text-sm text-gray-500 mt-2 leading-relaxed">{s.desc}</dd>
+            <div
+              key={i}
+              className="border-l-2 border-stone-300 pl-6"
+              itemScope
+              itemType="https://schema.org/QuantitativeValue"
+            >
+              <p className="font-serif text-4xl font-normal text-stone-900 mb-2" itemProp="value">
+                {s.value}
+              </p>
+              <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-3" itemProp="name">
+                {s.title}
+              </p>
+              <p className="text-base text-stone-700 leading-relaxed">{s.desc}</p>
             </div>
           ))}
-        </dl>
+        </div>
       </div>
     </section>
   );

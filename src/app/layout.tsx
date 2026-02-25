@@ -1,30 +1,79 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
+const notoSerif = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Noto_Serif/static/NotoSerif-Light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Noto_Serif/static/NotoSerif-LightItalic.ttf",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/Noto_Serif/static/NotoSerif-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Noto_Serif/static/NotoSerif-Italic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/Noto_Serif/static/NotoSerif-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Noto_Serif/static/NotoSerif-SemiBoldItalic.ttf",
+      weight: "600",
+      style: "italic",
+    },
+  ],
   variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["300", "400", "600"],
-  style: ["normal", "italic"],
 });
 
-const inter = Inter({
+const inter = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Inter/static/Inter_18pt-Light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Inter/static/Inter_18pt-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Inter/static/Inter_18pt-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Inter/static/Inter_18pt-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+  ],
   variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "Maison Vet — A Sovereign Medical Compound",
-  description: "Confidential investment summary for a sovereign veterinary medical compound in North San Diego County.",
+  title: "Maison Vet Clinic",
+  description: "A vertically integrated veterinary clinic and compound in North San Diego County. Energy independence, senior water rights, and destination-tier medicine.",
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "VeterinaryClinic",
   "name": "Maison Vet",
-  "description": "A sovereign veterinary medical compound in North San Diego County. Advanced diagnostics including CT and MRI. Energy and water independent.",
+  "description": "A vertically integrated veterinary clinic and compound in North San Diego County. Energy independence, senior water rights, and destination-tier medicine.",
   "address": {
     "@type": "PostalAddress",
     "addressRegion": "CA",
@@ -41,17 +90,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="ltr" className={`${cormorant.variable} ${inter.variable}`}>
+    <html lang="en" dir="ltr" className={`${notoSerif.variable} ${inter.variable} scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased">
+      <body className="antialiased bg-white text-stone-900">
         <a
           href="#primary-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-green-deep focus:text-gold rounded-br-md"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-stone-900 focus:text-white rounded-br-md"
         >
           Skip to primary content
         </a>

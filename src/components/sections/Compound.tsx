@@ -1,10 +1,34 @@
 const items = [
-  { title: "Medical Clinic", desc: "3,500–4,000 sq ft modular construction. CT, MRI, surgical suite, recovery.", phase: "Phase 2" },
-  { title: "Solar Microgrid", desc: "250kW+ bifacial array with Sodium-Ion storage and VPP integration.", phase: "Phase 2" },
-  { title: "Primary Residence", desc: "Owner&apos;s residence on-site. Central to compound operations.", phase: "Phase 2" },
-  { title: "Vet Cottage — Staff Housing", desc: "On-site RVT/DVM housing. Reduces commute friction, improves retention.", phase: "Phase 2" },
-  { title: "Agricultural Operations", desc: "Food forest, aquaculture, and regenerative agriculture program.", phase: "Phase 3" },
-  { title: "Edge Compute Hub", desc: "Starlink 4.0 + fiber backhaul. AI inference, telemedicine, data sovereignty.", phase: "Phase 2" },
+  {
+    label: "Medical Clinic",
+    title: "3,500–4,000 sq ft",
+    desc: "Medical-grade modular construction. Multiple exam rooms, surgery suite, imaging bay (CT/MRI-ready), pharmacy, recovery ward. Class A fire rating. Qualifies for 100% Section 179 bonus depreciation in year one.",
+  },
+  {
+    label: "Energy Infrastructure",
+    title: "75kW DC Solar + 300kWh Na-Ion Storage",
+    desc: "Right-sized for the compound footprint. 75kW DC qualifies as \"Small Commercial\" — simplified permitting, no Rule 21 utility-scale studies. Annual production ~135,000 kWh vs. ~95,000 kWh consumed, leaving 40,000 kWh surplus for VPP peak dispatch. The 4:1 battery-to-solar ratio is the key: the 300kWh tank fills during off-peak and sells back during SDG&E's 4–9 PM peak window. Gross project cost $412,500 — 30% ITC ($123,750) = $288,750 net. Financed 100% via C-PACE, non-recourse, property-assessed.",
+  },
+  {
+    label: "Staff Housing",
+    title: "Residence + Vet Cottage",
+    desc: "Primary residence and on-site Vet Cottage for a senior RVT or resident DVM. On-site housing is a business expense for on-call medical personnel — and enables 24/7 emergency care capability that competitors cannot match.",
+  },
+  {
+    label: "Agricultural Operations",
+    title: "Food Forest + Aquaculture",
+    desc: "Working agriculture using adjudicated well water. Generates ag income for favorable tax treatment of land. Supports the Ag-zoned classification and strengthens the Conditional Use Permit application for the medical use.",
+  },
+  {
+    label: "AI Clinical Systems",
+    title: "Agentic Workflows",
+    desc: "AI triage, voice-to-chart documentation, automated inventory, and appointment management replace the junior admin tier. Target staffing ratio: 1.2 support staff per DVM versus the industry average of 2.5.",
+  },
+  {
+    label: "Connectivity",
+    title: "Starlink 4.0 + Edge Compute",
+    desc: "Starlink 4.0 primary with local fiber backhaul. On-premise edge compute for low-latency AI clinical workflows. Fully operational during grid outages — the solar and battery system keeps everything running when the surrounding area cannot.",
+  },
 ];
 
 export default function Compound() {
@@ -14,33 +38,40 @@ export default function Compound() {
       data-agent-purpose="compound-specifications"
       itemScope
       itemType="https://schema.org/RealEstateListing"
-      className="bg-cream-dark py-24 px-6"
+      className="py-20 md:py-24 px-6 bg-white"
+      aria-labelledby="compound-heading"
     >
-      <div className="mx-auto max-w-7xl">
-        <p className="text-xs tracking-[0.2em] uppercase text-gold mb-3">The Build</p>
-        <h2 itemProp="name" className="font-serif text-4xl sm:text-5xl font-light text-green-deep mb-3">
-          What We&apos;re Building
+      <div className="max-w-6xl mx-auto">
+        <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">
+          The Compound
+        </p>
+        <h2
+          id="compound-heading"
+          itemProp="name"
+          className="font-serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-16 max-w-xl"
+        >
+          15–22 acres.
+          <br />
+          A complete operating system.
         </h2>
-        <p className="text-gray-500 mb-16">15–22 acres. A complete operating system.</p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
           {items.map((item, i) => (
             <article
               key={i}
               data-agent-topic="compound-component"
               itemScope
               itemType="https://schema.org/Service"
-              className="border-l-2 border-gold pl-6"
+              className="border-t-2 border-stone-200 pt-8"
             >
-              <div className="flex items-center gap-3 mb-2">
-                <h3 itemProp="name" className="font-semibold text-green-deep">{item.title}</h3>
-                <span
-                  aria-label={"Development phase: " + item.phase}
-                  className="text-[10px] tracking-wider uppercase bg-green-deep/10 text-green-deep px-2 py-0.5 rounded-full"
-                >
-                  {item.phase}
-                </span>
-              </div>
-              <p itemProp="description" className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+              <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-2">
+                {item.label}
+              </p>
+              <h3 itemProp="name" className="font-serif text-2xl font-normal text-stone-900 mb-3">
+                {item.title}
+              </h3>
+              <p itemProp="description" className="text-base text-stone-700 leading-relaxed">
+                {item.desc}
+              </p>
             </article>
           ))}
         </div>

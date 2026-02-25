@@ -1,31 +1,29 @@
-const requirements = [
-  "15–22 acres zoned Ag or Ag-Residential",
-  "Existing well with adjudicated or permitted rights",
-  "South-facing exposure for solar optimization",
-  "Road-accessible for emergency and equine transport",
-  "Within 30 minutes of I-15 or I-76 corridor",
-  "Suitable soil and grade for modular construction",
-  "Minimal wildfire interface (engineered mitigation)",
-  "Favorable county permitting pathway (San Diego County)",
+const siteReqs = [
+  "15–22 acres, Ag-zoned (SD County A70/A72)",
+  "Adjudicated water basin — CalWATRS senior rights verified",
+  "Well production at or above 50 GPM via 4-hour drawdown test",
+  "CUP feasibility pre-confirmed with SD County Planning",
+  "Two independent egress routes off the property",
+  "Outside perimeters of the 2003, 2007, and 2018 regional fires",
+  "Cal Fire station within 15 minutes",
 ];
 
-const targets = [
-  "Fallbrook / Bonsall corridor",
-  "Valley Center / Escondido periphery",
-  "De Luz / Rainbow unincorporated areas",
-  "Pauma Valley / Palomar Mountain foothills",
-  "Hidden Meadows / Bear Valley",
-  "Temecula border (Riverside County alternative)",
-  "Ramona (eastern alternative)",
+const lookingFor = [
+  "Natural beauty — ridgeline, valley, or avocado grove setting",
+  "Within 45 minutes of the Fallbrook corridor",
+  "No advanced-diagnostic vet clinic within 15 miles",
+  "Equestrian-friendly access — wide road, trailer clearance",
+  "Existing structures preferred (reduces CUP complexity)",
+  "Starlink line-of-sight clearance or fiber available",
 ];
 
-const mitigations = [
-  "Defensible space — 200ft managed perimeter",
-  "Metal roof + hardened construction",
-  "On-site water tanks — fire suppression rated",
-  "Solar-powered well pump — grid-independent",
-  "Fire-resistant native landscaping",
-  "Community evacuation plan integration",
+const fireTags = [
+  "100 ft+ Defensible Space",
+  "Class A Modular Construction",
+  "On-site Water for Suppression",
+  "Solar Off-Grid During Outages",
+  "Two Egress Routes Required",
+  "FAIR Plan + Surplus Lines Insurance",
 ];
 
 export default function Location() {
@@ -34,31 +32,50 @@ export default function Location() {
       id="location"
       data-agent-purpose="location-strategy"
       data-agent-topic="site-selection"
-      className="bg-cream-dark py-24 px-6"
+      className="py-20 md:py-24 px-6 bg-white"
+      aria-labelledby="location-heading"
     >
-      <div className="mx-auto max-w-7xl">
-        <p className="text-xs tracking-[0.2em] uppercase text-gold mb-3">Geography</p>
-        <h2 id="location-heading" className="font-serif text-4xl sm:text-5xl font-light text-green-deep mb-16">
+      <div className="max-w-6xl mx-auto">
+        <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">
           Location Strategy
+        </p>
+        <h2
+          id="location-heading"
+          className="font-serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-4 max-w-2xl"
+        >
+          Natural beauty. Fire risk acknowledged. Engineered around.
         </h2>
-        <div className="grid lg:grid-cols-2 gap-16">
+        <p className="text-lg text-stone-700 max-w-xl leading-relaxed mb-16">
+          Pauma Valley and Valley Center offer everything this project demands — land scale, water
+          infrastructure, natural landscape, and the client base. SoCal fire risk is real. It is
+          not being ignored.
+        </p>
+        <div className="grid md:grid-cols-2 gap-16 mb-12">
           <div>
-            <h3 id="requirements-heading" className="font-semibold text-green-deep mb-4">Site Requirements</h3>
-            <ul aria-labelledby="requirements-heading" className="space-y-3">
-              {requirements.map((r, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-gray-600">
-                  <span className="text-gold mt-0.5" aria-hidden="true">✓</span>
+            <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-6">
+              Site Requirements
+            </p>
+            <ul className="space-y-4">
+              {siteReqs.map((r, i) => (
+                <li key={i} className="flex items-start gap-4 text-base text-stone-700">
+                  <span className="text-stone-500 mt-0.5 font-semibold select-none" aria-hidden="true">
+                    +
+                  </span>
                   {r}
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h3 id="targets-heading" className="font-semibold text-green-deep mb-4">Target Profile</h3>
-            <ul aria-labelledby="targets-heading" className="space-y-3">
-              {targets.map((t, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-gray-600">
-                  <span className="text-gold mt-0.5" aria-hidden="true">→</span>
+            <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-6">
+              What We Are Looking For
+            </p>
+            <ul className="space-y-4">
+              {lookingFor.map((t, i) => (
+                <li key={i} className="flex items-start gap-4 text-base text-stone-700">
+                  <span className="text-stone-500 mt-0.5 font-semibold select-none" aria-hidden="true">
+                    +
+                  </span>
                   {t}
                 </li>
               ))}
@@ -68,19 +85,29 @@ export default function Location() {
         <aside
           aria-labelledby="fire-risk-heading"
           data-agent-topic="risk-mitigation"
-          className="mt-16 bg-green-deep border border-amber-500/30 rounded-2xl p-8"
+          className="border-l-4 border-stone-800 bg-stone-100 p-8"
         >
-          <h3 id="fire-risk-heading" className="font-serif text-xl text-cream mb-2">Fire Risk — Acknowledged &amp; Engineered</h3>
-          <p className="text-sm text-cream/50 mb-6">
-            North SD County is fire country. We don&apos;t ignore it — we engineer around it.
+          <p
+            id="fire-risk-heading"
+            className="text-sm font-semibold tracking-widest uppercase text-stone-700 mb-3"
+          >
+            Fire Risk — Real. Engineered Around.
           </p>
-          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 list-none p-0 m-0">
-            {mitigations.map((m, i) => (
-              <li key={i} className="text-xs bg-amber-500/10 text-amber-200 px-3 py-2 rounded-lg">
-                {m}
-              </li>
+          <p className="text-base text-stone-800 leading-relaxed mb-5">
+            Both target zip codes (92061, 92082) carry Cal Fire&apos;s Very High to Extreme FHSZ
+            designation. This is a known variable — not a disqualifier — addressed structurally at
+            every layer of the project.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {fireTags.map((tag, i) => (
+              <span
+                key={i}
+                className="text-sm px-3 py-1.5 border border-stone-400 text-stone-800 bg-white font-medium"
+              >
+                {tag}
+              </span>
             ))}
-          </ul>
+          </div>
         </aside>
       </div>
     </section>

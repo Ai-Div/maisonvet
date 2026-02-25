@@ -5,32 +5,56 @@ export default function Hero() {
       itemType="https://schema.org/WebPageElement"
       data-agent-purpose="hero-brand-statement"
       data-agent-topic="value-proposition"
-      className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-green-deep via-green-mid to-green-deep text-center px-6"
+      className="relative pt-32 md:pt-40 pb-24 md:pb-28 px-6 bg-white"
     >
-      <p className="text-xs tracking-[0.3em] uppercase text-gold/80 mb-6">
-        Project Alpha — Confidential Investment Summary
-      </p>
-      <h1 itemProp="name" className="font-serif text-6xl sm:text-7xl lg:text-8xl font-light text-cream leading-tight">
-        Maison{" "}
-        <em className="text-gold-light">Vet</em>
-      </h1>
-      <p itemProp="description" className="mt-6 font-serif text-xl sm:text-2xl italic text-cream/70 max-w-2xl">
-        A Sovereign Medical Compound in North San Diego County
-      </p>
-      <div className="mt-10 flex items-center gap-4 text-sm tracking-[0.15em] uppercase text-cream/50">
-        <span>Energy</span>
-        <span className="text-gold">×</span>
-        <span>Water</span>
-        <span className="text-gold">×</span>
-        <span>Medicine</span>
+      <div className="max-w-4xl mx-auto">
+        <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-6">
+          Maison Vet Clinic
+        </p>
+        <h1
+          itemProp="name"
+          className="font-serif text-5xl md:text-8xl font-normal leading-none text-stone-900 mb-8"
+        >
+          Medicine, Land,
+          <br />
+          Water &amp; Power.
+        </h1>
+        <p
+          itemProp="description"
+          className="text-xl md:text-2xl text-stone-700 font-light max-w-xl leading-relaxed mb-10"
+        >
+          A vertically integrated veterinary clinic and compound — built on land we
+          own, powered by energy we generate, and watered by rights that cannot be
+          taken away.
+        </p>
+        <div className="flex items-center gap-6 text-sm font-semibold tracking-widest uppercase text-stone-600">
+          <span>Medicine</span>
+          <span className="w-8 h-px bg-stone-300" aria-hidden="true" />
+          <span>Land</span>
+          <span className="w-8 h-px bg-stone-300" aria-hidden="true" />
+          <span>Water</span>
+          <span className="w-8 h-px bg-stone-300" aria-hidden="true" />
+          <span>Power</span>
+        </div>
       </div>
       <a
         href="#opportunity"
         aria-label="Scroll to opportunity section"
-        className="absolute bottom-10 animate-[bounce-slow_2s_ease-in-out_infinite]"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-[bounce-slow_2s_ease-in-out_infinite] text-stone-400 hover:text-stone-600 focus-visible:ring-2 focus-visible:ring-stone-900 rounded-sm"
       >
-        <svg className="w-6 h-6 text-gold/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M19 9l-7 7-7-7"
+          />
         </svg>
       </a>
     </section>

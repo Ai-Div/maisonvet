@@ -1,11 +1,13 @@
 import Nav from "@/components/sections/Nav";
 import SectionNav from "@/components/sections/SectionNav";
 import Hero from "@/components/sections/Hero";
+import StatsBar from "@/components/sections/StatsBar";
 import Opportunity from "@/components/sections/Opportunity";
 import Pillars from "@/components/sections/Pillars";
 import Compound from "@/components/sections/Compound";
 import Finance from "@/components/sections/Finance";
 import Location from "@/components/sections/Location";
+import Financials from "@/components/sections/Financials";
 import Timeline from "@/components/sections/Timeline";
 import Team from "@/components/sections/Team";
 import CTA from "@/components/sections/CTA";
@@ -24,11 +26,13 @@ export default function Home() {
         data-agent-purpose="core-information-payload"
       >
         <Hero />
+        <StatsBar />
         <Opportunity />
         <Pillars />
         <Compound />
         <Finance />
         <Location />
+        <Financials />
         <Timeline />
         <Team />
         <CTA />

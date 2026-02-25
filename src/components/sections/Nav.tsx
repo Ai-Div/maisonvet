@@ -1,11 +1,14 @@
 import { auth } from "@/auth";
 import { signOut } from "@/auth";
+import PrimaryNavLinks from "./PrimaryNavLinks";
 
 const primaryLinks = [
-  { label: "About", href: "/about" },
-  { label: "The Compound", href: "/compound" },
-  { label: "Team", href: "/team" },
-  { label: "Contact", href: "/contact" },
+  { label: "Opportunity", href: "#opportunity" },
+  { label: "The Compound", href: "#pillars" },
+  { label: "Capital", href: "#capital" },
+  { label: "Location", href: "#location" },
+  { label: "Financials", href: "#financials" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default async function Nav() {
@@ -18,22 +21,19 @@ export default async function Nav() {
       itemScope
       itemType="https://schema.org/WPHeader"
       data-agent-purpose="site-branding-and-navigation"
-      className="fixed top-0 left-0 right-0 z-50 bg-green-deep/95 backdrop-blur-md border-b border-white/5"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200"
     >
       <div className="mx-auto max-w-[1100px] px-6 flex items-center justify-between h-16">
-
-        {/* Brand */}
         <a
           href="/"
           rel="home"
           aria-label="Maison Vet — Return to homepage"
-          className="font-serif text-2xl text-gold tracking-wide"
+          className="font-serif text-xl font-normal tracking-wide text-stone-900"
           itemProp="url"
         >
           <span itemProp="name">Maison Vet</span>
         </a>
 
-        {/* Desktop: primary nav + auth state */}
         <div className="hidden md:flex items-center gap-8">
           <nav
             aria-label="Primary Site Navigation"
@@ -41,41 +41,32 @@ export default async function Nav() {
             itemType="https://schema.org/SiteNavigationElement"
             data-agent-interactive="routing"
           >
-            <ul className="flex items-center gap-8">
-              {primaryLinks.map((l) => (
-                <li key={l.href}>
-                  <a
-                    href={l.href}
-                    itemProp="url"
-                    className="text-xs tracking-[0.2em] uppercase text-cream/70 hover:text-gold focus-visible:ring-2 focus-visible:ring-gold rounded-sm transition-colors duration-200"
-                  >
-                    <span itemProp="name">{l.label}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <PrimaryNavLinks />
           </nav>
 
-          {/* Auth state */}
           {user ? (
-            <details
-              className="relative"
-              data-agent-purpose="user-menu"
-            >
+            <details className="relative" data-agent-purpose="user-menu">
               <summary
-                className="list-none cursor-pointer flex items-center gap-2 text-xs tracking-[0.15em] uppercase text-cream/70 hover:text-gold focus-visible:ring-2 focus-visible:ring-gold rounded-sm px-1 transition-colors select-none"
+                className="list-none cursor-pointer flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-stone-900 rounded-sm px-1 transition-colors select-none"
                 aria-label={`User menu for ${firstName}`}
                 aria-haspopup="menu"
               >
                 {firstName}
-                <svg aria-hidden="true" className="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg
+                  aria-hidden="true"
+                  className="w-3 h-3 opacity-50"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
               </summary>
               <nav
                 aria-label="User Account Navigation"
                 role="menu"
-                className="absolute right-0 top-full mt-3 w-44 bg-green-deep border border-white/10 rounded-xl shadow-xl overflow-hidden"
+                className="absolute right-0 top-full mt-3 w-44 bg-white border border-stone-200 rounded-xl shadow-xl overflow-hidden"
                 data-agent-purpose="user-account-menu"
               >
                 <ul className="py-1">
@@ -83,7 +74,7 @@ export default async function Nav() {
                     <a
                       href="/dashboard"
                       role="menuitem"
-                      className="block px-4 py-2 text-xs tracking-wider uppercase text-cream/70 hover:text-gold hover:bg-white/5 transition-colors"
+                      className="block px-4 py-2 text-xs font-semibold tracking-wider uppercase text-stone-700 hover:text-stone-900 hover:bg-stone-50 transition-colors"
                     >
                       Dashboard
                     </a>
@@ -92,7 +83,7 @@ export default async function Nav() {
                     <a
                       href="/properties"
                       role="menuitem"
-                      className="block px-4 py-2 text-xs tracking-wider uppercase text-cream/70 hover:text-gold hover:bg-white/5 transition-colors"
+                      className="block px-4 py-2 text-xs font-semibold tracking-wider uppercase text-stone-700 hover:text-stone-900 hover:bg-stone-50 transition-colors"
                     >
                       Properties
                     </a>
@@ -101,12 +92,12 @@ export default async function Nav() {
                     <a
                       href="/perris"
                       role="menuitem"
-                      className="block px-4 py-2 text-xs tracking-wider uppercase text-cream/70 hover:text-gold hover:bg-white/5 transition-colors"
+                      className="block px-4 py-2 text-xs font-semibold tracking-wider uppercase text-stone-700 hover:text-stone-900 hover:bg-stone-50 transition-colors"
                     >
                       Perris Analysis
                     </a>
                   </li>
-                  <li role="none" className="border-t border-white/5">
+                  <li role="none" className="border-t border-stone-100">
                     <form
                       action={async () => {
                         "use server";
@@ -116,7 +107,7 @@ export default async function Nav() {
                       <button
                         type="submit"
                         role="menuitem"
-                        className="w-full text-left px-4 py-2.5 text-xs tracking-wider uppercase text-cream/50 hover:text-gold hover:bg-white/5 focus-visible:ring-2 focus-visible:ring-gold transition-colors"
+                        className="w-full text-left px-4 py-2.5 text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-stone-900 hover:bg-stone-50 focus-visible:ring-2 focus-visible:ring-stone-900 transition-colors"
                         data-agent-action="sign-out"
                       >
                         Sign out
@@ -129,7 +120,7 @@ export default async function Nav() {
           ) : (
             <a
               href="/sign-in"
-              className="text-xs tracking-[0.2em] uppercase text-gold border border-gold/40 rounded-lg px-4 py-1.5 hover:bg-gold/10 focus-visible:ring-2 focus-visible:ring-gold transition-colors"
+              className="text-xs font-semibold tracking-widest uppercase text-white bg-stone-900 px-4 py-2 hover:bg-stone-700 focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 transition-colors rounded-sm"
               data-agent-action="initiate-sign-in"
             >
               Sign In
@@ -137,50 +128,56 @@ export default async function Nav() {
           )}
         </div>
 
-        {/* Mobile: details/summary burger */}
-        <details className="md:hidden" data-agent-purpose="mobile-navigation">
+        <details className="md:hidden group" data-agent-purpose="mobile-navigation">
           <summary
-            className="list-none cursor-pointer text-cream/70 hover:text-gold focus-visible:ring-2 focus-visible:ring-gold rounded-sm p-1 transition-colors"
+            className="list-none cursor-pointer text-stone-600 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-stone-900 rounded-sm p-2 -m-2 transition-colors"
             aria-label="Toggle navigation menu"
           >
-            <svg aria-hidden="true" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <svg
+              aria-hidden="true"
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.5}
+            >
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
             </svg>
           </summary>
           <nav
             aria-label="Mobile Navigation"
-            className="absolute top-16 left-0 right-0 bg-green-deep/98 border-t border-white/5 px-6 py-5 space-y-4"
+            className="absolute top-16 left-0 right-0 bg-white border-t border-stone-200 px-6 py-6 shadow-xl"
           >
-            <ul className="space-y-3">
+            <ul className="space-y-0">
               {primaryLinks.map((l) => (
                 <li key={l.href}>
                   <a
                     href={l.href}
-                    className="text-xs tracking-[0.2em] uppercase text-cream/70 hover:text-gold transition-colors"
+                    className="block py-4 border-b border-stone-100 text-sm font-semibold tracking-wider uppercase text-stone-700 hover:text-stone-900 transition-colors last:border-0"
                   >
                     {l.label}
                   </a>
                 </li>
               ))}
             </ul>
-            <div className="pt-3 border-t border-white/5">
+            <div className="pt-4 mt-4 border-t border-stone-200">
               {user ? (
                 <div className="space-y-3">
                   <a
                     href="/dashboard"
-                    className="block text-xs tracking-[0.2em] uppercase text-gold"
+                    className="block text-xs font-semibold tracking-widest uppercase text-stone-900"
                   >
                     Dashboard
                   </a>
                   <a
                     href="/properties"
-                    className="block text-xs tracking-[0.2em] uppercase text-cream/70 hover:text-gold"
+                    className="block text-xs font-semibold tracking-widest uppercase text-stone-700 hover:text-stone-900"
                   >
                     Properties
                   </a>
                   <a
                     href="/perris"
-                    className="block text-xs tracking-[0.2em] uppercase text-cream/70 hover:text-gold"
+                    className="block text-xs font-semibold tracking-widest uppercase text-stone-700 hover:text-stone-900"
                   >
                     Perris Analysis
                   </a>
@@ -192,7 +189,7 @@ export default async function Nav() {
                   >
                     <button
                       type="submit"
-                      className="text-xs tracking-[0.2em] uppercase text-cream/40 hover:text-gold transition-colors"
+                      className="text-xs font-semibold tracking-widest uppercase text-stone-500 hover:text-stone-900 transition-colors"
                     >
                       Sign out
                     </button>
@@ -201,7 +198,7 @@ export default async function Nav() {
               ) : (
                 <a
                   href="/sign-in"
-                  className="text-xs tracking-[0.2em] uppercase text-gold"
+                  className="block text-xs font-semibold tracking-widest uppercase text-stone-900"
                 >
                   Sign In
                 </a>
@@ -209,7 +206,6 @@ export default async function Nav() {
             </div>
           </nav>
         </details>
-
       </div>
     </header>
   );

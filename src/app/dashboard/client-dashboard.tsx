@@ -72,7 +72,7 @@ const PitchDeck = () => (
         <ul className="list-disc pl-5 mt-2 text-sm text-gray-700">
           <li><strong>Collateral Coverage:</strong> Land value + Water Rights value &gt; Loan Amount.</li>
           <li><strong>DSCR:</strong> Clinic revenue + VPP energy revenue + Agricultural revenue covers debt service.</li>
-          <li><strong>Execution Team:</strong> Tim Hobert (Tech/Ops), Emily Gray (Clinical), Rachel Gray (Ops).</li>
+          <li><strong>Execution Team:</strong> Tim Hobert (Tech/Ops), Emily Gray (Clinical), Rachael Gray (Ops).</li>
         </ul>
       </div>
 

@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 /**
- * Edge-compatible middleware — checks for Auth.js session cookie
- * without importing the full auth library (which requires Node.js runtime).
- * Auth.js v5 writes one of two cookie names depending on the environment.
+ * Protects /dashboard, /perris, /properties (and /admin). Redirects to /sign-in when no session.
+ * Only allowlisted users can complete sign-in (see auth.ts ALLOWED_EMAILS / ALLOWED_DOMAINS).
+ * Edge-compatible: checks Auth.js session cookie only (no Node auth import).
  */
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;

@@ -59,14 +59,20 @@ export default function Timeline() {
       id="timeline"
       data-agent-purpose="execution-roadmap"
       data-agent-topic="project-phases"
-      className="bg-white py-24 px-6"
+      className="bg-white py-20 md:py-24 px-6"
+      aria-labelledby="timeline-heading"
     >
       <div className="mx-auto max-w-7xl">
-        <p className="text-xs tracking-[0.2em] uppercase text-gold mb-3">Roadmap</p>
-        <h2 className="font-serif text-4xl sm:text-5xl font-light text-green-deep mb-3">
+        <p className="text-sm font-semibold tracking-widest uppercase text-stone-600 mb-4">
+          Roadmap
+        </p>
+        <h2
+          id="timeline-heading"
+          className="font-serif text-4xl md:text-5xl font-normal text-stone-900 leading-tight mb-4"
+        >
           Execution Plan
         </h2>
-        <p className="text-gray-500 mb-16">24 months. Four phases.</p>
+        <p className="text-lg text-stone-700 mb-16">24 months. Four phases.</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {phases.map((p, i) => (
             <article
@@ -75,26 +81,37 @@ export default function Timeline() {
               data-agent-topic="project-phase"
               {...(p.active ? { "aria-current": "step" as const } : {})}
               className={`rounded-2xl p-6 ${
-                p.active
-                  ? "bg-green-deep text-cream"
-                  : "bg-gray-50 text-green-deep"
+                p.active ? "bg-stone-900 text-white" : "bg-stone-50 text-stone-900"
               }`}
             >
-              <p className={`text-xs tracking-wider uppercase ${p.active ? "text-gold" : "text-gold"}`}>
+              <p
+                className={`text-xs tracking-wider uppercase ${
+                  p.active ? "text-stone-300" : "text-stone-600"
+                }`}
+              >
                 {p.phase} {p.active && "— Current"}
               </p>
               <h3
                 id={"phase-" + i + "-title"}
-                className={`font-serif text-xl mt-1 mb-1 ${p.active ? "text-cream" : "text-green-deep"}`}
+                className={`font-serif text-xl mt-1 mb-1 ${
+                  p.active ? "text-white" : "text-stone-900"
+                }`}
               >
                 {p.title}
               </h3>
-              <p className={`text-xs mb-4 ${p.active ? "text-cream/50" : "text-gray-400"}`}>
+              <p
+                className={`text-xs mb-4 ${p.active ? "text-stone-400" : "text-stone-500"}`}
+              >
                 {p.months}
               </p>
               <ul className="space-y-2 list-disc list-inside">
                 {p.items.map((item, j) => (
-                  <li key={j} className={`text-xs leading-relaxed ${p.active ? "text-cream/70" : "text-gray-500"}`}>
+                  <li
+                    key={j}
+                    className={`text-xs leading-relaxed ${
+                      p.active ? "text-stone-300" : "text-stone-600"
+                    }`}
+                  >
                     {item}
                   </li>
                 ))}

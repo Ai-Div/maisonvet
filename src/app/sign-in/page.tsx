@@ -10,28 +10,30 @@ export const metadata = {
 export default async function SignInPage({
   searchParams,
 }: {
-  searchParams: Promise<{ callbackUrl?: string }>;
+  searchParams: Promise<{ callbackUrl?: string; error?: string }>;
 }) {
   const session = await auth();
-  const { callbackUrl } = await searchParams;
+  const { callbackUrl, error } = await searchParams;
 
-  // Already signed in — send them where they were going
   if (session?.user) {
     redirect(callbackUrl ?? "/dashboard");
   }
+
+  const isAccessDenied = error === "AccessDenied";
+  const isConfigError = Boolean(error && error !== "AccessDenied");
 
   return (
     <main
       id="primary-content"
       role="main"
       tabIndex={-1}
-      className="outline-none min-h-screen bg-green-deep flex items-center justify-center px-6"
+      className="outline-none min-h-screen bg-stone-100 flex items-center justify-center px-6 py-12"
       itemScope
       itemType="https://schema.org/WebPage"
       data-agent-purpose="authentication-gate"
     >
       <article
-        className="w-full max-w-sm bg-green-mid/50 border border-white/10 rounded-2xl p-10 text-center"
+        className="w-full max-w-md bg-white border border-stone-200 rounded-2xl p-10 md:p-12 text-center shadow-lg shadow-stone-200/50"
         data-agent-purpose="sign-in-form"
         itemScope
         itemType="https://schema.org/LoginAction"
@@ -40,15 +42,36 @@ export default async function SignInPage({
           href="/"
           rel="home"
           aria-label="Return to Maison Vet homepage"
-          className="inline-block font-serif text-3xl text-gold tracking-wide mb-8"
+          className="inline-block font-serif text-3xl md:text-4xl text-stone-900 tracking-wide mb-8 hover:text-stone-700 transition-colors focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 rounded-sm"
         >
           Maison Vet
         </a>
 
-        <h1 className="font-serif text-xl text-cream mb-2">Team Access</h1>
-        <p className="text-sm text-cream/50 mb-8">
+        <h1 className="font-serif text-2xl text-stone-900 mb-2">Team Access</h1>
+        <p className="text-stone-600 mb-8 max-w-sm mx-auto">
           Sign in with your Google account to continue.
         </p>
+
+        {isAccessDenied && (
+          <p
+            className="mb-6 p-3 text-sm text-amber-800 bg-amber-50 border border-amber-200 rounded-lg"
+            role="alert"
+            id="sign-in-error"
+          >
+            Access is restricted to invited team members. If you believe you should have access,
+            contact the project team.
+          </p>
+        )}
+
+        {isConfigError && (
+          <p
+            className="mb-6 p-3 text-sm text-stone-700 bg-stone-100 border border-stone-200 rounded-lg"
+            role="alert"
+            id="sign-in-config-error"
+          >
+            Sign-in is temporarily misconfigured. Please try again later or contact the team.
+          </p>
+        )}
 
         <form
           action={async () => {
@@ -58,10 +81,13 @@ export default async function SignInPage({
             });
           }}
           data-agent-action="initiate-google-oauth"
+          aria-describedby={
+            isAccessDenied ? "sign-in-error" : isConfigError ? "sign-in-config-error" : undefined
+          }
         >
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-3 px-6 py-3 bg-white text-gray-800 text-sm font-medium rounded-lg hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-green-mid transition-colors"
+            className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-white border border-stone-300 text-stone-800 text-sm font-semibold rounded-xl hover:bg-stone-50 hover:border-stone-400 focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 transition-colors"
             aria-label="Sign in with Google"
           >
             <svg
