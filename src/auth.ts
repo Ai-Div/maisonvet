@@ -6,6 +6,8 @@ const ALLOWED_EMAILS = process.env.ALLOWED_EMAILS?.split(",").map((e) => e.trim(
   "hello@maisonvet.com",
   "tim@div.digital",
   "ai@div.digital",
+  "zephobert@gmail.com",
+  "hobertgrayfamily@gmail.com",
 ];
 const ALLOWED_DOMAINS = process.env.ALLOWED_DOMAINS?.split(",").map((d) => d.trim()).filter(Boolean) ?? [
   "div.digital",
@@ -13,9 +15,11 @@ const ALLOWED_DOMAINS = process.env.ALLOWED_DOMAINS?.split(",").map((d) => d.tri
 ];
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  trustHost: true,
   providers: [Google],
   pages: {
     signIn: "/sign-in",
+    error: "/sign-in",
   },
   callbacks: {
     authorized({ auth }) {
