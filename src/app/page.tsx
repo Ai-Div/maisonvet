@@ -1,4 +1,3 @@
-import Nav from "@/components/sections/Nav";
 import SectionNav from "@/components/sections/SectionNav";
 import Hero from "@/components/sections/Hero";
 import StatsBar from "@/components/sections/StatsBar";
@@ -16,7 +15,6 @@ import Footer from "@/components/sections/Footer";
 export default function Home() {
   return (
     <>
-      <Nav />
       <SectionNav />
       <main
         id="primary-content"
@@ -37,7 +35,6 @@ export default function Home() {
         <Team />
         <CTA />
       </main>
-      <Footer />
     </>
   );
 }

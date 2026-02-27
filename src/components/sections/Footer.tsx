@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <a
             href="/"
-            className="font-bold text-stone-900 hover:text-stone-700 transition-colors"
+            className="font-serif font-normal text-stone-900 hover:text-stone-600 transition-colors"
             itemProp="url"
           >
             <span itemProp="name">Maison Vet</span>

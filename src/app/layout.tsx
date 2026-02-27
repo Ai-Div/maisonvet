@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { auth } from "@/auth";
 import "./globals.css";
+import Nav from "@/components/sections/Nav";
+import Footer from "@/components/sections/Footer";
 
 const notoSerif = localFont({
   src: [
@@ -66,14 +69,14 @@ const inter = localFont({
 
 export const metadata: Metadata = {
   title: "Maison Vet Clinic",
-  description: "A vertically integrated veterinary clinic and compound in North San Diego County. Energy independence, senior water rights, and destination-tier medicine.",
+  description: "A vertically integrated veterinary clinic and campus in North San Diego County. Energy independence, senior water rights, and destination-tier medicine.",
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "VeterinaryClinic",
   "name": "Maison Vet",
-  "description": "A vertically integrated veterinary clinic and compound in North San Diego County. Energy independence, senior water rights, and destination-tier medicine.",
+  "description": "A vertically integrated veterinary clinic and campus in North San Diego County. Energy independence, senior water rights, and destination-tier medicine.",
   "address": {
     "@type": "PostalAddress",
     "addressRegion": "CA",
@@ -84,11 +87,16 @@ const jsonLd = {
   "serviceType": ["Small Animal Medicine", "Equine Medicine", "CT Imaging", "MRI Imaging", "Advanced Diagnostics", "Wellness Plans"]
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+  const user = session?.user;
+  // h-16 (64px) main nav + h-11 (44px) rooftop = 108px = 6.75rem; use pt-28 (7rem) for safe clearance
+  const headerPadding = user ? "pt-28" : "pt-16";
+
   return (
     <html lang="en" dir="ltr" className={`${notoSerif.variable} ${inter.variable} scroll-smooth`}>
       <head>
@@ -97,14 +105,21 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased bg-white text-stone-900">
+      <body
+        className="antialiased bg-white text-stone-900"
+        style={{ "--header-height": user ? "6.75rem" : "4rem" } as React.CSSProperties}
+      >
         <a
           href="#primary-content"
           className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-stone-900 focus:text-white rounded-br-md"
         >
           Skip to primary content
         </a>
-        {children}
+        <Nav />
+        <div className={headerPadding}>
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

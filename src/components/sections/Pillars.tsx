@@ -1,8 +1,19 @@
 const pillars = [
   {
     label: "Pillar One",
+    title: "Veterinary Clinic",
+    body: "A 3,500–4,000 sq ft medical-grade modular clinic. CT and MRI capability that does not exist within 20 miles. Senior RVTs. AI-assisted triage and documentation. Designed for the equestrian and high-net-worth community of North San Diego County.",
+    specs: [
+      "CT + MRI — first in the valley",
+      "Senior RVTs at +20% market rate",
+      "AI triage + voice-to-chart",
+      "Wellness plan subscription model",
+    ],
+  },
+  {
+    label: "Pillar Two",
     title: "Energy Independence",
-    body: "A 75kW DC bifacial solar array paired with 300kWh Sodium-Ion battery storage. No utility bills. No grid fragility. When wildfire events knock out regional power, the compound stays fully operational — a critical advantage for a medical facility.",
+    body: "A 75kW DC bifacial solar array paired with 300kWh Sodium-Ion battery storage. No utility bills. No grid fragility. When wildfire events knock out regional power, the campus stays fully operational — a critical advantage for a medical facility.",
     specs: [
       "75kW DC ground-mount, bifacial solar",
       "Sodium-Ion battery storage",
@@ -11,7 +22,7 @@ const pillars = [
     ],
   },
   {
-    label: "Pillar Two",
+    label: "Pillar Three",
     title: "Water Rights",
     body: "Senior rights in an adjudicated basin. Legally quantified, first-priority, drought-protected. A 50+ GPM well that also serves as a fire suppression asset — a meaningful consideration for both insurers and lenders in a SoCal fire environment.",
     specs: [
@@ -19,17 +30,6 @@ const pillars = [
       "Senior rights — first priority, drought-proof",
       "50+ GPM verified by drawdown test",
       "On-site storage for fire suppression",
-    ],
-  },
-  {
-    label: "Pillar Three",
-    title: "Veterinary Clinic",
-    body: "A 3,500–4,000 sq ft medical-grade modular clinic. CT and MRI capability that does not exist within 20 miles. Senior RVTs. AI-assisted triage and documentation. Designed for the equestrian and high-net-worth community of North San Diego County.",
-    specs: [
-      "CT + MRI — first in the valley",
-      "Senior RVTs at +20% market rate",
-      "AI triage + voice-to-chart",
-      "Wellness plan subscription model",
     ],
   },
 ];
@@ -51,7 +51,7 @@ export default function Pillars() {
         <h2
           id="pillars-heading"
           itemProp="name"
-          className="text-2xl md:text-4xl text-stone-900 mb-4 max-w-2xl"
+          className="text-3xl md:text-5xl text-stone-900 mb-4 max-w-2xl"
         >
           Three owned assets underpin the entire operation.
         </h2>

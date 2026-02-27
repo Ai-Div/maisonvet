@@ -29,5 +29,8 @@ export function readHtmlTemplate(filename: string): HtmlParts {
   // Strip <nav>...</nav> blocks (legacy navigation)
   bodyContent = bodyContent.replace(/<nav[\s\S]*?<\/nav>/gi, "");
 
+  // Strip <footer>...</footer> blocks (root layout renders its own footer)
+  bodyContent = bodyContent.replace(/<footer[\s\S]*?<\/footer>/gi, "");
+
   return { title, metaDescription, bodyContent: bodyContent.trim() };
 }

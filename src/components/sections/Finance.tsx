@@ -46,7 +46,7 @@ export default function Finance() {
         </p>
         <h2
           id="capital-heading"
-          className="text-2xl md:text-4xl text-stone-900 mb-4 max-w-2xl"
+          className="text-3xl md:text-5xl text-stone-900 mb-4 max-w-2xl"
         >
           Multi-tranche. Each piece optimized independently.
         </h2>
@@ -65,30 +65,42 @@ export default function Finance() {
             {rows.map((r, i) => (
               <div
                 key={i}
-                className="grid md:grid-cols-4 gap-2 md:gap-0 px-6 py-5 hover:bg-stone-50 transition-colors"
+                className="grid md:grid-cols-4 gap-4 md:gap-0 px-6 py-5 hover:bg-stone-50 transition-colors"
               >
-                <span className="text-base text-stone-900 font-semibold md:font-normal">{r.use}</span>
-                <span className="text-base text-stone-700">{r.vehicle}</span>
-                <span className="text-base text-stone-700">{r.range}</span>
-                <span className="text-sm text-stone-600 leading-relaxed">{r.note}</span>
+                <span className="text-base text-stone-900 font-semibold md:font-normal">
+                  <span className="block text-xs font-bold text-stone-400 uppercase mb-0.5 md:hidden">Component</span>
+                  {r.use}
+                </span>
+                <span className="text-base text-stone-700">
+                  <span className="block text-xs font-bold text-stone-400 uppercase mb-0.5 md:hidden">Vehicle</span>
+                  {r.vehicle}
+                </span>
+                <span className="text-base text-stone-700">
+                  <span className="block text-xs font-bold text-stone-400 uppercase mb-0.5 md:hidden">Range</span>
+                  {r.range}
+                </span>
+                <span className="text-sm text-stone-600 leading-relaxed">
+                  <span className="block text-xs font-bold text-stone-400 uppercase mb-0.5 md:hidden">Key Advantage</span>
+                  {r.note}
+                </span>
               </div>
             ))}
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-px bg-stone-200">
-          <div className="bg-white px-6 py-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 border border-stone-200 divide-y sm:divide-y-0 sm:divide-x divide-stone-200">
+          <div className="px-6 py-6">
             <p className="text-3xl font-bold text-stone-900 mb-2">$5M – $15M</p>
             <p className="text-sm font-bold text-stone-600 uppercase">
               Total Structured Facility
             </p>
           </div>
-          <div className="bg-white px-6 py-6">
+          <div className="px-6 py-6">
             <p className="text-3xl font-bold text-stone-900 mb-2">100%</p>
             <p className="text-sm font-bold text-stone-600 uppercase">
               Section 179 on Modular Build
             </p>
           </div>
-          <div className="bg-white px-6 py-6">
+          <div className="px-6 py-6">
             <p className="text-3xl font-bold text-stone-900 mb-2">~25 mo</p>
             <p className="text-sm font-bold text-stone-600 uppercase">
               Projected Break-Even Post-Launch

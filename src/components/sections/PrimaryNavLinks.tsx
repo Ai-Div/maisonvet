@@ -1,44 +1,29 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const primaryLinks = [
-  { label: "Opportunity", href: "#opportunity" },
-  { label: "The Compound", href: "#pillars" },
-  { label: "Capital", href: "#capital" },
-  { label: "Location", href: "#location" },
-  { label: "Financials", href: "#financials" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Contact", href: "/#contact" },
 ];
 
-function getHash() {
-  if (typeof window === "undefined") return "";
-  return window.location.hash || "";
-}
-
 export default function PrimaryNavLinks() {
-  const [activeHash, setActiveHash] = useState("");
-
-  useEffect(() => {
-    setActiveHash(getHash());
-    const handleHashChange = () => setActiveHash(getHash());
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
-  }, []);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   return (
-    <ul className="flex items-center gap-8">
+    <ul className="flex items-center gap-1">
       {primaryLinks.map((l) => {
-        const isActive = activeHash === l.href;
+        const isActive = l.href === "/" ? isHome : pathname === l.href;
         return (
           <li key={l.href}>
             <a
               href={l.href}
               itemProp="url"
-              className={`text-xs font-bold uppercase transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-stone-900 rounded-sm pb-0.5 border-b-2 ${
+              className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors outline-none focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 ${
                 isActive
-                  ? "text-stone-900 border-stone-900"
-                  : "text-stone-600 hover:text-stone-900 border-transparent"
+                  ? "bg-stone-100 text-stone-900"
+                  : "text-stone-600 hover:bg-stone-100 hover:text-stone-900"
               }`}
             >
               <span itemProp="name">{l.label}</span>

@@ -14,7 +14,7 @@ export default function CTA() {
         </p>
         <h2
           id="contact-heading"
-          className="text-4xl font-bold tracking-tight text-white sm:text-5xl"
+          className="text-4xl tracking-tight text-white sm:text-6xl"
         >
           Interested in this project?
         </h2>

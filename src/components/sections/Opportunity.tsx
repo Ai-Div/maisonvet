@@ -36,7 +36,7 @@ export default function Opportunity() {
           <h2
             id="opportunity-heading"
             itemProp="headline"
-            className="text-2xl md:text-4xl text-stone-900 mb-6"
+            className="text-3xl md:text-5xl text-stone-900 mb-6"
           >
             A market with no modern option.
           </h2>
@@ -52,7 +52,7 @@ export default function Opportunity() {
             moving in. Their animals need care that does not exist yet.
           </p>
           <p itemProp="description" className="text-stone-700">
-            This is not a standard vet clinic startup. It is a compound — owned land, sovereign
+            This is not a standard vet clinic startup. It is a campus — owned land, sovereign
             energy, senior water rights — with a high-margin medical anchor. The moat is the
             infrastructure, not just the medicine.
           </p>

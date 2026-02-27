@@ -7,7 +7,7 @@ const items = [
   {
     label: "Energy Infrastructure",
     title: "75kW DC Solar + 300kWh Na-Ion Storage",
-    desc: "Right-sized for the compound footprint. 75kW DC qualifies as \"Small Commercial\" — simplified permitting, no Rule 21 utility-scale studies. Annual production ~135,000 kWh vs. ~95,000 kWh consumed, leaving 40,000 kWh surplus for VPP peak dispatch. The 4:1 battery-to-solar ratio is the key: the 300kWh tank fills during off-peak and sells back during SDG&E's 4–9 PM peak window. Gross project cost $412,500 — 30% ITC ($123,750) = $288,750 net. Financed 100% via C-PACE, non-recourse, property-assessed.",
+    desc: "Right-sized for the campus footprint. 75kW DC qualifies as \"Small Commercial\" — simplified permitting, no Rule 21 utility-scale studies. Annual production ~135,000 kWh vs. ~95,000 kWh consumed, leaving 40,000 kWh surplus for VPP peak dispatch. The 4:1 battery-to-solar ratio is the key: the 300kWh tank fills during off-peak and sells back during SDG&E's 4–9 PM peak window. Gross project cost $412,500 — 30% ITC ($123,750) = $288,750 net. Financed 100% via C-PACE, non-recourse, property-assessed.",
   },
   {
     label: "Staff Housing",
@@ -34,31 +34,31 @@ const items = [
 export default function Compound() {
   return (
     <section
-      id="compound"
-      data-agent-purpose="compound-specifications"
+      id="campus"
+      data-agent-purpose="campus-specifications"
       itemScope
       itemType="https://schema.org/RealEstateListing"
       className="bg-white py-24 sm:py-32"
-      aria-labelledby="compound-heading"
+      aria-labelledby="campus-heading"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
-          The Compound
+          The Campus
         </p>
         <h2
-          id="compound-heading"
+          id="campus-heading"
           itemProp="name"
-          className="text-2xl md:text-4xl text-stone-900 mb-12 max-w-xl"
+          className="text-3xl md:text-5xl text-stone-900 mb-12 max-w-xl"
         >
           15–22 acres.
           <br />
           A complete operating system.
         </h2>
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
           {items.map((item, i) => (
             <article
               key={i}
-              data-agent-topic="compound-component"
+              data-agent-topic="campus-component"
               itemScope
               itemType="https://schema.org/Service"
               className="border-t-2 border-stone-200 pt-8"

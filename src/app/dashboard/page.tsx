@@ -1,12 +1,13 @@
-import { auth } from "@/auth";
-import ClientDashboard from "./client-dashboard";
+import { Heading } from "@/components/heading";
+import { Divider } from "@/components/divider";
+import { OperationsSummary } from "./operations-content";
 
-export default async function DashboardPage() {
-  const session = await auth();
-
+export default function DashboardPage() {
   return (
-    <div className="w-full max-w-5xl mx-auto py-10 px-6">
-      <ClientDashboard user={session?.user} />
-    </div>
+    <>
+      <Heading>Maison Vet Overview</Heading>
+      <Divider className="mt-4 mb-8" />
+      <OperationsSummary />
+    </>
   );
 }

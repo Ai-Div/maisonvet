@@ -41,7 +41,7 @@ export default function Location() {
         </p>
         <h2
           id="location-heading"
-          className="text-2xl md:text-4xl text-stone-900 mb-4 max-w-2xl"
+          className="text-3xl md:text-5xl text-stone-900 mb-4 max-w-2xl"
         >
           Natural beauty. Fire risk acknowledged. Engineered around.
         </h2>

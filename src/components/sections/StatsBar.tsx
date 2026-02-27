@@ -8,7 +8,7 @@ const stats = [
 export default function StatsBar() {
   return (
     <section
-      className="bg-white py-16 md:py-20 px-6"
+      className="bg-white py-16 md:py-20 px-6 lg:px-8"
       data-agent-purpose="key-metrics"
       itemScope
       itemType="https://schema.org/ItemList"

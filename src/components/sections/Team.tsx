@@ -12,7 +12,7 @@ const team = [
   {
     role: "Infrastructure and Capital",
     name: "Tim Hobert",
-    bio: "Owner of div.digital, an AI consulting and technology firm serving enterprise clients across Orange County and San Diego. Economics background. Leads capital structure, digital systems architecture, and AI workflow implementation for the compound. Currently deploying agentic AI systems in production across multiple industries.",
+    bio: "Owner of div.digital, an AI consulting and technology firm serving enterprise clients across Orange County and San Diego. Economics background. Leads capital structure, digital systems architecture, and AI workflow implementation for the campus. Currently deploying agentic AI systems in production across multiple industries.",
   },
 ];
 
@@ -32,32 +32,63 @@ export default function Team() {
         </p>
         <h2
           id="team-heading"
-          className="text-2xl md:text-4xl text-stone-900 mb-12 max-w-xl"
+          className="text-3xl md:text-5xl text-stone-900 mb-12 max-w-xl"
         >
           Three operators.
           <br />
           Medicine, execution, and architecture.
         </h2>
-        <div className="grid md:grid-cols-3 gap-px bg-stone-200">
-          {team.map((t, i) => (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-stone-200">
+          <article
+            itemScope
+            itemType="https://schema.org/Person"
+            data-agent-purpose="team-member"
+            className="bg-white p-8"
+          >
+            <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
+              {team[0].role}
+            </p>
+            <h3 itemProp="name" className="text-xl font-bold text-stone-900 mb-4">
+              {team[0].name}
+            </h3>
+            <p itemProp="description" className="text-stone-700">
+              {team[0].bio}
+            </p>
+          </article>
+          <div className="flex flex-col gap-px bg-stone-200">
             <article
-              key={i}
               itemScope
               itemType="https://schema.org/Person"
               data-agent-purpose="team-member"
-              className="bg-white p-8"
+              className="bg-white p-8 flex-1"
             >
               <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
-                {t.role}
+                {team[1].role}
               </p>
               <h3 itemProp="name" className="text-xl font-bold text-stone-900 mb-4">
-                {t.name}
+                {team[1].name}
               </h3>
               <p itemProp="description" className="text-stone-700">
-                {t.bio}
+                {team[1].bio}
               </p>
             </article>
-          ))}
+            <article
+              itemScope
+              itemType="https://schema.org/Person"
+              data-agent-purpose="team-member"
+              className="bg-white p-8 flex-1"
+            >
+              <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
+                {team[2].role}
+              </p>
+              <h3 itemProp="name" className="text-xl font-bold text-stone-900 mb-4">
+                {team[2].name}
+              </h3>
+              <p itemProp="description" className="text-stone-700">
+                {team[2].bio}
+              </p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
