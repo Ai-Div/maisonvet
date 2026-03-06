@@ -4,6 +4,7 @@ import { auth } from "@/auth";
 import "./globals.css";
 import Nav from "@/components/sections/Nav";
 import Footer from "@/components/sections/Footer";
+import { headers } from "next/headers";
 
 const notoSerif = localFont({
   src: [
@@ -94,11 +95,15 @@ export default async function RootLayout({
 }>) {
   const session = await auth();
   const user = session?.user;
+
+  const headerList = await headers();
+  const pathname = headerList.get("x-invoke-path") || "";
+
   // h-16 (64px) main nav + h-11 (44px) rooftop = 108px = 6.75rem; use pt-28 (7rem) for safe clearance
-  const headerPadding = user ? "pt-28" : "pt-16";
+  const headerPadding = (user && !pathname.startsWith('/dashboard') && pathname !== '/vision' && pathname !== '/properties' && pathname !== '/perris') ? "pt-28" : (!user ? "pt-16" : "");
 
   return (
-    <html lang="en" dir="ltr" className={`${notoSerif.variable} ${inter.variable} scroll-smooth`}>
+    <html lang="en" dir="ltr" className={`${notoSerif.variable} ${inter.variable} scroll-smooth`} style={{ colorScheme: "light" }}>
       <head>
         <script
           type="application/ld+json"
@@ -107,7 +112,7 @@ export default async function RootLayout({
       </head>
       <body
         className="antialiased bg-white text-stone-900"
-        style={{ "--header-height": user ? "6.75rem" : "4rem" } as React.CSSProperties}
+        style={{ "--header-height": (user && !pathname.startsWith('/dashboard')) ? "6.75rem" : "4rem" } as React.CSSProperties}
       >
         <a
           href="#primary-content"
@@ -118,8 +123,8 @@ export default async function RootLayout({
         <Nav />
         <div className={headerPadding}>
           {children}
-          <Footer />
         </div>
+        <Footer />
       </body>
     </html>
   );

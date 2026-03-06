@@ -1,4 +1,11 @@
-export default function Footer() {
+import { headers } from "next/headers";
+
+export default async function Footer() {
+  const headerList = await headers();
+  const pathname = headerList.get("x-invoke-path") || "";
+
+  if (pathname.startsWith('/dashboard') || pathname === '/vision' || pathname === '/properties' || pathname === '/perris') return null;
+
   return (
     <footer
       role="contentinfo"

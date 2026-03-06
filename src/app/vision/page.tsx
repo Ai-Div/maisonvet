@@ -3,7 +3,7 @@ import Image from "next/image";
 export const metadata = {
   title: "Vision — Maison Vet",
   description:
-    "The Pauma Valley Enclave. A 15-acre sanctuary where Pioneertown meets Mid-Century Modern luxury.",
+    "The Vet Center Enclave. A 15-acre sanctuary where Pioneertown meets Mid-Century Modern luxury.",
 };
 
 export default function VisionPage() {
@@ -37,7 +37,7 @@ export default function VisionPage() {
               Our Vision
             </p>
             <h1 id="vision-heading" className="text-5xl md:text-7xl font-bold leading-tight mb-6 text-stone-900" itemProp="headline">
-              The Pauma Valley Enclave
+              The Vet Center Enclave
             </h1>
             <p className="text-lg md:text-xl font-medium text-stone-700 max-w-2xl mx-auto leading-relaxed" itemProp="description">
               A 15-acre sanctuary where the soul of Pioneertown meets sophisticated

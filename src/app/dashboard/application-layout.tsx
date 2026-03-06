@@ -88,7 +88,7 @@ export function ApplicationLayout({
           <NavbarSection>
             <Dropdown>
               <DropdownButton as={NavbarItem}>
-                <Avatar src={user?.image || "/users/erica.jpg"} initials={!user?.image ? user?.name?.split(' ').map((n: string) => n[0]).join('') : undefined} square />
+                <Avatar src={user?.image} initials={!user?.image ? user?.name?.split(' ').map((n: string) => n[0]).join('') : undefined} square />
               </DropdownButton>
               <AccountDropdownMenu anchor="bottom end" user={user} />
             </Dropdown>
@@ -177,7 +177,7 @@ export function ApplicationLayout({
             <Dropdown>
               <DropdownButton as={SidebarItem}>
                 <span className="flex min-w-0 items-center gap-3">
-                  <Avatar src={user?.image || "/users/erica.jpg"} initials={!user?.image ? user?.name?.split(' ').map((n: string) => n[0]).join('') : undefined} className="size-10" square alt="" />
+                  <Avatar src={user?.image} initials={!user?.image ? user?.name?.split(' ').map((n: string) => n[0]).join('') : undefined} className="size-10" square alt="" />
                   <span className="min-w-0">
                     <span className="block truncate text-sm/5 font-medium text-zinc-950 ">{user?.name || 'User'}</span>
                     <span className="block truncate text-xs/5 font-normal text-zinc-500 ">
@@ -193,7 +193,9 @@ export function ApplicationLayout({
         </Sidebar>
       }
     >
-      {children}
+      <div className="flex-1 overflow-y-auto">
+        {children}
+      </div>
     </SidebarLayout>
   )
 }

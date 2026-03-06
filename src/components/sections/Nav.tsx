@@ -4,6 +4,7 @@ import PrimaryNavLinks from "./PrimaryNavLinks";
 import NavRooftop from "./NavRooftop";
 import NavUserMenu from "./NavUserMenu";
 import NavMobileMenu from "./NavMobileMenu";
+import { headers } from "next/headers";
 
 async function signOutAction() {
   "use server";
@@ -14,6 +15,11 @@ export default async function Nav() {
   const session = await auth();
   const user = session?.user;
   const firstName = user?.name?.split(" ")[0] ?? user?.email;
+
+  const headerList = await headers();
+  const pathname = headerList.get("x-invoke-path") || "";
+
+  if (user && (pathname.startsWith('/dashboard') || pathname === '/vision' || pathname === '/properties' || pathname === '/perris')) return null;
 
   return (
     <header
