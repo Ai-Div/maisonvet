@@ -116,7 +116,7 @@ export default async function RootLayout({
       >
         <a
           href="#primary-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-stone-900 focus:text-white rounded-br-md"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:p-4 focus:bg-stone-900 focus:text-white rounded-br-md outline-none focus:ring-2 focus:ring-stone-900 focus:ring-offset-2"
         >
           Skip to primary content
         </a>

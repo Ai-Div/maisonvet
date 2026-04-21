@@ -55,7 +55,7 @@ h3 {
 /* Maps: full width, 3:2 aspect ratio */
 .map-frame {
   width: 100%;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 640 / 600;
   border: 0;
   display: block;
   min-height: 260px;

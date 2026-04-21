@@ -12,8 +12,8 @@
     body { font-family: 'Inter', system-ui, sans-serif; font-size: 16px; }
     .serif { font-family: Georgia, Cambria, 'Times New Roman', serif; }
     html { scroll-behavior: smooth; }
-    .map-frame { width: 100%; height: 100%; border: 0; display: block; min-height: 280px; aspect-ratio: 1.06666/1; }
-    .property-image { width: 100%; height: 100%; object-fit: cover; min-height: 280px; aspect-ratio: 1.06666/1; background-color: #f5f5f4; }
+    .map-frame { width: 100%; height: 100%; border: 0; display: block; min-height: 280px; aspect-ratio: 640/600; }
+    .property-image { width: 100%; height: 100%; object-fit: cover; min-height: 280px; aspect-ratio: 640/600; background-color: #f5f5f4; }
     @media (max-width: 768px) {
       .map-frame, .property-image { min-height: 240px; }
     }
@@ -65,8 +65,8 @@
         Properties are screened for: 10+ acres, appropriate zoning, high median household income area, top-rated elementary schools nearby, natural beauty, and under $2.2M. Priority zones: Rancho Santa Fe, Encinitas, Carlsbad, Bonsall, Valley Center. Sorted by asking price, lowest to highest.
       </p>
       <div class="flex flex-wrap gap-3 text-sm text-stone-600">
-        <span class="border border-stone-200 px-4 py-2 font-medium text-xs uppercase tracking-wider text-stone-500">Last updated: Mar 11, 2026</span>
-        <span class="border border-stone-200 px-4 py-2 font-medium text-xs uppercase tracking-wider text-stone-500">Updated every 12 hours</span>
+        <span class="border border-stone-200 px-4 py-2 font-medium text-xs uppercase tracking-wider text-stone-500">Last updated: Apr 21, 2026</span>
+        <span class="border border-stone-200 px-4 py-2 font-medium text-xs uppercase tracking-wider text-stone-500">Updated weekly</span>
         <span class="border border-stone-200 px-4 py-2 font-medium text-xs uppercase tracking-wider text-stone-500">Target zones: 92067, 92091, 92024, 92007, 92008, 92009, 92010, 92011, 92028, 92003, 92082</span>
         <span class="border border-stone-200 px-4 py-2 font-medium text-xs uppercase tracking-wider text-stone-500">Price ceiling: $2,200,000</span>
       </div>
@@ -94,7 +94,7 @@
   <section class="py-12 px-6">
     <div class="max-w-6xl mx-auto flex flex-col gap-16 md:gap-20 text-sm">
 
-      <!-- PROPERTY: De Luz Murrieta Road, Fallbrook — $149,900 (NEW) -->
+      <!-- PROPERTY: De Luz Murrieta Road, Fallbrook — $149,900 -->
       <div id="property-de-luz-murrieta">
         <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
           <div>
@@ -105,7 +105,7 @@
           <div class="text-right text-stone-500">
             <p class="serif text-3xl font-normal text-stone-900">$149,900</p>
             <p class="text-stone-600">10.88 acres — $13,778 / acre</p>
-            <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold tracking-widest uppercase mr-2">New — Fallbrook</span>
+            <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold tracking-widest uppercase mr-2">Fallbrook</span>
             <span class="inline-block mt-2 px-3 py-1 bg-stone-100 text-stone-700 border border-stone-300 text-[10px] font-bold tracking-widest uppercase">Investigate</span>
           </div>
         </div>
@@ -113,7 +113,7 @@
         <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
           <div class="border-b md:border-b-0 md:border-r border-stone-200">
             <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=De+Luz+Murrieta+Road,+Fallbrook,+CA+92028&z=13&output=embed"
+              src="https://maps.google.com/maps?q=De+Luz+Murrieta+Road,+Fallbrook,+CA+92028&z=11&output=embed"
               title="Aerial view of De Luz Murrieta Road, Fallbrook, CA"></iframe>
           </div>
           <div class="bg-stone-100 flex items-center justify-center">
@@ -126,7 +126,7 @@
             <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
             <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
               <p>10.88-acre undeveloped parcel in the De Luz area of Fallbrook. Located in rural, mountainous terrain between Fallbrook and Temecula. The De Luz corridor is known for avocado groves, equestrian estates, and large-acreage privacy.</p>
-              <p>Priced at $13,778/acre — significantly below comparable parcels in the area. Listed on Movoto. Requires investigation of access, road conditions, water availability, and buildability.</p>
+              <p>Priced at $13,778/acre — significantly below comparable parcels in the area. Requires investigation of access, road conditions, water availability, and buildability.</p>
             </div>
           </div>
           <div>
@@ -146,90 +146,45 @@
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Water/Fire:</strong> No water info in listing. De Luz area has extreme fire risk (64% 30-year probability). Verify water source and fire insurance availability.</div>
+                <div><strong>Water/Fire:</strong> No water info in listing. De Luz area has extreme fire risk. Verify water source and fire insurance availability.</div>
               </div>
             </div>
           </div>
         </div>
 
-        <a href="https://www.movoto.com/fallbrook-ca/land/" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">Search Fallbrook Land</a>
+        <div class="mt-8 pt-8 border-t border-stone-100">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4">Financial Outlook</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Estimated Carry</p>
+              <p class="serif text-xl text-stone-900">$920</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Monthly PITI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Down Payment</p>
+              <p class="serif text-xl text-stone-900">$37,475</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">25% (Exc. FICO)</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Tax Strategy</p>
+              <p class="serif text-sm text-stone-900">Mixed Use</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">IRS Topic 415</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Annual Deprec.</p>
+              <p class="serif text-xl text-stone-900">$4,360</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Non-Cash Deduction</p>
+            </div>
+          </div>
+          <p class="mt-4 text-[10px] text-stone-400 italic">**Tax Assumption:** 27.5yr straight-line depreciation applied to 80% building value. Land (20%) stripped per IRS Pub 527.</p>
+        </div>
+
+        <a href="https://www.movoto.com/fallbrook-ca/land/" target="_blank" rel="noopener" class="mt-6 inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">Search Fallbrook Land</a>
       </div>
 
       <hr class="border-stone-100" />
 
-      <!-- PROPERTY: 9932 Gomez Creek Rd, Fallbrook — $250,000 (NEW) -->
-      <div id="property-gomez-creek">
-        <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Fallbrook, CA 92028</p>
-            <h2 class="serif text-3xl font-normal text-stone-900">9932 Gomez Creek Road</h2>
-            <p class="text-stone-600">9932 Gomez Creek Rd, Fallbrook, CA 92028</p>
-          </div>
-          <div class="text-right text-stone-500">
-            <p class="serif text-3xl font-normal text-stone-900">$230,000</p>
-            <p class="text-stone-600">16.71 acres — $13,764 / acre</p>
-            <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold tracking-widest uppercase mr-2">Fallbrook</span>
-            <span class="inline-block mt-2 px-3 py-1 bg-amber-100 text-amber-800 border border-amber-300 text-[10px] font-bold tracking-widest uppercase mr-2">Price ↓ from $250K</span>
-            <span class="inline-block mt-2 px-3 py-1 bg-stone-100 text-stone-700 border border-stone-300 text-[10px] font-bold tracking-widest uppercase">Investigate</span>
-          </div>
-        </div>
-
-        <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
-          <div class="border-b md:border-b-0 md:border-r border-stone-200">
-            <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=9932+Gomez+Creek+Rd,+Fallbrook,+CA+92028&z=13&output=embed"
-              title="Aerial view of 9932 Gomez Creek Rd, Fallbrook, CA"></iframe>
-          </div>
-          <div class="bg-stone-100 flex items-center justify-center">
-            <p class="text-stone-400 text-sm font-medium italic">Photos available via broker</p>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-6">
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
-            <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
-              <p>16.71-acre parcel in Rainbow Heights area of Fallbrook with panoramic views and rolling topography. Features four rough-graded pads. Zoned A70 (agricultural/animal use).</p>
-              <p>Listed by Sunshine Properties RealEstate. MLS# NDP2504062. Recently reduced from $250K to $230K. Multiple price reductions from original ask. Has been on market for an extended period — potential negotiation leverage.</p>
-            </div>
-          </div>
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Project Compatibility</p>
-            <div class="space-y-2 text-stone-700">
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Acreage & Zoning:</strong> 16.71 acres, A70 zone — well suited for agricultural compound.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Build Pads:</strong> Four rough-graded pads already in place — reduces site prep costs.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Price:</strong> At $230K leaves significant budget for development. Price trending down.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Water:</strong> No water info in listing — Rainbow Heights area may lack municipal supply. Must verify well feasibility.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Access:</strong> Remote Rainbow Heights location — road quality and distance to amenities need verification.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Fire Risk:</strong> Fallbrook area has elevated fire risk — verify insurance and defensible space.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <a href="https://www.redfin.com/CA/Fallbrook/9932-Gomez-Creek-Rd-92028/home/40156610" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
-      </div>
-
-      <hr class="border-stone-100" />
-
-      <!-- PROPERTY 1: 49 Maridge Rd — $195,000 -->
+      <!-- PROPERTY: 49 Maridge Rd — $195,000 -->
       <div id="property-maridge">
         <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
           <div>
@@ -245,11 +200,10 @@
           </div>
         </div>
 
-        <!-- VISUALS: MAP & IMAGE -->
         <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
           <div class="border-b md:border-b-0 md:border-r border-stone-200">
             <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=49+Maridge+Rd,+Valley+Center,+CA+92082&z=14&output=embed"
+              src="https://maps.google.com/maps?q=49+Maridge+Rd,+Valley+Center,+CA+92082&z=12&output=embed"
               title="Aerial view of 49 Maridge Rd, Valley Center, CA"></iframe>
           </div>
           <div>
@@ -261,8 +215,8 @@
           <div>
             <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
             <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
-              <p>Commercially producing, professionally managed avocado grove spanning 20.54 acres in Pauma Valley. The property is equipped with an active water meter supplied by the Pauma Ridge Mutual Water Company and has power access at the frontage. </p>
-              <p><strong>Note:</strong> Listed as a pure agricultural play; the broker explicitly states that topography will not allow for a building site. High investigation priority for land-only use (Solar/Ag).</p>
+              <p>Commercially producing, professionally managed avocado grove spanning 20.54 acres in Pauma Valley. Equipped with an active water meter supplied by the Pauma Ridge Mutual Water Company and has power access at the frontage. </p>
+              <p><strong>Note:</strong> Listed as a pure agricultural play; broker states topography may not allow for a building site. High investigation priority for land-only use (Solar/Ag).</p>
             </div>
           </div>
           <div>
@@ -270,7 +224,7 @@
             <div class="space-y-2 text-stone-700">
               <div class="flex items-start gap-2.5">
                 <span class="text-red-600 font-bold">✕</span>
-                <div><strong>Vet Clinic:</strong> Listing explicitly states "topography will not allow" building sites; unsuitable for clinic access.</div>
+                <div><strong>Vet Clinic:</strong> Listing states "topography will not allow" building sites; unsuitable for clinic access.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-red-600 font-bold">✕</span>
@@ -278,22 +232,311 @@
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
-                <div><strong>75kW Solar/Grid:</strong> Possible on sloped terrain, though site prep cost would be high.</div>
+                <div><strong>Solar/Grid:</strong> Possible on sloped terrain, though site prep cost would be high.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Water Security:</strong> Pauma Ridge Mutual Water Company; private system security.</div>
+                <div><strong>Water Security:</strong> Pauma Ridge Mutual Water Company; private system.</div>
               </div>
             </div>
           </div>
         </div>
 
-        <a href="https://www.zillow.com/homedetails/49-Maridge-Rd-Valley-Center-CA-92082/443883168_zpid/" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
+        <div class="mt-8 pt-8 border-t border-stone-100">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4">Financial Outlook</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Estimated Carry</p>
+              <p class="serif text-xl text-stone-900">$1,195</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Monthly PITI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Down Payment</p>
+              <p class="serif text-xl text-stone-900">$48,750</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">25% (Exc. FICO)</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Tax Strategy</p>
+              <p class="serif text-sm text-stone-900">Mixed Use</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">IRS Topic 415</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Annual Deprec.</p>
+              <p class="serif text-xl text-stone-900">$5,670</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Non-Cash Deduction</p>
+            </div>
+          </div>
+          <p class="mt-4 text-[10px] text-stone-400 italic">**Tax Assumption:** 27.5yr straight-line depreciation applied to 80% building value. Land (20%) stripped per IRS Pub 527.</p>
+        </div>
+
+        <a href="https://www.zillow.com/homedetails/49-Maridge-Rd-Valley-Center-CA-92082/443883168_zpid/" target="_blank" rel="noopener" class="mt-6 inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
       </div>
 
       <hr class="border-stone-100" />
 
-      <!-- PROPERTY: 0 Santa Virginia Dr — $295,000 (NEW) -->
+      <!-- PROPERTY: 48 Pauma Ridge Road — $239,000 -->
+      <div id="property-pauma-ridge-48">
+        <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
+          <div>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
+            <h2 class="serif text-3xl font-normal text-stone-900">48 Pauma Ridge Road</h2>
+            <p class="text-stone-600">48 Pauma Ridge Rd, Valley Center, CA 92082</p>
+          </div>
+          <div class="text-right text-stone-500">
+            <p class="serif text-3xl font-normal text-stone-900">$269,000</p>
+            <p class="text-stone-600">13.90 acres — $19,353 / acre</p>
+            <span class="inline-block mt-2 px-3 py-1 bg-green-900 text-white text-[10px] font-bold tracking-widest uppercase mr-2">Great Location</span>
+            <span class="inline-block mt-2 px-3 py-1 bg-amber-100 text-amber-800 border border-amber-300 text-[10px] font-bold tracking-widest uppercase mr-2">Price ↑ from $239K</span>
+          </div>
+        </div>
+
+        <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
+          <div class="border-b md:border-b-0 md:border-r border-stone-200">
+            <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=48+Pauma+Ridge+Rd,+Valley+Center,+CA+92082&z=12&output=embed"
+              title="Aerial view of 48 Pauma Ridge Rd, Valley Center, CA"></iframe>
+          </div>
+          <div class="bg-stone-100 flex items-center justify-center">
+            <p class="text-stone-400 text-sm font-medium italic">Photos available via broker</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-6">
+          <div>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
+            <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
+              <p>13.90-acre property in Pauma Valley featuring two distinct building sites with expansive valley views. Formerly a commercially managed avocado grove. Equipped with an active water meter and power access at the frontage.</p>
+              <p>Ready for a custom build or estate development. Located in a quiet, serene area overlooking Pala and the surrounding mountains. Stated income financing may be available.</p>
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Project Compatibility</p>
+            <div class="space-y-2 text-stone-700">
+              <div class="flex items-start gap-2.5">
+                <span class="text-green-600 font-bold">✓</span>
+                <div><strong>Vet Clinic:</strong> Multiple building sites and utilities in place support infrastructure needs.</div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <span class="text-green-600 font-bold">✓</span>
+                <div><strong>Multiple Homes:</strong> Two documented building sites on 13.9 acres.</div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <span class="text-green-600 font-bold">✓</span>
+                <div><strong>Water Security:</strong> Active water meter confirmed.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-8 border-t border-stone-100">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4">Financial Outlook</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Estimated Carry</p>
+              <p class="serif text-xl text-stone-900">$1,763</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Monthly PITI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Down Payment</p>
+              <p class="serif text-xl text-stone-900">$67,250</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">25% (Exc. FICO)</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Tax Strategy</p>
+              <p class="serif text-sm text-stone-900">Mixed Use</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">IRS Topic 415</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Annual Deprec.</p>
+              <p class="serif text-xl text-stone-900">$7,825</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Non-Cash Deduction</p>
+            </div>
+          </div>
+          <p class="mt-4 text-[10px] text-stone-400 italic">**Tax Assumption:** 27.5yr straight-line depreciation applied to 80% building value. Land (20%) stripped per IRS Pub 527.</p>
+        </div>
+
+        <a href="https://www.homes.com/property/48-pauma-ridge-rd-valley-center-ca-92082/id-1000235566878/" target="_blank" rel="noopener" class="mt-6 inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
+      </div>
+
+      <hr class="border-stone-100" />
+
+      <!-- PROPERTY: 9932 Gomez Creek Rd — $230,000 -->
+      <div id="property-gomez-creek">
+        <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
+          <div>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Fallbrook, CA 92028</p>
+            <h2 class="serif text-3xl font-normal text-stone-900">9932 Gomez Creek Road</h2>
+            <p class="text-stone-600">9932 Gomez Creek Rd, Fallbrook, CA 92028</p>
+          </div>
+          <div class="text-right text-stone-500">
+            <p class="serif text-3xl font-normal text-stone-900">$230,000</p>
+            <p class="text-stone-600">16.71 acres — $13,764 / acre</p>
+            <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold tracking-widest uppercase mr-2">Fallbrook</span>
+            <span class="inline-block mt-2 px-3 py-1 bg-amber-100 text-amber-800 border border-amber-300 text-[10px] font-bold tracking-widest uppercase mr-2">Price ↓ from $250K</span>
+          </div>
+        </div>
+
+        <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
+          <div class="border-b md:border-b-0 md:border-r border-stone-200">
+            <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=9932+Gomez+Creek+Rd,+Fallbrook,+CA+92028&z=11&output=embed"
+              title="Aerial view of 9932 Gomez Creek Rd, Fallbrook, CA"></iframe>
+          </div>
+          <div class="bg-stone-100 flex items-center justify-center">
+            <p class="text-stone-400 text-sm font-medium italic">Photos available via broker</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-6">
+          <div>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
+            <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
+              <p>16.71-acre parcel in Rainbow Heights area of Fallbrook with panoramic views and rolling topography. Features four rough-graded pads. Zoned A70 (agricultural/animal use).</p>
+              <p>MLS# NDP2504062. Recently reduced from $250K to $230K. Multiple price reductions from original ask. Extended time on market provides negotiation leverage.</p>
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Project Compatibility</p>
+            <div class="space-y-2 text-stone-700">
+              <div class="flex items-start gap-2.5">
+                <span class="text-green-600 font-bold">+</span>
+                <div><strong>Acreage & Zoning:</strong> 16.71 acres, A70 zone — well suited for agricultural compound.</div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <span class="text-green-600 font-bold">+</span>
+                <div><strong>Build Pads:</strong> Four rough-graded pads already in place — reduces site prep costs.</div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <span class="text-green-600 font-bold">+</span>
+                <div><strong>Price:</strong> At $230K leaves significant budget for development.</div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <span class="text-amber-600 font-bold">!</span>
+                <div><strong>Water:</strong> No water info in listing — must verify well feasibility.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-8 border-t border-stone-100">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4">Financial Outlook</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Estimated Carry</p>
+              <p class="serif text-xl text-stone-900">$1,410</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Monthly PITI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Down Payment</p>
+              <p class="serif text-xl text-stone-900">$57,500</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">25% (Exc. FICO)</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Tax Strategy</p>
+              <p class="serif text-sm text-stone-900">Mixed Use</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">IRS Topic 415</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Annual Deprec.</p>
+              <p class="serif text-xl text-stone-900">$6,690</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Non-Cash Deduction</p>
+            </div>
+          </div>
+          <p class="mt-4 text-[10px] text-stone-400 italic">**Tax Assumption:** 27.5yr straight-line depreciation applied to 80% building value. Land (20%) stripped per IRS Pub 527.</p>
+        </div>
+
+        <a href="https://www.redfin.com/CA/Fallbrook/9932-Gomez-Creek-Rd-92028/home/40156610" target="_blank" rel="noopener" class="mt-6 inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
+      </div>
+
+      <hr class="border-stone-100" />
+
+      <!-- PROPERTY: 14451 Pauma Ridge Road — $269,000 -->
+      <div id="property-pauma-ridge-14451">
+        <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
+          <div>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
+            <h2 class="serif text-3xl font-normal text-stone-900">14451 Pauma Ridge Road</h2>
+            <p class="text-stone-600">14451 Pauma Ridge Rd, Valley Center, CA 92082</p>
+          </div>
+          <div class="text-right text-stone-500">
+            <p class="serif text-3xl font-normal text-stone-900">$269,000</p>
+            <p class="text-stone-600">21.01 acres — $12,803 / acre</p>
+            <span class="inline-block mt-2 px-3 py-1 bg-green-900 text-white text-[10px] font-bold tracking-widest uppercase mr-2">Great Location</span>
+            <span class="inline-block mt-2 px-3 py-1 bg-amber-100 text-amber-800 border border-amber-300 text-[10px] font-bold tracking-widest uppercase mr-2">Price ↑ from $268K</span>
+          </div>
+        </div>
+
+        <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
+          <div class="border-b md:border-b-0 md:border-r border-stone-200">
+            <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=14451+Pauma+Ridge+Rd,+Valley+Center,+CA+92082&z=12&output=embed"
+              title="Aerial view of 14451 Pauma Ridge Rd, Valley Center, CA"></iframe>
+          </div>
+          <div class="bg-stone-100 flex items-center justify-center">
+            <p class="text-stone-400 text-sm font-medium italic">Photos available via broker</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-6">
+          <div>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
+            <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
+              <p>21.01-acre sprawling estate property in Pauma Valley with endless views of the picturesque valley. Features a thriving, professionally managed avocado grove. Equipped with a water meter and frontage access to power.</p>
+              <p>Ideal for a serene escape or custom compound. Water supplied by the Pauma Ridge Mutual Water Company. Offers both income potential and significant agricultural charm.</p>
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Project Compatibility</p>
+            <div class="space-y-2 text-stone-700">
+              <div class="flex items-start gap-2.5">
+                <span class="text-green-600 font-bold">✓</span>
+                <div><strong>Acreage:</strong> 21+ acres provides substantial space for a multi-home compound.</div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <span class="text-green-600 font-bold">✓</span>
+                <div><strong>Infrastructure:</strong> On-site water meter and power access at frontage.</div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <span class="text-green-600 font-bold">✓</span>
+                <div><strong>Location:</strong> Desirable Pauma Valley setting with strong agricultural character.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-8 border-t border-stone-100">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4">Financial Outlook</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Estimated Carry</p>
+              <p class="serif text-xl text-stone-900">$1,643</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Monthly PITI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Down Payment</p>
+              <p class="serif text-xl text-stone-900">$67,000</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">25% (Exc. FICO)</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Tax Strategy</p>
+              <p class="serif text-sm text-stone-900">Mixed Use</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">IRS Topic 415</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Annual Deprec.</p>
+              <p class="serif text-xl text-stone-900">$7,796</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Non-Cash Deduction</p>
+            </div>
+          </div>
+          <p class="mt-4 text-[10px] text-stone-400 italic">**Tax Assumption:** 27.5yr straight-line depreciation applied to 80% building value. Land (20%) stripped per IRS Pub 527.</p>
+        </div>
+
+        <a href="https://www.homes.com/property/14451-pauma-ridge-rd-valley-center-ca-92082/id-1000235566879/" target="_blank" rel="noopener" class="mt-6 inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
+      </div>
+
+      <hr class="border-stone-100" />
+
+      <!-- PROPERTY: 0 Santa Virginia Dr — $295,000 -->
       <div id="property-santa-virginia">
         <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
           <div>
@@ -304,14 +547,14 @@
           <div class="text-right text-stone-500">
             <p class="serif text-3xl font-normal text-stone-900">$295,000</p>
             <p class="text-stone-600">21.36 acres — $13,811 / acre</p>
-            <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold tracking-widest uppercase">New — Investigate</span>
+            <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold tracking-widest uppercase">Investigate</span>
           </div>
         </div>
 
         <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
           <div class="border-b md:border-b-0 md:border-r border-stone-200">
             <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=Santa+Virginia+Dr,+Valley+Center,+CA+92082&z=14&output=embed"
+              src="https://maps.google.com/maps?q=Santa+Virginia+Dr,+Valley+Center,+CA+92082&z=12&output=embed"
               title="Aerial view of Santa Virginia Dr, Valley Center, CA"></iframe>
           </div>
           <div class="bg-stone-100 flex items-center justify-center">
@@ -323,8 +566,8 @@
           <div>
             <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
             <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
-              <p>21.36 acres along Santa Virginia Drive in Valley Center (APN 128-201-02). Approximately five acres cleared and improved with irrigation infrastructure. Approximately 600 trees in various stages of development.</p>
-              <p>Listed by BHHS California Properties at $295,000 — roughly $13,800/acre, well below Valley Center average. New listing (~3 weeks on market). MLS# 250027793SD.</p>
+              <p>21.36 acres in Valley Center (APN 128-201-02). Approximately five acres cleared and improved with irrigation infrastructure. Includes ~600 trees in various stages of development. Benefits from a water meter supply.</p>
+              <p>Listed at $295,000 — roughly $13,800/acre, well below Valley Center average. Requires investigation of access, topography, and any encumbrances explaining the price anomaly.</p>
             </div>
           </div>
           <div>
@@ -332,114 +575,67 @@
             <div class="space-y-2 text-stone-700">
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">+</span>
-                <div><strong>Acreage:</strong> 21.36 acres — ample room for compound build-out</div>
+                <div><strong>Acreage:</strong> 21.36 acres — ample room for compound build-out.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">+</span>
-                <div><strong>Price:</strong> $295K leaves significant budget for development</div>
+                <div><strong>Improvements:</strong> 5 acres cleared with irrigation, ~600 existing trees.</div>
               </div>
               <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Improvements:</strong> 5 acres cleared with irrigation, ~600 existing trees</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Price anomaly:</strong> 60-70% below comparable parcels — investigate access, topography, encumbrances</div>
+                <span class="text-green-600 font-bold">✓</span>
+                <div><strong>Water:</strong> Water meter supply confirmed.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Water:</strong> No well info in listing — must verify supply and rights</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Access:</strong> Egress routes need satellite review</div>
+                <div><strong>Price anomaly:</strong> 60-70% below comparable parcels — investigate access and topography.</div>
               </div>
             </div>
           </div>
         </div>
 
-        <a href="https://www.bhhscalifornia.com/listing-detail/0-santa-virginia-drive-02-valley-center-ca-92082_6715419" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
+        <div class="mt-8 pt-8 border-t border-stone-100">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4">Financial Outlook</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Estimated Carry</p>
+              <p class="serif text-xl text-stone-900">$1,808</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Monthly PITI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Down Payment</p>
+              <p class="serif text-xl text-stone-900">$73,750</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">25% (Exc. FICO)</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Tax Strategy</p>
+              <p class="serif text-sm text-stone-900">Mixed Use</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">IRS Topic 415</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Annual Deprec.</p>
+              <p class="serif text-xl text-stone-900">$8,581</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Non-Cash Deduction</p>
+            </div>
+          </div>
+          <p class="mt-4 text-[10px] text-stone-400 italic">**Tax Assumption:** 27.5yr straight-line depreciation applied to 80% building value. Land (20%) stripped per IRS Pub 527.</p>
+        </div>
+
+        <a href="https://www.bhhscalifornia.com/listing-detail/0-santa-virginia-drive-02-valley-center-ca-92082_6715419" target="_blank" rel="noopener" class="mt-6 inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
       </div>
 
       <hr class="border-stone-100" />
 
-      <!-- PROPERTY 2: 48 Pauma Ridge Rd — $239,000 -->
-      <div id="property-pauma-ridge-48">
+      <!-- PROPERTY: 31752 Pauma Heights Rd #3 — $349,000 -->
+      <div id="property-pauma-heights-31752">
         <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
           <div>
             <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
-            <h2 class="serif text-3xl font-normal text-stone-900">48 Pauma Ridge Road</h2>
-            <p class="text-stone-600">48 Pauma Ridge Rd, Valley Center, CA 92082</p>
-          </div>
-          <div class="text-right text-stone-500">
-            <p class="serif text-3xl font-normal text-stone-900">$268,000</p>
-            <p class="text-stone-600">21.01 acres — $12,756 / acre</p>
-            <span class="inline-block mt-2 px-3 py-1 bg-green-900 text-white text-[10px] font-bold tracking-widest uppercase mr-2">Great Location</span>
-            <span class="inline-block mt-2 px-3 py-1 bg-amber-100 text-amber-800 border border-amber-300 text-[10px] font-bold tracking-widest uppercase mr-2">Relisted — 21 acres, ↑ from $239K</span>
-            <span class="inline-block mt-2 px-3 py-1 bg-stone-100 text-stone-700 border border-stone-300 text-[10px] font-bold tracking-widest uppercase">Investigate</span>
-          </div>
-        </div>
-
-        <!-- VISUALS: MAP & IMAGE -->
-        <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
-          <div class="border-b md:border-b-0 md:border-r border-stone-200">
-            <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=48+Pauma+Ridge+Rd,+Valley+Center,+CA+92082&z=14&output=embed"
-              title="Aerial view of 48 Pauma Ridge Rd, Valley Center, CA"></iframe>
-          </div>
-          <div>
-            <img src="/images/properties/48-pauma-ridge.jpg" alt="Satellite view of 48 Pauma Ridge Rd, Valley Center" class="property-image" />
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-6">
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
-            <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
-              <p>Thriving, professionally managed avocado grove on 21.01 acres (relisted with expanded acreage from 13.9 acres, new MLS# SW25003233). The property highlights two distinct building sites, both offering expansive panoramic views of Pauma Valley. Ready for development with an installed water meter and power accessible at the property line. </p>
-              <p>Stated income financing is reportedly available with 15% down. Excellent candidate for residential multi-home use with views.</p>
-            </div>
-          </div>
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Project Compatibility</p>
-            <div class="space-y-2 text-stone-700">
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Vet Clinic:</strong> Possible but challenging; steep road-to-site access for public/trailers; single road ingress.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">✓</span>
-                <div><strong>Multiple Homes:</strong> Two distinct building sites noted in listing.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">✓</span>
-                <div><strong>75kW Solar/Grid:</strong> South-facing slopes ideal for solar arrays.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Water Security:</strong> Pauma Ridge Mutual Water Co; depends on private mutual infrastructure.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <a href="https://www.zillow.com/homedetails/48-Pauma-Ridge-Rd-Valley-Center-CA-92082/443882954_zpid/" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
-      </div>
-
-      <hr class="border-stone-100" />
-
-      <!-- PROPERTY: 31752 Pauma Heights Rd #3, Valley Center — $349,000 (NEW) -->
-      <div id="property-pauma-heights-3">
-        <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
-            <h2 class="serif text-3xl font-normal text-stone-900">31752 Pauma Heights Road — Lot 3</h2>
+            <h2 class="serif text-3xl font-normal text-stone-900">31752 Pauma Heights Rd #3</h2>
             <p class="text-stone-600">31752 Pauma Heights Rd #3, Valley Center, CA 92082</p>
           </div>
           <div class="text-right text-stone-500">
-            <p class="serif text-3xl font-normal text-stone-900">$400,000</p>
-            <p class="text-stone-600">11.03 acres — $36,264 / acre</p>
-            <span class="inline-block mt-2 px-3 py-1 bg-red-100 text-red-800 border border-red-300 text-[10px] font-bold tracking-widest uppercase mr-2">Price ↑ from $349K</span>
+            <p class="serif text-3xl font-normal text-stone-900">$349,000</p>
+            <p class="text-stone-600">11.03 acres — $31,640 / acre</p>
             <span class="inline-block mt-2 px-3 py-1 bg-stone-100 text-stone-700 border border-stone-300 text-[10px] font-bold tracking-widest uppercase">Investigate</span>
           </div>
         </div>
@@ -447,7 +643,7 @@
         <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
           <div class="border-b md:border-b-0 md:border-r border-stone-200">
             <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=31752+Pauma+Heights+Rd,+Valley+Center,+CA+92082&z=14&output=embed"
+              src="https://maps.google.com/maps?q=31752+Pauma+Heights+Rd,+Valley+Center,+CA+92082&z=12&output=embed"
               title="Aerial view of 31752 Pauma Heights Rd, Valley Center, CA"></iframe>
           </div>
           <div class="bg-stone-100 flex items-center justify-center">
@@ -459,8 +655,92 @@
           <div>
             <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
             <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
-              <p>11.03-acre parcel on Pauma Heights Road in Valley Center. Listed individually at $400,000 (up from $349,000) or available as part of a 3-parcel bundle (with adjacent lots #1 and #2) for $1,000,000 total. MLS# 250026664SD.</p>
-              <p>Located in the Pauma Heights corridor near Pauma Valley Country Club. Valley Center-Pauma Unified School District. Zoned agricultural/residential.</p>
+              <p>11.03-acre parcel in the scenic Pauma Heights corridor. One of three adjacent parcels offered for sale (can be purchased together for $1M). Zoned for agricultural and residential use.</p>
+              <p>Features varied topography with potential building sites. High investigation priority if purchased as a bundle for large compound scale.</p>
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Project Compatibility</p>
+            <div class="space-y-2 text-stone-700">
+              <div class="flex items-start gap-2.5">
+                <span class="text-green-600 font-bold">✓</span>
+                <div><strong>Acreage:</strong> 11.03 acres meets the 10+ acre threshold.</div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <span class="text-green-600 font-bold">✓</span>
+                <div><strong>Bundle Potential:</strong> Buying adjacent lots could yield ~30 acres.</div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <span class="text-amber-600 font-bold">!</span>
+                <div><strong>Infrastructure:</strong> Verify water meter/well status and road access.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-8 border-t border-stone-100">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4">Financial Outlook</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Estimated Carry</p>
+              <p class="serif text-xl text-stone-900">$2,140</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Monthly PITI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Down Payment</p>
+              <p class="serif text-xl text-stone-900">$87,250</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">25% (Exc. FICO)</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Tax Strategy</p>
+              <p class="serif text-sm text-stone-900">Mixed Use</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">IRS Topic 415</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Annual Deprec.</p>
+              <p class="serif text-xl text-stone-900">$10,150</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Non-Cash Deduction</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://www.homes.com/property/31752-pauma-heights-rd-valley-center-ca-92082/id-1000235566867/" target="_blank" rel="noopener" class="mt-6 inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
+      </div>
+
+      <hr class="border-stone-100" />
+
+      <!-- PROPERTY: 0 Pauma Heights Rd Lot 9 — $379,000 -->
+      <div id="property-pauma-heights-9">
+        <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
+          <div>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
+            <h2 class="serif text-3xl font-normal text-stone-900">0 Pauma Heights Road — Lot 9</h2>
+            <p class="text-stone-600">0 Pauma Heights Rd Lot 9, Valley Center, CA 92082</p>
+          </div>
+          <div class="text-right text-stone-500">
+            <p class="serif text-3xl font-normal text-stone-900">$379,000</p>
+            <p class="text-stone-600">19.63 acres — $19,307 / acre</p>
+            <span class="inline-block mt-2 px-3 py-1 bg-stone-100 text-stone-700 border border-stone-300 text-[10px] font-bold tracking-widest uppercase">Investigate</span>
+          </div>
+        </div>
+
+        <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
+          <div class="border-b md:border-b-0 md:border-r border-stone-200">
+            <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=0+Pauma+Heights+Rd+Lot+9,+Valley+Center,+CA+92082&z=12&output=embed"
+              title="Aerial view of 0 Pauma Heights Rd Lot 9, Valley Center, CA"></iframe>
+          </div>
+          <div class="bg-stone-100 flex items-center justify-center">
+            <p class="text-stone-400 text-sm font-medium italic">Photos available via broker</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-6">
+          <div>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
+            <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
+              <p>19.63-acre undeveloped parcel on Pauma Heights Road. Located in the scenic Pauma Heights corridor. Zoned for agricultural and residential use.</p>
+              <p>Part of a series of large lots in the area. Requires verification of water availability (well vs. meter) and buildable areas due to topography.</p>
             </div>
           </div>
           <div>
@@ -468,30 +748,53 @@
             <div class="space-y-2 text-stone-700">
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">+</span>
-                <div><strong>Acreage:</strong> 11.03 acres meets minimum threshold. Bundle option (3 lots) could yield ~30 acres total.</div>
+                <div><strong>Acreage:</strong> 19.63 acres meets the 10+ acre threshold for a compound.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">+</span>
-                <div><strong>Price:</strong> $400K individual or ~$333K/parcel bundled — bundle is better value.</div>
+                <div><strong>Location:</strong> Pauma Heights is a desirable rural area with significant natural beauty.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Water:</strong> No water info in listing — must verify supply and rights.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Topography:</strong> Unknown — site visit required to assess buildable areas.</div>
+                <div><strong>Water:</strong> No specific water meter or well info confirmed; investigation required.</div>
               </div>
             </div>
           </div>
         </div>
 
-        <a href="https://www.homes.com/valley-center-ca/land-for-sale/" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">Search Valley Center Land</a>
+        <div class="mt-8 pt-8 border-t border-stone-100">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4">Financial Outlook</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Estimated Carry</p>
+              <p class="serif text-xl text-stone-900">$2,323</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Monthly PITI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Down Payment</p>
+              <p class="serif text-xl text-stone-900">$94,750</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">25% (Exc. FICO)</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Tax Strategy</p>
+              <p class="serif text-sm text-stone-900">Mixed Use</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">IRS Topic 415</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Annual Deprec.</p>
+              <p class="serif text-xl text-stone-900">$11,025</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Non-Cash Deduction</p>
+            </div>
+          </div>
+          <p class="mt-4 text-[10px] text-stone-400 italic">**Tax Assumption:** 27.5yr straight-line depreciation applied to 80% building value. Land (20%) stripped per IRS Pub 527.</p>
+        </div>
+
+        <a href="https://www.landandfarm.com/property/land-valley-center-ca-36365022/" target="_blank" rel="noopener" class="mt-6 inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">Search Valley Center Land</a>
       </div>
 
       <hr class="border-stone-100" />
 
-      <!-- PROPERTY 3: 40 Oak Glen Rd — $400,000 -->
+      <!-- PROPERTY: 40 Oak Glen Rd — $400,000 -->
       <div id="property-oak-glen">
         <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
           <div>
@@ -507,11 +810,10 @@
           </div>
         </div>
 
-        <!-- VISUALS: MAP & IMAGE -->
         <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
           <div class="border-b md:border-b-0 md:border-r border-stone-200">
             <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=40+Oak+Glen+Rd,+Valley+Center,+CA+92082&z=14&output=embed"
+              src="https://maps.google.com/maps?q=40+Oak+Glen+Rd,+Valley+Center,+CA+92082&z=12&output=embed"
               title="Aerial view of 40 Oak Glen Rd, Valley Center, CA"></iframe>
           </div>
           <div>
@@ -523,8 +825,8 @@
           <div>
             <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
             <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
-              <p>Stunning 40.83-acre property with a 2-inch water meter at the northeast corner and an existing well on site. Features newly graded internal roads throughout the property and the access road. Secluded location with an elevated knoll providing potential ocean views. </p>
-              <p>No CC&Rs. Listed as ideal for flower growers or large-scale agriculture. Topography includes steep slopes but the scale offers significant flat areas on the knoll for building.</p>
+              <p>Stunning 40.83-acre property with a 2-inch water meter and an existing well on site. Features newly graded internal roads. Secluded location with potential ocean views from the elevated knoll. </p>
+              <p>No CC&Rs. Topography includes steep slopes but offers significant flat areas on the knoll for building. Listed at $400,000 (up from $375,000 recently).</p>
             </div>
           </div>
           <div>
@@ -532,7 +834,7 @@
             <div class="space-y-2 text-stone-700">
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
-                <div><strong>Vet Clinic:</strong> 40 acres provides ample space for clinic and parking; access road is newly graded.</div>
+                <div><strong>Vet Clinic:</strong> 40 acres provides ample space; access road is newly graded.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
@@ -540,46 +842,67 @@
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
-                <div><strong>75kW Solar/Grid:</strong> Vast acreage ensures high solar capacity.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Water Security:</strong> Well + 2" meter; requires well report review for adjudicated basin security status.</div>
+                <div><strong>Water Security:</strong> Well + 2" meter; requires status review.</div>
               </div>
             </div>
           </div>
         </div>
 
-        <a href="https://www.zillow.com/homes/for_sale/Valley-Center-CA_rb/?sort=price_asc&price=0-500000" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">Search Zillow</a>
+        <div class="mt-8 pt-8 border-t border-stone-100">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4">Financial Outlook</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Estimated Carry</p>
+              <p class="serif text-xl text-stone-900">$2,452</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Monthly PITI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Down Payment</p>
+              <p class="serif text-xl text-stone-900">$100,000</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">25% (Exc. FICO)</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Tax Strategy</p>
+              <p class="serif text-sm text-stone-900">Mixed Use</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">IRS Topic 415</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Annual Deprec.</p>
+              <p class="serif text-xl text-stone-900">$11,636</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Non-Cash Deduction</p>
+            </div>
+          </div>
+          <p class="mt-4 text-[10px] text-stone-400 italic">**Tax Assumption:** 27.5yr straight-line depreciation applied to 80% building value. Land (20%) stripped per IRS Pub 527.</p>
+        </div>
+
+        <a href="https://www.zillow.com/homes/for_sale/Valley-Center-CA_rb/?sort=price_asc&price=0-500000" target="_blank" rel="noopener" class="mt-6 inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">Search Zillow</a>
       </div>
 
       <hr class="border-stone-100" />
 
-      <!-- PROPERTY 4: Pauma Heights Rd Lot 9 — $379,000 -->
-      <div id="property-pauma-heights">
+      <!-- PROPERTY: 23.6 Acres Pauma Ridge Road — $400,000 -->
+      <div id="property-pauma-ridge-23">
         <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
           <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
-            <h2 class="serif text-3xl font-normal text-stone-900">Pauma Heights Road — Lot 9</h2>
-            <p class="text-stone-600">0 Pauma Heights Rd Lot 9, Valley Center, CA 92082</p>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Pala, CA 92059</p>
+            <h2 class="serif text-3xl font-normal text-stone-900">Pauma Ridge Road (23.6 Acres)</h2>
+            <p class="text-stone-600">23 Pauma Ridge Rd, Pala, CA 92059</p>
           </div>
           <div class="text-right text-stone-500">
-            <p class="serif text-3xl font-normal text-stone-900">$379,000</p>
-            <p class="text-stone-600">19.63 acres — $19,309 / acre</p>
+            <p class="serif text-3xl font-normal text-stone-900">$400,000</p>
+            <p class="text-stone-600">23.60 acres — $16,949 / acre</p>
             <span class="inline-block mt-2 px-3 py-1 bg-green-900 text-white text-[10px] font-bold tracking-widest uppercase mr-2">Great Location</span>
-            <span class="inline-block mt-2 px-3 py-1 bg-stone-900 text-white text-[10px] font-bold tracking-widest uppercase">Investigate</span>
           </div>
         </div>
 
-        <!-- VISUALS: MAP & IMAGE -->
         <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
           <div class="border-b md:border-b-0 md:border-r border-stone-200">
             <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=Pauma+Heights+Rd,+Valley+Center,+CA+92082&z=14&output=embed"
-              title="Aerial view of Pauma Heights Rd, Valley Center, CA"></iframe>
+              src="https://maps.google.com/maps?q=23+Pauma+Ridge+Rd,+Pala,+CA+92059&z=12&output=embed"
+              title="Aerial view of 23 Pauma Ridge Rd, Pala, CA"></iframe>
           </div>
-          <div>
-            <img src="/images/properties/pauma-heights.jpg" alt="Satellite view of Pauma Heights Rd, Valley Center" class="property-image" />
+          <div class="bg-stone-100 flex items-center justify-center">
+            <p class="text-stone-400 text-sm font-medium italic">Photos available via broker</p>
           </div>
         </div>
 
@@ -587,8 +910,8 @@
           <div>
             <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
             <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
-              <p>Fully irrigated avocado grove (19.63 acres) with active internal road system and power at the street. Equipped with a 2-inch water meter. The owner has pre-existing design concepts for residential builds. </p>
-              <p>No HOA or CC&Rs. Eligible for Crop Swap incentives for vineyard transition. 20+ usable acres estimated by assessor despite record.</p>
+              <p>Healthy and high-producing avocado grove spanning 23.6 acres (17 acres planted). Professionally managed and irrigated via a private water well. Municipal water is also available with a meter on-site.</p>
+              <p>Easy gated access directly off Highway 76. Exceptional agricultural value with redundant water sources. Well-suited for a large compound with existing income-producing infrastructure.</p>
             </div>
           </div>
           <div>
@@ -596,30 +919,53 @@
             <div class="space-y-2 text-stone-700">
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
-                <div><strong>Vet Clinic:</strong> Established infrastructure and internal roads support commercial traffic flow.</div>
+                <div><strong>Water Security:</strong> High redundancy with both private well and municipal water meter.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
-                <div><strong>Multiple Homes:</strong> Flexible buildability and pre-existing concepts support multi-home layout.</div>
+                <div><strong>Acreage:</strong> 23.6 acres provides ample room for clinic and multiple residences.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
-                <div><strong>75kW Solar/Grid:</strong> 20+ usable acres provides ample area for large solar arrays.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">✓</span>
-                <div><strong>Water Security:</strong> 2" water meter confirmed active.</div>
+                <div><strong>Access:</strong> Paved access directly off Hwy 76; convenient for clients.</div>
               </div>
             </div>
           </div>
         </div>
 
-        <a href="https://www.zillow.com/homedetails/0-Pauma-Heights-Rd-LOT-9-Valley-Center-CA-92082/2081163381_zpid/" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
+        <div class="mt-8 pt-8 border-t border-stone-100">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4">Financial Outlook</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Estimated Carry</p>
+              <p class="serif text-xl text-stone-900">$2,452</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Monthly PITI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Down Payment</p>
+              <p class="serif text-xl text-stone-900">$100,000</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">25% (Exc. FICO)</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Tax Strategy</p>
+              <p class="serif text-sm text-stone-900">Mixed Use</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">IRS Topic 415</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Annual Deprec.</p>
+              <p class="serif text-xl text-stone-900">$11,636</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Non-Cash Deduction</p>
+            </div>
+          </div>
+          <p class="mt-4 text-[10px] text-stone-400 italic">**Tax Assumption:** 27.5yr straight-line depreciation applied to 80% building value. Land (20%) stripped per IRS Pub 527.</p>
+        </div>
+
+        <a href="https://www.homes.com/property/23-acres-pauma-ridge-rd-pala-ca-92059/id-1000235566877/" target="_blank" rel="noopener" class="mt-6 inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
       </div>
 
       <hr class="border-stone-100" />
 
-      <!-- PROPERTY 5: 14097 Pauma Vista Dr — $410,000 -->
+      <!-- PROPERTY: 14097 Pauma Vista Dr — $410,000 -->
       <div id="property-pauma-vista">
         <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
           <div>
@@ -631,15 +977,14 @@
             <p class="serif text-3xl font-normal text-stone-900">$410,000</p>
             <p class="text-stone-600">10.48 acres — $39,122 / acre</p>
             <span class="inline-block mt-2 px-3 py-1 bg-green-900 text-white text-[10px] font-bold tracking-widest uppercase mr-2">Great Location</span>
-            <span class="inline-block mt-2 px-3 py-1 bg-stone-100 text-stone-700 border border-stone-300 text-[10px] font-bold tracking-widest uppercase">Verify Before Pursuing</span>
+            <span class="inline-block mt-2 px-3 py-1 bg-amber-100 text-amber-800 border border-amber-300 text-[10px] font-bold tracking-widest uppercase">Price ↑ from $395K</span>
           </div>
         </div>
 
-        <!-- VISUALS: MAP & IMAGE -->
         <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
           <div class="border-b md:border-b-0 md:border-r border-stone-200">
             <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=14097+Pauma+Vista+Dr,+Valley+Center,+CA+92082&z=14&output=embed"
+              src="https://maps.google.com/maps?q=14097+Pauma+Vista+Dr,+Valley+Center,+CA+92082&z=12&output=embed"
               title="Aerial view of 14097 Pauma Vista Dr, Valley Center, CA"></iframe>
           </div>
           <div>
@@ -652,7 +997,7 @@
             <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
             <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
               <p>10.48 acres of agricultural land with 400+ mature avocado trees and an active irrigation water meter. Septic is already approved by San Diego County. </p>
-              <p>Seller reportedly willing to carry a second loan. <strong>Caution:</strong> Open code violation on file for a truck container (seller to clear). Long DOM (290+) indicates potential leverage or hidden issues. High detail verification required.</p>
+              <p><strong>Caution:</strong> Open code violation on file for a truck container (seller to clear). Long DOM (290+) indicates potential leverage. Price recently increased to $410,000.</p>
             </div>
           </div>
           <div>
@@ -660,15 +1005,11 @@
             <div class="space-y-2 text-stone-700">
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
-                <div><strong>Vet Clinic:</strong> Approved septic and active meter provide a head start for clinic infrastructure.</div>
+                <div><strong>Vet Clinic:</strong> Approved septic and active meter provide a head start for infrastructure.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Multiple Homes:</strong> 10 acres is tight for multi-home compound with a clinic; check zoning density.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">✓</span>
-                <div><strong>75kW Solar/Grid:</strong> Space available on ag land for solar layout.</div>
+                <div><strong>Multiple Homes:</strong> 10 acres is tight for multi-home compound with a clinic.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
@@ -678,32 +1019,59 @@
           </div>
         </div>
 
-        <a href="https://www.zillow.com/homedetails/14097-Pauma-Valley-Pauma-Valley-Valley-Center-CA-92082/450871348_zpid/" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
+        <div class="mt-8 pt-8 border-t border-stone-100">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4">Financial Outlook</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Estimated Carry</p>
+              <p class="serif text-xl text-stone-900">$2,513</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Monthly PITI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Down Payment</p>
+              <p class="serif text-xl text-stone-900">$102,500</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">25% (Exc. FICO)</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Tax Strategy</p>
+              <p class="serif text-sm text-stone-900">Mixed Use</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">IRS Topic 415</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Annual Deprec.</p>
+              <p class="serif text-xl text-stone-900">$11,927</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Non-Cash Deduction</p>
+            </div>
+          </div>
+          <p class="mt-4 text-[10px] text-stone-400 italic">**Tax Assumption:** 27.5yr straight-line depreciation applied to 80% building value. Land (20%) stripped per IRS Pub 527.</p>
+        </div>
+
+        <a href="https://www.zillow.com/homedetails/14097-Pauma-Valley-Pauma-Valley-Valley-Center-CA-92082/450871348_zpid/" target="_blank" rel="noopener" class="mt-6 inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
       </div>
 
       <hr class="border-stone-100" />
 
-      <!-- PROPERTY: Double Canyon Rd, Valley Center — $475,000 (NEW) -->
-      <div id="property-double-canyon">
+      <!-- PROPERTY: 1390 Little Gopher Canyon Rd — $450,000 -->
+      <div id="property-little-gopher">
         <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
           <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
-            <h2 class="serif text-3xl font-normal text-stone-900">Double Canyon Road</h2>
-            <p class="text-stone-600">Double Canyon Rd, Valley Center, CA 92082</p>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Vista, CA 92084</p>
+            <h2 class="serif text-3xl font-normal text-stone-900">1390 Little Gopher Canyon Rd</h2>
+            <p class="text-stone-600">1390 Little Gopher Canyon Rd, Vista, CA 92084</p>
           </div>
           <div class="text-right text-stone-500">
-            <p class="serif text-3xl font-normal text-stone-900">$475,000</p>
-            <p class="text-stone-600">44.51 acres — $10,672 / acre</p>
-            <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold tracking-widest uppercase mr-2">New</span>
-            <span class="inline-block mt-2 px-3 py-1 bg-stone-900 text-white text-[10px] font-bold tracking-widest uppercase">Strong Value</span>
+            <p class="serif text-3xl font-normal text-stone-900">$500,000</p>
+            <p class="text-stone-600">10.15 acres — $49,261 / acre</p>
+            <span class="inline-block mt-2 px-3 py-1 bg-stone-100 text-stone-700 border border-stone-300 text-[10px] font-bold tracking-widest uppercase">Investigate</span>
+            <span class="inline-block mt-2 px-3 py-1 bg-amber-100 text-amber-800 border border-amber-300 text-[10px] font-bold tracking-widest uppercase">Price ↑ from $450K</span>
           </div>
         </div>
 
         <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
           <div class="border-b md:border-b-0 md:border-r border-stone-200">
             <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=Double+Canyon+Rd,+Valley+Center,+CA+92082&z=13&output=embed"
-              title="Aerial view of Double Canyon Rd, Valley Center, CA"></iframe>
+              src="https://maps.google.com/maps?q=1390+Little+Gopher+Canyon+Rd,+Vista,+CA+92084&z=12&output=embed"
+              title="Aerial view of 1390 Little Gopher Canyon Rd, Vista, CA"></iframe>
           </div>
           <div class="bg-stone-100 flex items-center justify-center">
             <p class="text-stone-400 text-sm font-medium italic">Photos available via broker</p>
@@ -714,43 +1082,61 @@
           <div>
             <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
             <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
-              <p>44.51-acre parcel on Double Canyon Road in Valley Center. Listed by Chameleon/Red Hawk Realty at $475,000 — approximately $10,672/acre, well below Valley Center average.</p>
-              <p>Note: A separate 75.62-acre parcel at 33495 Double Canyon Rd sold for $720,000 in December 2024. This is a different, smaller parcel in the same corridor. Requires investigation of water, topography, access, and buildable areas.</p>
+              <p>10.15-acre parcel on the border of Vista and Bonsall in the Gopher Canyon area. Features hilltop privacy with panoramic views. Unincorporated land in the Bonsall School District.</p>
+              <p>Rainbow Municipal Water District has confirmed sewer and water availability at the street. Ideal for a private estate or compound in a high-demand area.</p>
             </div>
           </div>
           <div>
             <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Project Compatibility</p>
             <div class="space-y-2 text-stone-700">
               <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Acreage:</strong> 44.51 acres — over 4x the minimum. Excellent scale for full compound.</div>
+                <span class="text-green-600 font-bold">✓</span>
+                <div><strong>Acreage:</strong> 10.15 acres meets the compound threshold.</div>
               </div>
               <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Price/Acre:</strong> $10,672/acre is exceptional value for Valley Center.</div>
+                <span class="text-green-600 font-bold">✓</span>
+                <div><strong>Utilities:</strong> Sewer and water confirmed available at the street.</div>
               </div>
               <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Budget:</strong> At $475K, leaves $1.7M+ for development.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Water:</strong> No water info available — must verify supply and well feasibility.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Access & Topography:</strong> Double Canyon corridor is remote — road quality, buildable pads, and fire risk need verification.</div>
+                <span class="text-green-600 font-bold">✓</span>
+                <div><strong>Education:</strong> Bonsall School District context.</div>
               </div>
             </div>
           </div>
         </div>
 
-        <a href="https://www.loopnet.com/Listing/Double-Canyon-Rd-Valley-Center-CA/31183789/" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
+        <div class="mt-8 pt-8 border-t border-stone-100">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4">Financial Outlook</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Estimated Carry</p>
+              <p class="serif text-xl text-stone-900">$3,099</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Monthly PITI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Down Payment</p>
+              <p class="serif text-xl text-stone-900">$125,000</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">25% (Exc. FICO)</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Tax Strategy</p>
+              <p class="serif text-sm text-stone-900">Mixed Use</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">IRS Topic 415</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Annual Deprec.</p>
+              <p class="serif text-xl text-stone-900">$14,545</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Non-Cash Deduction</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://www.compass.com/listing/1390-little-gopher-canyon-road-vista-ca-92084/1764940839411472281/" target="_blank" rel="noopener" class="mt-6 inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
       </div>
 
       <hr class="border-stone-100" />
 
-      <!-- PROPERTY 6: 18868 Paradise Mountain Rd — $447,000 -->
+      <!-- PROPERTY: 18868 Paradise Mountain Rd — $447,000 -->
       <div id="property-paradise-mountain">
         <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
           <div>
@@ -766,11 +1152,10 @@
           </div>
         </div>
 
-        <!-- VISUALS: MAP & IMAGE -->
         <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
           <div class="border-b md:border-b-0 md:border-r border-stone-200">
             <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=18868+Paradise+Mountain+Rd,+Valley+Center,+CA+92082&z=14&output=embed"
+              src="https://maps.google.com/maps?q=18868+Paradise+Mountain+Rd,+Valley+Center,+CA+92082&z=12&output=embed"
               title="Aerial view of 18868 Paradise Mountain Rd, Valley Center, CA"></iframe>
           </div>
           <div>
@@ -783,7 +1168,7 @@
             <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
             <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
               <p>Exceptional infrastructure package on 10.09 acres. Features a private water well, installed water meter, and on-site SDGE electric transformer. Fire hydrant nearby. </p>
-              <p>Includes a graded build pad and a fenced pasture with seasonal creek access. Septic was previously approved. High utility value for mixed clinic/equestrian use.</p>
+              <p>Includes a graded build pad and a fenced pasture. Septic was previously approved. High utility value for mixed clinic/equestrian use. Price recently increased to $447,000.</p>
             </div>
           </div>
           <div>
@@ -791,30 +1176,139 @@
             <div class="space-y-2 text-stone-700">
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
-                <div><strong>Vet Clinic:</strong> Transformer and graded pad provide high-capacity infrastructure for medical/commercial use.</div>
+                <div><strong>Vet Clinic:</strong> Transformer and graded pad provide high-capacity infrastructure.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
-                <div><strong>Multiple Homes:</strong> Existing infrastructure supports immediate multi-home planning.</div>
+                <div><strong>Multiple Homes:</strong> Existing infrastructure supports multi-home planning.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
-                <div><strong>75kW Solar/Grid:</strong> Transformer on-site facilitates grid-tied solar selling.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">✓</span>
-                <div><strong>Water Security:</strong> Both private well and water meter present; high redundancy and security.</div>
+                <div><strong>Water Security:</strong> Both private well and water meter present; high redundancy.</div>
               </div>
             </div>
           </div>
         </div>
 
-        <a href="https://www.zillow.com/homedetails/18868-Paradise-Mountain-Rd-Valley-Center-CA-92082/241603706_zpid/" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
+        <div class="mt-8 pt-8 border-t border-stone-100">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4">Financial Outlook</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Estimated Carry</p>
+              <p class="serif text-xl text-stone-900">$2,740</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Monthly PITI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Down Payment</p>
+              <p class="serif text-xl text-stone-900">$111,750</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">25% (Exc. FICO)</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Tax Strategy</p>
+              <p class="serif text-sm text-stone-900">Mixed Use</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">IRS Topic 415</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Annual Deprec.</p>
+              <p class="serif text-xl text-stone-900">$13,003</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Non-Cash Deduction</p>
+            </div>
+          </div>
+          <p class="mt-4 text-[10px] text-stone-400 italic">**Tax Assumption:** 27.5yr straight-line depreciation applied to 80% building value. Land (20%) stripped per IRS Pub 527.</p>
+        </div>
+
+        <a href="https://www.zillow.com/homedetails/18868-Paradise-Mountain-Rd-Valley-Center-CA-92082/241603706_zpid/" target="_blank" rel="noopener" class="mt-6 inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
       </div>
 
       <hr class="border-stone-100" />
 
-      <!-- PROPERTY 7: 12121 Mira Grande Ln — $575,000 (PENDING) -->
+      <!-- PROPERTY: Double Canyon Rd — $475,000 -->
+      <div id="property-double-canyon">
+        <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
+          <div>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
+            <h2 class="serif text-3xl font-normal text-stone-900">Double Canyon Road</h2>
+            <p class="text-stone-600">Double Canyon Rd, Valley Center, CA 92082</p>
+          </div>
+          <div class="text-right text-stone-500">
+            <p class="serif text-3xl font-normal text-stone-900">$475,000</p>
+            <p class="text-stone-600">44.51 acres — $10,671 / acre</p>
+            <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold tracking-widest uppercase">Investigate</span>
+          </div>
+        </div>
+
+        <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
+          <div class="border-b md:border-b-0 md:border-r border-stone-200">
+            <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=Double+Canyon+Rd,+Valley+Center,+CA+92082&z=12&output=embed"
+              title="Aerial view of Double Canyon Rd, Valley Center, CA"></iframe>
+          </div>
+          <div class="bg-stone-100 flex items-center justify-center">
+            <p class="text-stone-400 text-sm font-medium italic">Photos available via broker</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-6">
+          <div>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
+            <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
+
+              <p>Massive 44.51-acre parcel on Double Canyon Road. Infrastructure includes a 2-inch water meter, overhead electrical service, a seasonal stream, and a water well. Natural rock outcroppings and native vegetation throughout.</p>
+              <p>Ideal for large-scale compound development. Zoned for agriculture/residential use. Price recently updated to $475,000 (previously Price on Request).</p>
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Project Compatibility</p>
+            <div class="space-y-2 text-stone-700">
+              <div class="flex items-start gap-2.5">
+                <span class="text-green-600 font-bold">+</span>
+                <div><strong>Acreage:</strong> 44.51 acres — exceptional scale for full compound vision.</div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <span class="text-green-600 font-bold">+</span>
+                <div><strong>Infrastructure:</strong> 2" meter, well, and power on-site.</div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <span class="text-green-600 font-bold">✓</span>
+                <div><strong>Price:</strong> At $475K, very strong value for 44+ acres with utilities.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-8 border-t border-stone-100">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4">Financial Outlook</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Estimated Carry</p>
+              <p class="serif text-xl text-stone-900">$2,912</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Monthly PITI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Down Payment</p>
+              <p class="serif text-xl text-stone-900">$118,750</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">25% (Exc. FICO)</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Tax Strategy</p>
+              <p class="serif text-sm text-stone-900">Mixed Use</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">IRS Topic 415</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Annual Deprec.</p>
+              <p class="serif text-xl text-stone-900">$13,818</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Non-Cash Deduction</p>
+            </div>
+          </div>
+          <p class="mt-4 text-[10px] text-stone-400 italic">**Tax Assumption:** 27.5yr straight-line depreciation applied to 80% building value. Land (20%) stripped per IRS Pub 527.</p>
+        </div>
+
+        <a href="https://www.redfin.com/city/26631/CA/Valley-Center/land" target="_blank" rel="noopener" class="mt-6 inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
+      </div>
+
+      <hr class="border-stone-100" />
+
+      <!-- PROPERTY: 12121 Mira Grande Ln — $575,000 -->
       <div id="property-mira-grande">
         <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
           <div>
@@ -829,11 +1323,10 @@
           </div>
         </div>
 
-        <!-- VISUALS: MAP & IMAGE -->
         <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
           <div class="border-b md:border-b-0 md:border-r border-stone-200">
             <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=12121+Mira+Grande+Ln,+Valley+Center,+CA+92082&z=14&output=embed"
+              src="https://maps.google.com/maps?q=12121+Mira+Grande+Ln,+Valley+Center,+CA+92082&z=12&output=embed"
               title="Aerial view of 12121 Mira Grande Ln, Valley Center, CA"></iframe>
           </div>
           <div>
@@ -846,7 +1339,7 @@
             <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
             <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
               <p>Massive 26.89-acre property comprised of 5 separate legal parcels. Infrastructure includes a 2-inch water meter, a private well, overhead electrical, and a seasonal stream. </p>
-              <p>Features multiple hilltop and ridgeline sites suitable for custom builds with panoramic views. The multi-parcel structure offers unique legal and financing flexibility for the compound.</p>
+              <p>Features multiple hilltop and ridgeline sites suitable for custom builds with panoramic views. The multi-parcel structure offers unique legal and financing flexibility.</p>
             </div>
           </div>
           <div>
@@ -854,50 +1347,78 @@
             <div class="space-y-2 text-stone-700">
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
-                <div><strong>Vet Clinic:</strong> Multi-parcel structure allows for dedicated clinic site with separate business/legal identity.</div>
+                <div><strong>Vet Clinic:</strong> Multi-parcel structure allows for dedicated clinic site.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
-                <div><strong>Multiple Homes:</strong> 5 legal parcels naturally support 5+ primary residential structures.</div>
+                <div><strong>Multiple Homes:</strong> 5 legal parcels support 5+ primary residential structures.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
-                <div><strong>75kW Solar/Grid:</strong> Hills and clearings provide ample high-exposure solar sites.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">✓</span>
-                <div><strong>Water Security:</strong> 2" meter + well provide redundant water security for large-scale operations.</div>
+                <div><strong>Water Security:</strong> 2" meter + well provide redundant security.</div>
               </div>
             </div>
           </div>
         </div>
 
-        <a href="https://www.zillow.com/homedetails/12121-Mira-Grande-Ln-Valley-Center-CA-92082/439455041_zpid/" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
+        <div class="mt-8 pt-8 border-t border-stone-100">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4">Financial Outlook</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Estimated Carry</p>
+              <p class="serif text-xl text-stone-900">$3,525</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Monthly PITI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Down Payment</p>
+              <p class="serif text-xl text-stone-900">$143,750</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">25% (Exc. FICO)</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Tax Strategy</p>
+              <p class="serif text-sm text-stone-900">Mixed Use</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">IRS Topic 415</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Annual Deprec.</p>
+              <p class="serif text-xl text-stone-900">$16,727</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Non-Cash Deduction</p>
+            </div>
+          </div>
+          <p class="mt-4 text-[10px] text-stone-400 italic">**Tax Assumption:** 27.5yr straight-line depreciation applied to 80% building value. Land (20%) stripped per IRS Pub 527.</p>
+        </div>
+
+        <a href="https://www.zillow.com/homedetails/12121-Mira-Grande-Ln-Valley-Center-CA-92082/439455041_zpid/" target="_blank" rel="noopener" class="mt-6 inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
       </div>
 
       <hr class="border-stone-100" />
 
-      <!-- PROPERTY: 12516 Montanya Dr, Valley Center — $799,000 (NEW) -->
-      <div id="property-montanya">
+      <!-- PROPERTY: Birdsong Ranch — REMOVED: Wrong Zone -->
+      <hr class="border-stone-100" />
+
+
+      <hr class="border-stone-100" />
+
+      <!-- PROPERTY: 0 Pauma Valley Drive — $1,069,000 -->
+      <div id="property-pauma-valley-drive">
         <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
           <div>
             <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
-            <h2 class="serif text-3xl font-normal text-stone-900">12516 Montanya Drive</h2>
-            <p class="text-stone-600">12516 Montanya Dr, Valley Center, CA 92082</p>
+            <h2 class="serif text-3xl font-normal text-stone-900">0 Pauma Valley Drive</h2>
+            <p class="text-stone-600">0 Pauma Valley Drive 1A-2C/B, Valley Center, CA 92082</p>
           </div>
           <div class="text-right text-stone-500">
-            <p class="serif text-3xl font-normal text-stone-900">$799,000</p>
-            <p class="text-stone-600">12.73 acres — $62,764 / acre</p>
-            <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold tracking-widest uppercase mr-2">New</span>
-            <span class="inline-block mt-2 px-3 py-1 bg-stone-100 text-stone-700 border border-stone-300 text-[10px] font-bold tracking-widest uppercase">Investigate</span>
+            <p class="serif text-3xl font-normal text-stone-900">$1,069,000</p>
+            <p class="text-stone-600">69.82 acres — $15,310 / acre</p>
+            <span class="inline-block mt-2 px-3 py-1 bg-stone-900 text-white text-[10px] font-bold tracking-widest uppercase">Strong Candidate</span>
           </div>
         </div>
 
         <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
           <div class="border-b md:border-b-0 md:border-r border-stone-200">
             <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=12516+Montanya+Dr,+Valley+Center,+CA+92082&z=14&output=embed"
-              title="Aerial view of 12516 Montanya Dr, Valley Center, CA"></iframe>
+              src="https://maps.google.com/maps?q=0+Pauma+Valley+Drive,+Valley+Center,+CA+92082&z=11&output=embed"
+              title="Aerial view of 0 Pauma Valley Drive, Valley Center, CA"></iframe>
           </div>
           <div class="bg-stone-100 flex items-center justify-center">
             <p class="text-stone-400 text-sm font-medium italic">Photos available via broker</p>
@@ -908,202 +1429,8 @@
           <div>
             <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
             <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
-              <p>12.73 acres of gentle-sloped usable land with terrific panoramic views. Endless potential for a dream home with horse ranch, room for arena, pastures, agriculture, or hobby workshop. Perfect opportunity to create your own estate.</p>
-              <p>Listed on Redfin. APN 1291633300. Valley Center location with good road access. Topography is gentle slopes — more buildable than many Valley Center parcels at this price point.</p>
-            </div>
-          </div>
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Project Compatibility</p>
-            <div class="space-y-2 text-stone-700">
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Acreage & Topography:</strong> 12.73 acres of gentle slopes — highly usable for compound layout.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Views:</strong> Panoramic views noted — strong natural beauty factor.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Price/Acre:</strong> At $62,764/acre, this is premium for Valley Center — but reflects usable, gentle terrain.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Water:</strong> No water info in listing — must verify supply and well feasibility.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <a href="https://www.redfin.com/CA/Valley-Center/12516-Montanya-Dr-92082/home/173696108" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
-      </div>
-
-      <hr class="border-stone-100" />
-
-      <!-- PROPERTY: 30785 Pauma Heights Rd, Valley Center — $1,185,000 (NEW) -->
-      <div id="property-30785-pauma-heights">
-        <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
-            <h2 class="serif text-3xl font-normal text-stone-900">30785 Pauma Heights Road</h2>
-            <p class="text-stone-600">30785 Pauma Heights Rd, Valley Center, CA 92082</p>
-          </div>
-          <div class="text-right text-stone-500">
-            <p class="serif text-3xl font-normal text-stone-900">$1,185,000</p>
-            <p class="text-stone-600">36.85 acres — $32,158 / acre</p>
-            <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold tracking-widest uppercase mr-2">New</span>
-            <span class="inline-block mt-2 px-3 py-1 bg-stone-900 text-white text-[10px] font-bold tracking-widest uppercase">Includes Home</span>
-          </div>
-        </div>
-
-        <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
-          <div class="border-b md:border-b-0 md:border-r border-stone-200">
-            <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=30785+Pauma+Heights+Rd,+Valley+Center,+CA+92082&z=14&output=embed"
-              title="Aerial view of 30785 Pauma Heights Rd, Valley Center, CA"></iframe>
-          </div>
-          <div class="bg-stone-100 flex items-center justify-center">
-            <p class="text-stone-400 text-sm font-medium italic">Photos available via broker</p>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-6">
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
-            <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
-              <p>36.85-acre property on Pauma Heights Road in scenic Valley Center. Includes a custom-built home (1 bed, 1 bath, 660 sqft, built 2000) on the land. MLS# 250030186SD.</p>
-              <p>Located in the Pauma Heights corridor near Pauma Valley Country Club. Valley Center-Pauma Unified School District. At nearly 37 acres, this is one of the larger parcels available in the target zone with an existing structure that could serve as temporary housing during compound development.</p>
-            </div>
-          </div>
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Project Compatibility</p>
-            <div class="space-y-2 text-stone-700">
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Acreage:</strong> 36.85 acres — nearly 4x the minimum. Excellent scale for full compound.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Existing Home:</strong> Small home on-site provides immediate habitable structure during build-out.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Location:</strong> Pauma Heights corridor — beautiful views, rural character, near Pauma Valley Country Club.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Budget Impact:</strong> At $1.185M, leaves ~$1M for development — tighter than lower-priced parcels.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Water & Infrastructure:</strong> Must verify water rights, well status, and utility connections for expanded compound use.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <a href="https://www.landandfarm.com/property/detached-valley-center-ca-37907919/" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
-      </div>
-
-      <hr class="border-stone-100" />
-
-      <!-- PROPERTY: 0 Jubilee Dr, Fallbrook — $1,200,000 (NEW) -->
-      <div id="property-jubilee">
-        <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Fallbrook, CA 92028</p>
-            <h2 class="serif text-3xl font-normal text-stone-900">0 Jubilee Drive</h2>
-            <p class="text-stone-600">0 Jubilee Dr, Fallbrook, CA 92028</p>
-          </div>
-          <div class="text-right text-stone-500">
-            <p class="serif text-3xl font-normal text-stone-900">$1,200,000</p>
-            <p class="text-stone-600">36.61 acres — $32,778 / acre</p>
-            <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold tracking-widest uppercase mr-2">New — Fallbrook</span>
-            <span class="inline-block mt-2 px-3 py-1 bg-stone-100 text-stone-700 border border-stone-300 text-[10px] font-bold tracking-widest uppercase">Investigate</span>
-          </div>
-        </div>
-
-        <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
-          <div class="border-b md:border-b-0 md:border-r border-stone-200">
-            <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=0+Jubilee+Dr,+Fallbrook,+CA+92028&z=13&output=embed"
-              title="Aerial view of 0 Jubilee Dr, Fallbrook, CA"></iframe>
-          </div>
-          <div class="bg-stone-100 flex items-center justify-center">
-            <p class="text-stone-400 text-sm font-medium italic">Photos available via broker</p>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-6">
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
-            <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
-              <p>36.61-acre parcel on Jubilee Drive in Fallbrook. Listed by Compass at $1,200,000. MLS# IG25112892. Located in the rural Rainbow/Pala Mesa area of Fallbrook — known for large-acreage agricultural estates and equestrian properties.</p>
-              <p>At nearly 37 acres, this is a significant parcel in the Fallbrook target zone. Fallbrook (Tier 4) offers strong rural character, natural beauty, and agricultural zoning flexibility.</p>
-            </div>
-          </div>
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Project Compatibility</p>
-            <div class="space-y-2 text-stone-700">
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Acreage:</strong> 36.61 acres — nearly 4x the minimum. Excellent compound scale.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Location:</strong> Fallbrook is known for rural beauty, avocado groves, and equestrian estates.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Budget Impact:</strong> At $1.2M, leaves ~$1M for development.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Water & Infrastructure:</strong> Must verify water rights, well status, road access, and buildable pad areas.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <a href="https://www.compass.com/listing/0-jubilee-drive-fallbrook-ca-92028/1845373975062895425/" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
-      </div>
-
-      <hr class="border-stone-100" />
-
-      <!-- PROPERTY: 7727 Mount Ararat Way, Bonsall — $1,495,000 (NEW) -->
-      <div id="property-mount-ararat">
-        <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Bonsall, CA 92003</p>
-            <h2 class="serif text-3xl font-normal text-stone-900">7727 Mount Ararat Way</h2>
-            <p class="text-stone-600">7727 Mount Ararat Way, Bonsall, CA 92003</p>
-          </div>
-          <div class="text-right text-stone-500">
-            <p class="serif text-3xl font-normal text-stone-900">$1,450,000</p>
-            <p class="text-stone-600">18.89 acres — $76,761 / acre</p>
-            <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold tracking-widest uppercase mr-2">Bonsall</span>
-            <span class="inline-block mt-2 px-3 py-1 bg-amber-100 text-amber-800 border border-amber-300 text-[10px] font-bold tracking-widest uppercase mr-2">Price ↓ from $1,495K</span>
-            <span class="inline-block mt-2 px-3 py-1 bg-stone-900 text-white text-[10px] font-bold tracking-widest uppercase">Includes Home + Well + Solar</span>
-          </div>
-        </div>
-
-        <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
-          <div class="border-b md:border-b-0 md:border-r border-stone-200">
-            <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=7727+Mount+Ararat+Way,+Bonsall,+CA+92003&z=14&output=embed"
-              title="Aerial view of 7727 Mount Ararat Way, Bonsall, CA"></iframe>
-          </div>
-          <div class="bg-stone-100 flex items-center justify-center">
-            <p class="text-stone-400 text-sm font-medium italic">Photos available via broker</p>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-6">
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
-            <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
-              <p>Classic L-shaped 5-bedroom, 2-bath ranch home on 18.89 acres of mostly usable land with panoramic mountain views. Zoned A70 for farming, horses, nursery, or homestead use. Bonsall Union School District (Tier 5).</p>
-              <p>Outstanding infrastructure: fully paid 40-panel solar system, high-yielding solar-powered well, two 3,000-gallon water storage tanks — reportedly saving up to $25,000/year on utilities. MLS# 250029407. Price reduced from $1,495,000 to $1,450,000.</p>
+              <p>Amazing 3-parcel offering totaling almost 70 acres overlooking the Pauma Valley Country Club. Exceptional scale and privacy with breathtaking views of the valley and mountains.</p>
+              <p>Highly desirable location with significant long-term potential for a premier compound or estate project. Zoned for agriculture/residential use. Incredible opportunity for massive acreage at a competitive price.</p>
             </div>
           </div>
           <div>
@@ -1111,170 +1438,49 @@
             <div class="space-y-2 text-stone-700">
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
-                <div><strong>Existing Home:</strong> 5-bed ranch provides immediate housing during compound development.</div>
+                <div><strong>Acreage:</strong> 69.82 acres across 3 parcels — massive scale for full compound vision.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
-                <div><strong>Water Security:</strong> High-yielding well + 6,000 gallons storage + solar-powered pump. Exceptional redundancy.</div>
+                <div><strong>Location:</strong> Overlooking Pauma Valley Country Club; adds prestige and security.</div>
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="text-green-600 font-bold">✓</span>
-                <div><strong>Solar:</strong> 40-panel system already paid off. Grid-tied infrastructure in place.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">✓</span>
-                <div><strong>Zoning:</strong> A70 — supports farming, livestock, nursery, and residential. Ideal for compound use.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Acreage:</strong> 18.89 acres is solid but not massive — compound layout needs careful planning.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Budget Impact:</strong> At $1.45M, leaves ~$750K for additional development.</div>
+                <div><strong>Flexibility:</strong> Multi-parcel structure provides unique development options.</div>
               </div>
             </div>
           </div>
         </div>
 
-        <a href="https://www.redfin.com/CA/Bonsall/7727-Mount-Ararat-Way-92003/home/3135096" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
+        <div class="mt-8 pt-8 border-t border-stone-100">
+          <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4">Financial Outlook</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Estimated Carry</p>
+              <p class="serif text-xl text-stone-900">$6,390</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Monthly PITI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Down Payment</p>
+              <p class="serif text-xl text-stone-900">$267,250</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">25% (Exc. FICO)</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Tax Strategy</p>
+              <p class="serif text-sm text-stone-900">Mixed Use</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">IRS Topic 415</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-1">Annual Deprec.</p>
+              <p class="serif text-xl text-stone-900">$31,098</p>
+              <p class="text-[10px] text-stone-500 uppercase font-medium">Non-Cash Deduction</p>
+            </div>
+          </div>
+          <p class="mt-4 text-[10px] text-stone-400 italic">**Tax Assumption:** 27.5yr straight-line depreciation applied to 80% building value. Land (20%) stripped per IRS Pub 527.</p>
+        </div>
+
+        <a href="https://www.redfin.com/CA/VALLEY-CENTER/PAUMA-VALLEY-DR-92082/home/22647407" target="_blank" rel="noopener" class="mt-6 inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
       </div>
-
-      <hr class="border-stone-100" />
-
-      <!-- PROPERTY: 14535 Vesper Rd, Valley Center — $1,499,900 (NEW) -->
-      <div id="property-vesper">
-        <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Valley Center, CA 92082</p>
-            <h2 class="serif text-3xl font-normal text-stone-900">14535 Vesper Road</h2>
-            <p class="text-stone-600">14535 Vesper Rd, Valley Center, CA 92082</p>
-          </div>
-          <div class="text-right text-stone-500">
-            <p class="serif text-3xl font-normal text-stone-900">$1,499,900</p>
-            <p class="text-stone-600">89.37 acres — $16,784 / acre</p>
-            <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold tracking-widest uppercase mr-2">New</span>
-            <span class="inline-block mt-2 px-3 py-1 bg-stone-900 text-white text-[10px] font-bold tracking-widest uppercase">Massive Acreage</span>
-          </div>
-        </div>
-
-        <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
-          <div class="border-b md:border-b-0 md:border-r border-stone-200">
-            <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=14535+Vesper+Rd,+Valley+Center,+CA+92082&z=13&output=embed"
-              title="Aerial view of 14535 Vesper Rd, Valley Center, CA"></iframe>
-          </div>
-          <div class="bg-stone-100 flex items-center justify-center">
-            <p class="text-stone-400 text-sm font-medium italic">Photos available via broker</p>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-6">
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
-            <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
-              <p>Exceptional 89.37-acre parcel on Vesper Road in Valley Center. At nearly 90 acres, this is one of the largest available parcels in the target zone. Listed by Real Broker at $1,499,900 — approximately $16,784/acre.</p>
-              <p>Valley Center-Pauma Unified School District. Scale provides enormous flexibility for compound design, agriculture, solar, and privacy. Requires investigation of water, topography, access, and buildable pad areas.</p>
-            </div>
-          </div>
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Project Compatibility</p>
-            <div class="space-y-2 text-stone-700">
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Acreage:</strong> 89.37 acres — nearly 9x the minimum. Exceptional scale for full compound vision.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Price/Acre:</strong> $16,784/acre is well below Valley Center average. Strong value for the scale.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Compound Potential:</strong> Scale allows multiple homes, clinic, solar farm, agriculture, and extensive privacy buffers.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Budget Impact:</strong> At $1.5M, leaves $700K for development — tighter than lower-priced parcels.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Water & Topography:</strong> No details in listing — must verify water, buildable areas, and fire risk for this large a parcel.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <a href="https://www.trulia.com/for_sale/Valley_Center,CA/LOT%7CLAND_type/" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">Search Valley Center Land</a>
-      </div>
-
-      <hr class="border-stone-100" />
-
-      <!-- PROPERTY: 1050 Rice Canyon Rd, Fallbrook — $1,600,000 (NEW) -->
-      <div id="property-rice-canyon">
-        <div class="flex flex-wrap items-start justify-between gap-6 mb-6 text-sm">
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-600 mb-1">Fallbrook, CA 92028</p>
-            <h2 class="serif text-3xl font-normal text-stone-900">1050 Rice Canyon Road</h2>
-            <p class="text-stone-600">1050 Rice Canyon Rd, Fallbrook, CA 92028</p>
-          </div>
-          <div class="text-right text-stone-500">
-            <p class="serif text-3xl font-normal text-stone-900">$1,600,000</p>
-            <p class="text-stone-600">45 acres — $35,556 / acre</p>
-            <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold tracking-widest uppercase mr-2">New — Fallbrook</span>
-            <span class="inline-block mt-2 px-3 py-1 bg-stone-900 text-white text-[10px] font-bold tracking-widest uppercase">Includes Home</span>
-          </div>
-        </div>
-
-        <div class="border border-stone-200 overflow-hidden mb-6 grid md:grid-cols-2">
-          <div class="border-b md:border-b-0 md:border-r border-stone-200">
-            <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=1050+Rice+Canyon+Rd,+Fallbrook,+CA+92028&z=13&output=embed"
-              title="Aerial view of 1050 Rice Canyon Rd, Fallbrook, CA"></iframe>
-          </div>
-          <div class="bg-stone-100 flex items-center justify-center">
-            <p class="text-stone-400 text-sm font-medium italic">Photos available via broker</p>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-6">
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Property Facts</p>
-            <div class="space-y-3 text-stone-700 leading-relaxed pr-6">
-              <p>One-of-a-kind property on over 45 acres in the Rainbow area of Fallbrook. Includes an expansive 7,201 sqft custom home (5 bed, 6 bath) sitting at the highest point with 360-degree panoramic views. Multiple APNs (108-320-14-00, 108-320-26-00). MLS# NDP2601585.</p>
-              <p>The home could serve as immediate housing during compound development, or be renovated into a clinic/office. 45 acres provides massive scale for the full compound vision including agriculture, solar, and multiple structures.</p>
-            </div>
-          </div>
-          <div>
-            <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-3 tracking-widest">Project Compatibility</p>
-            <div class="space-y-2 text-stone-700">
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Acreage:</strong> 45 acres — 4.5x the minimum. Exceptional compound scale.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Existing Home:</strong> 7,201 sqft, 5/6 home provides immediate habitable structure and potential clinic conversion.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-green-600 font-bold">+</span>
-                <div><strong>Views:</strong> 360-degree panoramic views from the highest point — exceptional natural beauty.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Budget Impact:</strong> At $1.6M, leaves ~$600K for additional development — tightest budget of all candidates.</div>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <span class="text-amber-600 font-bold">!</span>
-                <div><strong>Water & Infrastructure:</strong> Must verify water rights, well status, and septic capacity for expanded compound use.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <a href="https://www.redfin.com/CA/Fallbrook/1050-Rice-Canyon-Rd-92028/home/161629182" target="_blank" rel="noopener" class="inline-block text-[10px] font-bold tracking-widest uppercase text-stone-700 border border-stone-300 px-4 py-2 hover:bg-stone-100 transition-colors">View Full Listing</a>
-      </div>
-
-      <!-- Removed: Birdsong Ranch (92026 — dropped zone), Rancho Cerca Del Cielo (92061 — dropped zone + over budget) -->
 
     </div>
   </section>
@@ -1284,7 +1490,7 @@
     <div class="max-w-6xl mx-auto">
       <p class="text-xs font-semibold tracking-widest uppercase text-stone-500 mb-4 tracking-widest">Search Notes</p>
       <p class="text-sm text-stone-700 leading-relaxed max-w-3xl">
-        This page is updated every 12 hours. All listings are screened for: 10+ acres, high-income area, top elementary schools, appropriate zoning, natural beauty, and under $2.2M. Priority zones: Rancho Santa Fe, Encinitas, Carlsbad, Bonsall, Valley Center. Properties sorted by asking price, lowest to highest. Water rights, fire history, and zoning feasibility require direct verification with San Diego County and a licensed real estate attorney before any offer is made. Prices and availability are current as of the date shown above.
+        This page is updated weekly. All listings are screened for: 10+ acres, high-income area, top elementary schools, appropriate zoning, natural beauty, and under $2.2M. Priority zones: Rancho Santa Fe, Encinitas, Carlsbad, Bonsall, Valley Center. Properties sorted by asking price, lowest to highest. Water rights, fire history, and zoning feasibility require direct verification with San Diego County and a licensed real estate attorney before any offer is made. Prices and availability are current as of the date shown above.
       </p>
     </div>
   </section>

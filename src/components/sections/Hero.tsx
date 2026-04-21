@@ -29,7 +29,7 @@ export default function Hero() {
           own, powered by energy we generate, and watered by rights that cannot be
           taken away.
         </p>
-        <div className="mt-10 flex flex-wrap items-center gap-3 sm:gap-6 text-sm font-bold text-stone-600 uppercase">
+        <div className="mt-10 flex flex-wrap items-center gap-3 sm:gap-6 text-sm font-bold text-stone-600 uppercase" aria-label="Core values">
           <span>Medicine</span>
           <span className="w-8 h-px bg-stone-300" aria-hidden="true" />
           <span>Land</span>

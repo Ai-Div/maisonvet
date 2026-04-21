@@ -54,32 +54,33 @@ export default function Finance() {
           The structure allows each major asset class to use its ideal financing vehicle. Senior ag
           lending, SBA 504, C-PACE, and equipment financing run in parallel — not in competition.
         </p>
-        <div className="bg-white border border-stone-200 overflow-hidden mb-10">
-          <div className="hidden md:grid grid-cols-4 text-xs font-bold text-stone-600 border-b border-stone-200 px-6 py-4 bg-stone-100 uppercase">
-            <span>Component</span>
-            <span>Vehicle</span>
-            <span>Range</span>
-            <span>Key Advantage</span>
+        <div className="bg-white border border-stone-200 overflow-hidden mb-10" role="table" aria-label="Financing vehicles and components">
+          <div className="hidden md:grid grid-cols-4 text-xs font-bold text-stone-600 border-b border-stone-200 px-6 py-4 bg-stone-100 uppercase" role="row">
+            <span role="columnheader">Component</span>
+            <span role="columnheader">Vehicle</span>
+            <span role="columnheader">Range</span>
+            <span role="columnheader">Key Advantage</span>
           </div>
-          <div className="divide-y divide-stone-100">
+          <div className="divide-y divide-stone-100" role="rowgroup">
             {rows.map((r, i) => (
               <div
                 key={i}
                 className="grid md:grid-cols-4 gap-4 md:gap-0 px-6 py-5 hover:bg-stone-50 transition-colors"
+                role="row"
               >
-                <span className="text-base text-stone-900 font-semibold md:font-normal">
+                <span className="text-base text-stone-900 font-semibold md:font-normal" role="cell">
                   <span className="block text-xs font-bold text-stone-400 uppercase mb-0.5 md:hidden">Component</span>
                   {r.use}
                 </span>
-                <span className="text-base text-stone-700">
+                <span className="text-base text-stone-700" role="cell">
                   <span className="block text-xs font-bold text-stone-400 uppercase mb-0.5 md:hidden">Vehicle</span>
                   {r.vehicle}
                 </span>
-                <span className="text-base text-stone-700">
+                <span className="text-base text-stone-700" role="cell">
                   <span className="block text-xs font-bold text-stone-400 uppercase mb-0.5 md:hidden">Range</span>
                   {r.range}
                 </span>
-                <span className="text-sm text-stone-600 leading-relaxed">
+                <span className="text-sm text-stone-600 leading-relaxed" role="cell">
                   <span className="block text-xs font-bold text-stone-400 uppercase mb-0.5 md:hidden">Key Advantage</span>
                   {r.note}
                 </span>
