@@ -41,6 +41,7 @@ import {
   ScaleIcon,
   EyeIcon,
   MapIcon,
+  BeakerIcon,
   InboxIcon,
 } from '@heroicons/react/20/solid'
 import { usePathname } from 'next/navigation'
@@ -135,6 +136,10 @@ export function ApplicationLayout({
               <SidebarItem href="/perris" current={pathname === '/perris'}>
                 <InboxIcon />
                 <SidebarLabel>Perris</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="/research" current={pathname === '/research'}>
+                <BeakerIcon />
+                <SidebarLabel>Research Hub</SidebarLabel>
               </SidebarItem>
             </SidebarSection>
 

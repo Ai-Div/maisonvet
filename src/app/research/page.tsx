@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-import { readHtmlTemplate } from "@/../lib/readHtmlTemplate";
-import Script from "next/script";
+import { ApplicationLayout } from "@/app/dashboard/application-layout";
+import ResearchHubClient from "./ResearchHubClient";
 
 export default async function ResearchPage() {
   const session = await auth();
@@ -10,28 +10,9 @@ export default async function ResearchPage() {
     redirect("/sign-in?callbackUrl=/research");
   }
 
-  const { title, bodyContent } = readHtmlTemplate("research.html");
-
   return (
-    <>
-      <div dangerouslySetInnerHTML={{ __html: bodyContent }} />
-      <Script id="nav-init" strategy="afterInteractive">{`
-        (function() {
-          var t = document.getElementById('nav-toggle'), d = document.getElementById('nav-drawer');
-          if (!t || !d) return;
-          t.addEventListener('click', function() {
-            var o = !d.classList.contains('hidden');
-            d.classList.toggle('hidden', o);
-            t.setAttribute('aria-expanded', String(!o));
-          });
-          document.querySelectorAll('.mobile-nav-link').forEach(function(l) {
-            l.addEventListener('click', function() {
-              if(d) d.classList.add('hidden');
-              if(t) t.setAttribute('aria-expanded','false');
-            });
-          });
-        })();
-      `}</Script>
-    </>
+    <ApplicationLayout user={session.user}>
+      <ResearchHubClient />
+    </ApplicationLayout>
   );
 }
