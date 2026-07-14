@@ -29,7 +29,7 @@ export interface ResearchContent {
 
 export const researchData: ResearchContent = {
   actionItems: [
-    { task: "URGENT: The July 4, 2026 solar ITC safe-harbor deadline has now passed with no confirmation received that a Fallbrook-area installer contract + 5% deposit (~$14,000) was executed. Confirm status immediately. If unsigned, the $84,000 ITC is likely forfeited and the campus capitalization needs $84,000 in replacement equity or debt.", completed: false },
+    { task: "URGENT: Ten days past the July 4, 2026 solar ITC safe-harbor deadline with still no confirmation of a signed installer contract or the ~$14,000 deposit. As of July 14, treat the $84,000 ITC as forfeited for planning purposes (working assumption: $734,000 equity / ~$2,527,000 debt) until proof of a pre-deadline contract surfaces.", completed: false },
     { task: "Perform zoning verification and environmental/fire assessment for 3728 Pala Rd (10.0 acres, $795k) in Fallbrook.", completed: false },
     { task: "Perform zoning and easement verification for 25 El Camino Real (2.19 acres, $1.3M) in Carlsbad.", completed: false },
     { task: "Perform zoning verification and equestrian compatibility analysis for 12516 Montanya Dr (12.73 acres, $799k) in Valley Center.", completed: false },
@@ -73,8 +73,9 @@ export const researchData: ResearchContent = {
     { task: "Investigate 'Change of Use' permit requirements for medical office conversions in Laguna Beach.", completed: false },
     { task: "Contact a North County commercial real estate broker (medical/retail specialist) to search for: (1) leasable clinic space in Fallbrook, Valley Center, or Bonsall; (2) any retiring-vet practice transitions in those markets. A built-out veterinary space cuts Phase 1 tenant improvement budget by 50-80%.", completed: false },
     { task: "Emily: estimate current patient household count at existing practice and realistic follow rate to a new North SD County location. This is the single number that determines lean-launch Year 1 revenue and how much working capital is needed.", completed: false },
-    { task: "Model correction needed: the published Clinic 10-Year Model shows Rachael Gray LLC Year 1 compensation at $95,000 — $5,000 below the non-negotiable $100,000 Year 1 floor. Re-run the labor, EBITDA, tax, and DSCR cascade with her Year 1 base at $100,000 (3% annual growth thereafter) before the model is distributed again.", completed: false },
-    { task: "Decision deadline: absent a reply on the Path A vs. Path B launch structure by July 14, 2026, proceed on the standing recommendation (Lean Launch first, campus second) and begin Fallbrook broker outreach using placeholder follow-rate assumptions rather than waiting further.", completed: false },
+    { task: "Model correction needed: the published Clinic 10-Year Model shows Rachael Gray LLC Year 1 compensation at $95,000 — $5,000 below the non-negotiable $100,000 Year 1 floor. Exact Year 1 fix now computed (Total Labor to $280,000, EBITDA to -$83,231, DSCR to -0.32x) — apply it, then have the model owner rebuild Years 2-10 from a $100,000 base since the Year 6 loan refinance step-down makes hand-patching later years unsafe.", completed: false },
+    { task: "Decision deadline passed July 14, 2026 with zero founder reply across four weekly updates. Default path is now active: Lean Launch (Path B) first, campus (Path A) second. Fallbrook broker outreach begins now on a placeholder 35% patient follow-rate assumption (mid-conservative point of the 30-50% benchmark) pending Emily's actual number.", completed: true },
+    { task: "Request a standalone 'Phase 1 Lease P&L' from the model owner: the current 10-Year Clinic Model carries a $30,000/yr Property Tax line, implying owned real estate. A leased Fallbrook space would swap that for a rent line and likely carry a smaller Year 1 loss — needed before finalizing the lean-launch working-capital ask.", completed: false },
   ],
   regulatory: [
     {
@@ -140,16 +141,20 @@ export const researchData: ResearchContent = {
   ],
   financial: [
     {
-      title: "Model Correction Needed: Rachael's Year 1 Pay Falls Below the Floor (July 7, 2026)",
-      description: "The published Clinic 10-Year Model lists Rachael Gray LLC — Operations at $95,000 in Year 1, $5,000 below the non-negotiable $100,000 Year 1 floor, despite running notes from June 23 marking this as 'corrected.' It was not carried into the model. Fix: set Rachael's Year 1 base to $100,000 with the same 3% annual growth used elsewhere (Y2 $103,000 ... Y10 $130,477 vs. the current $97,850 ... $123,953 path). Impact is modest and does not threaten the covenant: Total Labor rises by $5,000 in Year 1, growing to about $6,500 by Year 10; EBITDA and DSCR each move down by roughly 1.5-2%, so the Year 5 DSCR estimate softens from 1.33x to about 1.31x — still comfortably above the 1.25x lender threshold. This needs to be corrected in the source model before the next distribution."
+      title: "Rachael's Year 1 Pay-Floor Fix — Exact Numbers Computed (July 14, 2026)",
+      description: "The published Clinic 10-Year Model lists Rachael Gray LLC — Operations at $95,000 in Year 1, $5,000 below her non-negotiable $100,000 floor. The precise Year 1 correction (Rachael to $100,000; everything else in Year 1 held constant): Total Labor moves from $275,000 to $280,000; EBITDA from -$78,231 to -$83,231 (margin -15% to -16%); Pre-Tax and Net Income from -$387,383 to -$392,383 (margin -76%); Free Cash Flow from -$360,324 to -$365,324; Year 1 DSCR from -0.30x to -0.32x. None of this threatens the covenant. What can't be hand-patched safely: Years 2-10 need Rachael rebased to a $100,000 start with 3% growth (reaching about $130,477 by Year 10, versus the current $97,850-$123,953 path), and the model's own debt service drops from $262,093/yr to $198,640/yr and depreciation from $165,000 to $120,000/yr starting Year 6 (a loan refinance baked into the original model) — reproducing that cascade correctly requires the source spreadsheet, not a line-by-line patch. Prior notes (June 23) claiming this was already fixed were wrong; it has been open for three weeks."
     },
     {
-      title: "Solar ITC Deadline Passed Without Confirmation (July 7, 2026)",
-      description: "The July 4, 2026 construction-start safe-harbor deadline for the 30% federal Solar ITC has now passed. No reply confirming a signed installer contract or the ~$14,000 deposit has been received in the three weeks since this was first flagged (June 30). Two scenarios: (1) if the contract and deposit were executed before July 4, the $84,000 credit is preserved and this closes out; (2) if not, the credit is very likely forfeited, and the campus Sources of Funds needs an $84,000 patch — either owner equity rising from $650,000 to $734,000, or debt rising from $2,443,000 to roughly $2,527,000 (adding an estimated $8,100/yr in debt service at the C-PACE energy-tranche rate, which would nudge Year 5 DSCR from about 1.33x to 1.29x — still clears 1.25x). Status needs confirming immediately either way."
+      title: "Solar ITC Now Presumed Forfeited — Capitalization Rebased (July 14, 2026)",
+      description: "Ten days past the July 4, 2026 construction-start deadline for the 30% federal Solar ITC, still with zero confirmation that a signed installer contract and ~$14,000 deposit were executed before the cutoff. Continuing to carry this as merely 'at risk' serves no purpose now — the working assumption going forward is that the $84,000 credit is forfeited. Campus capitalization is rebased to $734,000 equity (up from $650,000) or, if debt is used instead, about $2,527,000 (up from $2,443,000), adding roughly $8,100/yr in debt service. Year 5 DSCR softens from about 1.33x to 1.29x — still clears the 1.25x lender threshold. If a signed pre-deadline contract turns up, this reverses immediately; absent that, the campus Sources of Funds table should be updated to the $734,000 / $2,527,000 figures."
     },
     {
-      title: "Cost of an Unanswered Decision (July 7, 2026)",
-      description: "Three consecutive weekly updates (June 24, June 30, July 7) have gone to hello@maisonvet.com proposing the Lean Launch (Path B) sequencing, asking Emily for a patient follow-rate estimate, and flagging the solar deadline — with no reply on any of the three. Decision paralysis, not capital or location, is now the binding constraint on the Q1 2027 clinic-open target. A default decision date (July 14, 2026) has been set: absent a reply, the plan proceeds on the standing recommendation and broker outreach begins on placeholder assumptions so the timeline does not keep slipping."
+      title: "Clinic Model May Be Scoped for the Owned Campus, Not the Leased Phase 1 Space (July 14, 2026)",
+      description: "The Clinic 10-Year Operating Projection carries a $30,000/yr Property Tax line and a Facilities Maintenance & Replacement Reserve — both hallmarks of owned real estate, not a leased Fallbrook storefront. If this model's Year 1 loss (about -$392,000 corrected) is being used to size the lean-launch working-capital ask, it likely overstates fixed costs a leased space wouldn't carry (property tax) while understating rent, which isn't broken out separately. Recommend the model owner produce a distinct Phase 1 Lease P&L — rent line in place of property tax, and a right-sized TI/equipment base — before finalizing how much working capital the lean launch actually needs."
+    },
+    {
+      title: "Decision Deadline Passed, Default Path Now Active (July 14, 2026)",
+      description: "Four consecutive weekly updates (June 24, June 30, July 7, July 14) went to hello@maisonvet.com proposing the Lean Launch (Path B) sequencing, asking Emily for a patient follow-rate estimate, and flagging the solar deadline — with zero reply across all four. The July 14 default decision date has now passed, so the plan proceeds on the standing recommendation without further delay: Lean Launch first (Fallbrook, leased space, Q1 2027), campus second (Q4 2028). Fallbrook broker outreach begins now using a placeholder 35% patient follow-rate assumption (the mid-conservative point of the 30-50% industry benchmark for a well-regarded DVM) in place of Emily's actual number. This placeholder should be swapped for her real estimate the moment it's available, since it directly sets the Year 1 revenue ramp and the working-capital reserve size."
     },
     {
       title: "Solar ITC Construction-Start Safe Harbor — 4-Day Window (June 30, 2026)",
@@ -327,12 +332,12 @@ export const researchData: ResearchContent = {
     {
       phase: "Phase 1 — Lean Launch Prep",
       date: "July 2026",
-      goal: "Confirm solar ITC safe-harbor status (deadline passed July 4 unconfirmed — reforecast $84K gap if missed). Send CDFA shortage nomination email. Engage North County commercial broker for leased clinic space in Fallbrook/Valley Center. Emily estimates patient follow rate. Founder decision on launch path due by July 14."
+      goal: "Default path activated July 14: Lean Launch first, using a placeholder 35% patient follow-rate assumption until Emily provides her real number. Engage North County commercial broker now for leased clinic space in Fallbrook/Valley Center. Send the overdue CDFA shortage nomination email. Solar ITC treated as forfeited for planning ($734K equity / ~$2,527K debt working assumption) pending proof otherwise."
     },
     {
       phase: "Phase 1 — Entity & Land",
       date: "August 2026",
-      goal: "Finalize PC formation (3 name choices + Agent for Service). Select top-3 land candidates for offers. Execute lease on Phase 1 clinic space. Build month-by-month Y1 cash plan."
+      goal: "Finalize PC formation (3 name choices + Agent for Service). Select top-3 land candidates for offers. Execute lease on Phase 1 clinic space. Build month-by-month Y1 cash plan once a standalone Phase 1 Lease P&L (rent, not property tax) replaces the campus-scoped model figures."
     },
     {
       phase: "Phase 1 — Clinic Open",
