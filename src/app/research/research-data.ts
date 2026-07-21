@@ -74,8 +74,9 @@ export const researchData: ResearchContent = {
     { task: "Contact a North County commercial real estate broker (medical/retail specialist) to search for: (1) leasable clinic space in Fallbrook, Valley Center, or Bonsall; (2) any retiring-vet practice transitions in those markets. A built-out veterinary space cuts Phase 1 tenant improvement budget by 50-80%.", completed: false },
     { task: "Emily: estimate current patient household count at existing practice and realistic follow rate to a new North SD County location. This is the single number that determines lean-launch Year 1 revenue and how much working capital is needed.", completed: false },
     { task: "Model correction needed: the published Clinic 10-Year Model shows Rachael Gray LLC Year 1 compensation at $95,000 — $5,000 below the non-negotiable $100,000 Year 1 floor. Exact Year 1 fix now computed (Total Labor to $280,000, EBITDA to -$83,231, DSCR to -0.32x) — apply it, then have the model owner rebuild Years 2-10 from a $100,000 base since the Year 6 loan refinance step-down makes hand-patching later years unsafe.", completed: false },
-    { task: "Decision deadline passed July 14, 2026 with zero founder reply across four weekly updates. Default path is now active: Lean Launch (Path B) first, campus (Path A) second. Fallbrook broker outreach begins now on a placeholder 35% patient follow-rate assumption (mid-conservative point of the 30-50% benchmark) pending Emily's actual number.", completed: true },
+    { task: "Correction (July 21, 2026): the July 14 note about a 'default path' auto-activating and broker outreach 'beginning now' was a framing error and has been withdrawn — this project remains research/prep only, both founders work full-time elsewhere, and no outreach or path commitment has been made. Lean Launch vs. Campus-first sequencing is presented as a recommendation for the team to weigh, still awaiting their decision.", completed: false },
     { task: "Request a standalone 'Phase 1 Lease P&L' from the model owner: the current 10-Year Clinic Model carries a $30,000/yr Property Tax line, implying owned real estate. A leased Fallbrook space would swap that for a rent line and likely carry a smaller Year 1 loss — needed before finalizing the lean-launch working-capital ask.", completed: false },
+    { task: "July 21 2026 property sweep: automated Zillow/Redfin verification is now blocked by anti-bot (403) measures on direct fetch, so status relied on search-snippet data only. Several tracked listings returned conflicting price/acreage figures that need a human call to the listing agent to confirm: 49 Maridge Rd (snippet showed $195,000 vs. tracked $98,000), 0 Mt Olympus Valley Rd ($375,000 vs. $349,900), 6465 Rainbow Heights Rd Unit 2 ($495,000 vs. $399,000), 18868 Paradise Mountain Rd (possible relist at $375,000 under new MLS# NDP2605681 vs. tracked $447,000), and Rancho Summit Dr (snippet showed $3,299,999 vs. tracked $859,000 — likely a data-mixing artifact, but confirm before relying on either number).", completed: false },
   ],
   regulatory: [
     {
@@ -153,8 +154,12 @@ export const researchData: ResearchContent = {
       description: "The Clinic 10-Year Operating Projection carries a $30,000/yr Property Tax line and a Facilities Maintenance & Replacement Reserve — both hallmarks of owned real estate, not a leased Fallbrook storefront. If this model's Year 1 loss (about -$392,000 corrected) is being used to size the lean-launch working-capital ask, it likely overstates fixed costs a leased space wouldn't carry (property tax) while understating rent, which isn't broken out separately. Recommend the model owner produce a distinct Phase 1 Lease P&L — rent line in place of property tax, and a right-sized TI/equipment base — before finalizing how much working capital the lean launch actually needs."
     },
     {
-      title: "Decision Deadline Passed, Default Path Now Active (July 14, 2026)",
-      description: "Four consecutive weekly updates (June 24, June 30, July 7, July 14) went to hello@maisonvet.com proposing the Lean Launch (Path B) sequencing, asking Emily for a patient follow-rate estimate, and flagging the solar deadline — with zero reply across all four. The July 14 default decision date has now passed, so the plan proceeds on the standing recommendation without further delay: Lean Launch first (Fallbrook, leased space, Q1 2027), campus second (Q4 2028). Fallbrook broker outreach begins now using a placeholder 35% patient follow-rate assumption (the mid-conservative point of the 30-50% industry benchmark for a well-regarded DVM) in place of Emily's actual number. This placeholder should be swapped for her real estimate the moment it's available, since it directly sets the Year 1 revenue ramp and the working-capital reserve size."
+      title: "Posture Correction: No Default Path, No Outreach Initiated (July 21, 2026)",
+      description: "The July 14 update stated that a decision deadline had passed and that a 'default path' (Lean Launch first, then Campus) was now active with broker outreach beginning immediately. That framing was a mistake and is withdrawn. Maison Vet remains in the research-and-preparation stage: both founders work full-time at other clinics and are not ready to pull any triggers. Lean Launch vs. Campus-first is a recommendation offered for comparison, not a decision made on the founders' behalf — no broker has been contacted and no path has been committed to. The sequencing choice, and the 35% patient-follow-rate placeholder used in illustrative models, remain open items for Emily and Rachael to weigh and decide."
+    },
+    {
+      title: "Solar ITC: a Narrow Second Path Exists, but It Conflicts With the Current Campus Timeline (July 21, 2026)",
+      description: "Confirmed via IRS guidance (Notices 2025-42 and 2026-15) under the One Big Beautiful Bill Act: projects that miss the July 4, 2026 construction-start safe harbor are not automatically locked out of the 30% ITC — they can still qualify if the solar array is fully placed in service by December 31, 2027. The campus's 75kW array falls under the 1.5MW small-facility threshold, so the 5% safe-harbor method (rather than the stricter 'physical work' test) would have applied had a contract and deposit been placed before the deadline. Because no confirmation of a pre-deadline contract has surfaced, and because the current illustrative roadmap targets campus construction for Q3 2027–Q3 2028 with campus opening Q4 2028 (after the December 2027 cutoff), the $84,000 credit stays presumed-forfeited for planning purposes under that sequencing. It would only be recoverable if the campus phase were accelerated to be operational before the end of 2027 — a timeline trade-off for the team to weigh, not something being proposed here."
     },
     {
       title: "Solar ITC Construction-Start Safe Harbor — 4-Day Window (June 30, 2026)",
@@ -330,29 +335,29 @@ export const researchData: ResearchContent = {
   ],
   roadmap: [
     {
-      phase: "Phase 1 — Lean Launch Prep",
-      date: "July 2026",
-      goal: "Default path activated July 14: Lean Launch first, using a placeholder 35% patient follow-rate assumption until Emily provides her real number. Engage North County commercial broker now for leased clinic space in Fallbrook/Valley Center. Send the overdue CDFA shortage nomination email. Solar ITC treated as forfeited for planning ($734K equity / ~$2,527K debt working assumption) pending proof otherwise."
+      phase: "Phase 1 — Lean Launch Prep (illustrative, if the team chooses this path)",
+      date: "Q1 2027 (target, not committed)",
+      goal: "If the founders choose Lean-Launch-first: contact a North County commercial broker for leased clinic space in Fallbrook/Valley Center, send the CDFA shortage-nomination email, and swap Emily's real patient follow-rate for the 35% placeholder. None of this has been initiated — it is laid out here for the team to weigh against the Campus-first option. Solar ITC treated as forfeited for planning ($734K equity / ~$2,527K debt working assumption) pending proof otherwise."
     },
     {
-      phase: "Phase 1 — Entity & Land",
-      date: "August 2026",
-      goal: "Finalize PC formation (3 name choices + Agent for Service). Select top-3 land candidates for offers. Execute lease on Phase 1 clinic space. Build month-by-month Y1 cash plan once a standalone Phase 1 Lease P&L (rent, not property tax) replaces the campus-scoped model figures."
+      phase: "Phase 1 — Entity & Land (illustrative)",
+      date: "TBD, pending founder decision",
+      goal: "Finalize PC formation (3 name choices + Agent for Service). Select top-3 land candidates for offers. Execute lease on Phase 1 clinic space if that path is chosen. Build a month-by-month Y1 cash plan once a standalone Phase 1 Lease P&L (rent, not property tax) replaces the campus-scoped model figures."
     },
     {
-      phase: "Phase 1 — Clinic Open",
-      date: "Q1 2027 (target)",
-      goal: "Emily sees first patients in leased space. Rachael manages operations. Begin shortage area nomination process with CDFA for Fall 2026 cycle. Land permitting/CUP underway in parallel."
+      phase: "Phase 1 — Clinic Open (illustrative target)",
+      date: "Q1 2027 (target, not committed)",
+      goal: "If Lean Launch is chosen: Emily sees first patients in leased space, Rachael manages operations, CDFA shortage nomination filed for the Fall 2026 cycle, land permitting/CUP underway in parallel."
     },
     {
-      phase: "Phase 2 — Campus Build",
-      date: "Q3 2027 – Q3 2028",
-      goal: "Land acquired, CUP filed, modular clinic construction begins. Solar install completes (ITC captured). Clinic revenue funds campus operating reserve."
+      phase: "Phase 2 — Campus Build (illustrative)",
+      date: "Q3 2027 – Q3 2028, if this sequencing is chosen",
+      goal: "Land acquired, CUP filed, modular clinic construction begins. Under this timeline the solar ITC stays presumed-forfeited (placed-in-service falls after the Dec 31, 2027 cutoff) unless the team chooses to accelerate. Clinic revenue would fund the campus operating reserve."
     },
     {
-      phase: "Phase 2 — Campus Open",
-      date: "Q4 2028 (target)",
-      goal: "Move practice to owned campus. Lease released. DSCR model targets 1.25x by Year 5, 1.5–1.7x at maturity."
+      phase: "Phase 2 — Campus Open (illustrative)",
+      date: "Q4 2028 (target, not committed)",
+      goal: "Move practice to owned campus; release the Phase 1 lease if one was signed. DSCR model targets 1.25x by Year 5, 1.5-1.7x at maturity — illustrative, dependent on the path the founders choose."
     }
   ],
   neededFromTim: [
