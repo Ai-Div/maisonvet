@@ -44,3 +44,6 @@ client_secret*.json
 *.tsbuildinfo
 next-env.d.ts
 .env*.local
+
+# property-page backups written by the weekly property-search job
+templates/**/*.bak-*
