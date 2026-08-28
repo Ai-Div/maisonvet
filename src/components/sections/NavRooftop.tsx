@@ -13,13 +13,11 @@ export default function NavRooftop() {
   const pathname = usePathname();
 
   return (
-    <div
-      className="border-b border-stone-200 bg-stone-50"
-      aria-label="Operational navigation"
-    >
+    <div className="border-b border-stone-200 bg-stone-50">
       <nav
         className="mx-auto flex h-11 max-w-6xl items-center justify-center gap-1 px-6"
         data-agent-interactive="routing"
+        aria-label="Operational navigation"
       >
         {rooftopLinks.map((link) => {
           const isCurrent = pathname === link.href || pathname.startsWith(link.href + "/");

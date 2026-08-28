@@ -32,12 +32,12 @@ export default function Financials() {
       aria-labelledby="financials-heading"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
+        <p className="text-sm font-semibold tracking-widest text-stone-600 mb-4 uppercase">
           Financial Model
         </p>
         <h2
           id="financials-heading"
-          className="text-2xl md:text-4xl text-stone-900 mb-4 max-w-2xl"
+          className="text-3xl md:text-5xl text-stone-900 mb-4 max-w-2xl"
         >
           Financial Projections
         </h2>
@@ -48,7 +48,7 @@ export default function Financials() {
 
         {/* Use of Funds — Total Capital Required */}
         <div className="mb-16">
-          <p className="text-sm font-bold text-stone-600 mb-6 uppercase">
+          <p className="text-sm font-semibold tracking-widest text-stone-600 mb-6 uppercase">
             Use of Funds — Total Capital Required
           </p>
           <div className="overflow-x-auto">
@@ -58,16 +58,16 @@ export default function Financials() {
             >
               <thead>
                 <tr className="bg-stone-900 text-left">
-                  <th className="px-5 py-3 text-xs font-bold text-stone-300 uppercase">
+                  <th className="px-5 py-3 text-xs font-semibold tracking-widest text-stone-300 uppercase">
                     Item
                   </th>
-                  <th className="px-5 py-3 text-xs font-bold text-stone-300 uppercase">
+                  <th className="px-5 py-3 text-xs font-semibold tracking-widest text-stone-300 uppercase">
                     Amount
                   </th>
-                  <th className="px-5 py-3 text-xs font-bold text-stone-300 uppercase">
+                  <th className="px-5 py-3 text-xs font-semibold tracking-widest text-stone-300 uppercase">
                     Source
                   </th>
-                  <th className="px-5 py-3 text-xs font-bold text-stone-300 uppercase">
+                  <th className="px-5 py-3 text-xs font-semibold tracking-widest text-stone-300 uppercase">
                     Rate / Term
                   </th>
                 </tr>
@@ -138,7 +138,7 @@ export default function Financials() {
         </div>
 
         <div className="mb-16">
-          <p className="text-sm font-bold text-stone-600 mb-6 uppercase">
+          <p className="text-sm font-semibold tracking-widest text-stone-600 mb-6 uppercase">
             Equity Structure
           </p>
           <div className="overflow-x-auto mb-6">
@@ -148,19 +148,19 @@ export default function Financials() {
             >
               <thead>
                 <tr className="bg-stone-100 text-left">
-                  <th className="px-5 py-3 text-xs font-bold text-stone-600 uppercase">
+                  <th className="px-5 py-3 text-xs font-semibold tracking-widest text-stone-600 uppercase">
                     Entity
                   </th>
-                  <th className="px-5 py-3 text-xs font-bold text-stone-600 uppercase">
+                  <th className="px-5 py-3 text-xs font-semibold tracking-widest text-stone-600 uppercase">
                     Purpose
                   </th>
-                  <th className="px-5 py-3 text-xs font-bold text-stone-600 uppercase">
+                  <th className="px-5 py-3 text-xs font-semibold tracking-widest text-stone-600 uppercase">
                     Emily Gray
                   </th>
-                  <th className="px-5 py-3 text-xs font-bold text-stone-600 uppercase">
+                  <th className="px-5 py-3 text-xs font-semibold tracking-widest text-stone-600 uppercase">
                     Tim Hobert
                   </th>
-                  <th className="px-5 py-3 text-xs font-bold text-stone-600 uppercase">
+                  <th className="px-5 py-3 text-xs font-semibold tracking-widest text-stone-600 uppercase">
                     Rachael Gray
                   </th>
                 </tr>

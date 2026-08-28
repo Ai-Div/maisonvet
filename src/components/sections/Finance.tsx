@@ -41,7 +41,7 @@ export default function Finance() {
       aria-labelledby="capital-heading"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
+        <p className="text-sm font-semibold tracking-widest text-stone-600 mb-4 uppercase">
           Capital Architecture
         </p>
         <h2
@@ -55,7 +55,7 @@ export default function Finance() {
           lending, SBA 504, C-PACE, and equipment financing run in parallel — not in competition.
         </p>
         <div className="bg-white border border-stone-200 overflow-hidden mb-10" role="table" aria-label="Financing vehicles and components">
-          <div className="hidden md:grid grid-cols-4 text-xs font-bold text-stone-600 border-b border-stone-200 px-6 py-4 bg-stone-100 uppercase" role="row">
+          <div className="hidden md:grid grid-cols-4 text-xs font-semibold tracking-widest text-stone-600 border-b border-stone-200 px-6 py-4 bg-stone-100 uppercase" role="row">
             <span role="columnheader">Component</span>
             <span role="columnheader">Vehicle</span>
             <span role="columnheader">Range</span>
@@ -69,19 +69,19 @@ export default function Finance() {
                 role="row"
               >
                 <span className="text-base text-stone-900 font-semibold md:font-normal" role="cell">
-                  <span className="block text-xs font-bold text-stone-400 uppercase mb-0.5 md:hidden">Component</span>
+                  <span className="block text-xs font-semibold tracking-widest text-stone-400 uppercase mb-0.5 md:hidden">Component</span>
                   {r.use}
                 </span>
                 <span className="text-base text-stone-700" role="cell">
-                  <span className="block text-xs font-bold text-stone-400 uppercase mb-0.5 md:hidden">Vehicle</span>
+                  <span className="block text-xs font-semibold tracking-widest text-stone-400 uppercase mb-0.5 md:hidden">Vehicle</span>
                   {r.vehicle}
                 </span>
                 <span className="text-base text-stone-700" role="cell">
-                  <span className="block text-xs font-bold text-stone-400 uppercase mb-0.5 md:hidden">Range</span>
+                  <span className="block text-xs font-semibold tracking-widest text-stone-400 uppercase mb-0.5 md:hidden">Range</span>
                   {r.range}
                 </span>
                 <span className="text-sm text-stone-600 leading-relaxed" role="cell">
-                  <span className="block text-xs font-bold text-stone-400 uppercase mb-0.5 md:hidden">Key Advantage</span>
+                  <span className="block text-xs font-semibold tracking-widest text-stone-400 uppercase mb-0.5 md:hidden">Key Advantage</span>
                   {r.note}
                 </span>
               </div>
@@ -91,19 +91,19 @@ export default function Finance() {
         <div className="grid grid-cols-1 sm:grid-cols-3 border border-stone-200 divide-y sm:divide-y-0 sm:divide-x divide-stone-200">
           <div className="px-6 py-6">
             <p className="text-3xl font-bold text-stone-900 mb-2">$5M – $15M</p>
-            <p className="text-sm font-bold text-stone-600 uppercase">
+            <p className="text-sm font-semibold tracking-widest text-stone-600 uppercase">
               Total Structured Facility
             </p>
           </div>
           <div className="px-6 py-6">
             <p className="text-3xl font-bold text-stone-900 mb-2">100%</p>
-            <p className="text-sm font-bold text-stone-600 uppercase">
+            <p className="text-sm font-semibold tracking-widest text-stone-600 uppercase">
               Section 179 on Modular Build
             </p>
           </div>
           <div className="px-6 py-6">
             <p className="text-3xl font-bold text-stone-900 mb-2">~25 mo</p>
-            <p className="text-sm font-bold text-stone-600 uppercase">
+            <p className="text-sm font-semibold tracking-widest text-stone-600 uppercase">
               Projected Break-Even Post-Launch
             </p>
           </div>

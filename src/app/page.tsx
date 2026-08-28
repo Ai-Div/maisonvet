@@ -10,7 +10,6 @@ import Financials from "@/components/sections/Financials";
 import Timeline from "@/components/sections/Timeline";
 import Team from "@/components/sections/Team";
 import CTA from "@/components/sections/CTA";
-import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (

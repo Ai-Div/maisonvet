@@ -63,12 +63,12 @@ export default function Timeline() {
       aria-labelledby="timeline-heading"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
+        <p className="text-sm font-semibold tracking-widest text-stone-600 mb-4 uppercase">
           Roadmap
         </p>
         <h2
           id="timeline-heading"
-          className="text-2xl md:text-4xl text-stone-900 mb-4"
+          className="text-3xl md:text-5xl text-stone-900 mb-4"
         >
           Execution Plan
         </h2>
@@ -80,7 +80,7 @@ export default function Timeline() {
               aria-labelledby={"phase-" + i + "-title"}
               data-agent-topic="project-phase"
               {...(p.active ? { "aria-current": "step" as const } : {})}
-              className={`rounded-2xl p-6 ${
+              className={`p-6 ${
                 p.active ? "bg-stone-900 text-white" : "bg-stone-50 text-stone-900"
               }`}
             >

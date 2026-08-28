@@ -28,15 +28,15 @@ export default function VisionPage() {
               src="/images/vision/9GL0C.jpg"
               alt="Maison Vet Town Vision — Hillside Residences"
               fill
-              className="object-contain"
+              className="object-cover"
               priority
             />
           </div>
           <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24 text-center">
-            <p className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase mb-6 text-stone-500" id="vision-eyebrow">
+            <p className="text-xs md:text-sm font-semibold tracking-[0.3em] uppercase mb-6 text-stone-500" id="vision-eyebrow">
               Our Vision
             </p>
-            <h1 id="vision-heading" className="text-5xl md:text-7xl font-bold leading-tight mb-6 text-stone-900" itemProp="headline">
+            <h1 id="vision-heading" className="text-5xl md:text-7xl font-normal leading-tight mb-6 text-stone-900" itemProp="headline">
               The Vet Center Enclave
             </h1>
             <p className="text-lg md:text-xl font-medium text-stone-700 max-w-2xl mx-auto leading-relaxed" itemProp="description">
@@ -54,7 +54,7 @@ export default function VisionPage() {
         >
           <div className="mx-auto max-w-7xl">
             <div className="mx-auto max-w-2xl text-center">
-              <h2 id="vision-narrative-heading" className="text-3xl md:text-4xl font-bold text-stone-900 mb-8">
+              <h2 id="vision-narrative-heading" className="text-3xl md:text-5xl font-normal text-stone-900 mb-8">
                 Pioneertown-Meets-MCM California Ranch Retreat
               </h2>
               <p className="text-stone-600 text-lg leading-relaxed mb-12">
@@ -86,7 +86,7 @@ export default function VisionPage() {
                     src={item.src}
                     alt={item.alt}
                     fill
-                    className="object-contain"
+                    className="object-cover"
                     sizes="(min-width: 1024px) 61.8vw, 100vw"
                   />
                 </div>

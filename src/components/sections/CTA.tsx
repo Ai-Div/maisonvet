@@ -9,7 +9,7 @@ export default function CTA() {
       className="bg-stone-900 px-6 py-24 sm:py-32 lg:px-8"
     >
       <div className="mx-auto max-w-2xl text-center">
-        <p className="text-sm font-bold text-stone-400 uppercase mb-4">
+        <p className="text-sm font-semibold tracking-widest text-stone-400 uppercase mb-4">
           Contact
         </p>
         <h2

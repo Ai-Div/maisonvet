@@ -18,19 +18,19 @@ export default function StatsBar() {
         <h2 id="stats-heading" className="sr-only">
           Key project metrics
         </h2>
-        <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-stone-200 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((s, i) => (
+        <dl className="grid grid-cols-1 gap-px overflow-hidden border border-stone-200 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((s) => (
             <div
-              key={i}
-              className="flex flex-col bg-stone-50 p-6 text-center"
+              key={s.label}
+              className="flex flex-col bg-stone-50 p-8 text-center"
               itemProp="itemListElement"
               itemScope
               itemType="https://schema.org/QuantitativeValue"
             >
-              <dt className="text-sm font-bold text-stone-600 uppercase" itemProp="name">
+              <dt className="text-xs font-medium tracking-widest text-stone-500 uppercase" itemProp="name">
                 {s.label}
               </dt>
-              <dd className="order-first mt-2 text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl" itemProp="value">
+              <dd className="order-first font-serif text-3xl font-normal tabular-nums text-stone-900 sm:text-4xl" itemProp="value">
                 {s.value}
               </dd>
             </div>

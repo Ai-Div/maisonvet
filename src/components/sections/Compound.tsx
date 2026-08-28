@@ -42,7 +42,7 @@ export default function Compound() {
       aria-labelledby="campus-heading"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
+        <p className="text-sm font-semibold tracking-widest text-stone-600 mb-4 uppercase">
           The Campus
         </p>
         <h2
@@ -63,7 +63,7 @@ export default function Compound() {
               itemType="https://schema.org/Service"
               className="border-t-2 border-stone-200 pt-8"
             >
-              <p className="text-sm font-bold text-stone-600 mb-2 uppercase">
+              <p className="text-sm font-semibold tracking-widest text-stone-600 mb-2 uppercase">
                 {item.label}
               </p>
               <h3 itemProp="name" className="text-xl font-bold text-stone-900 mb-3">

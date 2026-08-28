@@ -27,7 +27,7 @@ export default function Team() {
       aria-labelledby="team-heading"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
+        <p className="text-sm font-semibold tracking-widest text-stone-600 mb-4 uppercase">
           The Team
         </p>
         <h2
@@ -45,7 +45,7 @@ export default function Team() {
             data-agent-purpose="team-member"
             className="bg-white p-8"
           >
-            <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
+            <p className="text-sm font-semibold tracking-widest text-stone-600 mb-4 uppercase">
               {team[0].role}
             </p>
             <h3 itemProp="name" className="text-xl font-bold text-stone-900 mb-4">
@@ -62,7 +62,7 @@ export default function Team() {
               data-agent-purpose="team-member"
               className="bg-white p-8 flex-1"
             >
-              <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
+              <p className="text-sm font-semibold tracking-widest text-stone-600 mb-4 uppercase">
                 {team[1].role}
               </p>
               <h3 itemProp="name" className="text-xl font-bold text-stone-900 mb-4">
@@ -78,7 +78,7 @@ export default function Team() {
               data-agent-purpose="team-member"
               className="bg-white p-8 flex-1"
             >
-              <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
+              <p className="text-sm font-semibold tracking-widest text-stone-600 mb-4 uppercase">
                 {team[2].role}
               </p>
               <h3 itemProp="name" className="text-xl font-bold text-stone-900 mb-4">

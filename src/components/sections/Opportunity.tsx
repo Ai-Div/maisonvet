@@ -30,7 +30,7 @@ export default function Opportunity() {
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
         <div data-agent-focus="read-this">
-          <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
+          <p className="text-sm font-semibold tracking-widest text-stone-600 mb-4 uppercase">
             The Opportunity
           </p>
           <h2
@@ -68,7 +68,7 @@ export default function Opportunity() {
               <p className="text-3xl font-bold text-stone-900 mb-2" itemProp="value">
                 {s.value}
               </p>
-              <p className="text-sm font-bold text-stone-600 mb-3 uppercase" itemProp="name">
+              <p className="text-sm font-semibold tracking-widest text-stone-600 mb-3 uppercase" itemProp="name">
                 {s.title}
               </p>
               <p className="text-stone-700">{s.desc}</p>

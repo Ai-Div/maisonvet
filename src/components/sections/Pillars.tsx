@@ -45,7 +45,7 @@ export default function Pillars() {
       aria-labelledby="pillars-heading"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
+        <p className="text-sm font-semibold tracking-widest text-stone-600 mb-4 uppercase">
           Core Infrastructure
         </p>
         <h2
@@ -69,7 +69,7 @@ export default function Pillars() {
               itemProp="itemListElement"
               className="bg-white p-8"
             >
-              <p className="text-xs font-bold text-stone-600 mb-2 uppercase">
+              <p className="text-xs font-semibold tracking-widest text-stone-600 mb-2 uppercase">
                 {p.label}
               </p>
               <h3 itemProp="name" className="text-xl font-bold text-stone-900 mb-4">

@@ -36,7 +36,7 @@ export default function Location() {
       aria-labelledby="location-heading"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <p className="text-sm font-bold text-stone-600 mb-4 uppercase">
+        <p className="text-sm font-semibold tracking-widest text-stone-600 mb-4 uppercase">
           Location Strategy
         </p>
         <h2
@@ -52,7 +52,7 @@ export default function Location() {
         </p>
         <div className="grid md:grid-cols-2 gap-12 mb-10">
           <div>
-            <p className="text-sm font-bold text-stone-600 mb-6 uppercase">
+            <p className="text-sm font-semibold tracking-widest text-stone-600 mb-6 uppercase">
               Site Requirements
             </p>
             <ul className="space-y-4">
@@ -67,7 +67,7 @@ export default function Location() {
             </ul>
           </div>
           <div>
-            <p className="text-sm font-bold text-stone-600 mb-6 uppercase">
+            <p className="text-sm font-semibold tracking-widest text-stone-600 mb-6 uppercase">
               What We Are Looking For
             </p>
             <ul className="space-y-4">
@@ -89,7 +89,7 @@ export default function Location() {
         >
           <p
             id="fire-risk-heading"
-            className="text-sm font-bold text-stone-700 mb-3 uppercase"
+            className="text-sm font-semibold tracking-widest text-stone-700 mb-3 uppercase"
           >
             Fire Risk — Real. Engineered Around.
           </p>
