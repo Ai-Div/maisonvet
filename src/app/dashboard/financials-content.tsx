@@ -1,5 +1,3 @@
-"use client";
-
 import { Heading, Subheading } from "@/components/heading";
 import { Divider } from "@/components/divider";
 import {
@@ -23,14 +21,10 @@ import {
   assumptions,
   capexSchedule,
   debtSchedule,
-  type YearProjection,
 } from "./projections-data";
 
 const projections = generateProjections();
 
-// ────────────────────────────────────────────────────────────
-// KEY METRICS CARDS
-// ────────────────────────────────────────────────────────────
 function MetricCard({
   label,
   value,
@@ -65,9 +59,6 @@ function MetricCard({
   );
 }
 
-// ────────────────────────────────────────────────────────────
-// P&L TABLE ROWS HELPER
-// ────────────────────────────────────────────────────────────
 function PnlRow({
   label,
   values,
@@ -76,6 +67,7 @@ function PnlRow({
   pct = false,
   indent = false,
   separator = false,
+  owner = false,
 }: {
   label: string;
   values: (number | string)[];
@@ -84,14 +76,13 @@ function PnlRow({
   pct?: boolean;
   indent?: boolean;
   separator?: boolean;
+  owner?: boolean;
 }) {
-  const cellClass = `text-right font-mono text-sm whitespace-nowrap ${
-    bold ? "font-bold" : ""
-  } ${negative ? "text-red-700" : ""}`;
+  const cellClass = `text-right font-mono text-sm whitespace-nowrap ${bold ? "font-bold" : ""}`;
   return (
-    <TableRow className={separator ? "border-t-2 border-stone-300" : ""}>
+    <TableRow className={`${separator ? "border-t-2 border-stone-300" : ""} ${owner ? "bg-teal-50/60" : ""}`}>
       <TableCell
-        className={`sticky left-0 bg-white z-10 min-w-[220px] ${bold ? "font-bold" : ""} ${indent ? "pl-8" : ""}`}
+        className={`sticky left-0 z-10 min-w-[240px] ${owner ? "bg-teal-50/60 font-semibold" : "bg-white"} ${bold ? "font-bold" : ""} ${indent ? "pl-8" : ""}`}
       >
         {label}
       </TableCell>
@@ -102,9 +93,7 @@ function PnlRow({
             : pct
               ? fmtPct(v)
               : negative
-                ? v < 0
-                  ? fmt(v)
-                  : `(${fmt(Math.abs(v))})`
+                ? `(${fmt(Math.abs(v))})`
                 : fmt(v)}
         </TableCell>
       ))}
@@ -112,62 +101,74 @@ function PnlRow({
   );
 }
 
-// ────────────────────────────────────────────────────────────
-// MAIN EXPORT
-// ────────────────────────────────────────────────────────────
 export const Financials = () => {
   const p = projections;
-
-  // Find key metrics
-  const breakEvenYear = p.find((y) => y.netIncome > 0)?.year || "N/A";
-  const peakRevenue = p[p.length - 1];
-  const maturityYear = p.find((y) => y.dscr >= 1.25);
+  const last = p[p.length - 1];
+  const breakEven = p.find((y) => y.netIncome > 0);
+  const dscrCross = p.find((y) => y.dscr >= 1.25);
+  const cashTrough = p.reduce((m, y) => (y.cumulativeFCF < m.cumulativeFCF ? y : m), p[0]);
 
   return (
     <div className="space-y-16 pb-24">
+      {/* OWNERSHIP */}
+      <section>
+        <Heading level={2}>Ownership &amp; Operating Structure</Heading>
+        <Divider className="my-4" />
+        <p className="mt-4 max-w-3xl text-sm text-stone-600 leading-relaxed">
+          Two primary owners, each holding the business through their own LLC:{" "}
+          <strong>Emily Gray LLC</strong> (licensed veterinarian) and{" "}
+          <strong>Rachael Gray LLC</strong> (operations manager). At launch the clinic runs
+          lean — Emily and Rachael are the only two working in it — and adds veterinary
+          technicians, front-desk support, and an associate veterinarian only as patient
+          volume and revenue justify each hire. Owner payments are made to their LLCs as
+          guaranteed payments and are labeled by name in the model below.
+        </p>
+      </section>
+
       {/* KEY METRICS */}
       <section>
         <Heading level={2}>Key Performance Indicators</Heading>
         <Divider className="my-4" />
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
           <MetricCard
-            label="Peak Annual Revenue (2037)"
-            value={fmt(peakRevenue.totalRevenue)}
-            sublabel={`${peakRevenue.dvmCount} DVMs, ${peakRevenue.patientsPerMonth} patients/mo`}
+            label={`Net Revenue at Maturity (Yr ${last.opYear})`}
+            value={fmt(last.netRevenue)}
+            sublabel={`${last.vetCount} vets, ${last.patientsPerMonth} visits/mo, ${last.headcount} staff`}
             color="stone"
           />
           <MetricCard
-            label="EBITDA at Maturity"
-            value={fmt(maturityYear?.ebitda || p[4].ebitda)}
-            sublabel={`${fmtPct(maturityYear?.ebitdaPct || p[4].ebitdaPct)} margin (Year ${(maturityYear?.year || p[4].year) - 2026})`}
+            label={`EBITDA at Maturity (Yr ${last.opYear})`}
+            value={fmt(last.ebitda)}
+            sublabel={`${fmtPct(last.ebitdaPct)} margin`}
             color="green"
           />
           <MetricCard
-            label="Break-even Year"
-            value={String(breakEvenYear)}
-            sublabel={
-              breakEvenYear !== "N/A"
-                ? `Year ${Number(breakEvenYear) - 2026} of operations`
-                : "Projected beyond 10 years"
-            }
+            label="Net-Income Break-even"
+            value={breakEven ? `Year ${breakEven.opYear}` : "10+ yrs"}
+            sublabel={breakEven ? `${fmt(breakEven.netIncome)} net income` : "Beyond 10 years"}
             color="blue"
           />
           <MetricCard
-            label="DSCR at Maturity"
-            value={`${(maturityYear?.dscr || p[4].dscr).toFixed(2)}x`}
-            sublabel="Debt Service Coverage Ratio (target: 1.25x+)"
-            color={
-              (maturityYear?.dscr || p[4].dscr) >= 1.25 ? "green" : "red"
-            }
+            label={`DSCR at Maturity (Yr ${last.opYear})`}
+            value={`${last.dscr.toFixed(2)}x`}
+            sublabel={`Clears 1.25x in Year ${dscrCross?.opYear ?? "—"} (target 1.25x+)`}
+            color={last.dscr >= 1.25 ? "green" : "red"}
           />
         </div>
+        <p className="mt-6 max-w-3xl text-sm text-stone-600 leading-relaxed">
+          DSCR clears 1.25x in Year {dscrCross?.opYear ?? "—"} and runs 1.5–1.7x at maturity.
+          Cumulative free cash flow troughs at{" "}
+          <strong>{fmt(cashTrough.cumulativeFCF)}</strong> in Year {cashTrough.opYear}, recovering
+          toward break-even by Year {last.opYear} — the operating reserve and equity cushion carry
+          the clinic through that trough during the ramp.
+        </p>
       </section>
 
       {/* FULL P&L TABLE */}
       <section>
         <div className="flex items-baseline justify-between">
           <Heading level={2}>
-            Projected Profit &amp; Loss Statement (2027-2037)
+            Clinic 10-Year Operating Projection (Year 1 = first full year open)
           </Heading>
           <Badge color="zinc">Conservative Scenario</Badge>
         </div>
@@ -176,99 +177,109 @@ export const Financials = () => {
           <Table className="min-w-[1400px]">
             <TableHead>
               <TableRow>
-                <TableHeader className="sticky left-0 bg-white z-10 min-w-[220px]">
+                <TableHeader className="sticky left-0 bg-white z-10 min-w-[240px]">
                   Line Item
                 </TableHeader>
                 {p.map((y) => (
                   <TableHeader key={y.year} className="text-right whitespace-nowrap">
-                    {y.year}
+                    Y{y.opYear}
                     <br />
-                    <span className="text-[10px] text-zinc-400 font-normal">
-                      {y.phase}
-                    </span>
+                    <span className="text-[10px] text-zinc-400 font-normal">{y.phase}</span>
                   </TableHeader>
                 ))}
               </TableRow>
             </TableHead>
             <TableBody>
+              {/* DRIVERS */}
+              <PnlRow label="DRIVERS" values={p.map(() => "")} bold separator />
+              <PnlRow label="Patient Visits / Month" values={p.map((y) => String(y.patientsPerMonth))} indent />
+              <PnlRow label="Avg Transaction Value" values={p.map((y) => fmt(y.avgTransactionValue))} indent />
+              <PnlRow label="Veterinarians" values={p.map((y) => String(y.vetCount))} indent />
+              <PnlRow label="Clinic Headcount" values={p.map((y) => String(y.headcount))} indent />
+
               {/* REVENUE */}
               <PnlRow label="REVENUE" values={p.map(() => "")} bold separator />
-              <PnlRow label="Professional Exams" values={p.map((y) => y.examRevenue)} indent />
-              <PnlRow label="Surgical Services" values={p.map((y) => y.surgeryRevenue)} indent />
+              <PnlRow label="Exam & Wellness" values={p.map((y) => y.examRevenue)} indent />
+              <PnlRow label="Surgery" values={p.map((y) => y.surgeryRevenue)} indent />
               <PnlRow label="Diagnostics & Imaging" values={p.map((y) => y.diagnosticsRevenue)} indent />
-              <PnlRow label="Pharmacy & Rx Diet" values={p.map((y) => y.pharmacyRevenue)} indent />
-              <PnlRow label="Boarding & Recovery" values={p.map((y) => y.boardingRevenue)} indent />
-              <PnlRow label="Energy (VPP/Net Metering)" values={p.map((y) => y.energyRevenue)} indent />
-              <PnlRow label="Total Revenue" values={p.map((y) => y.totalRevenue)} bold separator />
+              <PnlRow label="Dentistry" values={p.map((y) => y.dentistryRevenue)} indent />
+              <PnlRow label="Pharmacy & Retail" values={p.map((y) => y.pharmacyRevenue)} indent />
+              <PnlRow label="Boarding & Lodging" values={p.map((y) => y.boardingRevenue)} indent />
+              <PnlRow label="Equine / Ambulatory" values={p.map((y) => y.equineRevenue)} indent />
+              <PnlRow label="Energy (VPP / Net Metering)" values={p.map((y) => y.energyRevenue)} indent />
+              <PnlRow label="Less: Discounts & Bad Debt" values={p.map((y) => y.discounts)} indent negative />
+              <PnlRow label="Net Revenue" values={p.map((y) => y.netRevenue)} bold separator />
 
               {/* COGS */}
-              <PnlRow label="COST OF GOODS SOLD" values={p.map(() => "")} bold separator />
-              <PnlRow label="Medical Supplies" values={p.map((y) => y.medicalSupplies)} indent negative />
+              <PnlRow label="COST OF SERVICES" values={p.map(() => "")} bold separator />
+              <PnlRow label="Medical & Surgical Supplies" values={p.map((y) => y.medicalSupplies)} indent negative />
               <PnlRow label="Pharmacy COGS" values={p.map((y) => y.pharmacyCOGS)} indent negative />
+              <PnlRow label="Reference Lab Fees" values={p.map((y) => y.referenceLab)} indent negative />
               <PnlRow label="Boarding COGS" values={p.map((y) => y.boardingCOGS)} indent negative />
               <PnlRow label="Total COGS" values={p.map((y) => y.totalCOGS)} bold negative separator />
-              <PnlRow label="Gross Margin" values={p.map((y) => y.grossMargin)} bold separator />
+              <PnlRow label="Gross Profit" values={p.map((y) => y.grossProfit)} bold />
               <PnlRow label="Gross Margin %" values={p.map((y) => y.grossMarginPct)} pct />
 
-              {/* LABOR */}
-              <PnlRow label="LABOR" values={p.map(() => "")} bold separator />
-              <PnlRow label="DVM Compensation" values={p.map((y) => y.dvmCompensation)} indent negative />
-              <PnlRow label="Veterinary Technicians" values={p.map((y) => y.techCompensation)} indent negative />
-              <PnlRow label="Administrative Staff" values={p.map((y) => y.adminCompensation)} indent negative />
-              <PnlRow label="Payroll Taxes & Benefits (28%)" values={p.map((y) => y.payrollTaxesBenefits)} indent negative />
+              {/* LABOR & OWNERSHIP */}
+              <PnlRow label="LABOR & OWNERSHIP" values={p.map(() => "")} bold separator />
+              <PnlRow label="Emily Gray LLC — Veterinarian" values={p.map((y) => y.emilyComp)} indent negative owner />
+              <PnlRow label="Rachael Gray LLC — Operations" values={p.map((y) => y.rachaelComp)} indent negative owner />
+              <PnlRow label="Relief / Locum Veterinarian" values={p.map((y) => y.reliefComp)} indent negative />
+              <PnlRow label="Veterinary Technicians & Assistants" values={p.map((y) => y.techComp)} indent negative />
+              <PnlRow label="Front Desk / Admin Support" values={p.map((y) => y.adminComp)} indent negative />
+              <PnlRow label="Payroll Taxes & Benefits (staff)" values={p.map((y) => y.payrollStaff)} indent negative />
               <PnlRow label="Total Labor" values={p.map((y) => y.totalLabor)} bold negative separator />
-              <PnlRow label="Labor % of Revenue" values={p.map((y) => y.laborPct)} pct />
+              <PnlRow label="Labor % of Net Revenue" values={p.map((y) => y.laborPct)} pct />
 
               {/* OPERATING */}
               <PnlRow label="OPERATING EXPENSES" values={p.map(() => "")} bold separator />
-              <PnlRow label="Facilities & Maintenance" values={p.map((y) => y.facilitiesMaintenance)} indent negative />
-              <PnlRow label="Utilities (Gross)" values={p.map((y) => y.utilities)} indent negative />
-              <PnlRow label="Solar Offset" values={p.map((y) => y.solarOffset)} indent />
-              <PnlRow label="Net Utilities" values={p.map((y) => y.netUtilities)} indent negative />
-              <PnlRow label="Insurance (Malpractice + P&C)" values={p.map((y) => y.insurance)} indent negative />
-              <PnlRow label="Marketing & Business Dev" values={p.map((y) => y.marketing)} indent negative />
+              <PnlRow label="Facilities Maint & R&R Reserve" values={p.map((y) => y.maintenance)} indent negative />
+              <PnlRow label="Utilities (net of solar)" values={p.map((y) => y.netUtilities)} indent negative />
+              <PnlRow label="Insurance" values={p.map((y) => y.insurance)} indent negative />
+              <PnlRow label="Marketing" values={p.map((y) => y.marketing)} indent negative />
               <PnlRow label="Office & Admin" values={p.map((y) => y.officeAdmin)} indent negative />
               <PnlRow label="Legal & Accounting" values={p.map((y) => y.legalAccounting)} indent negative />
-              <PnlRow label="Technology & Software" values={p.map((y) => y.techSoftware)} indent negative />
-              <PnlRow label="Total Operating" values={p.map((y) => y.totalOperating)} bold negative separator />
+              <PnlRow label="Software & Tech (PIMS)" values={p.map((y) => y.software)} indent negative />
+              <PnlRow label="Credit Card Processing" values={p.map((y) => y.ccProcessing)} indent negative />
+              <PnlRow label="Continuing Ed & Licensing" values={p.map((y) => y.continuingEd)} indent negative />
+              <PnlRow label="Property Tax" values={p.map((y) => y.propertyTax)} indent negative />
+              <PnlRow label="Total Operating Expenses" values={p.map((y) => y.totalOpex)} bold negative separator />
 
-              {/* EBITDA */}
-              <PnlRow label="EBITDA" values={p.map((y) => y.ebitda)} bold separator />
-              <PnlRow label="EBITDA %" values={p.map((y) => y.ebitdaPct)} pct />
-
-              {/* BELOW THE LINE */}
-              <PnlRow label="DEBT SERVICE & TAXES" values={p.map(() => "")} bold separator />
-              <PnlRow label="Interest Expense" values={p.map((y) => y.interestExpense)} indent negative />
-              <PnlRow label="Depreciation" values={p.map((y) => y.depreciation)} indent negative />
-              <PnlRow label="Taxable Income" values={p.map((y) => y.taxableIncome)} indent />
-              <PnlRow label="Income Tax (28%)" values={p.map((y) => y.incomeTax)} indent negative />
-              <PnlRow label="NET INCOME" values={p.map((y) => y.netIncome)} bold separator />
-              <PnlRow label="Net Margin %" values={p.map((y) => y.netIncomePct)} pct />
-
-              {/* RATIOS */}
-              <PnlRow label="KEY RATIOS" values={p.map(() => "")} bold separator />
+              {/* SUMMARY */}
+              <PnlRow label="SUMMARY & COVERAGE" values={p.map(() => "")} bold separator />
+              <PnlRow label="EBITDA" values={p.map((y) => y.ebitda)} bold />
+              <PnlRow label="EBITDA Margin" values={p.map((y) => y.ebitdaPct)} pct />
+              <PnlRow label="Total Debt Service (P&I)" values={p.map((y) => y.debtService)} indent negative />
               <PnlRow label="DSCR" values={p.map((y) => `${y.dscr.toFixed(2)}x`)} />
-              <PnlRow label="Patients / Month" values={p.map((y) => String(y.patientsPerMonth))} />
-              <PnlRow label="Avg Transaction Value" values={p.map((y) => fmt(y.avgTransactionValue))} />
-              <PnlRow label="DVMs" values={p.map((y) => String(y.dvmCount))} />
-              <PnlRow label="Revenue / DVM" values={p.map((y) => fmt(y.revenuePerDvm))} />
+              <PnlRow label="Depreciation" values={p.map((y) => y.depreciation)} indent negative />
+              <PnlRow label="Pre-Tax Income" values={p.map((y) => y.pretaxIncome)} indent />
+              <PnlRow label="Income Tax (28%)" values={p.map((y) => y.incomeTax)} indent negative />
+              <PnlRow label="Net Income" values={p.map((y) => y.netIncome)} bold separator />
+              <PnlRow label="Net Income Margin" values={p.map((y) => y.netIncomePct)} pct />
+              <PnlRow label="Free Cash Flow (after debt)" values={p.map((y) => y.freeCashFlow)} />
+              <PnlRow label="Cumulative Free Cash Flow" values={p.map((y) => y.cumulativeFCF)} bold />
             </TableBody>
           </Table>
         </div>
+        <p className="mt-4 text-xs text-stone-400 max-w-3xl">
+          Owner LLC payments (Emily, Rachael) are guaranteed payments; payroll taxes &amp;
+          benefits shown apply to employees. Full $4M campus debt service is carried by the
+          clinic; the equipment lease retires after Year 5. Excludes one-time bonus
+          depreciation and the residential build.
+        </p>
       </section>
 
-      {/* CAPEX WATERFALL */}
+      {/* CAPEX */}
       <section>
         <div className="flex items-baseline justify-between">
-          <Heading level={2}>Capital Expenditure Waterfall</Heading>
-          <Badge color="green">OBBBA 100% Eligible</Badge>
+          <Heading level={2}>Buildout — Uses of Funds ($3.25M)</Heading>
+          <Badge color="green">OBBBA-Eligible</Badge>
         </div>
         <Divider className="my-4" />
         <Table className="mt-6">
           <TableHead>
             <TableRow>
               <TableHeader>Year</TableHeader>
-              <TableHeader>Phase</TableHeader>
               <TableHeader>Category</TableHeader>
               <TableHeader>Description</TableHeader>
               <TableHeader className="text-right">Cost</TableHeader>
@@ -279,12 +290,9 @@ export const Financials = () => {
             {capexSchedule.map((item, i) => (
               <TableRow key={i}>
                 <TableCell className="font-medium">{item.year}</TableCell>
-                <TableCell>{item.phase}</TableCell>
                 <TableCell>{item.category}</TableCell>
                 <TableCell>{item.description}</TableCell>
-                <TableCell className="text-right font-mono">
-                  {fmt(item.cost)}
-                </TableCell>
+                <TableCell className="text-right font-mono">{fmt(item.cost)}</TableCell>
                 <TableCell>
                   <Badge
                     color={
@@ -301,7 +309,7 @@ export const Financials = () => {
               </TableRow>
             ))}
             <TableRow className="font-bold border-t-2 border-stone-300">
-              <TableCell colSpan={4}>Total Capital Investment</TableCell>
+              <TableCell colSpan={3}>Total Capital Investment</TableCell>
               <TableCell className="text-right font-mono">
                 {fmt(capexSchedule.reduce((s, i) => s + i.cost, 0))}
               </TableCell>
@@ -324,7 +332,6 @@ export const Financials = () => {
               <TableHeader className="text-right">Rate</TableHeader>
               <TableHeader className="text-right">Term</TableHeader>
               <TableHeader className="text-right">Annual Payment</TableHeader>
-              <TableHeader>Start</TableHeader>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -334,221 +341,136 @@ export const Financials = () => {
                 <TableCell>
                   <Badge color="zinc">{d.type}</Badge>
                 </TableCell>
-                <TableCell className="text-right font-mono">
-                  {fmt(d.principal)}
-                </TableCell>
-                <TableCell className="text-right font-mono">
-                  {d.rate.toFixed(1)}%
-                </TableCell>
-                <TableCell className="text-right font-mono">
-                  {d.termYears} yr
-                </TableCell>
-                <TableCell className="text-right font-mono">
-                  {fmt(d.annualPayment)}
-                </TableCell>
-                <TableCell>{d.startYear}</TableCell>
+                <TableCell className="text-right font-mono">{fmt(d.principal)}</TableCell>
+                <TableCell className="text-right font-mono">{d.rate.toFixed(1)}%</TableCell>
+                <TableCell className="text-right font-mono">{d.termYears} yr</TableCell>
+                <TableCell className="text-right font-mono">{fmt(d.annualPayment)}</TableCell>
               </TableRow>
             ))}
             <TableRow className="font-bold border-t-2 border-stone-300">
-              <TableCell colSpan={5}>Total Annual Debt Service (at peak)</TableCell>
+              <TableCell colSpan={5}>Total Annual Debt Service (Years 1–5)</TableCell>
               <TableCell className="text-right font-mono">
                 {fmt(debtSchedule.reduce((s, d) => s + d.annualPayment, 0))}
               </TableCell>
-              <TableCell />
             </TableRow>
           </TableBody>
         </Table>
       </section>
 
-      {/* OBBBA TAX SHIELD */}
+      {/* STAFFING PLAN */}
       <section>
-        <Heading level={2}>Strategic OBBBA Tax Shield &amp; Incentives</Heading>
+        <Heading level={2}>Staffing Plan — Hire as Revenue Grows</Heading>
         <Divider className="my-4" />
-        <div className="grid md:grid-cols-3 gap-8 mt-6">
-          <MetricCard
-            label="OBBBA 100% Deduction (2027)"
-            value="$900,000"
-            sublabel="100% Bonus Depreciation on qualifying modular clinic + med-stack equipment."
-            color="green"
-          />
-          <MetricCard
-            label="One-Time Tax Shield Value"
-            value="$252,000"
-            sublabel="Immediate cash retention (28% effective rate). Reinvested to offset Phase 1 debt."
-            color="green"
-          />
-          <MetricCard
-            label="USDA REAP + ITC (2028)"
-            value="$450,000"
-            sublabel="Anticipated energy grants and credits for rural vertical ag-vet infrastructure."
-            color="blue"
-          />
-        </div>
+        <Table className="mt-6">
+          <TableHead>
+            <TableRow>
+              <TableHeader>Operating Year</TableHeader>
+              <TableHeader>Vets</TableHeader>
+              <TableHeader>Techs</TableHeader>
+              <TableHeader>Front Desk</TableHeader>
+              <TableHeader>Headcount</TableHeader>
+              <TableHeader>Trigger</TableHeader>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {[
+              { y: "Year 1", trig: "Lean launch — Emily (vet) + Rachael (ops) only" },
+              { y: "Year 2", trig: "Volume supports first veterinary technician" },
+              { y: "Year 3", trig: "Add dedicated front-desk support; relief vet as needed" },
+              { y: "Year 4", trig: "Surgery/diagnostics volume — 2nd technician" },
+              { y: "Year 6", trig: "Relief/locum vet coverage scales with volume" },
+              { y: "Year 10", trig: "Mature staffing for compound operations" },
+            ].map((row, idx) => {
+              const i = [0, 1, 2, 3, 5, 9][idx];
+              const y = p[i];
+              return (
+                <TableRow key={row.y}>
+                  <TableCell className="font-medium">{row.y}</TableCell>
+                  <TableCell>1 (Emily){y.reliefComp > 0 ? " + relief" : ""}</TableCell>
+                  <TableCell>{assumptions.techs[i]}</TableCell>
+                  <TableCell>{assumptions.admin[i]} + Rachael</TableCell>
+                  <TableCell className="font-mono">{y.headcount}</TableCell>
+                  <TableCell>{row.trig}</TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
       </section>
 
-      {/* CONSERVATIVE ASSUMPTIONS */}
+      {/* ASSUMPTIONS */}
       <section>
         <Heading level={2}>Conservative Assumptions</Heading>
         <Divider className="my-4" />
         <div className="grid lg:grid-cols-2 gap-12 mt-6">
           <div>
-            <Subheading>Revenue Assumptions</Subheading>
+            <Subheading>Revenue</Subheading>
             <DescriptionList className="mt-4">
-              <DescriptionTerm>Year 1 Patient Volume</DescriptionTerm>
+              <DescriptionTerm>Year 1 Volume</DescriptionTerm>
               <DescriptionDetails>
-                {assumptions.y1PatientsPerMonth} patients/month (480 annually).
-                New rural practice with limited awareness.
+                {assumptions.y1VisitsPerMonth} visits/month (~6/day) — deliberately slow ramp
+                for a new rural destination practice, growing to ~300/month (~14/day) at
+                maturity, handled by Emily plus scaling relief/locum coverage.
               </DescriptionDetails>
               <DescriptionTerm>Avg Transaction Value</DescriptionTerm>
               <DescriptionDetails>
-                ${assumptions.y1AvgTransaction} starting, increasing 3% annually
-                for fee schedule adjustments.
+                ${assumptions.examAtv} base office visit, +{(assumptions.inflation * 100).toFixed(0)}%/yr.
+                Surgery {(assumptions.surgeryRate * 100).toFixed(0)}% attach @ $
+                {assumptions.surgeryValue.toLocaleString()}; diagnostics{" "}
+                {(assumptions.diagnosticsRate * 100).toFixed(0)}%; dentistry{" "}
+                {(assumptions.dentistryRate * 100).toFixed(0)}%.
               </DescriptionDetails>
-              <DescriptionTerm>Surgery Rate</DescriptionTerm>
+              <DescriptionTerm>Discounts &amp; Bad Debt</DescriptionTerm>
               <DescriptionDetails>
-                {(assumptions.surgeryPct * 100).toFixed(0)}% of patients require
-                surgical intervention at avg $
-                {assumptions.avgSurgeryValue.toLocaleString()}.
+                {(assumptions.discountBadDebtPct * 100).toFixed(1)}% allowance against gross
+                revenue — a conservative contra-revenue line the prior model omitted.
               </DescriptionDetails>
-              <DescriptionTerm>Patient Capacity</DescriptionTerm>
+              <DescriptionTerm>Other Revenue</DescriptionTerm>
               <DescriptionDetails>
-                Capped at 85 patients/month per DVM to maintain quality of care.
-                2nd DVM hired in Year 5 (2031).
-              </DescriptionDetails>
-              <DescriptionTerm>Growth Trajectory</DescriptionTerm>
-              <DescriptionDetails>
-                Y2: 35%, Y3: 25%, Y4: 15%, Y5: 10%, Mature: 4% annually.
-                Deliberately front-loaded slower than industry average.
-              </DescriptionDetails>
-              <DescriptionTerm>Boarding Revenue</DescriptionTerm>
-              <DescriptionDetails>
-                Begins 2030 (Phase 3) at $
-                {assumptions.boardingMonthlyRevenue.toLocaleString()}/mo, growing
-                10% annually.
-              </DescriptionDetails>
-              <DescriptionTerm>Energy Revenue</DescriptionTerm>
-              <DescriptionDetails>
-                VPP/DSGS enrollment from 2028 at $
-                {assumptions.energyMonthlyRevenue.toLocaleString()}/mo. Subject
-                to CPUC program continuation.
+                Equine/ambulatory and energy (VPP/net metering) from Year 2; boarding &amp;
+                lodging from Year 3.
               </DescriptionDetails>
             </DescriptionList>
           </div>
           <div>
-            <Subheading>Cost Assumptions</Subheading>
+            <Subheading>Costs &amp; Ownership</Subheading>
             <DescriptionList className="mt-4">
+              <DescriptionTerm>Owner Compensation</DescriptionTerm>
+              <DescriptionDetails>
+                Emily Gray LLC ${(assumptions.emilySalary / 1000).toFixed(0)}k (veterinarian),
+                Rachael Gray LLC ${(assumptions.rachaelSalary / 1000).toFixed(0)}k (operations) —
+                guaranteed payments, +{(assumptions.inflation * 100).toFixed(0)}%/yr.
+              </DescriptionDetails>
+              <DescriptionTerm>Staff Hiring</DescriptionTerm>
+              <DescriptionDetails>
+                Relief/locum vet ${(assumptions.reliefVetRate / 1000).toFixed(0)}k/FTE scaling with
+                volume, techs ${(assumptions.techSalary / 1000).toFixed(0)}k, front-desk $
+                {(assumptions.adminSalary / 1000).toFixed(0)}k — added only as volume requires,
+                with {(assumptions.staffBurdenPct * 100).toFixed(0)}% payroll burden.
+              </DescriptionDetails>
               <DescriptionTerm>COGS</DescriptionTerm>
               <DescriptionDetails>
-                {(assumptions.cogsPctOfServiceRevenue * 100).toFixed(0)}% of
-                service revenue (medical supplies). Pharmacy at{" "}
-                {(assumptions.pharmacyCogsPct * 100).toFixed(0)}% COGS.
-              </DescriptionDetails>
-              <DescriptionTerm>Labor Model</DescriptionTerm>
-              <DescriptionDetails>
-                DVM: ${(assumptions.dvmSalary / 1000).toFixed(0)}k (Emily), Associate: $
-                {(assumptions.associateDvmSalary / 1000).toFixed(0)}k.
-                Techs: ${(assumptions.techSalary / 1000).toFixed(0)}k. Admin: $
-                {(assumptions.adminSalary / 1000).toFixed(0)}k. All include 28%
-                payroll taxes and benefits loading.
-              </DescriptionDetails>
-              <DescriptionTerm>Cost Inflation</DescriptionTerm>
-              <DescriptionDetails>
-                3% annual increase applied to all operating costs. Matches
-                historical CPI for San Diego metro.
+                {(assumptions.cogsSuppliesPct * 100).toFixed(0)}% supplies, pharmacy{" "}
+                {(assumptions.pharmacyCogsPct * 100).toFixed(0)}%, reference lab{" "}
+                {(assumptions.referenceLabPct * 100).toFixed(0)}% of diagnostics.
               </DescriptionDetails>
               <DescriptionTerm>Debt Service</DescriptionTerm>
               <DescriptionDetails>
-                Blended across 4 instruments: Ag land loan (6.5%), SBA 504
-                (5.5%), C-PACE (5.0%), working capital (8.0%). Peak annual
-                service: $
-                {debtSchedule
-                  .reduce((s, d) => s + d.annualPayment, 0)
-                  .toLocaleString()}
-                .
-              </DescriptionDetails>
-              <DescriptionTerm>Tax Rate</DescriptionTerm>
-              <DescriptionDetails>
-                28% blended effective rate (CA franchise tax + federal corporate).
-                Year 1 shows significant loss due to OBBBA bonus depreciation.
-              </DescriptionDetails>
-              <DescriptionTerm>Insurance</DescriptionTerm>
-              <DescriptionDetails>
-                ${(assumptions.y1Insurance / 1000).toFixed(0)}k/year (malpractice
-                + property + general liability). Increases 50% when 2nd DVM is
-                added.
+                $3.25M campus capitalized with ~$650k equity + $154k energy grants/credits,
+                leaving ~$2.44M debt (${assumptions.campusDebtAnnual.toLocaleString()}/yr); equipment
+                lease retires after Year 5. 28% blended tax; 3% cost inflation.
               </DescriptionDetails>
             </DescriptionList>
           </div>
         </div>
       </section>
 
-      {/* STAFFING TIMELINE */}
-      <section>
-        <Heading level={2}>Staffing Plan</Heading>
-        <Divider className="my-4" />
-        <Table className="mt-6">
-          <TableHead>
-            <TableRow>
-              <TableHeader>Year</TableHeader>
-              <TableHeader>DVMs</TableHeader>
-              <TableHeader>Vet Techs</TableHeader>
-              <TableHeader>Admin</TableHeader>
-              <TableHeader>Total Headcount</TableHeader>
-              <TableHeader>Trigger</TableHeader>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell className="font-medium">2027-2028</TableCell>
-              <TableCell>1 (Emily)</TableCell>
-              <TableCell>1</TableCell>
-              <TableCell>1</TableCell>
-              <TableCell className="font-mono">3</TableCell>
-              <TableCell>Launch team</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className="font-medium">2029</TableCell>
-              <TableCell>1</TableCell>
-              <TableCell>2</TableCell>
-              <TableCell>1</TableCell>
-              <TableCell className="font-mono">4</TableCell>
-              <TableCell>Patient volume approaching 1 DVM capacity</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className="font-medium">2030</TableCell>
-              <TableCell>1</TableCell>
-              <TableCell>2</TableCell>
-              <TableCell>1</TableCell>
-              <TableCell className="font-mono">4</TableCell>
-              <TableCell>Boarding barn opens; evaluating associate DVM need</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className="font-medium">2031</TableCell>
-              <TableCell>2</TableCell>
-              <TableCell>2</TableCell>
-              <TableCell>1</TableCell>
-              <TableCell className="font-mono">5</TableCell>
-              <TableCell>Associate DVM hired; patient cap reached for 1 DVM</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className="font-medium">2032+</TableCell>
-              <TableCell>2</TableCell>
-              <TableCell>2</TableCell>
-              <TableCell>2</TableCell>
-              <TableCell className="font-mono">6</TableCell>
-              <TableCell>2nd admin for expanded compound operations</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </section>
-
       {/* FOOTER */}
       <div className="mt-12 text-center p-8 border-t border-zinc-100">
         <p className="text-[10px] text-zinc-400 tracking-[0.3em] uppercase">
-          Verification Status: Conservative estimates based on AVMA industry
-          benchmarks, IBIS World 2026 data, and San Diego County market
-          conditions. All projections assume no recession, no pandemic, and
-          stable regulatory environment. Feb 2026.
+          Conservative planning estimates based on AVMA benchmarks and San Diego County market
+          conditions. Owner-operated lean launch. Not a guarantee of results — refine with
+          actuals once operating.
         </p>
       </div>
     </div>
