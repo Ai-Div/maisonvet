@@ -16,7 +16,7 @@ export default async function SignInPage({
   const { callbackUrl, error } = await searchParams;
 
   if (session?.user) {
-    redirect(callbackUrl ?? "/dashboard");
+    redirect(callbackUrl ?? "/properties");
   }
 
   const isAccessDenied = error === "AccessDenied";
@@ -77,7 +77,7 @@ export default async function SignInPage({
           action={async () => {
             "use server";
             await signIn("google", {
-              redirectTo: callbackUrl ?? "/dashboard",
+              redirectTo: callbackUrl ?? "/properties",
             });
           }}
           data-agent-action="initiate-google-oauth"

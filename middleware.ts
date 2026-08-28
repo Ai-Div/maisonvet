@@ -9,12 +9,15 @@ import type { NextRequest } from "next/server";
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Check for Auth.js session token cookie (http or https variant)
-  const sessionToken =
-    request.cookies.get("authjs.session-token") ??
-    request.cookies.get("__Secure-authjs.session-token");
+  // Check for an Auth.js session cookie. Large (Google) sessions get split into
+  // chunked cookies (e.g. `__Secure-authjs.session-token.0`, `.1`), so match the
+  // base name, the `__Secure-` prefix, and any numeric chunk suffix — otherwise
+  // an authenticated user is wrongly bounced back to sign-in (the "login twice" bug).
+  const hasSession = request.cookies
+    .getAll()
+    .some((c) => /^(__Secure-)?authjs\.session-token(\.\d+)?$/.test(c.name));
 
-  if (!sessionToken) {
+  if (!hasSession) {
     const signInUrl = new URL("/sign-in", request.nextUrl.origin);
     signInUrl.searchParams.set("callbackUrl", pathname);
     return NextResponse.redirect(signInUrl);

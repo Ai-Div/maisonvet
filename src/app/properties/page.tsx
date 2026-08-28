@@ -2,15 +2,21 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { readHtmlTemplate } from "@/../lib/readHtmlTemplate";
 import Script from "next/script";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Property Search — Maison Vet",
+  description: "Qualifying land parcels under evaluation for the Maison Vet veterinary campus in North San Diego County.",
+};
 
 export default async function PropertiesPage() {
   const session = await auth();
 
   if (!session?.user) {
-    redirect("/sign-in?callbackUrl=/research");
+    redirect("/sign-in?callbackUrl=/properties");
   }
 
-  const { title, bodyContent } = readHtmlTemplate("properties.html");
+  const { bodyContent } = readHtmlTemplate("properties.html");
 
   return (
     <>
