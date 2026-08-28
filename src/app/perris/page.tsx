@@ -2,6 +2,12 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { readHtmlTemplate } from "@/../lib/readHtmlTemplate";
 import Script from "next/script";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Perris Site — Maison Vet",
+  description: "Site analysis for the Perris, CA parcel under evaluation for the Maison Vet veterinary campus.",
+};
 
 export default async function PerrisPage() {
   const session = await auth();
@@ -10,7 +16,7 @@ export default async function PerrisPage() {
     redirect("/sign-in?callbackUrl=/perris");
   }
 
-  const { title, bodyContent } = readHtmlTemplate("perris.html");
+  const { bodyContent } = readHtmlTemplate("perris.html");
 
   return (
     <>
