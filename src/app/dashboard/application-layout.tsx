@@ -43,8 +43,10 @@ import {
   MapIcon,
   BeakerIcon,
   InboxIcon,
+  ReceiptPercentIcon,
 } from '@heroicons/react/20/solid'
 import { usePathname } from 'next/navigation'
+import { canViewTax } from '@/app/tax/access'
 import { signOut } from 'next-auth/react'
 
 function AccountDropdownMenu({ anchor, user }: { anchor: 'top start' | 'bottom end', user?: any }) {
@@ -141,6 +143,12 @@ export function ApplicationLayout({
                 <BeakerIcon />
                 <SidebarLabel>Research Hub</SidebarLabel>
               </SidebarItem>
+              {canViewTax(user?.email) && (
+                <SidebarItem href="/tax" current={pathname === '/tax'}>
+                  <ReceiptPercentIcon />
+                  <SidebarLabel>Tax Strategy</SidebarLabel>
+                </SidebarItem>
+              )}
             </SidebarSection>
 
             <SidebarHeading>Operational</SidebarHeading>

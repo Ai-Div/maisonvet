@@ -16,7 +16,7 @@ export default function ResearchHubClient() {
           <Heading>Research Hub</Heading>
           <Text className="mt-1">Project tracking, regulatory research, and financial frameworks.</Text>
         </div>
-        <Badge color="blue">Updated April 2026</Badge>
+        <Badge color="blue">Updated October 2026</Badge>
       </header>
 
       <Divider />
