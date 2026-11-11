@@ -13,7 +13,9 @@ export interface Strategy {
   id: string;
   name: string;
   tier: 'Do now' | 'Next year' | 'Situational' | 'Avoid';
-  annualSavings: string;
+  annualSavings: string; // headline figure, e.g. '≈ $10,800'
+  savingsNote?: string; // short qualifier under the figure
+  savingsBreakdown?: { label: string; amount: string }[]; // other scenarios
   effort: string;
   deadline: string;
   summary: string;
@@ -58,7 +60,12 @@ export const strategies: Strategy[] = [
     id: 'solo-401k',
     name: 'Solo 401(k) for Tim (and Rachael)',
     tier: 'Do now',
-    annualSavings: '≈ $10,800 at $40K · up to ≈ $19,400 at the $72K max · +$2,700 for Rachael at $10K',
+    annualSavings: '≈ $10,800',
+    savingsNote: 'a year, putting $40K into Tim’s solo 401(k)',
+    savingsBreakdown: [
+      { label: 'Tim at the $72K max', amount: '≈ $19,400' },
+      { label: 'Plus Rachael at $10K', amount: '+ $2,700' },
+    ],
     effort: 'Low — open at Fidelity, Schwab or Vanguard (no fee) and fund from the business',
     deadline: 'Open the plan by Dec 31 to make 2026 employee deferrals; employer contributions can be made until the 2026 return is filed',
     summary:
@@ -79,7 +86,8 @@ export const strategies: Strategy[] = [
     id: 'kids',
     name: 'Put Zep and Mac on Div’s payroll',
     tier: 'Do now',
-    annualSavings: '≈ $4,800 a year (more if it funds Roth IRAs for them)',
+    annualSavings: '≈ $4,800',
+    savingsNote: 'a year; more if it funds Roth IRAs for them',
     effort: 'Low–medium — real tasks, timesheets, market-rate pay, a W-2 for each',
     deadline: 'Wages must be for 2026 work and paid in 2026',
     summary:
@@ -103,6 +111,7 @@ export const strategies: Strategy[] = [
     name: 'Home office deduction (yes, renters qualify)',
     tier: 'Do now',
     annualSavings: '≈ $2,300',
+    savingsNote: 'a year',
     effort: 'Low — Form 8829 with the tax return; measure the room',
     deadline: 'Claimed on the 2026 return',
     summary:
@@ -118,7 +127,8 @@ export const strategies: Strategy[] = [
     id: 'hsa',
     name: 'HSA with a high-deductible health plan',
     tier: 'Do now',
-    annualSavings: '≈ $1,500 a year (federal only)',
+    annualSavings: '≈ $1,500',
+    savingsNote: 'a year, federal only',
     effort: 'Low — pick an HSA-eligible plan at open enrollment',
     deadline: 'Open enrollment for 2027; contributions for 2026 allowed until April 15, 2027 if already HSA-eligible',
     summary:
@@ -131,7 +141,8 @@ export const strategies: Strategy[] = [
     id: 'tips',
     name: 'Claim the new tips deduction for Rachael’s salon',
     tier: 'Do now',
-    annualSavings: '≈ $1,050 on $6,000 of tips (scales with her tips)',
+    annualSavings: '≈ $1,050',
+    savingsNote: 'on $6,000 of tips; scales with her tips',
     effort: 'Low — keep tips documented (card-processor reports, 1099-K, a tip log)',
     deadline: 'Claimed on the 2026 return; the deduction runs 2025–2028',
     summary:
@@ -153,7 +164,8 @@ export const strategies: Strategy[] = [
     id: 'scorp',
     name: 'Elect S-corp status for Div Digital LLC',
     tier: 'Next year',
-    annualSavings: '≈ $8,700 a year on its own',
+    annualSavings: '≈ $8,700',
+    savingsNote: 'a year on its own',
     effort: 'Medium — Form 2553, payroll for Tim, a separate 1120-S return',
     deadline: 'File Form 2553 by March 15, 2027 to start with the 2027 tax year',
     summary:
@@ -174,7 +186,12 @@ export const strategies: Strategy[] = [
     id: 'str',
     name: 'Real estate without owning your home: a short-term rental + cost segregation',
     tier: 'Situational',
-    annualSavings: '≈ $18,500 in year one — but ~$102,500 cash in and likely negative cash flow',
+    annualSavings: '≈ $18,500',
+    savingsNote: 'in year one',
+    savingsBreakdown: [
+      { label: 'Cash in', amount: '≈ $102,500' },
+      { label: 'Cash flow', amount: 'Likely negative' },
+    ],
     effort: 'High — buy, furnish and self-manage a rental 100+ hours a year, keep an hours log',
     deadline: 'Only counts in the year the property is bought and listed for rent',
     summary:
@@ -200,7 +217,8 @@ export const strategies: Strategy[] = [
     id: 'charity',
     name: 'New charitable deduction for non-itemizers',
     tier: 'Situational',
-    annualSavings: '≈ $350 on $2,000 of cash gifts',
+    annualSavings: '≈ $350',
+    savingsNote: 'on $2,000 of cash gifts',
     effort: 'Low',
     deadline: 'Cash gifts to charities (not donor-advised funds) by Dec 31',
     summary: 'Starting in 2026, couples who take the standard deduction can still deduct up to $2,000 of cash gifts to charity.',

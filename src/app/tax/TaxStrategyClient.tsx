@@ -5,7 +5,7 @@ import { Text, TextLink, Strong } from '@/components/text'
 import { Divider } from '@/components/divider'
 import { Badge } from '@/components/badge'
 import { DescriptionList, DescriptionTerm, DescriptionDetails } from '@/components/description-list'
-import { baseline, keyNumbers2026, strategies, strListings, neededFromTim, thisYearChecklist, updated, headline } from './tax-data'
+import { baseline, keyNumbers2026, strategies, strListings, neededFromTim, thisYearChecklist, updated, headline, type Strategy } from './tax-data'
 
 const tierColor = {
   'Do now': 'green',
@@ -13,6 +13,25 @@ const tierColor = {
   Situational: 'amber',
   Avoid: 'red',
 } as const
+
+function Savings({ s, compact = false }: { s: Strategy; compact?: boolean }) {
+  return (
+    <div>
+      <p className={`font-semibold tabular-nums text-zinc-950 dark:text-white ${compact ? 'text-xl' : 'text-2xl'}`}>{s.annualSavings}</p>
+      {s.savingsNote && <Text className="!text-sm">{s.savingsNote}</Text>}
+      {s.savingsBreakdown && (
+        <dl className="mt-2 space-y-1 border-t border-zinc-950/5 pt-2 dark:border-white/10">
+          {s.savingsBreakdown.map((b) => (
+            <div key={b.label} className="flex items-baseline justify-between gap-3 text-sm">
+              <dt className="text-zinc-500 dark:text-zinc-400">{b.label}</dt>
+              <dd className="font-medium tabular-nums text-zinc-950 dark:text-white">{b.amount}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+    </div>
+  )
+}
 
 export default function TaxStrategyClient() {
   const ranked = strategies.filter((s) => s.tier !== 'Avoid')
@@ -41,7 +60,7 @@ export default function TaxStrategyClient() {
             <a key={s.id} href={`#${s.id}`} className="block rounded-xl border border-zinc-950/5 bg-zinc-50 p-4 hover:border-zinc-950/20 dark:border-white/5 dark:bg-white/5">
               <Badge color={tierColor[s.tier]}>{s.tier}</Badge>
               <Text className="mt-2 font-semibold !text-zinc-950 dark:!text-white">{s.name}</Text>
-              <Text className="mt-1 text-sm">{s.annualSavings}</Text>
+              <div className="mt-3"><Savings s={s} compact /></div>
             </a>
           ))}
         </div>
@@ -96,7 +115,7 @@ export default function TaxStrategyClient() {
             </div>
             {s.tier !== 'Avoid' && (
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-                <div><Text className="text-xs uppercase tracking-wide">Estimated savings</Text><Text className="font-medium !text-zinc-950 dark:!text-white">{s.annualSavings}</Text></div>
+                <div><Text className="text-xs uppercase tracking-wide">Estimated savings</Text><div className="mt-1"><Savings s={s} /></div></div>
                 <div><Text className="text-xs uppercase tracking-wide">Effort</Text><Text>{s.effort}</Text></div>
                 <div><Text className="text-xs uppercase tracking-wide">Timing</Text><Text>{s.deadline}</Text></div>
               </div>
