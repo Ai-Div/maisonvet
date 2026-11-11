@@ -30,7 +30,7 @@ export default function TaxStrategyClient() {
       <div className="rounded-xl border border-amber-500/30 bg-amber-50 p-4 dark:bg-amber-500/10">
         <Text>
           <Strong>Research, not tax advice.</Strong> Figures use 2026 law (including the July 2025 tax act) and an assumed $300K household
-          income. Confirm every move with a CPA or EA before acting. Visible only to Tim.
+          income. Confirm every move with a CPA or EA before acting. Visible only to Tim and the family account.
         </Text>
       </div>
 

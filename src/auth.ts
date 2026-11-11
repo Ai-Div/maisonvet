@@ -5,6 +5,7 @@ import Google from "next-auth/providers/google";
 const ALLOWED_EMAILS = process.env.ALLOWED_EMAILS?.split(",").map((e) => e.trim()).filter(Boolean) ?? [
   "hello@maisonvet.com",
   "tim@div.digital",
+  "timhobert@gmail.com",
   "ai@div.digital",
   "zephobert@gmail.com",
   "hobertgrayfamily@gmail.com",
