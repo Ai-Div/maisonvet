@@ -5,11 +5,11 @@ import { Text, TextLink, Strong } from '@/components/text'
 import { Divider } from '@/components/divider'
 import { Badge } from '@/components/badge'
 import { DescriptionList, DescriptionTerm, DescriptionDetails } from '@/components/description-list'
-import { baseline, keyNumbers2026, strategies, strListings, neededFromTim, thisYearChecklist, updated } from './tax-data'
+import { baseline, keyNumbers2026, strategies, strListings, neededFromTim, thisYearChecklist, updated, headline } from './tax-data'
 
 const tierColor = {
   'Do now': 'green',
-  'Bigger move': 'blue',
+  'Next year': 'blue',
   Situational: 'amber',
   Avoid: 'red',
 } as const
@@ -29,7 +29,7 @@ export default function TaxStrategyClient() {
 
       <div className="rounded-xl border border-amber-500/30 bg-amber-50 p-4 dark:bg-amber-500/10">
         <Text>
-          <Strong>Research, not tax advice.</Strong> Figures use 2026 law (including the July 2025 tax act) and a placeholder
+          <Strong>Research, not tax advice.</Strong> Figures use 2026 law (including the July 2025 tax act) and an assumed $300K household
           income. Confirm every move with a CPA or EA before acting. Visible only to Tim.
         </Text>
       </div>
@@ -45,10 +45,7 @@ export default function TaxStrategyClient() {
             </a>
           ))}
         </div>
-        <Text className="text-sm">
-          Stacking the “Do now” items saves roughly <Strong>$34,000–39,000 a year</Strong> on the baseline below. Adding a cash
-          balance plan takes it to about <Strong>$86,000–91,000</Strong>. A short-term rental adds roughly $53,000 in its first year.
-        </Text>
+        <Text className="text-sm">{headline}</Text>
       </section>
 
       <section className="space-y-4">

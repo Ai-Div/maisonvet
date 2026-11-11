@@ -1,6 +1,8 @@
-// Tax strategy research for Tim / Div Digital. Researched 2026-11-11.
-// Illustrative planning math only — not tax advice. Every figure assumes the
-// baseline household below; replace with real numbers before acting.
+// Tax strategy research for Tim / Div Digital. Researched 2026-11-11, re-based to a
+// $300K household on 2026-11-11. Illustrative planning math only — not tax advice.
+// Every savings figure is a full before/after recalculation of the baseline below
+// (federal income tax, self-employment/payroll tax, California tax and CA entity fees),
+// not a marginal-rate shortcut. Recompute rather than hand-editing totals.
 
 export interface Assumption {
   label: string;
@@ -10,7 +12,7 @@ export interface Assumption {
 export interface Strategy {
   id: string;
   name: string;
-  tier: 'Do now' | 'Bigger move' | 'Situational' | 'Avoid';
+  tier: 'Do now' | 'Next year' | 'Situational' | 'Avoid';
   annualSavings: string;
   effort: string;
   deadline: string;
@@ -29,115 +31,67 @@ export interface Listing {
 
 export const updated = 'November 11, 2026';
 
+export const headline =
+  'On the $300K baseline, the household owes about $82,500 in 2026 taxes. The “Do now” package (401(k)s, the boys on payroll, home office, HSA) cuts that by about $22,100 a year. Adding an S-corp election in 2027 raises the total to about $30,100–33,900 a year, bringing the bill to roughly $49,000–52,000.';
+
 export const baseline: Assumption[] = [
-  { label: 'Div Digital net profit (before owner pay)', value: '$500,000 (placeholder — send the real 2025 figure)' },
-  { label: 'Entity', value: 'S-corp paying Tim a $160,000 salary (assumed; if Div is an LLC/sole prop, see the S-corp row)' },
-  { label: 'Spouse', value: 'Self-employed stylist, ~$60,000 net (assumed)' },
-  { label: 'Filing', value: 'Married filing jointly, 2 kids (8 and 6), renting in Orange County' },
-  { label: 'Tim’s age', value: '45 assumed for retirement-plan limits' },
-  { label: 'Staff', value: '3 employees at ~$70,000 each (assumed)' },
-  { label: 'Marginal rate used', value: '32% federal + 9.3% California = 41.3% on each extra deductible dollar (35% + 9.3% = 44.3% above ~$512K taxable)' },
+  { label: 'Household income', value: '$300,000: Div Digital LLC net profit $270,000 + Rachael’s salon $30,000 (of which ~$6,000 is reported tips)' },
+  { label: 'Entity', value: 'Div Digital LLC taxed as a sole proprietorship (Schedule C); staff assumed to be contractors' },
+  { label: 'Filing', value: 'Married filing jointly, Zep (8) and Mac (6), renting in Orange County; standard deduction' },
+  { label: '2026 tax on the baseline', value: '≈ $82,500: federal income tax $28,100 (after the $4,400 child tax credit and full 20% QBI deduction) + self-employment tax $34,600 + California income tax $16,600 + California LLC tax and fee $3,300' },
+  { label: 'Marginal rate on Div profit', value: 'Roughly 30%: 22% federal (cut to ~17.6% by the QBI deduction) + 9.3% California + ~3.5% Medicare self-employment tax' },
 ];
 
 export const keyNumbers2026: Assumption[] = [
-  { label: 'Federal brackets (MFJ, taxable income)', value: '24% from $211,400 · 32% from $403,550 · 35% from $512,450 · 37% from $768,700' },
-  { label: 'Standard deduction (MFJ)', value: '$32,200' },
-  { label: 'SALT cap', value: '$40,400, cut by 30% of MAGI over $505,000, down to a $10,000 floor at ~$606,000' },
-  { label: 'QBI (Sec. 199A) phase-in (MFJ)', value: '$403,500–$553,500. “Consulting” is a specified service; web/software builds generally are not' },
-  { label: 'Social Security wage base', value: '$184,500' },
-  { label: '401(k)', value: '$24,500 employee deferral; $72,000 total with employer money (+$8,000 catch-up at 50+)' },
-  { label: 'HSA (family)', value: '$8,750' },
-  { label: 'California', value: '9.3% bracket covers roughly $141K–$721K (MFJ); no QBI deduction, no bonus depreciation' },
+  { label: 'Federal brackets (MFJ, taxable income)', value: '12% from $24,800 · 22% from $100,800 · 24% from $211,400 · 32% from $403,550' },
+  { label: 'Standard deduction (MFJ)', value: 'Federal $32,200 · California $11,800' },
+  { label: 'QBI deduction (Sec. 199A)', value: 'Full 20% below $403,500 taxable income (MFJ) — you are well below it, so the “consulting” limits do not bite' },
+  { label: 'Child tax credit', value: '$2,200 per child' },
+  { label: 'Social Security wage base', value: '$184,500 (12.4% stops above this; 2.9% Medicare does not)' },
+  { label: 'Tips deduction (new, 2025–2028)', value: 'Up to $25,000 of reported tips for qualifying occupations, incl. hair stylists; phases out above $300,000 MAGI. Federal only — California does not conform' },
+  { label: 'Retirement', value: '401(k) $24,500 deferral, $72,000 total with employer money · HSA family $8,750 (California taxes HSAs)' },
   { label: '30-year mortgage', value: '7.18% (Freddie Mac, Nov 5, 2026); investor/DSCR loans ~6.9–8%' },
 ];
 
 export const strategies: Strategy[] = [
   {
-    id: 'retirement',
-    name: '401(k) with profit sharing through Div',
+    id: 'solo-401k',
+    name: 'Solo 401(k) for Tim (and Rachael)',
     tier: 'Do now',
-    annualSavings: '≈ $26,600',
-    effort: 'Low — a payroll provider (Gusto, Guideline, etc.) sets it up',
-    deadline: 'Salary deferrals must run through 2026 payroll by Dec 31; profit-sharing can be funded until the 2026 return is filed',
+    annualSavings: '≈ $10,800 at $40K · up to ≈ $19,400 at the $72K max · +$2,700 for Rachael at $10K',
+    effort: 'Low — open at Fidelity, Schwab or Vanguard (no fee) and fund from the business',
+    deadline: 'Open the plan by Dec 31 to make 2026 employee deferrals; employer contributions can be made until the 2026 return is filed',
     summary:
-      'With three employees a solo 401(k) is out, but a small-business 401(k) with a safe-harbor match still lets Tim put away up to $72,000 a year. It is the cleanest, lowest-risk deduction available.',
+      'The single best move at your income. As a sole proprietor Tim can contribute both as “employee” (up to $24,500) and as “employer” (up to 20% of net self-employment earnings), up to $72,000. Rachael can open her own for the salon.',
     math: [
-      'Tim defers $24,500 from salary.',
-      'Div adds 25% of his $160,000 salary as profit sharing: $40,000.',
-      '$64,500 deducted × 41.3% = about $26,600 less tax this year.',
-      'Cost: a 3% safe-harbor contribution for staff (3 × $70,000 × 3% = $6,300), which is also deductible and helps retention.',
+      'Tim contributes $24,500 + $15,500 = $40,000: total tax falls from $82,520 to $71,760, a $10,760 saving (federal income tax –$7,040, California –$3,720).',
+      'Maxing at $72,000 saves $19,370. Every dollar is still yours, invested.',
+      'Rachael puts $10,000 of salon profit into her own solo 401(k): another $2,690.',
     ],
     watchOuts: [
-      'This defers tax rather than erasing it: withdrawals in retirement are taxed. Roth options trade today’s deduction for tax-free growth.',
-      'Profit sharing in an S-corp is a percentage of W-2 salary, so a very low salary shrinks it.',
+      'A solo 401(k) is only allowed if Div has no eligible W-2 employees. If the staff are employees, use a small-business 401(k) that covers them instead.',
+      'It defers tax rather than erasing it. A Roth deferral skips today’s deduction in exchange for tax-free withdrawals; at a 22% bracket that is worth weighing.',
+      'Retirement contributions don’t reduce self-employment tax.',
     ],
-    sources: [
-      { label: 'IRS 2026 plan limits (DLA Piper summary)', url: 'https://www.dlapiper.com/insights/publications/2025/11/irs-announces-2026-retirement-and-benefit-plan-limits-ssa-announces-cola-adjustment' },
-    ],
-  },
-  {
-    id: 'cash-balance',
-    name: 'Cash balance (defined benefit) plan on top of the 401(k)',
-    tier: 'Bigger move',
-    annualSavings: '≈ $52,000 net (after staff and admin costs)',
-    effort: 'Medium — needs a pension administrator and actuary; a multi-year commitment',
-    deadline: 'Can be adopted for 2026 up to the tax-filing deadline (with extensions)',
-    summary:
-      'The single biggest legal deduction for a high-earning owner with a small team. Contribution capacity rises with age: roughly $120K at 40, an estimated $150–170K at 45 and ~$200K+ at 50, on top of the 401(k).',
-    math: [
-      'Contribute $150,000 (age-45 estimate) × 41.3% = about $62,000 less tax.',
-      'Staff must get meaningful benefits, typically 5–8% of pay: 3 × $70,000 × 6% = $12,600 (≈ $7,400 after its own deduction).',
-      'Administration: roughly $2,000 setup plus $1,300+/yr at Cetera’s published pricing; budget $3,000–5,000/yr all-in for actuarial work.',
-      'Net: about $52,000 a year in reduced tax, while building Tim’s own retirement balance.',
-    ],
-    watchOuts: [
-      'Only worth it if profit is reliably high for 3–5+ years; contributions are an annual obligation (they can be adjusted, not skipped at will).',
-      'Contribution estimates by age are provider illustrations; an actuary sets the real number.',
-    ],
-    sources: [
-      { label: 'Cash balance limits by age (Carry)', url: 'https://carry.com/learn/cash-balance-plan-contribution-limits' },
-      { label: 'Cetera cash balance fee flyer', url: 'https://cetera.com/sites/default/files/2025-03/CRPS-Cash-Balance-Plan-Flyer.pdf' },
-    ],
-  },
-  {
-    id: 'ptet',
-    name: 'California PTET (pass-through entity elective tax)',
-    tier: 'Situational',
-    annualSavings: '≈ $0–2,000 at $500K income; ≈ $14,600 at ~$650K',
-    effort: 'Low — the CPA elects it on Div’s return',
-    deadline: 'June 15 prepayment each year (FTB 3893). Under SB 132 a missed payment now reduces the credit by 12.5% of the shortfall instead of voiding the election',
-    summary:
-      'Div pays California tax at the entity level, where it is fully deductible federally, instead of Tim paying it personally where the SALT cap limits the deduction. Extended through 2030.',
-    math: [
-      'At ~$500K household income, California tax is about $38,600, already inside the $40,400 SALT cap, so PTET adds little.',
-      'At ~$650K, the SALT cap has fallen to its $10,000 floor. PTET on $450,000 of Div income = $41,850 paid by Div, deducted at 35% ≈ $14,600 federal saving.',
-    ],
-    watchOuts: [
-      'Only S-corps and partnerships can elect; a single-member LLC taxed as a sole prop cannot.',
-      'The $40,400 SALT cap reverts to $10,000 after 2029 unless Congress acts, which makes PTET more valuable later.',
-    ],
-    sources: [
-      { label: 'SB 132 extends PTET to 2030 (BDO)', url: 'https://www.bdo.com/insights/tax/california-enacts-single-sales-factor-for-financial-institutions-and-extends-elective-ptet' },
-      { label: 'FTB tax news on PTET payments', url: 'https://www.ftb.ca.gov/about-ftb/newsroom/tax-news/2025/12.html' },
-    ],
+    sources: [{ label: 'IRS 2026 plan limits (DLA Piper summary)', url: 'https://www.dlapiper.com/insights/publications/2025/11/irs-announces-2026-retirement-and-benefit-plan-limits-ssa-announces-cola-adjustment' }],
   },
   {
     id: 'kids',
-    name: 'Put Zep and Mac on payroll for real work',
+    name: 'Put Zep and Mac on Div’s payroll',
     tier: 'Do now',
-    annualSavings: '≈ $4,200 via Div (S-corp) · ≈ $8,900 via the spouse’s sole proprietorship',
-    effort: 'Low–medium — timesheets, real tasks, market-rate pay, W-2s',
-    deadline: 'Wages must be for work done and paid in 2026 to count for 2026',
+    annualSavings: '≈ $4,800 a year (more if it funds Roth IRAs for them)',
+    effort: 'Low–medium — real tasks, timesheets, market-rate pay, a W-2 for each',
+    deadline: 'Wages must be for 2026 work and paid in 2026',
     summary:
-      'Wages paid to your children are deductible to the business and, up to the standard deduction ($16,100 in 2026), tax-free to them. Their earnings can then fund a Roth IRA for each child (up to $7,500 or their earnings).',
+      'While Div is an LLC taxed as a sole proprietorship, wages to your children under 18 are exempt from Social Security and Medicare. Div deducts the pay; each boy owes $0 tax on earnings below the $16,100 standard deduction. Their earnings can fund a Roth IRA (up to $7,500 or what they earned).',
     math: [
-      '$8,000 each ($16,000) for documented work such as modeling for Div’s marketing and simple content tasks.',
-      'Through Div (an S-corp): $16,000 × 41.3% = $6,600 saved, minus $2,450 of payroll tax = about $4,200.',
-      'Through the spouse’s sole proprietorship: wages to children under 18 are exempt from FICA, and the deduction also cuts her 15.3% self-employment tax, for about $8,900.',
+      'Pay each boy $8,000 ($16,000 total) for documented work, such as appearing in Div’s marketing photos/videos, simple content tasks, or office help.',
+      'Household tax falls from $82,520 to $77,710: $4,810 saved. The boys owe $0 federal and $0 California.',
+      'If Div later becomes an S-corp, their wages owe payroll tax and the saving drops to about $2,500. Paying them through Rachael’s salon (a sole proprietorship) keeps it payroll-tax-free.',
     ],
     watchOuts: [
-      'At ages 6 and 8 the IRS will look hard at “reasonable pay for real work.” Keep pay modest, tasks age-appropriate and every hour logged. The Tax Court has denied wages paid to young children when the work was not real.',
-      'The FICA exemption applies only to a sole proprietorship or a partnership owned solely by the parents, not an S-corp.',
+      'At 6 and 8 the IRS will look hard at “reasonable pay for real work.” Keep pay modest, the work real and age-appropriate, and log every hour. The Tax Court has denied deductions for young children’s wages when the work wasn’t genuine.',
+      'Pay has to actually go to them (for example, into an account in their name or a Roth IRA), not back to the household budget.',
     ],
     sources: [
       { label: 'Hiring your children (Kitces)', url: 'https://kitces.com/blog/tax-rules-hiring-children-family-business-flsa-tax-savings-standard-deduction-roth-contribution/' },
@@ -145,91 +99,130 @@ export const strategies: Strategy[] = [
     ],
   },
   {
-    id: 'accountable-plan',
-    name: 'Accountable plan: home office, phone and mileage (renters qualify)',
+    id: 'home-office',
+    name: 'Home office deduction (yes, renters qualify)',
     tier: 'Do now',
-    annualSavings: '≈ $3,500',
-    effort: 'Low — a one-page written plan plus monthly expense reports',
-    deadline: 'Any time; reimburse 2026 costs before year-end',
+    annualSavings: '≈ $2,300',
+    effort: 'Low — Form 8829 with the tax return; measure the room',
+    deadline: 'Claimed on the 2026 return',
     summary:
-      'You do not need to own your home. Div can reimburse Tim tax-free for the business share of rent and utilities on a space used regularly and exclusively for work, plus phone and mileage.',
+      'You do not need to own your home. The business share of rent and utilities on a space used regularly and exclusively for Div is deductible, plus the business share of your phone.',
     math: [
-      'Example: $6,000/month rent, office is 10% of the home = $7,200 a year, plus ~$1,200 utilities and phone = $8,400.',
-      '$8,400 deducted by Div and tax-free to Tim × 41.3% ≈ $3,500.',
+      'Example: $5,500/month rent and the office is 10% of the home: $6,600 a year, plus ~$600 utilities and ~$600 phone = $7,800.',
+      'Household tax falls from $82,520 to $80,180: $2,340 saved. That includes a little self-employment tax, because it lowers Div’s profit.',
     ],
-    watchOuts: ['The space must be exclusive business use. A guest room that doubles as an office does not qualify.'],
+    watchOuts: ['The space must be used only for business. A guest room that doubles as an office does not qualify.'],
     sources: [{ label: 'IRS Publication 587 (home office)', url: 'https://www.irs.gov/publications/p587' }],
   },
   {
-    id: 'str',
-    name: 'Real estate without owning your home: a short-term rental + cost segregation',
-    tier: 'Bigger move',
-    annualSavings: '≈ $53,000 in year one (mostly federal); smaller after',
-    effort: 'High — buy a property, self-manage it 100+ hours a year, keep an hours log',
-    deadline: 'Must be bought and placed in service (listed for rent) in the tax year; realistic for 2027',
+    id: 'hsa',
+    name: 'HSA with a high-deductible health plan',
+    tier: 'Do now',
+    annualSavings: '≈ $1,500 a year (federal only)',
+    effort: 'Low — pick an HSA-eligible plan at open enrollment',
+    deadline: 'Open enrollment for 2027; contributions for 2026 allowed until April 15, 2027 if already HSA-eligible',
     summary:
-      'Rental losses are normally “passive” and cannot offset business income. A short-term rental with an average guest stay of 7 days or less is not treated as a rental activity, so if you materially participate, its paper losses offset Div income. A cost-segregation study front-loads depreciation, and the 2025 tax law restored 100% bonus depreciation permanently for property acquired after Jan 19, 2025.',
+      'Contributions are deductible, growth is tax-free, and withdrawals for medical costs are tax-free. It is a strong long-term account if the family is healthy enough for a high-deductible plan.',
+    math: ['$8,750 family contribution: household tax falls by $1,540. California taxes HSAs, so the saving is federal only.'],
+    watchOuts: ['Only worth it if a high-deductible plan suits the family’s health costs.'],
+    sources: [{ label: '2026 HSA limits (PSCA)', url: 'https://www.psca.org/news/psca-news/2025/11/irs-announces-2026-401k-contribution-limits/' }],
+  },
+  {
+    id: 'tips',
+    name: 'Claim the new tips deduction for Rachael’s salon',
+    tier: 'Do now',
+    annualSavings: '≈ $1,050 on $6,000 of tips (scales with her tips)',
+    effort: 'Low — keep tips documented (card-processor reports, 1099-K, a tip log)',
+    deadline: 'Claimed on the 2026 return; the deduction runs 2025–2028',
+    summary:
+      'The 2025 tax law lets workers in tipped occupations, including self-employed hair stylists, deduct up to $25,000 of reported tips. It phases out above $300,000 of joint income, and your baseline sits just under that line. The 401(k)s above help keep you below it.',
     math: [
-      'Example: 6888 Sunnyhill Rd, Joshua Tree — permitted STR listed at $569,000 (April 2026).',
-      'Cash in: 25% down $142,250 + ~$15,000 closing + ~$6,000 cost-seg study = $163,250.',
-      'Building value (80% of price) $455,200; cost seg reclassifies ~30% = $136,560 as 5/7/15-year property, deducted in year one with bonus depreciation.',
-      'Operations (assumed): $55,000 gross bookings, $25,000 cleaning/fees/utilities, $6,260 property tax, $3,000 insurance, $32,000 interest (7.5% on $426,750). Cash result: about –$11,300 a year before principal.',
-      'Year-one federal tax loss ≈ $159,600 → ≈ $51,000–55,900 federal savings at 32–35%. California allows no bonus depreciation, so its loss is ~$25,500 → ≈ $2,400.',
+      '$6,000 of reported tips: federal tax falls by $1,056. Already included in the baseline, so make sure your preparer claims it.',
+      'Also check 2025: it applies for that year too.',
     ],
     watchOuts: [
-      'Material participation is the whole game: 100+ hours AND more than anyone else (cleaners and co-hosts count), or 500+ hours. A full-time property manager breaks it. Rachael could be the participant; spouses’ hours combine.',
-      'It defers tax: bonus depreciation is recaptured at ordinary rates when you sell.',
-      'Permits: Joshua Tree (unincorporated San Bernardino County) permits must be confirmed with the county before buying. Palm Springs caps permits per neighborhood; Riverside County is tightening rules.',
-      'At 7%+ rates the property likely loses cash every month. Buy it because you would want it anyway, not only for the deduction.',
+      'Federal only; California does not conform. Payroll and self-employment taxes still apply to tips.',
+      'Tips must be documented; cash tips need a contemporaneous log.',
     ],
     sources: [
-      { label: 'STR loophole + cost seg guide', url: 'https://www.taxstra.com/real-estate-investors/short-term-rental-loophole' },
-      { label: 'Cost segregation study pricing (Dimov Tax)', url: 'https://dimovtax.com/cost-segregation-study-cost/' },
-      { label: 'Freddie Mac rate, Nov 5, 2026 (WCAX/AP)', url: 'https://www.wcax.com/2026/11/05/average-us-30-year-mortgage-rate-falls-718-this-week-its-third-straight-decline/' },
+      { label: 'Tips deduction for California service workers', url: 'https://www.countrytaxcalc.com/tax-guides/usa/no-tax-on-tips-california-2026/' },
+      { label: 'Phase-out details', url: 'https://www.countrytaxcalc.com/tax-guides/usa/no-tax-on-tips-phase-out-2026/' },
     ],
   },
   {
     id: 'scorp',
-    name: 'S-corp election (only if Div is not already one)',
-    tier: 'Situational',
-    annualSavings: '≈ $2,800 direct at $500K profit — but it unlocks PTET',
-    effort: 'Low — Form 2553 plus running payroll',
-    deadline: 'Form 2553 by March 15, 2027 for the 2027 tax year',
+    name: 'Elect S-corp status for Div Digital LLC',
+    tier: 'Next year',
+    annualSavings: '≈ $8,700 a year on its own',
+    effort: 'Medium — Form 2553, payroll for Tim, a separate 1120-S return',
+    deadline: 'File Form 2553 by March 15, 2027 to start with the 2027 tax year',
     summary:
-      'Paying Tim a reasonable salary and taking the rest as distributions avoids self-employment tax on the distributions. Above the $184,500 Social Security wage base the saving is mostly the 2.9% Medicare portion, so at Div’s profit level the direct win is small. The bigger reason is that only S-corps and partnerships can use California PTET.',
+      'Div keeps its LLC; it just elects to be taxed as an S-corp. Tim takes a reasonable salary (taxed for payroll) and the rest of the profit as distributions, which skip self-employment tax. At $270,000 of profit this is now clearly worth it.',
     math: [
-      'Sole prop: self-employment tax on $500,000 ≈ $36,300.',
-      'S-corp: payroll tax on a $160,000 salary = $24,500.',
-      'Gross difference $11,800, minus a smaller deduction for half of SE tax (~$2,400), California’s 1.5% S-corp tax on $340,000 ($5,100) and payroll costs (~$1,500) = about $2,800.',
+      'Salary $110,000, the rest as distributions. Payroll and self-employment tax fall from $34,590 to $21,350.',
+      'Offsets: a smaller QBI deduction (wages don’t count as QBI), California’s 1.5% S-corp tax replacing the LLC fee, 1.3% California SDI on the salary, and ~$2,700 for payroll and the extra return.',
+      'Net: household tax falls from $82,520 to $73,810, a saving of $8,710 a year.',
+      'Combined with the “Do now” package: about $30,100 a year saved, or $33,900 if the boys are paid through the salon instead of Div.',
     ],
-    watchOuts: ['Salary must be “reasonable” for the role; too low invites an audit and also shrinks 401(k) profit sharing.'],
+    watchOuts: [
+      'The salary must be reasonable for the work. Too low invites an audit, and it also caps 401(k) employer contributions (25% of salary).',
+      'An S-corp ends the payroll-tax exemption for the boys’ wages from Div.',
+    ],
     sources: [{ label: 'SSA 2026 wage base (APA)', url: 'https://blogs.payroll.org/pay-news-now/social-security-wage-base-increases-to-184500-for-2026' }],
   },
   {
-    id: 'rnd',
-    name: 'R&D: expensing and credit for Div’s software and AI work',
+    id: 'str',
+    name: 'Real estate without owning your home: a short-term rental + cost segregation',
     tier: 'Situational',
-    annualSavings: '≈ $10,000 per $150K of qualifying wages (credit), plus faster deductions',
-    effort: 'Medium — a specialist study documenting experiments and time',
-    deadline: 'Claimed on the return; ask the CPA about amending 2022–2024 under the new small-business election',
+    annualSavings: '≈ $18,500 in year one — but ~$102,500 cash in and likely negative cash flow',
+    effort: 'High — buy, furnish and self-manage a rental 100+ hours a year, keep an hours log',
+    deadline: 'Only counts in the year the property is bought and listed for rent',
     summary:
-      'The 2025 law restored immediate expensing of domestic research costs (new Sec. 174A). Separately, the Sec. 41 credit can apply to genuinely experimental development, such as Div building its own AI tools or LOCL, if Div owns that work. Client-funded builds usually do not qualify.',
-    math: ['Rule of thumb: the federal credit runs ~6–7% of qualifying research spending, so $150,000 of qualifying developer time ≈ $9,750. California has its own credit.'],
-    watchOuts: ['The IRS scrutinizes software R&D claims closely; use a reputable firm and contemporaneous documentation.'],
-    sources: [{ label: 'Sec. 174A procedural guidance (Crowe)', url: 'https://www.crowe.com/insights/tax-news-highlights/obbba-procedural-guidance-for-research-expenses' }],
+      'Normally rental losses can’t offset business income. A short-term rental with average stays of 7 days or less escapes that rule if you materially participate, and a cost-segregation study plus 100% bonus depreciation (restored permanently in 2025) creates a large first-year paper loss. At your income it works, but it is a weaker tax play than the 401(k): buy it only if you want the property anyway.',
+    math: [
+      'Example: 66355 Coyote Valley Rd, Joshua Tree, a home on 2.27 acres listed at $350,000 that already runs as a short-term rental.',
+      'Cash in: 25% down $87,500 + ~$10,000 closing + ~$5,000 cost-seg study = $102,500.',
+      'Building value $280,000; cost segregation moves ~30% ($84,000) into first-year bonus depreciation. With assumed $40,000 bookings, the property runs about –$4,000 a year in cash at 7.5% interest.',
+      'Year-one loss ≈ $97,000 federal (≈ $15,000 for California, which allows no bonus depreciation). Household tax falls from $82,520 to $64,050: $18,470.',
+    ],
+    watchOuts: [
+      'Material participation is the whole game: 100+ hours and more than anyone else (cleaners count), or 500+ hours. Rachael’s hours count too.',
+      'Bonus depreciation is recaptured when you sell, so this mostly defers tax.',
+      'San Bernardino County permits for Joshua Tree must be confirmed before buying; Palm Springs caps permits by neighborhood.',
+    ],
+    sources: [
+      { label: '66355 Coyote Valley Rd listing', url: 'https://www.landsearch.com/properties/66355-coyote-valley-rd-joshua-tree-ca-92252/5458650' },
+      { label: 'STR loophole + cost seg guide', url: 'https://www.taxstra.com/real-estate-investors/short-term-rental-loophole' },
+      { label: 'Freddie Mac rate, Nov 5, 2026 (WCAX/AP)', url: 'https://www.wcax.com/2026/11/05/average-us-30-year-mortgage-rate-falls-718-this-week-its-third-straight-decline/' },
+    ],
   },
   {
     id: 'charity',
-    name: 'Charitable giving through a donor-advised fund',
+    name: 'New charitable deduction for non-itemizers',
     tier: 'Situational',
-    annualSavings: 'Depends on giving; best when “bunched” into one year',
+    annualSavings: '≈ $350 on $2,000 of cash gifts',
     effort: 'Low',
-    deadline: 'Fund by Dec 31',
-    summary:
-      'From 2026, itemizers only deduct gifts above 0.5% of AGI (about $2,500 at $500K). Putting two or three years of giving into a donor-advised fund in one year clears that floor once; gifting appreciated stock avoids capital-gains tax as well.',
-    math: ['Example: $30,000 bunched into a DAF in 2026 at 41.3% ≈ $11,400 saved (if itemizing), versus a fraction of that spread over three years.'],
-    watchOuts: ['Only pays if you itemize; PTET moves state tax off your personal return, which makes itemizing harder.'],
+    deadline: 'Cash gifts to charities (not donor-advised funds) by Dec 31',
+    summary: 'Starting in 2026, couples who take the standard deduction can still deduct up to $2,000 of cash gifts to charity.',
+    math: ['$2,000 given: household tax falls by $352.'],
+    watchOuts: ['Gifts to donor-advised funds don’t count for this deduction.'],
     sources: [{ label: '2026 charitable rule changes (CAPTRUST)', url: 'https://www.captrust.com/resources/obbba-charitable-rules-update-for-2026/' }],
+  },
+  {
+    id: 'later',
+    name: 'Worth revisiting as income grows',
+    tier: 'Situational',
+    annualSavings: '—',
+    effort: '—',
+    deadline: '—',
+    summary: 'Not useful at $300,000, but these become valuable as Div grows.',
+    math: [],
+    watchOuts: [
+      'Cash balance pension plan: allows six-figure deductible contributions, worth it once profit is reliably above ~$400K.',
+      'California PTET: only helps when your state tax exceeds the SALT cap, which doesn’t happen while you take the standard deduction.',
+      'R&D credit: possible if Div develops its own software or AI products (client-funded work usually doesn’t qualify).',
+    ],
+    sources: [{ label: 'SB 132 extends PTET to 2030 (BDO)', url: 'https://www.bdo.com/insights/tax/california-enacts-single-sales-factor-for-financial-institutions-and-extends-elective-ptet' }],
   },
   {
     id: 'avoid',
@@ -241,33 +234,32 @@ export const strategies: Strategy[] = [
     summary: 'Promoted shelters cost far more than they save when the IRS disallows them.',
     math: [],
     watchOuts: [
-      'Syndicated conservation easements: an IRS listed transaction; deductions are now capped at 2.5× the investment.',
-      'Micro-captive insurance pitches: also on the IRS listed/scrutiny lists.',
-      'The “Augusta rule” (renting your home to your business 14 days a year): leases normally bar subletting, so renters generally cannot use it.',
-      'Passive real estate funds, syndications and REITs: good investments maybe, but their losses do not offset Div’s income.',
-      'Oil and gas drilling deals: the deductions are real, but so are dry holes and promoter risk. Only with money you can lose.',
+      'Syndicated conservation easements and micro-captive insurance: IRS listed transactions.',
+      'The “Augusta rule” (renting your home to your business): leases normally bar subletting, so renters generally can’t use it.',
+      'Passive real estate funds, syndications and REITs: their losses don’t offset Div’s income.',
+      'Buying things just for the write-off (e.g. a heavy SUV): a deduction worth ~30 cents on the dollar is still a 70-cent cost.',
     ],
     sources: [{ label: 'IRS Notice 2017-10 (conservation easements)', url: 'https://www.irs.gov/irb/2017-04_IRB' }],
   },
 ];
 
 export const strListings: Listing[] = [
+  { address: '66355 Coyote Valley Rd, Joshua Tree', price: '$350,000', details: 'Home on 2.27 acres, currently operating as a short-term rental', url: 'https://www.landsearch.com/properties/66355-coyote-valley-rd-joshua-tree-ca-92252/5458650' },
   { address: '6888 Sunnyhill Rd, Joshua Tree', price: '$569,000', details: '4 bd / 3 ba dome home + ADU on 1.25 ac; furnished, permitted STR (listed Apr 2026)', url: 'https://www.weichert.com/134803360/' },
   { address: '61786 Desert Air Rd, Joshua Tree', price: '$625,000', details: 'Duplex with STR permit on the property (listed Feb 2026)', url: 'https://www.houzeo.com/homes/61786-desert-air-rd-joshua-tree-ca-92252/hzid_6fed3f87' },
-  { address: '60291 La Mirada Trl, Joshua Tree', price: '$739,500', details: '3 bd / 3 ba, furnished and booked as an STR', url: 'https://jamesoutland.net/ca/joshua-tree/60291-la-mirada-trl' },
 ];
 
 export const neededFromTim: string[] = [
-  'Div’s entity type and 2025 net profit (or the 2025 return).',
-  'Tim’s current salary, age, and the three staff salaries.',
-  'Rachael’s business structure and net income.',
+  'Is Div’s staff on W-2 payroll or paid as contractors? (Decides solo 401(k) vs. a plan covering staff.)',
+  'Rachael’s actual salon profit and reported tips for 2025 and 2026.',
+  'Div’s gross receipts (sets the California LLC fee) and whether Div is single-member or owned with Rachael.',
   'Your CPA’s name: everything here should be confirmed by a CPA or EA before acting.',
 ];
 
 export const thisYearChecklist: string[] = [
-  'Before Dec 31: start 401(k) salary deferrals in Div payroll and fund a donor-advised fund if giving.',
-  'Before Dec 31: if hiring the boys, start timesheets now and pay 2026 wages for 2026 work.',
-  'Before Dec 31: set up the accountable plan and reimburse 2026 home-office, phone and mileage costs.',
-  'Before filing 2026: decide on a cash balance plan (can be adopted up to the extended filing deadline).',
-  '2027: consider an STR purchase only after confirming the permit and who will provide the hours.',
+  'By Dec 31: open solo 401(k)s for Tim and Rachael and make 2026 employee deferrals.',
+  'By Dec 31: if hiring the boys, start timesheets now and pay 2026 wages for 2026 work.',
+  'By Dec 31: give any planned charity in cash (up to $2,000 deductible without itemizing).',
+  'With the 2026 return: claim the home office and Rachael’s tips deduction, and finish 401(k) employer contributions.',
+  'By March 15, 2027: file Form 2553 if electing S-corp for 2027.',
 ];
